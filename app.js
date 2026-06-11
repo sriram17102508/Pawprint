@@ -183,12 +183,9 @@ const products = [
 ];
 
 const milestones = [
-  { year:"2020", title:"Founded",         desc:"Started in a Bangalore apartment after struggling to find reliable vet care for three rescue dogs. Dr. Kiran and Sneha quit their jobs on the same day." },
-  { year:"2021", title:"First 500 Vets",  desc:"Onboarded 500 certified vet partners across 10 cities. Facilitated the first 1,000 pet adoptions on the platform." },
-  { year:"2022", title:"Series A — ₹42Cr",desc:"Secured ₹42 crore Series A funding. Launched grooming, training, and boarding verticals in the same quarter." },
-  { year:"2023", title:"AI Health Launch",desc:"Released the AI symptom checker and smart health assistant. Crossed 25,000 active pets on the platform." },
-  { year:"2024", title:"85 Cities",       desc:"Completed pan-India expansion. Named Startup of the Year by Economic Times. 1,200+ vet partners onboarded." },
-  { year:"2026", title:"Today",           desc:"45,000 happy pets. Building the future of intelligent, compassionate pet care across South Asia." },
+  { year:"2025", title:"Born from Love (Idea)", desc:"Frustrated by disconnected records and hard-to-reach vet clinics, Dr. Kiran and Sneha sketch a blueprint of Pawprint on a napkin." },
+  { year:"2026", title:"Execution & Launch", desc:"Making the dream a reality. Launched pet onboarding, verified vet directory, and custom shelters. Expanded to 85+ Indian cities." },
+  { year:"2027", title:"Shining Future", desc:"Leading with intelligence. Scaling our AI-driven disease predictors, smart feeding calculators, and predictive vet monitoring." },
 ];
 
 const values = [
@@ -519,10 +516,34 @@ const faqs = [
    ROUTING & CORE NAVIGATION ENGINE
    ================================================================ */
 function nav(pageId) {
-  currentPage = pageId;
+  const pageUrlMap = {
+    'home': 'index.html',
+    'about': 'about.html',
+    'services': 'services.html',
+    'adopt': 'adopt.html',
+    'lost': 'lost.html',
+    'shop': 'shop.html',
+    'dog-breeds': 'dog-breeds.html',
+    'pet-videos': 'pet-videos.html',
+    'dashboard': 'dashboard.html',
+    'login': 'login.html',
+    'signup': 'signup.html',
+    'contact': 'contact.html',
+    'vet': 'vet.html'
+  };
 
-  // Collapse dropdowns & menus
-  closeAllDropdowns();
+  // If the target pageId starts with 'svc-', redirect to services.html with category query param
+  if (pageId.startsWith('svc-')) {
+    window.location.href = `services.html?cat=${pageId}`;
+    return;
+  }
+
+  const targetUrl = pageUrlMap[pageId] || 'index.html';
+  window.location.href = targetUrl;
+}
+
+function initPage(pageId) {
+  currentPage = pageId;
 
   // Toggle header (navbar) and chatbot visibility for login/signup pages
   const isAuthPage = ['login', 'signup'].includes(pageId);
@@ -543,13 +564,14 @@ function nav(pageId) {
     footer.style.display = isAuthPage ? 'none' : 'block';
   }
 
-  // Handle Megamenu or subpages routing mapping
+  // Handle page-section routing active toggles (for backwards compatibility)
   const sections = document.querySelectorAll('.page-section');
   sections.forEach(s => s.classList.remove('active'));
 
   // Target standard pages vs service category pages
   if (pageId.startsWith('svc-')) {
-    document.getElementById('page-svc-cat').classList.add('active');
+    const svcCatPage = document.getElementById('page-svc-cat');
+    if (svcCatPage) svcCatPage.classList.add('active');
     renderServiceCategoryPage(pageId);
   } else {
     const targetSection = document.getElementById('page-' + pageId);
@@ -561,13 +583,12 @@ function nav(pageId) {
   // Update active links state on header
   updateNavHeaderStyles(pageId);
 
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
   // Custom trigger loads depending on active page
   if (pageId === 'home') {
     startStatsCounters();
     renderHomeDynamicLists();
+  } else if (pageId === 'about') {
+    renderAboutTabContent();
   } else if (pageId === 'adopt') {
     showAdoptList();
   } else if (pageId === 'vet') {
@@ -585,6 +606,25 @@ function nav(pageId) {
   } else if (pageId === 'pet-videos') {
     initPetVideosPage();
   }
+
+  // Scroll to top on load
+  window.scrollTo({ top: 0 });
+
+  // Set up Go to Top scroll listener
+  setupGoToTop();
+}
+
+function setupGoToTop() {
+  window.addEventListener('scroll', () => {
+    const gotop = document.getElementById('gotop-btn');
+    if (gotop) {
+      if (window.scrollY > 300) {
+        gotop.classList.add('visible');
+      } else {
+        gotop.classList.remove('visible');
+      }
+    }
+  });
 }
 
 // Update Active CSS states on navigation buttons
@@ -790,7 +830,7 @@ function renderHomeDynamicLists() {
       <div class="card card-lift" onclick="nav('${f.page}')" style="display: grid; grid-template-columns: 1fr 200px; cursor: pointer; height: 165px;">
         <div style="padding: 20px 24px; display: flex; flex-direction: column; justify-content: flex-start;">
           <div>
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
               <span style="font-size: 24px;">${f.icon}</span>
               <h3 class="melody" style="font-size: 22px; font-weight: 700; color: var(--color-ink);">${f.title}</h3>
             </div>
@@ -834,7 +874,7 @@ function renderHomeDynamicLists() {
   // 6. FAQs
   const faqList = document.getElementById('home-faqs-list');
   if (faqList) {
-    faqList.innerHTML = faqs.map((f, i) => `
+    faqList.innerHTML = faqs.slice(0, 5).map((f, i) => `
       <div style="background: var(--color-white); border-radius: 16px; border: 1px solid var(--color-border); overflow: hidden;">
         <button onclick="toggleFaq(${i})" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 26px; background: none; border: none; cursor: pointer; text-align: left;">
           <span style="font-size: 15px; font-weight: 600; color: var(--color-ink); padding-right: 20px; line-height: 1.4;">${f.q}</span>
@@ -866,31 +906,34 @@ function renderHomeTestimonials() {
 
   container.innerHTML = testis.map((t, i) => {
     const active = i === activeTesti;
+    const themes = ['theme-warm', 'theme-blue', 'theme-green', 'theme-pink', 'theme-orange'];
+    const theme = themes[i % themes.length];
     return `
-      <div onclick="setActiveTestimonial(${i})" class="${t.wide ? 'bento-wide' : ''}" style="padding: 36px 32px; border-radius: 24px; cursor: pointer;
-        position: relative; overflow: hidden;
-        background: ${active ? 'var(--color-ink-md)' : 'var(--color-cream)'};
-        border: 1px solid ${active ? 'var(--color-orange)' : 'var(--color-border)'};
-        transform: ${active ? 'translateY(-4px)' : 'translateY(0)'};
-        box-shadow: ${active ? '0 16px 32px rgba(229,93,26,0.08)' : 'none'};
-        transition: all .35s cubic-bezier(.22,1,.36,1);">
-        
-        <!-- Dog themed background watermarks for wide bento cards -->
-        ${t.wide ? `<div style="position: absolute; right: 20px; top: 20px; font-size: 80px; opacity: 0.05; pointer-events: none; transform: rotate(15deg);">${t.dogEmoji}</div>` : ''}
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: ${active ? 'rgba(229,93,26,.2)' : 'var(--color-orange-lt)'}; color: var(--color-orange); padding: 4px 12px; border-radius: 100px; letter-spacing: .02em;">${t.badge}</span>
-          <span style="font-size: 20px;">${t.dogEmoji}</span>
-        </div>
-        
-        <p style="font-size: 15px; line-height: 1.8; color: ${active ? 'rgba(255,255,255,.85)' : 'var(--color-ink-md)'}; margin-bottom: 28px; font-style: italic;">"${t.text}"</p>
-        
-        <div style="display: flex; gap: 14px; align-items: center;">
-          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: #fff;">${t.initials}</div>
-          <div>
-            <div style="font-weight: 700; font-size: 14px; color: ${active ? '#fff' : 'var(--color-ink)'};">${t.name}</div>
-            <div style="font-size: 12px; color: ${active ? 'rgba(255,255,255,.45)' : 'var(--color-ink-sft)'}; margin-top: 2px;">${t.role} · ${t.city}</div>
+      <div onclick="setActiveTestimonial(${i})" class="dog-card ${theme}" style="
+        transform: ${active ? 'translateY(-6px) scale(1.02)' : 'translateY(0)'};
+        box-shadow: ${active ? '0 20px 40px rgba(0,0,0,0.12)' : 'none'};">
+        <div class="ear-left"></div>
+        <div class="ear-right"></div>
+        <div class="pop-dog">${t.dogEmoji || '🐶'}</div>
+        <div class="tail"></div>
+        <div class="dog-card-body">
+          <div class="paw-watermark">🐾</div>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: rgba(229,93,26,.12); color: var(--color-orange); padding: 4px 12px; border-radius: 100px; letter-spacing: .02em;">${t.badge}</span>
           </div>
+          
+          <p style="font-size: 14px; line-height: 1.6; color: var(--color-ink-md); margin-bottom: 16px; font-style: italic; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">"${t.text}"</p>
+          
+          <div style="display: flex; gap: 12px; align-items: center; margin-top: auto;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #fff;">${t.initials}</div>
+            <div>
+              <div style="font-weight: 700; font-size: 13.5px; color: var(--color-ink);">${t.name}</div>
+              <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 1px;">${t.role} · ${t.city}</div>
+            </div>
+          </div>
+          
+          <div class="nose-dot"></div>
         </div>
       </div>
     `;
@@ -977,95 +1020,81 @@ function renderAboutTabContent() {
     `).join('');
   }
 
-  // 2. Timeline
+  // 2. Timeline (2025 - 2027)
   const tmGrid = document.getElementById('about-timeline-grid');
   if (tmGrid) {
     tmGrid.innerHTML = milestones.map((m, i) => `
       <div style="padding-top: 56px; position: relative;">
         <!-- Dot -->
-        <div style="position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 24px; height: 24px; border-radius: 50%;
-          background: ${i===5 ? 'var(--color-orange)' : 'var(--color-ink-md)'};
-          border: 3px solid ${i===5 ? 'var(--color-orange)' : 'rgba(255,255,255,.3)'};
-          box-shadow: ${i===5 ? '0 0 0 6px rgba(229, 93, 26, 0.18)' : 'none'}; z-index: 2;"></div>
+        <div class="timeline-dot-wrap" style="position: absolute; top: 16px; left: 50%; transform: translateX(-50%); z-index: 2;">
+          <div class="${i===2 ? 'timeline-glow-dot' : ''}" style="width: 24px; height: 24px; border-radius: 50%;
+            background: ${i===2 ? 'var(--color-orange)' : 'var(--color-ink-md)'};
+            border: 3px solid ${i===2 ? 'var(--color-orange)' : 'rgba(255,255,255,.3)'};
+            box-shadow: ${i===2 ? '0 0 0 6px rgba(229, 93, 26, 0.18)' : 'none'};"></div>
+        </div>
         <!-- Card -->
-        <div style="background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 20px 18px; border-top: ${i===5 ? '3px solid var(--color-orange)' : '1px solid rgba(255,255,255,.08)'};">
+        <div class="card-lift" style="background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 22px 20px; border-top: ${i===2 ? '3px solid var(--color-orange)' : '1px solid rgba(255,255,255,.08)'}; text-align: center;">
           <div style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 6px;">${m.year}</div>
-          <div class="melody" style="font-size: 17px; color: #fff; margin-bottom: 8px; line-height: 1.1;">${m.title}</div>
+          <div class="melody" style="font-size: 19px; color: #fff; margin-bottom: 8px; line-height: 1.1;">${m.title}</div>
           <p style="font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.7;">${m.desc}</p>
         </div>
       </div>
     `).join('');
   }
 
-  // 3. Founders tabs
-  const tabSelector = document.getElementById('leader-tabs');
-  if (tabSelector) {
-    tabSelector.innerHTML = leadership.map((l, i) => `
-      <button onclick="setActiveLeader(${i})" class="leader-tab-btn ${currentLeader === i ? 'active' : ''}">
-        ${l.name.split(" ")[0]}
-      </button>
-    `).join('');
-  }
-
-  // 4. Founders active card details
-  const leaderBox = document.getElementById('leader-active-container');
-  if (leaderBox) {
-    const l = leadership[currentLeader];
-    leaderBox.innerHTML = `
-      <div style="display: grid; grid-template-columns: 360px 1fr; gap: 60px; align-items: start; animation: fadeIn .35s ease both;">
-        <div>
-          <div style="border-radius: 28px; overflow: hidden; height: 440px; margin-bottom: 20px; position: relative;">
-            <img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${l.name}">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 24px; background: linear-gradient(transparent, rgba(17,17,17,.85));">
-              <p style="font-size: 13px; color: rgba(255,255,255,.85); line-height: 1.7; font-style: italic;">${l.quote}</p>
-            </div>
+  // 3. Founders side-by-side grid
+  const leaderGrid = document.getElementById('leadership-grid');
+  if (leaderGrid) {
+    leaderGrid.innerHTML = leadership.map(l => `
+      <div class="card card-lift founder-card" style="position: relative; overflow: hidden; border-radius: 24px; background: var(--color-white); border: 1px solid var(--color-border-md); display: flex; flex-direction: column; height: 100%;">
+        <div style="height: 330px; overflow: hidden; position: relative;">
+          <img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);" alt="${l.name}">
+          <!-- Quote overlay on hover -->
+          <div class="founder-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(229, 93, 26, 0.96), rgba(29, 95, 196, 0.96)); padding: 28px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; z-index: 5;">
+            <p style="color: #fff; font-size: 14px; font-style: italic; line-height: 1.7; font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">${l.quote}</p>
           </div>
-          <button onclick="window.open('${l.linkedin}', '_blank')" class="linkedin-btn">
-            <span style="font-size: 16px;">in</span> View LinkedIn Profile
-          </button>
         </div>
-        <div>
-          <div class="pill pill-orange" style="margin-bottom: 16px;">${l.role}</div>
-          <h3 class="melody" style="font-size: clamp(40px, 4vw, 60px); color: var(--color-ink); line-height: .95; margin-bottom: 20px;">${l.name}</h3>
-          <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.85; margin-bottom: 36px;">${l.bio}</p>
-          <div style="margin-bottom: 36px;">
-            <div style="font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink-sft); margin-bottom: 14px;">Credentials & Background</div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              ${l.credentials.map(c => `
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                  <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
-                    <span style="font-size: 9px; color: var(--color-orange); font-weight: 700;">✓</span>
-                  </div>
-                  <span style="font-size: 14px; color: var(--color-ink); line-height: 1.55;">${c}</span>
+        <div style="padding: 24px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+          <div style="margin-bottom: 20px;">
+            <div class="pill pill-orange" style="font-size: 10px; padding: 4px 10px; margin-bottom: 12px; width: fit-content; text-transform: uppercase;">${l.role}</div>
+            <h3 class="melody" style="font-size: 26px; color: var(--color-ink); margin-bottom: 8px; line-height: 1.1;">${l.name}</h3>
+            <p style="font-size: 13.5px; color: var(--color-ink-sft); line-height: 1.7; margin-bottom: 0;">${l.bio.split(". ").slice(0, 2).join(". ")}.</p>
+          </div>
+          <div>
+            <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-sand); margin-bottom: 8px;">Key Background</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;">
+              ${l.credentials.slice(0, 2).map(c => `
+                <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: var(--color-ink); line-height: 1.4;">
+                  <span style="color: var(--color-orange); font-weight: 700; flex-shrink: 0; margin-top: 1px;">✓</span>
+                  <span>${c}</span>
                 </div>
               `).join('')}
             </div>
-          </div>
-          <div style="display: flex; gap: 12px;">
-            <button class="btn btn-md btn-primary" onclick="setActiveLeader(${(currentLeader+1)%leadership.length})">Meet ${leadership[(currentLeader+1)%leadership.length].name.split(" ")[0]} →</button>
-            <button class="btn btn-md btn-outline" onclick="nav('contact')">Work with Us</button>
+            <a href="${l.linkedin}" target="_blank" class="btn btn-sm btn-outline" style="width: 100%; border-radius: 12px; border: 1.5px solid var(--color-border-md); font-size: 12px; padding: 8px; justify-content: center;">
+              <span style="font-weight: 800; font-family: sans-serif; margin-right: 4px; font-size: 13px;">in</span> View LinkedIn Profile
+            </a>
           </div>
         </div>
       </div>
-    `;
+    `).join('');
   }
 
-  // 5. Extended team list
-  const exGrid = document.getElementById('about-extended-team-grid');
-  if (exGrid) {
-    const deptColors = { Medical:C.blue, Product:C.orange, Operations:C.green, Strategy:"#7C3AED", Brand:"#B45309", "Medical AI":C.red };
-    exGrid.innerHTML = extended.map(p => `
-      <div class="card card-lift" style="display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 20px 22px; align-items: center;">
-        <img src="${p.img}" style="width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-cream-dk);" alt="${p.name}">
-        <div>
-          <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 3px;">
-            <span style="font-weight: 700; font-size: 15px; color: var(--color-ink);">${p.name}</span>
-          </div>
-          <div style="font-size: 12px; font-weight: 600; color: ${deptColors[p.dept]||C.orange}; margin-bottom: 6px;">${p.role}</div>
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 100px; background: ${(deptColors[p.dept]||C.orange)+'14'}; color: ${deptColors[p.dept]||C.orange};">${p.dept}</span>
-          </div>
-          <p style="font-size: 12px; color: var(--color-ink-sft); line-height: 1.6; margin-top: 6px;">${p.note}</p>
+  // 4. Extended Team Scrolling Marquee
+  const teamMarquee = document.getElementById('about-extended-team-marquee');
+  if (teamMarquee) {
+    const doubleTeam = [...extended, ...extended];
+    teamMarquee.innerHTML = doubleTeam.map(t => `
+      <div class="card card-lift team-bento-card" style="width: 240px; height: 240px; flex-shrink: 0; border-radius: 24px; position: relative; overflow: hidden; border: 1px solid var(--color-border-md);">
+        <img src="${t.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${t.name}">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,0.85) 0%, rgba(17,17,17,0.2) 60%, transparent 100%); z-index: 1;"></div>
+        <!-- Text overlay -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 18px; display: flex; flex-direction: column; z-index: 2;">
+          <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--color-orange); letter-spacing: 0.05em; margin-bottom: 2px;">${t.role}</span>
+          <span class="melody" style="font-size: 22px; color: #fff; line-height: 1.1;">${t.name}</span>
+        </div>
+        <!-- Hover details overlay -->
+        <div class="team-bento-hover" style="position: absolute; inset: 0; background: rgba(17,17,17,0.92); padding: 20px; display: flex; flex-direction: column; justify-content: center; text-align: center; opacity: 0; transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1); z-index: 3; pointer-events: none;">
+          <span style="font-size: 13.5px; color: rgba(255,255,255,0.8); line-height: 1.6; font-style: italic;">"${t.note}"</span>
         </div>
       </div>
     `).join('');
@@ -1073,8 +1102,7 @@ function renderAboutTabContent() {
 }
 
 function setActiveLeader(idx) {
-  currentLeader = idx;
-  renderAboutTabContent();
+  // Tabs removed, renderAboutTabContent is static
 }
 
 /* ================================================================
@@ -2930,6 +2958,16 @@ function openChatWithQuery(query) {
    PAGE INITIALIZATION
    ================================================================ */
 window.addEventListener('DOMContentLoaded', () => {
-  // Initialize to home page
-  nav('home');
+  let pageId = window.PAGE_ID || 'home';
+  
+  // Special check for services category query parameter
+  if (pageId === 'services') {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    if (cat) {
+      pageId = cat;
+    }
+  }
+
+  initPage(pageId);
 });

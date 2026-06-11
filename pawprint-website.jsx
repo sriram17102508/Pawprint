@@ -618,15 +618,8 @@ function HomePage({ nav }) {
           <div style={{ flex: "0 0 auto", maxWidth: 500 }}>
 
             {/* Category label */}
-            <div className="fade-up" style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              marginBottom: 28,
-            }}>
-              <div style={{ width: 28, height: 2, background: C.orange, borderRadius: 2 }} />
-              <span style={{
-                fontSize: 11, fontWeight: 700, letterSpacing: ".14em",
-                textTransform: "uppercase", color: C.orange,
-              }}>India's Dog Care Platform</span>
+            <div className="fade-up pill pill-orange" style={{ marginBottom: 28 }}>
+              India's Dog Care Platform
             </div>
 
             {/* Headline */}
@@ -898,7 +891,7 @@ function HomePage({ nav }) {
                   <div style={{ padding: "32px 36px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div>
                       <span style={{ fontSize: 28, display: "block", marginBottom: 12 }}>{f.icon}</span>
-                      <h3 className="melody" style={{ fontSize: 22, fontWeight: 700, color: C.ink, marginBottom: 8 }}>{f.title}</h3>
+                      <h3 className="melody" style={{ fontSize: 22, fontWeight: 700, color: C.ink, marginBottom: 16 }}>{f.title}</h3>
                       <p style={{ fontSize: 14, color: C.inkSft, lineHeight: 1.65 }}>{f.sub}</p>
                     </div>
                     <span style={{ fontSize: 13, fontWeight: 600, color: f.color, marginTop: 16 }}>Explore →</span>
@@ -1011,33 +1004,53 @@ function HomePage({ nav }) {
             </div>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
-            {testis.map((t, i) => (
-              <div key={i} onClick={() => setActiveTesti(i)} style={{
-                padding: "36px 32px", borderRadius: 24, cursor: "pointer",
-                background: i === activeTesti ? C.inkMd : C.cream,
-                border: `1px solid ${i === activeTesti ? "transparent" : C.border}`,
-                transform: i === activeTesti ? "scale(1.02)" : "scale(1)",
-                transition: "all .35s cubic-bezier(.22,1,.36,1)",
-              }}>
-                <div style={{ fontSize: 28, marginBottom: 20, color: i === activeTesti ? C.orange : C.sand }}>❝</div>
-                <p style={{ fontSize: 15, lineHeight: 1.8, color: i === activeTesti ? "rgba(255,255,255,.8)" : C.inkMd, marginBottom: 28, fontStyle: "italic" }}>{t.text}</p>
-                <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: i === activeTesti ? C.orange : C.sand, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 14, color: i === activeTesti ? "#fff" : C.inkSft }}>{t.initials}</div>
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: 14, color: i === activeTesti ? "#fff" : C.ink }}>{t.name}</div>
-                    <div style={{ fontSize: 12, color: i === activeTesti ? "rgba(255,255,255,.45)" : C.inkSft, marginTop: 2 }}>{t.role} · {t.city}</div>
+            {testis.map((t, i) => {
+              const active = i === activeTesti;
+              const themes = ['theme-warm', 'theme-blue', 'theme-green', 'theme-pink', 'theme-orange'];
+              const theme = themes[i % themes.length];
+              return (
+                <div key={i} onClick={() => setActiveTesti(i)} className={`dog-card ${theme}`} style={{
+                  transform: active ? "translateY(-6px) scale(1.02)" : "translateY(0)",
+                  boxShadow: active ? "0 20px 40px rgba(0,0,0,0.12)" : "none",
+                  cursor: "pointer",
+                }}>
+                  <div className="ear-left"></div>
+                  <div className="ear-right"></div>
+                  <div className="pop-dog">{t.dogEmoji || "🐶"}</div>
+                  <div className="tail"></div>
+                  <div className="dog-card-body">
+                    <div className="paw-watermark">🐾</div>
+                    
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                      <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", background: "rgba(229,93,26,0.12)", color: C.orange, padding: "4px 12px", borderRadius: 100, letterSpacing: ".02em" }}>{t.badge || "🐶 Loved Parent"}</span>
+                    </div>
+                    
+                    <p style={{ fontSize: 14, lineHeight: 1.6, color: C.ink, marginBottom: 16, fontStyle: "italic", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>"{t.text}"</p>
+                    
+                    <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: "auto" }}>
+                      <div style={{ width: 40, height: 40, borderRadius: "50%", background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 13, color: "#fff" }}>{t.initials}</div>
+                      <div>
+                        <div style={{ fontWeight: 700, fontSize: 13.5, color: C.ink }}>{t.name}</div>
+                        <div style={{ fontSize: 11, color: C.inkSft, marginTop: 1 }}>{t.role} · {t.city}</div>
+                      </div>
+                    </div>
+                    
+                    <div className="nose-dot"></div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
       <section style={{ padding: "100px 0", background: C.ink, position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", right: -80, transform: "translateY(-50%)", width: 500, height: 500, borderRadius: "50%", background: `${C.orange}14`, pointerEvents: "none" }} />
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+        {/* Glowing background blobs */}
+        <div className="cta-blob"></div>
+        <div className="cta-blob-left"></div>
+        
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", position: "relative", zIndex: 2 }}>
           <div>
             <h2 className="melody-italic" style={{ fontSize: "clamp(40px,5vw,70px)", fontWeight: 700, color: "#fff", lineHeight: .93, marginBottom: 24 }}>
               Your pet<br />deserves<br />the best.
@@ -1050,8 +1063,8 @@ function HomePage({ nav }) {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {[P.dog1, P.cat1, P.dog4, P.cat2].map((src, i) => (
-              <div key={i} style={{ borderRadius: 18, overflow: "hidden", height: 150, transform: i % 2 === 1 ? "translateY(18px)" : "" }}>
-                <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div key={i} className={`cta-img-card ${i % 2 === 1 ? 'offset' : ''}`}>
+                <Img src={src} />
               </div>
             ))}
           </div>
@@ -1059,14 +1072,14 @@ function HomePage({ nav }) {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "100px 0", background: C.cream }}>
+      <section style={{ padding: "60px 0", background: C.cream }}>
         <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 32px" }}>
-          <div style={{ textAlign: "center", marginBottom: 60 }}>
-            <div className="pill pill-dark" style={{ marginBottom: 20 }}>FAQ</div>
+          <div style={{ textAlign: "center", marginBottom: 36 }}>
+            <div className="pill pill-dark" style={{ marginBottom: 12 }}>FAQ</div>
             <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 700, color: C.ink }}>Questions, answered.</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            {faqs.map((f, i) => (
+            {faqs.slice(0, 5).map((f, i) => (
               <div key={i} style={{ background: C.white, borderRadius: 16, border: `1px solid ${C.border}`, overflow: "hidden" }}>
                 <button onClick={() => setFaq(faq === i ? null : i)} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 26px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
                   <span style={{ fontSize: 15, fontWeight: 600, color: C.ink, paddingRight: 20, lineHeight: 1.4 }}>{f.q}</span>
@@ -1095,12 +1108,9 @@ function AboutPage({ nav }) {
 
   /* ── Data ────────────────────────────────────────────────────── */
   const milestones = [
-    { year: "2020", title: "Founded", desc: "Started in a Bangalore apartment after struggling to find reliable vet care for three rescue dogs. Dr. Kiran and Sneha quit their jobs on the same day." },
-    { year: "2021", title: "First 500 Vets", desc: "Onboarded 500 certified vet partners across 10 cities. Facilitated the first 1,000 pet adoptions on the platform." },
-    { year: "2022", title: "Series A — ₹42Cr", desc: "Secured ₹42 crore Series A funding. Launched grooming, training, and boarding verticals in the same quarter." },
-    { year: "2023", title: "AI Health Launch", desc: "Released the AI symptom checker and smart health assistant. Crossed 25,000 active pets on the platform." },
-    { year: "2024", title: "85 Cities", desc: "Completed pan-India expansion. Named Startup of the Year by Economic Times. 1,200+ vet partners onboarded." },
-    { year: "2026", title: "Today", desc: "45,000 happy pets. Building the future of intelligent, compassionate pet care across South Asia." },
+    { year: "2025", title: "Born from Love (Idea)", desc: "Frustrated by disconnected records and hard-to-reach vet clinics, Dr. Kiran and Sneha sketch a blueprint of Pawprint on a napkin." },
+    { year: "2026", title: "Execution & Launch", desc: "Making the dream a reality. Launched pet onboarding, verified vet directory, and custom shelters. Expanded to 85+ Indian cities." },
+    { year: "2027", title: "Shining Future", desc: "Leading with intelligence. Scaling our AI-driven disease predictors, smart feeding calculators, and predictive vet monitoring." },
   ];
 
   const values = [
@@ -1147,14 +1157,12 @@ function AboutPage({ nav }) {
 
   const deptColors = { Medical: C.blue, Product: C.orange, Operations: C.green, Strategy: "#7C3AED", Brand: "#B45309", "Medical AI": C.red };
 
-  const [activeLeader, setActiveLeader] = useState(0);
-
   /* ── Render ──────────────────────────────────────────────────── */
   return (
     <div style={{ paddingTop: 68, fontFamily: "'Inter',sans-serif" }}>
 
       {/* ════ 1. CINEMATIC HERO ════ */}
-      <section style={{ position: "relative", minHeight: 600, overflow: "hidden", display: "flex", alignItems: "flex-end" }}>
+      <section style={{ position: "relative", minHeight: 620, overflow: "hidden", display: "flex", alignItems: "center", padding: "120px 0 100px" }}>
         <Img src={P.about1} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(17,17,17,.72) 0%, rgba(17,17,17,.3) 60%, rgba(17,17,17,.75) 100%)" }} />
 
@@ -1162,11 +1170,10 @@ function AboutPage({ nav }) {
         <div style={{ position: "absolute", top: -120, right: -120, width: 480, height: 480, borderRadius: "50%", border: `2px solid ${C.orange}30`, pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: -60, right: -60, width: 320, height: 320, borderRadius: "50%", border: `2px solid ${C.orange}20`, pointerEvents: "none" }} />
 
-        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 32px 72px", width: "100%" }}>
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 48px", width: "100%" }}>
           {/* Label */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-            <div style={{ width: 28, height: 2, background: C.orange }} />
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: C.orange }}>Our Story · Our Team · Our Mission</span>
+          <div className="pill pill-orange" style={{ marginBottom: 24 }}>
+            Our Story · Our Team · Our Mission
           </div>
 
           <h1 className="melody" style={{ fontSize: "clamp(58px,7.5vw,110px)", color: "#fff", lineHeight: .9, marginBottom: 28, maxWidth: 900 }}>
@@ -1197,9 +1204,8 @@ function AboutPage({ nav }) {
 
             {/* Left: Story */}
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                <div style={{ width: 20, height: 2, background: C.orange }} />
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>The Origin Story</span>
+              <div className="pill pill-orange" style={{ marginBottom: 20 }}>
+                The Origin Story
               </div>
               <h2 className="melody" style={{ fontSize: "clamp(38px,4vw,58px)", color: C.ink, lineHeight: .95, marginBottom: 28 }}>
                 A vet, an engineer,<br />and a rescue dog<br />named Diesel.
@@ -1215,8 +1221,8 @@ function AboutPage({ nav }) {
               </p>
             </div>
 
-            {/* Right: Mission + Vision stacked */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            {/* Right: Mission + Vision stacked with increased spacing */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
               {/* Mission */}
               <div style={{ padding: "40px 44px", borderRadius: 24, background: C.cream, border: `1px solid ${C.border}`, position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: -50, right: -50, width: 180, height: 180, borderRadius: "50%", background: `${C.orange}12` }} />
@@ -1251,16 +1257,15 @@ function AboutPage({ nav }) {
         </div>
       </section>
 
-      {/* ════ 3. VALUES ════ */}
+      {/* ════ 3. VALUES (3-column layout) ════ */}
       <section style={{ padding: "100px 0", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 80, alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "280px 1.2fr 1fr", gap: 48, alignItems: "start" }}>
 
-            {/* Left label */}
+            {/* Left sticky label */}
             <div style={{ position: "sticky", top: 100 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                <div style={{ width: 20, height: 2, background: C.orange }} />
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Our Values</span>
+              <div className="pill pill-orange" style={{ marginBottom: 20 }}>
+                Our Values
               </div>
               <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,54px)", color: C.ink, lineHeight: .95, marginBottom: 20 }}>
                 What we<br />stand for.
@@ -1270,8 +1275,8 @@ function AboutPage({ nav }) {
               </p>
             </div>
 
-            {/* Right: 2×3 grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            {/* Middle values cards stack */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {values.map((v, i) => (
                 <div key={i} style={{
                   padding: "32px 28px", borderRadius: 20,
@@ -1287,18 +1292,29 @@ function AboutPage({ nav }) {
                 </div>
               ))}
             </div>
+
+            {/* Right GIF/Image sidebar */}
+            <div style={{ position: "sticky", top: 100, display: "flex", flexDirection: "column", gap: 20 }}>
+              <div className="card" style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 20px 48px rgba(0,0,0,0.08)", border: `1px solid ${C.border}` }}>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q1M25ycjVwbDRldThicTZybmF0aGNzMDN0ZnZ6dnZ4NmQ0dHkyMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vz58J8shQm5BC/giphy.gif" style={{ width: "100%", height: 260, objectFit: "cover" }} alt="Cute Dog Playing" />
+              </div>
+              <div className="card" style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 20px 48px rgba(0,0,0,0.08)", border: `1px solid ${C.border}`, padding: 24, background: C.white, textAlign: "center" }}>
+                <span style={{ fontSize: 36, display: "block", marginBottom: 8 }}>🐕🐈</span>
+                <p style={{ fontSize: 14, fontWeight: 700, color: C.ink }}>Driven by a love for animals.</p>
+                <p style={{ fontSize: 12, color: C.inkSft, marginTop: 6 }}>Every day we strive to make their lives as happy, healthy, and full of joy as they make ours.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ════ 4. TIMELINE ════ */}
+      {/* ════ 4. TIMELINE (3 components) ════ */}
       <section style={{ padding: "100px 0", background: C.inkMd, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", right: -100, transform: "translateY(-50%)", width: 400, height: 400, borderRadius: "50%", border: `1px solid ${C.orange}15`, pointerEvents: "none" }} />
 
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-            <div style={{ width: 20, height: 2, background: C.orange }} />
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Our Journey</span>
+          <div className="pill pill-orange" style={{ marginBottom: 20 }}>
+            Our Journey
           </div>
           <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: "#fff", lineHeight: .95, marginBottom: 64 }}>
             Six years.<br />One relentless mission.
@@ -1309,27 +1325,27 @@ function AboutPage({ nav }) {
             {/* Connecting line */}
             <div style={{ position: "absolute", top: 28, left: 0, right: 0, height: 2, background: `linear-gradient(to right, ${C.orange}, ${C.blue})`, borderRadius: 1 }} />
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
               {milestones.map((m, i) => (
                 <div key={i} style={{ paddingTop: 56, position: "relative" }}>
                   {/* Dot */}
-                  <div style={{
-                    position: "absolute", top: 16, left: "50%", transform: "translateX(-50%)",
-                    width: 24, height: 24, borderRadius: "50%",
-                    background: i === 5 ? C.orange : C.inkMd,
-                    border: `3px solid ${i === 5 ? C.orange : "rgba(255,255,255,.3)"}`,
-                    boxShadow: i === 5 ? `0 0 0 6px ${C.orange}30` : "none",
-                    zIndex: 2,
-                  }} />
+                  <div style={{ position: "absolute", top: 16, left: "50%", transform: "translateX(-50%)", zIndex: 2 }}>
+                    <div className={i === 2 ? "timeline-glow-dot" : ""} style={{
+                      width: 24, height: 24, borderRadius: "50%",
+                      background: i === 2 ? C.orange : C.inkMd,
+                      border: `3px solid ${i === 2 ? C.orange : "rgba(255,255,255,.3)"}`,
+                      boxShadow: i === 2 ? `0 0 0 6px ${C.orange}30` : "none",
+                    }} />
+                  </div>
 
                   {/* Card */}
                   <div style={{
                     background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.08)",
-                    borderRadius: 16, padding: "20px 18px",
-                    borderTop: i === 5 ? `3px solid ${C.orange}` : "1px solid rgba(255,255,255,.08)",
+                    borderRadius: 16, padding: "22px 20px", textAlign: "center",
+                    borderTop: i === 2 ? `3px solid ${C.orange}` : "1px solid rgba(255,255,255,.08)",
                   }}>
                     <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: C.orange, marginBottom: 6 }}>{m.year}</div>
-                    <div className="melody" style={{ fontSize: 17, color: "#fff", marginBottom: 8, lineHeight: 1.1 }}>{m.title}</div>
+                    <div className="melody" style={{ fontSize: 19, color: "#fff", marginBottom: 8, lineHeight: 1.1 }}>{m.title}</div>
                     <p style={{ fontSize: 12, color: "rgba(255,255,255,.45)", lineHeight: 1.7 }}>{m.desc}</p>
                   </div>
                 </div>
@@ -1339,16 +1355,15 @@ function AboutPage({ nav }) {
         </div>
       </section>
 
-      {/* ════ 5. LEADERSHIP TEAM ════ */}
+      {/* ════ 5. LEADERSHIP TEAM (Side-by-Side Cards) ════ */}
       <section style={{ padding: "100px 0", background: C.white }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
 
           {/* Header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64, flexWrap: "wrap", gap: 20 }}>
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                <div style={{ width: 20, height: 2, background: C.orange }} />
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Leadership</span>
+              <div className="pill pill-orange" style={{ marginBottom: 20 }}>
+                Leadership
               </div>
               <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: C.ink, lineHeight: .95 }}>
                 The founders<br />behind Pawprint.
@@ -1357,89 +1372,57 @@ function AboutPage({ nav }) {
             <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.8, maxWidth: 360 }}>Three people who left stable careers to build something they believed the world needed.</p>
           </div>
 
-          {/* Tab selector */}
-          <div style={{ display: "flex", gap: 8, marginBottom: 48, padding: 6, background: C.cream, borderRadius: 16, width: "fit-content", border: `1px solid ${C.border}` }}>
+          {/* Side-by-side founders cards grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
             {leadership.map((l, i) => (
-              <button key={i} onClick={() => setActiveLeader(i)} style={{
-                padding: "10px 24px", borderRadius: 11, border: "none", cursor: "pointer",
-                background: activeLeader === i ? C.ink : "transparent",
-                color: activeLeader === i ? "#fff" : C.inkSft,
-                fontWeight: activeLeader === i ? 700 : 400,
-                fontSize: 14, transition: "all .22s cubic-bezier(.22,1,.36,1)",
-              }}>
-                {l.name.split(" ")[0]}
-              </button>
+              <div key={i} className="card card-lift founder-card" style={{ position: "relative", overflow: "hidden", borderRadius: 24, background: C.white, border: `1px solid ${C.border}`, display: "flex", flexDirection: "column", height: "100%" }}>
+                <div style={{ height: 330, overflow: "hidden", position: "relative" }}>
+                  <Img src={l.img} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)" }} />
+                  {/* Quote overlay on hover */}
+                  <div className="founder-overlay" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(229, 93, 26, 0.96), rgba(29, 95, 196, 0.96))", padding: 28, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", opacity: 0, transition: "opacity 0.35s ease", pointerEvents: "none", zIndex: 5 }}>
+                    <p style={{ color: "#fff", fontSize: 14, fontStyle: "italic", lineHeight: 1.7, fontWeight: 500, textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>{l.quote}</p>
+                  </div>
+                </div>
+                <div style={{ padding: 24, display: "flex", flexDirection: "column", flex: 1, justifycontent: "space-between" }}>
+                  <div style={{ marginBottom: 20 }}>
+                    <div className="pill pill-orange" style={{ fontSize: 10, padding: "4px 10px", marginBottom: 12, width: "fit-content", textTransform: "uppercase" }}>{l.role}</div>
+                    <h3 className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 8, lineHeight: 1.1 }}>{l.name}</h3>
+                    <p style={{ fontSize: 13.5, color: C.inkSft, lineHeight: 1.7, marginBottom: 0 }}>{l.bio.split(". ").slice(0, 2).join(". ")}.</p>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: C.sand, marginBottom: 8 }}>Key Background</div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 20 }}>
+                      {l.credentials.slice(0, 2).map((c, ci) => (
+                        <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 12.5, color: C.ink, lineHeight: 1.4 }}>
+                          <span style={{ color: C.orange, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+                          <span>{c}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <button onClick={() => window.open(l.linkedin, "_blank")} style={{
+                      width: "100%", padding: "8px", borderRadius: 12,
+                      border: `1.5px solid ${C.border}`, background: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+                      cursor: "pointer", fontSize: 12, fontWeight: 600, color: C.ink,
+                      transition: "border-color .18s",
+                    }}
+                      onMouseEnter={e => e.currentTarget.style.borderColor = C.orange}
+                      onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>
+                      <span style={{ fontWeight: 800, fontFamily: "sans-serif", marginRight: 4, fontSize: 13 }}>in</span> View LinkedIn Profile
+                    </button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-
-          {/* Active leader card */}
-          {leadership.map((l, i) => i === activeLeader && (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "360px 1fr", gap: 60, alignItems: "start", animation: "fadeIn .35s ease both" }}>
-
-              {/* Photo column */}
-              <div>
-                <div style={{ borderRadius: 28, overflow: "hidden", height: 440, marginBottom: 20, position: "relative" }}>
-                  <Img src={l.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  {/* Overlay quote */}
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "28px 24px", background: "linear-gradient(transparent,rgba(17,17,17,.85))" }}>
-                    <p style={{ fontSize: 13, color: "rgba(255,255,255,.85)", lineHeight: 1.7, fontStyle: "italic" }}>{l.quote}</p>
-                  </div>
-                </div>
-                {/* LinkedIn */}
-                <button onClick={() => window.open(l.linkedin, "_blank")} style={{
-                  width: "100%", padding: "12px", borderRadius: 12,
-                  border: `1.5px solid ${C.border}`, background: "#fff",
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-                  cursor: "pointer", fontSize: 14, fontWeight: 600, color: C.ink,
-                  transition: "border-color .18s",
-                }}
-                  onMouseEnter={e => e.currentTarget.style.borderColor = C.orange}
-                  onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>
-                  <span style={{ fontSize: 16 }}>in</span> View LinkedIn Profile
-                </button>
-              </div>
-
-              {/* Info column */}
-              <div>
-                <div className="pill pill-orange" style={{ marginBottom: 16 }}>{l.role}</div>
-                <h3 className="melody" style={{ fontSize: "clamp(40px,4vw,60px)", color: C.ink, lineHeight: .95, marginBottom: 20 }}>{l.name}</h3>
-                <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.85, marginBottom: 36 }}>{l.bio}</p>
-
-                {/* Credentials */}
-                <div style={{ marginBottom: 36 }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: C.inkSft, marginBottom: 14 }}>Credentials & Background</div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                    {l.credentials.map((c, ci) => (
-                      <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-                        <div style={{ width: 20, height: 20, borderRadius: "50%", background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
-                          <span style={{ fontSize: 9, color: C.orange, fontWeight: 700 }}>✓</span>
-                        </div>
-                        <span style={{ fontSize: 14, color: C.ink, lineHeight: 1.55 }}>{c}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Quick nav to next */}
-                <div style={{ display: "flex", gap: 12 }}>
-                  <button className="btn btn-md btn-primary" onClick={() => setActiveLeader((activeLeader + 1) % leadership.length)}>
-                    Meet {leadership[(activeLeader + 1) % leadership.length].name.split(" ")[0]} →
-                  </button>
-                  <button className="btn btn-md btn-outline" onClick={() => nav("contact")}>Work with Us</button>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
-      {/* ════ 6. EXTENDED TEAM ════ */}
-      <section style={{ padding: "80px 0 100px", background: C.cream }}>
+      {/* ════ 6. EXTENDED TEAM (Horizontal Bento Cards Scrolling Marquee) ════ */}
+      <section style={{ padding: "80px 0 100px", background: C.cream, overflow: "hidden" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-            <div style={{ width: 20, height: 2, background: C.orange }} />
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>The Team</span>
+          <div className="pill pill-orange" style={{ marginBottom: 16 }}>
+            The Team
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48, flexWrap: "wrap", gap: 16 }}>
             <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", color: C.ink, lineHeight: .95 }}>
@@ -1449,37 +1432,34 @@ function AboutPage({ nav }) {
               A 120-person team of vets, engineers, designers, and dog lovers — united by one mission.
             </p>
           </div>
+        </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
-            {extended.map((p, i) => (
-              <div key={i} style={{
-                display: "grid", gridTemplateColumns: "72px 1fr", gap: 16,
-                padding: "20px 22px", borderRadius: 18,
-                background: C.white, border: `1px solid ${C.border}`,
-                alignItems: "center",
-                transition: "transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease",
-                cursor: "default",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 12px 36px rgba(0,0,0,.08)"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
-                <Img src={p.img} style={{ width: 72, height: 72, borderRadius: "50%", objectFit: "cover", border: `3px solid ${C.creamDk}` }} />
-                <div>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 3 }}>
-                    <span style={{ fontWeight: 700, fontSize: 15, color: C.ink }}>{p.name}</span>
-                  </div>
-                  <div style={{ fontSize: 12, fontWeight: 600, color: deptColors[p.dept] || C.orange, marginBottom: 6 }}>
-                    {p.role}
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", padding: "2px 8px", borderRadius: 100, background: `${deptColors[p.dept] || C.orange}14`, color: deptColors[p.dept] || C.orange }}>{p.dept}</span>
-                  </div>
-                  <p style={{ fontSize: 12, color: C.inkSft, lineHeight: 1.6, marginTop: 6 }}>{p.note}</p>
+        {/* Bento scrolling marquee wrapper */}
+        <div className="team-marquee-wrap" style={{ overflow: "hidden", padding: "20px 0", background: "transparent", position: "relative" }}>
+          <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: 100, background: `linear-gradient(to right, ${C.cream}, transparent)`, zIndex: 2, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: 100, background: `linear-gradient(to left, ${C.cream}, transparent)`, zIndex: 2, pointerEvents: "none" }} />
+
+          <div className="team-marquee-track" style={{ display: "flex", gap: 20, width: "max-content" }}>
+            {[...extended, ...extended].map((p, i) => (
+              <div key={i} className="card card-lift team-bento-card" style={{ width: 240, height: 240, flexShrink: 0, borderRadius: 24, position: "relative", overflow: "hidden", border: `1px solid ${C.border}` }}>
+                <Img src={p.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(17,17,17,0.85) 0%, rgba(17,17,17,0.2) 60%, transparent 100%)", zIndex: 1 }} />
+                {/* Text overlay */}
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: 18, display: "flex", flexDirection: "column", zIndex: 2 }}>
+                  <span style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", color: C.orange, letterSpacing: "0.05em", marginBottom: 2 }}>{p.role}</span>
+                  <span className="melody" style={{ fontSize: 22, color: "#fff", lineHeight: 1.1 }}>{p.name}</span>
+                </div>
+                {/* Hover details overlay */}
+                <div className="team-bento-hover" style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,0.92)", padding: 20, display: "flex", flexDirection: "column", justifyContent: "center", textalign: "center", opacity: 0, transition: "opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1)", zIndex: 3, pointerEvents: "none" }}>
+                  <span style={{ fontSize: 13.5, color: "rgba(255,255,255,0.8)", lineHeight: 1.6, fontStyle: "italic" }}>"{p.note}"</span>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Hiring CTA */}
+        {/* Hiring CTA */}
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ marginTop: 48, padding: "44px 48px", borderRadius: 24, background: C.ink, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
             <div>
               <div className="melody" style={{ fontSize: 32, color: "#fff", lineHeight: 1, marginBottom: 8 }}>We're hiring.</div>
@@ -1493,18 +1473,55 @@ function AboutPage({ nav }) {
         </div>
       </section>
 
-      {/* ════ 7. PRESS & RECOGNITION ════ */}
+      {/* ════ 7. PRESS & RECOGNITION (Vector Brand Logos) ════ */}
       <section style={{ padding: "60px 0", background: C.white, borderTop: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.inkSft }}>Recognised By</span>
           </div>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 48, flexWrap: "wrap" }}>
-            {["Economic Times — Startup of the Year 2024", "Forbes India — Ones to Watch 2023", "Y Combinator S21 Alumni", "NASSCOM Top 10 DeepTech Startups", "Google for Startups India Cohort"].map((b, i) => (
-              <div key={i} style={{ fontSize: 12, fontWeight: 700, color: C.sand, letterSpacing: ".04em", textAlign: "center", maxWidth: 160, lineHeight: 1.5 }}>
-                {b}
-              </div>
-            ))}
+            {/* Y Combinator */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
+              <svg width="110" height="24" viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="4" fill="#E55D1A"/>
+                <text x="7" y="18" fill="#fff" fontFamily="sans-serif" fontWeight="bold" fontSize="16">Y</text>
+                <text x="32" y="17" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="bold" fontSize="14">Combinator</text>
+              </svg>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>S21 Alumni</div>
+            </div>
+
+            {/* Google for Startups */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
+              <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 12c0-3.3 2.7-6 6-6 1.8 0 3.3.8 4.4 2.1l4.2-4.2C20.6 1.5 17.5 0 14.5 0 6.5 0 0 6.5 0 14.5S6.5 29 14.5 29c7.5 0 13.5-5.5 14.5-12.5h-14.5v-4.5h19c.3 1 .5 2 .5 3 0 8.5-5.8 14.5-14.5 14.5-8 0-14.5-6.5-14.5-14.5z" fill={C.sand} transform="scale(0.6)"/>
+                <text x="24" y="16" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="bold" fontSize="14">Google</text>
+              </svg>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>India Cohort</div>
+            </div>
+
+            {/* Forbes India */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
+              <svg width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="18" fill="var(--color-sand)" fontFamily="Georgia, serif" fontWeight="bold" fontSize="20" fontStyle="italic" letterSpacing="-0.5">Forbes</text>
+              </svg>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Ones to Watch 2023</div>
+            </div>
+
+            {/* Economic Times */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
+              <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="18" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="900" fontSize="16" letterSpacing="1">THE ECONOMIC TIMES</text>
+              </svg>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Startup of the Year 2024</div>
+            </div>
+
+            {/* NASSCOM */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
+              <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="18" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="800" fontSize="16" letterSpacing="1.5">NASSCOM</text>
+              </svg>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Top 10 DeepTech</div>
+            </div>
           </div>
         </div>
       </section>
@@ -4208,17 +4225,6 @@ function ChatBot({ nav }) {
 
       {/* ─ FAB button ─ */}
       <div style={{ position: "relative", display: "flex", justifyContent: "flex-end" }}>
-        {!open && (
-          <div style={{
-            position: "absolute", bottom: "110%", right: 0,
-            background: C.ink, color: "rgba(255,255,255,.8)",
-            fontSize: 12, fontWeight: 600, padding: "7px 14px", borderRadius: 100,
-            border: "1px solid rgba(255,255,255,.1)", whiteSpace: "nowrap",
-            boxShadow: "0 8px 24px rgba(0,0,0,.3)",
-            marginBottom: 4,
-            animation: "fadeIn .3s ease both",
-          }}>Ask Paws anything 🐾</div>
-        )}
         <button
           onClick={() => setOpen(o => !o)}
           style={{
