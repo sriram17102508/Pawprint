@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,10 +27,9 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <div
-          style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; fontSize: 17px;">
-          🐾</div>
-        <span class="melody" style="font-size: 24px; color: var(--color-ink); letter-spacing: .04em;">Pawprint</span>
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <span
+          style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
 
       <!-- Nav Links -->
@@ -51,20 +50,14 @@
           </button>
           <div id="dropdown-company" class="dropdown-menu"
             style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 About Us</button>
+            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
             <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
           </div>
         </div>
 
-        <!-- Services Mega-Menu Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-services" class="nav-trigger" onclick="toggleMegaMenu()">
-            Services
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
+        <!-- Services Link -->
+        <div style="position: relative;">
+          <button id="nav-btn-services" class="nav-link" onclick="nav('services')">Services</button>
         </div>
 
         <!-- Adopt Link -->
@@ -135,14 +128,20 @@
   <main id="main-content" style="padding-top: 96px;">
     <section id="page-services" class="page-section">
       <!-- Services Hero -->
-      <section style="padding: 90px 0 70px; background: var(--color-ink-md); position: relative; overflow: hidden;">
+      <section style="padding: 90px 0 70px; position: relative; overflow: hidden;">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1400&q=80&fit=crop"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
+          alt="Services Hero Background">
+        <div
+          style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%);">
+        </div>
         <div
           style="position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: rgba(229, 93, 26, 0.08); pointer-events: none;">
         </div>
         <div
           style="position: absolute; bottom: -60px; left: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(29, 95, 196, 0.07); pointer-events: none;">
         </div>
-        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2;">
           <div class="pill"
             style="background: rgba(255,255,255,.1); color: rgba(255,255,255,.65); margin-bottom: 24px;">All Services
           </div>
@@ -151,19 +150,19 @@
             care,<br>under one roof.</h1>
           <p
             style="font-size: 18px; color: rgba(255,255,255,.6); line-height: 1.75; max-width: 560px; margin-bottom: 40px;">
-            7 comprehensive service categories, 70+ individual services, 1,200+ certified professionals — all bookable
+            7 comprehensive service categories, 70+ individual services, 700+ certified professionals - all bookable
             through Pawprint.</p>
           <div style="display: flex; gap: 40px; flex-wrap: wrap;">
             <div>
-              <div class="melody" style="font-size: 32px; color: var(--color-orange); line-height: 1;">70+</div>
+              <div class="melody" style="font-size: 32px; color: var(--color-orange); line-height: 1;">7</div>
               <div style="font-size: 13px; color: rgba(255,255,255,.5); margin-top: 4px;">Services</div>
             </div>
             <div>
-              <div class="melody" style="font-size: 32px; color: var(--color-orange); line-height: 1;">1,200+</div>
+              <div class="melody" style="font-size: 32px; color: var(--color-orange); line-height: 1;">700+</div>
               <div style="font-size: 13px; color: rgba(255,255,255,.5); margin-top: 4px;">Professionals</div>
             </div>
             <div>
-              <div class="melody" style="font-size: 32px; color: var(--color-orange); line-height: 1;">85+</div>
+              <div class="melody" style="font-size: 32px; color: var(--color-orange); line-height: 1;">100+</div>
               <div style="font-size: 13px; color: rgba(255,255,255,.5); margin-top: 4px;">Cities</div>
             </div>
             <div>
@@ -228,9 +227,8 @@
         <!-- Brand column -->
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <div
-              style="width: 34px; height: 34px; border-radius: 9px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-              🐾</div>
+            <img src="Logo.png" alt="Pawprint Logo"
+              style="width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 8px;">
             <span class="melody" style="font-size: 22px; color: #fff; letter-spacing: .03em;">Pawprint</span>
           </div>
           <p
@@ -309,9 +307,14 @@
   <!-- ==========================================
        CHATBOT OVERLAY (WIDGET)
        ========================================== -->
-  
+
   <!-- Go to Top Button -->
-  <button id="gotop-btn" class="gotop-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Go to Top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></button>
+  <button id="gotop-btn" class="gotop-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="Go to Top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg></button>
   <div id="chatbot-wrapper" style="position: fixed; bottom: 28px; right: 28px; z-index: 1000;">
     <!-- Chat chatbot window -->
     <div id="chatbot-window"

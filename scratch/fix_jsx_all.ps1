@@ -1,0 +1,249 @@
+$path = "c:\Users\HP\OneDrive\Documents\GitHub\Pawprint\pawprint-website.jsx"
+$lines = Get-Content -Path $path -Encoding UTF8
+
+$arrow = [char]8594
+$bullet = [char]8226
+
+# 1. Update GlobalStyles (original lines 151-155, which is index 150..154)
+$css_lines = @(
+'/* scrollbar */',
+'::-webkit-scrollbar{width:4px;}',
+'::-webkit-scrollbar-track{background:${C.cream};}',
+'::-webkit-scrollbar-thumb{background:${C.sand};border-radius:4px;}',
+'',
+'/* ---------- Bento Pet Card Design ---------- */',
+'.bento-pet-card {',
+'  background: ${C.white};',
+'  border-radius: 24px;',
+'  border: 1px solid ${C.border};',
+'  padding: 16px;',
+'  display: grid;',
+'  grid-template-rows: 240px auto;',
+'  gap: 12px;',
+'  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);',
+'  position: relative;',
+'  overflow: hidden;',
+'  cursor: pointer;',
+'}',
+'',
+'.bento-pet-card:hover {',
+'  transform: translateY(-6px);',
+'  box-shadow: 0 20px 40px rgba(17, 17, 17, 0.08);',
+'  border-color: rgba(229, 93, 26, 0.3);',
+'}',
+'',
+'.bento-pet-card .photo-box {',
+'  grid-row: 1;',
+'  position: relative;',
+'  border-radius: 18px;',
+'  overflow: hidden;',
+'  height: 240px;',
+'}',
+'',
+'.bento-pet-card .photo-box img {',
+'  width: 100%;',
+'  height: 100%;',
+'  object-fit: cover;',
+'  transition: transform 0.5s ease;',
+'}',
+'',
+'.bento-pet-card:hover .photo-box img {',
+'  transform: scale(1.04);',
+'}',
+'',
+'.bento-pet-card .fav-btn {',
+'  position: absolute;',
+'  top: 12px;',
+'  right: 12px;',
+'  width: 38px;',
+'  height: 38px;',
+'  border-radius: 50%;',
+'  background: rgba(255, 255, 255, 0.85);',
+'  backdrop-filter: blur(8px);',
+'  border: 1px solid rgba(0, 0, 0, 0.05);',
+'  font-size: 16px;',
+'  cursor: pointer;',
+'  display: flex;',
+'  align-items: center;',
+'  justify-content: center;',
+'  transition: all 0.2s ease;',
+'  z-index: 2;',
+'}',
+'',
+'.bento-pet-card .fav-btn:hover {',
+'  transform: scale(1.1);',
+'  background: #fff;',
+'}',
+'',
+'.bento-pet-card .badge-box {',
+'  position: absolute;',
+'  top: 12px;',
+'  left: 12px;',
+'  background: ${C.green};',
+'  color: #fff;',
+'  font-size: 10px;',
+'  font-weight: 700;',
+'  padding: 5px 12px;',
+'  border-radius: 100px;',
+'  text-transform: uppercase;',
+'  letter-spacing: 0.05em;',
+'  box-shadow: 0 4px 12px rgba(30, 107, 69, 0.25);',
+'  z-index: 2;',
+'}',
+'',
+'.bento-pet-card .info-grid {',
+'  display: grid;',
+'  grid-template-columns: 1fr 1fr;',
+'  gap: 8px;',
+'}',
+'',
+'.bento-pet-card .info-main {',
+'  grid-column: span 2;',
+'  background: ${C.cream};',
+'  border-radius: 16px;',
+'  padding: 16px 20px;',
+'  display: flex;',
+'  flex-direction: column;',
+'  justify-content: center;',
+'  transition: background 0.2s ease;',
+'}',
+'',
+'.bento-pet-card:hover .info-main {',
+'  background: ${C.creamDk};',
+'}',
+'',
+'.bento-pet-card .info-main .pet-name {',
+"  font-family: 'Bebas Neue', Impact, sans-serif;",
+'  color: ${C.ink};',
+'  font-size: 26px;',
+'  font-weight: 400;',
+'  letter-spacing: 0.02em;',
+'  line-height: 1;',
+'}',
+'',
+'.bento-pet-card .info-main .pet-meta {',
+'  color: ${C.inkSft};',
+'  font-size: 13px;',
+'  margin-top: 4px;',
+'  font-weight: 500;',
+'}',
+'',
+'.bento-pet-card .info-chip {',
+'  background: #fff;',
+'  border: 1px solid ${C.border};',
+'  border-radius: 14px;',
+'  padding: 10px;',
+'  text-align: center;',
+'  font-size: 12px;',
+'  font-weight: 700;',
+'  color: ${C.inkMd};',
+'  display: flex;',
+'  align-items: center;',
+'  justify-content: center;',
+'}',
+'',
+'.bento-pet-card .info-action {',
+'  grid-column: span 2;',
+'  background: ${C.orange};',
+'  color: #fff;',
+'  border-radius: 16px;',
+'  padding: 12px;',
+'  display: flex;',
+'  align-items: center;',
+'  justify-content: center;',
+'  gap: 8px;',
+'  font-weight: 700;',
+'  font-size: 14px;',
+'  border: none;',
+'  cursor: pointer;',
+'  transition: all 0.2s ease;',
+'}',
+'',
+'.bento-pet-card .info-action:hover {',
+'  background: #C94E12;',
+'  box-shadow: 0 4px 12px rgba(229, 93, 26, 0.25);',
+'}',
+"    `;"
+)
+
+# Apply CSS modifications (replaces original indexes 150..154)
+$result1 = $lines[0..149] + $css_lines + $lines[155..($lines.Length-1)]
+
+# 2. Update Homepage showcase grid (original lines 1090-1101, which is indexes 1089..1100 of the original file)
+# Note that we must use the original file indexes from $result1, which is now shifted by $css_lines.Length - 5.
+$shift1 = $css_lines.Length - 5
+$home_start_idx = 1089 + $shift1
+$home_end_idx = 1100 + $shift1
+
+$home_block = @(
+'          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 20 }}>',
+'            {adoptPets.map((p, i) => (',
+'              <div key={i} className="bento-pet-card" onClick={() => nav("adopt")}>',
+'                <div className="photo-box" style={{ height: 180 }}>',
+'                  <Img src={p.img} />',
+'                  {p.vacc && <div className="badge-box">Vaccinated</div>}',
+'                </div>',
+'                <div className="info-grid">',
+'                  <div className="info-main" style={{ padding: "10px 14px" }}>',
+'                    <div className="pet-name" style={{ fontSize: 20 }}>{p.name}</div>',
+'                    <div className="pet-meta" style={{ fontSize: 11, marginTop: 2 }}>{p.breed} · {p.loc}</div>',
+'                  </div>',
+'                  <div className="info-chip" style={{ fontSize: 11, padding: 6 }}>{p.age}</div>',
+'                  <div className="info-chip" style={{ fontSize: 11, padding: 6 }}>{p.gender === "M" ? "Male" : "Female"}</div>',
+'                  <button className="info-action" onClick={e => { e.stopPropagation(); nav("adopt"); }} style={{ padding: 8 }}>',
+"                    Adopt $arrow",
+'                  </button>',
+'                </div>',
+'              </div>',
+'            ))}',
+'          </div>'
+)
+
+$result2 = $result1[0..($home_start_idx - 1)] + $home_block + $result1[($home_end_idx + 1)..($result1.Length - 1)]
+
+# 3. Update Adopt page padding (original line 1960) and adopt grid (original lines 1976-2001)
+# Note we must calculate shifted indexes.
+# original index for line 1960 is 1959.
+# original index for line 1976-2001 is 1975..2000.
+# The shift relative to original indexes is: shift1 + (home_block.Length - 12)
+$shift2 = $shift1 + ($home_block.Length - 12)
+$pad_idx = 1959 + $shift2
+$grid_start_idx = 1975 + $shift2
+$grid_end_idx = 2000 + $shift2
+
+# Modify padding at $pad_idx
+$result2[$pad_idx] = '      <section style={{ padding: "40px 0 100px", background: C.cream }}>'
+
+# Replace grid block
+$grid_block = @(
+'          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }}>',
+'            {filtered.map(p => (',
+'              <div key={p.id} className="bento-pet-card" onClick={() => { setDetail(p.id); setStep("detail"); }}>',
+'                <div className="photo-box">',
+'                  <Img src={p.img} />',
+'                  <button onClick={e => { e.stopPropagation(); setFavs(f => f.includes(p.id) ? f.filter(x => x !== p.id) : [...f, p.id]); }} className="fav-btn">',
+'                    {favs.includes(p.id) ? "❤️" : "🤍"}',
+'                  </button>',
+'                  {p.vacc && <div className="badge-box">Vaccinated</div>}',
+'                </div>',
+'                <div className="info-grid">',
+'                  <div className="info-main">',
+'                    <div className="pet-name">{p.name}</div>',
+'                    <div className="pet-meta">{p.breed} · {p.loc}</div>',
+'                  </div>',
+'                  <div className="info-chip">{p.age}</div>',
+'                  <div className="info-chip">{p.gender}</div>',
+'                  <button className="info-action" onClick={e => { e.stopPropagation(); setDetail(p.id); setStep("detail"); }}>',
+'                    Adopt →',
+'                  </button>',
+'                </div>',
+'              </div>',
+'            ))}',
+'          </div>'
+)
+
+$final_result = $result2[0..($grid_start_idx - 1)] + $grid_block + $result2[($grid_end_idx + 1)..($result2.Length - 1)]
+
+# Save file with UTF8 encoding
+[System.IO.File]::WriteAllLines($path, $final_result, (New-Object System.Text.UTF8Encoding $false))
+Write-Host "Successfully applied all JSX updates in UTF-8!"

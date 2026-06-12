@@ -69,7 +69,7 @@ const P = {
   train: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=700&q=80&fit=crop",
   shop1: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=500&q=80&fit=crop",
   shop2: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&q=80&fit=crop",
-  about1: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=80&fit=crop",
+  about1: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=900&q=80&fit=crop",
   about2: "https://images.unsplash.com/photo-1444212477490-ca407925329e?w=600&q=80&fit=crop",
   team1: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80&fit=crop",
   team2: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&q=80&fit=crop",
@@ -77,7 +77,7 @@ const P = {
   lost1: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=600&q=80&fit=crop",
   lost2: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=600&q=80&fit=crop",
   community: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80&fit=crop",
-  boarding: "https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=600&q=80&fit=crop",
+  boarding: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80&fit=crop",
 };
 
 // ── Global styles ─────────────────────────────────────────────────
@@ -152,6 +152,159 @@ a{text-decoration:none;color:inherit;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:${C.cream};}
 ::-webkit-scrollbar-thumb{background:${C.sand};border-radius:4px;}
+
+/* ---------- Bento Pet Card Design ---------- */
+.bento-pet-card {
+  background: ${C.white};
+  border-radius: 24px;
+  border: 1px solid ${C.border};
+  padding: 16px;
+  display: grid;
+  grid-template-rows: 240px auto;
+  gap: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.bento-pet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
+  border-color: rgba(229, 93, 26, 0.3);
+}
+
+.bento-pet-card .photo-box {
+  grid-row: 1;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 240px;
+}
+
+.bento-pet-card .photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bento-pet-card:hover .photo-box img {
+  transform: scale(1.04);
+}
+
+.bento-pet-card .fav-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.bento-pet-card .fav-btn:hover {
+  transform: scale(1.1);
+  background: #fff;
+}
+
+.bento-pet-card .badge-box {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: ${C.green};
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(30, 107, 69, 0.25);
+  z-index: 2;
+}
+
+.bento-pet-card .info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.bento-pet-card .info-main {
+  grid-column: span 2;
+  background: ${C.cream};
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.bento-pet-card:hover .info-main {
+  background: ${C.creamDk};
+}
+
+.bento-pet-card .info-main .pet-name {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  color: ${C.ink};
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.bento-pet-card .info-main .pet-meta {
+  color: ${C.inkSft};
+  font-size: 13px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.bento-pet-card .info-chip {
+  background: #fff;
+  border: 1px solid ${C.border};
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: ${C.inkMd};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-pet-card .info-action {
+  grid-column: span 2;
+  background: ${C.orange};
+  color: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bento-pet-card .info-action:hover {
+  background: #C94E12;
+  box-shadow: 0 4px 12px rgba(229, 93, 26, 0.25);
+}
     `;
     document.head.appendChild(el);
     return () => el.remove();
@@ -341,24 +494,30 @@ function Navbar({ page, nav }) {
     {
       label: "Company",
       children: [
-        { label: "About Us", page: "about", icon: "◈" },
-        { label: "Our Team", page: "about", icon: "◈" },
-        { label: "Contact Us", page: "contact", icon: "◈" },
+        { label: "📖 Our Story", page: "about" },
+        { label: "✉️ Contact Us", page: "contact" },
       ],
     },
-    { label: "Services", isMega: true },
+    { label: "Services", page: "services" },
     { label: "Adopt", page: "adopt" },
     {
       label: "Explore",
       children: [
-        { label: "Pet Shop", page: "shop", icon: "○" },
-        { label: "Lost & Found", page: "lost", icon: "○" },
-        { label: "Dog Breeds", page: "dog-breeds", icon: "○" },
-        { label: "Pet Videos", page: "pet-videos", icon: "○" },
-        { label: "Dashboard", page: "dashboard", icon: "○" },
+        { label: "🛍️ Pet Shop", page: "shop" },
+        { label: "🔍 Lost & Found", page: "lost" },
+        { label: "📋 Dog Breeds", page: "dog-breeds" },
+        { label: "🎥 Pet Videos", page: "pet-videos" },
+        { label: "💻 Dashboard", page: "dashboard" },
       ],
     },
   ];
+
+  const isTabActive = (item) => {
+    if (item.page === page) return true;
+    if (item.page === "services" && page.startsWith("svc-")) return true;
+    if (item.children && item.children.some(ch => ch.page === page)) return true;
+    return false;
+  };
 
   const activeCatData = SERVICE_CATS.find(c => c.cat === activeServiceCat) || SERVICE_CATS[0];
 
@@ -370,71 +529,61 @@ function Navbar({ page, nav }) {
       borderBottom: scrolled ? `1px solid ${C.border}` : "none",
       transition: "all .35s cubic-bezier(.22,1,.36,1)",
     }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", height: 68, gap: 6 }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", height: 96, gap: 6 }}>
         {/* Logo */}
         <button onClick={() => nav("home")} style={{ display: "flex", alignItems: "center", gap: 10, background: "none", border: "none", marginRight: 28, cursor: "pointer" }}>
-          <div style={{ width: 36, height: 36, borderRadius: 10, background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17 }}>🐾</div>
-          <span className="melody" style={{ fontSize: 24, color: C.ink, letterSpacing: ".04em" }}>Pawprint</span>
+          <img src="Logo.png" alt="Pawprint Logo" style={{ width: 40, height: 40, objectFit: "contain", flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif", fontSize: 20, fontWeight: 800, color: C.ink, letterSpacing: "0.05em", textTransform: "uppercase" }}>Pawprint</span>
         </button>
 
         {/* Links */}
         <div style={{ display: "flex", gap: 2, flex: 1, alignItems: "center" }}>
-          {NAV.map((item) => (
-            <div key={item.label} style={{ position: "relative" }}>
-              <button
-                onClick={() => {
-                  if (item.page) { nav(item.page); setOpen(null); }
-                  else setOpen(open === item.label ? null : item.label);
-                }}
-                onMouseEnter={() => { if (item.children || item.isMega) setOpen(item.label); }}
-                style={{
-                  background: page === item.page ? C.orangeLt : "transparent",
-                  border: "none", padding: "8px 15px", borderRadius: 10,
-                  fontSize: 14.5, fontWeight: 500, cursor: "pointer",
-                  color: page === item.page ? C.orange : C.inkMd,
-                  display: "flex", alignItems: "center", gap: 5,
-                  transition: "color .18s,background .18s",
-                }}>
-                {item.label}
-                {(item.children || item.isMega) && (
-                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
-                    style={{ transition: "transform .2s", transform: open === item.label ? "rotate(180deg)" : "" }}>
-                    <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+          {NAV.map((item) => {
+            const active = isTabActive(item) || open === item.label;
+            return (
+              <div key={item.label} style={{ position: "relative" }}>
+                <button
+                  onClick={() => {
+                    if (item.page) { nav(item.page); setOpen(null); }
+                    else setOpen(open === item.label ? null : item.label);
+                  }}
+                  onMouseEnter={() => { if (item.children || item.isMega) setOpen(item.label); }}
+                  className={`${item.children ? "nav-trigger" : "nav-link"} ${active ? "active" : ""}`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 5,
+                  }}>
+                  {item.label}
+                  {(item.children || item.isMega) && (
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="arrow-icon">
+                      <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </button>
+
+                {/* ── Standard dropdown (Company / Explore) ── */}
+                {item.children && open === item.label && (
+                  <div onMouseLeave={() => setOpen(null)} className="dropdown-menu" style={{
+                    position: "absolute",
+                    top: "calc(100% + 8px)",
+                    left: 0,
+                    background: C.white,
+                    border: `1px solid ${C.border}`,
+                  }}>
+                    {item.children.map((ch, ci) => (
+                      <button key={ci} onClick={() => { nav(ch.page); setOpen(null); }}
+                        className="dropdown-item">
+                        {ch.label}
+                      </button>
+                    ))}
+                  </div>
                 )}
-              </button>
 
-              {/* ── Standard dropdown (Company / Explore) ── */}
-              {item.children && open === item.label && (
-                <div onMouseLeave={() => setOpen(null)} style={{
-                  position: "absolute", top: "calc(100% + 8px)", left: 0,
-                  background: C.white, borderRadius: 16, border: `1px solid ${C.border}`,
-                  boxShadow: "0 24px 60px rgba(0,0,0,.13)", minWidth: 200,
-                  animation: "slideDown .2s cubic-bezier(.22,1,.36,1) both",
-                  zIndex: 100, overflow: "hidden",
-                }}>
-                  {item.children.map((ch, ci) => (
-                    <button key={ci} onClick={() => { nav(ch.page); setOpen(null); }}
-                      style={{
-                        display: "flex", alignItems: "center", gap: 10, width: "100%",
-                        padding: "12px 18px", background: "none", border: "none",
-                        textAlign: "left", fontSize: 14, color: C.inkMd, fontWeight: 500, cursor: "pointer",
-                        borderBottom: ci < item.children.length - 1 ? `1px solid ${C.border}` : "none",
-                        transition: "background .15s,color .15s",
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.background = C.cream; e.currentTarget.style.color = C.orange; }}
-                      onMouseLeave={e => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = C.inkMd; }}>
-                      <span style={{ color: C.orange, fontSize: 9 }}>{ch.icon}</span>
-                      {ch.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* ── Services MEGA-MENU ── */}
-              {item.isMega && open === "Services" && (
-                <div onMouseLeave={() => setOpen(null)} style={{
-                  position: "fixed", top: 68, left: 0, right: 0,
+                {/* ── Services MEGA-MENU ── */}
+                {item.isMega && open === "Services" && (
+                  <div onMouseLeave={() => setOpen(null)} style={{
+                    position: "fixed", top: 96, left: 0, right: 0,
                   background: C.white, borderBottom: `1px solid ${C.border}`,
                   boxShadow: "0 24px 60px rgba(0,0,0,.13)",
                   animation: "slideDown .2s cubic-bezier(.22,1,.36,1) both",
@@ -1020,13 +1169,13 @@ function HomePage({ nav }) {
                   <div className="tail"></div>
                   <div className="dog-card-body">
                     <div className="paw-watermark">🐾</div>
-                    
+
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
                       <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", background: "rgba(229,93,26,0.12)", color: C.orange, padding: "4px 12px", borderRadius: 100, letterSpacing: ".02em" }}>{t.badge || "🐶 Loved Parent"}</span>
                     </div>
-                    
+
                     <p style={{ fontSize: 14, lineHeight: 1.6, color: C.ink, marginBottom: 16, fontStyle: "italic", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>"{t.text}"</p>
-                    
+
                     <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: "auto" }}>
                       <div style={{ width: 40, height: 40, borderRadius: "50%", background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 13, color: "#fff" }}>{t.initials}</div>
                       <div>
@@ -1034,7 +1183,7 @@ function HomePage({ nav }) {
                         <div style={{ fontSize: 11, color: C.inkSft, marginTop: 1 }}>{t.role} · {t.city}</div>
                       </div>
                     </div>
-                    
+
                     <div className="nose-dot"></div>
                   </div>
                 </div>
@@ -1049,7 +1198,7 @@ function HomePage({ nav }) {
         {/* Glowing background blobs */}
         <div className="cta-blob"></div>
         <div className="cta-blob-left"></div>
-        
+
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", position: "relative", zIndex: 2 }}>
           <div>
             <h2 className="melody-italic" style={{ fontSize: "clamp(40px,5vw,70px)", fontWeight: 700, color: "#fff", lineHeight: .93, marginBottom: 24 }}>
@@ -1108,9 +1257,10 @@ function AboutPage({ nav }) {
 
   /* ── Data ────────────────────────────────────────────────────── */
   const milestones = [
-    { year: "2025", title: "Born from Love (Idea)", desc: "Frustrated by disconnected records and hard-to-reach vet clinics, Dr. Kiran and Sneha sketch a blueprint of Pawprint on a napkin." },
-    { year: "2026", title: "Execution & Launch", desc: "Making the dream a reality. Launched pet onboarding, verified vet directory, and custom shelters. Expanded to 85+ Indian cities." },
-    { year: "2027", title: "Shining Future", desc: "Leading with intelligence. Scaling our AI-driven disease predictors, smart feeding calculators, and predictive vet monitoring." },
+    { year: "2023", title: "Born from Love (Idea)", desc: "Frustrated by disconnected records and hard-to-reach vet clinics, Dr. Sriram and Sharmila sketch a blueprint of Pawprint on a napkin." },
+    { year: "2024", title: "Execution & Launch", desc: "Making the dream a reality. Launched pet onboarding, verified vet directory, and custom shelters. Expanded to 100+ Indian cities." },
+    { year: "2025", title: "Expanding India-Wide", desc: "Scaling nationwide. Expanding verified veterinary consultation, emergency care, and custom adoption shelters to every tier-1 and tier-2 city in India." },
+    { year: "2026", title: "Shining Future", desc: "Leading with intelligence. Scaling our AI-driven disease predictors, smart feeding calculators, and predictive vet monitoring." },
   ];
 
   const values = [
@@ -1158,7 +1308,7 @@ function AboutPage({ nav }) {
 
   /* ── Render ──────────────────────────────────────────────────── */
   return (
-    <div style={{ paddingTop: 68, fontFamily: "'Inter',sans-serif" }}>
+    <div style={{ paddingTop: 96, fontFamily: "'Inter',sans-serif" }}>
 
       {/* ════ 1. CINEMATIC HERO ════ */}
       <section style={{ position: "relative", minHeight: 620, overflow: "hidden", display: "flex", alignItems: "center", padding: "116px 0 100px" }}>
@@ -1306,7 +1456,7 @@ function AboutPage({ nav }) {
             Our Journey
           </div>
           <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: "#fff", lineHeight: .95, marginBottom: 64 }}>
-            Six years.<br />One relentless mission.
+            Four years.<br />One relentless mission.
           </h2>
 
           {/* Timeline — horizontal line with cards */}
@@ -1314,28 +1464,31 @@ function AboutPage({ nav }) {
             {/* Connecting line */}
             <div style={{ position: "absolute", top: 28, left: 0, right: 0, height: 2, background: `linear-gradient(to right, ${C.orange}, ${C.blue})`, borderRadius: 1 }} />
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 28 }}>
               {milestones.map((m, i) => (
-                <div key={i} style={{ paddingTop: 56, position: "relative" }}>
+                <div key={i} style={{ paddingTop: 56, position: "relative", display: "flex", flexDirection: "column", height: "100%" }}>
                   {/* Dot */}
                   <div style={{ position: "absolute", top: 16, left: "50%", transform: "translateX(-50%)", zIndex: 2 }}>
-                    <div className={i === 2 ? "timeline-glow-dot" : ""} style={{
+                    <div className={i === 3 ? "timeline-glow-dot" : ""} style={{
                       width: 24, height: 24, borderRadius: "50%",
-                      background: i === 2 ? C.orange : C.inkMd,
-                      border: `3px solid ${i === 2 ? C.orange : "rgba(255,255,255,.3)"}`,
-                      boxShadow: i === 2 ? `0 0 0 6px ${C.orange}30` : "none",
+                      background: i === 3 ? C.orange : C.inkMd,
+                      border: `3px solid ${i === 3 ? C.orange : "rgba(255,255,255,.3)"}`,
+                      boxShadow: i === 3 ? `0 0 0 6px ${C.orange}30` : "none",
                     }} />
                   </div>
 
                   {/* Card */}
                   <div style={{
+                    flex: 1,
                     background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.08)",
                     borderRadius: 16, padding: "22px 20px", textAlign: "center",
-                    borderTop: i === 2 ? `3px solid ${C.orange}` : "1px solid rgba(255,255,255,.08)",
+                    borderTop: i === 3 ? `3px solid ${C.orange}` : "1px solid rgba(255,255,255,.08)",
+                    display: "flex", flexDirection: "column", justifyContent: "flex-start",
+                    height: "100%",
                   }}>
                     <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: C.orange, marginBottom: 6 }}>{m.year}</div>
                     <div className="melody" style={{ fontSize: 19, color: "#fff", marginBottom: 8, lineHeight: 1.1 }}>{m.title}</div>
-                    <p style={{ fontSize: 12, color: "rgba(255,255,255,.45)", lineHeight: 1.7 }}>{m.desc}</p>
+                    <p style={{ fontSize: 12, color: "rgba(255,255,255,.45)", lineHeight: 1.7, margin: 0 }}>{m.desc}</p>
                   </div>
                 </div>
               ))}
@@ -1472,7 +1625,7 @@ function AboutPage({ nav }) {
             {/* Y Combinator */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
               <svg width="110" height="24" viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="4" fill="#E55D1A"/>
+                <rect width="24" height="24" rx="4" fill="#E55D1A" />
                 <text x="7" y="18" fill="#fff" fontFamily="sans-serif" fontWeight="bold" fontSize="16">Y</text>
                 <text x="32" y="17" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="bold" fontSize="14">Combinator</text>
               </svg>
@@ -1482,7 +1635,7 @@ function AboutPage({ nav }) {
             {/* Google for Startups */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, maxWidth: 160 }}>
               <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.5 12c0-3.3 2.7-6 6-6 1.8 0 3.3.8 4.4 2.1l4.2-4.2C20.6 1.5 17.5 0 14.5 0 6.5 0 0 6.5 0 14.5S6.5 29 14.5 29c7.5 0 13.5-5.5 14.5-12.5h-14.5v-4.5h19c.3 1 .5 2 .5 3 0 8.5-5.8 14.5-14.5 14.5-8 0-14.5-6.5-14.5-14.5z" fill={C.sand} transform="scale(0.6)"/>
+                <path d="M8.5 12c0-3.3 2.7-6 6-6 1.8 0 3.3.8 4.4 2.1l4.2-4.2C20.6 1.5 17.5 0 14.5 0 6.5 0 0 6.5 0 14.5S6.5 29 14.5 29c7.5 0 13.5-5.5 14.5-12.5h-14.5v-4.5h19c.3 1 .5 2 .5 3 0 8.5-5.8 14.5-14.5 14.5-8 0-14.5-6.5-14.5-14.5z" fill={C.sand} transform="scale(0.6)" />
                 <text x="24" y="16" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="bold" fontSize="14">Google</text>
               </svg>
               <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>India Cohort</div>
@@ -1565,7 +1718,7 @@ function ServicesPage({ nav }) {
       stats: [["GPS", "Every Walk"], ["Insured", "Walkers"], ["10K+", "Walks Done"]],
     },
     {
-      icon: "⭐", name: "Specialty Services", page: "svc-specialty", color: "#B45309", img: P.about1,
+      icon: "⭐", name: "Specialty Services", page: "svc-specialty", color: C.red, img: P.about1,
       price: "Varies",
       tagline: "Unique care for life's special moments.",
       desc: "From pet photography and dog parties to hospice care, microchipping, pet relocation, and emotional support dog training — specialised services for when standard isn't enough.",
@@ -1573,7 +1726,7 @@ function ServicesPage({ nav }) {
       stats: [["Specialist", "Team"], ["100%", "Compassionate"], ["5,000+", "Families Helped"]],
     },
     {
-      icon: "🛍️", name: "Retail & Extras", page: "svc-retail", color: C.orange, img: P.shop1,
+      icon: "🛍️", name: "Retail & Extras", page: "svc-retail", color: "#0EA5E9", img: P.shop1,
       price: "from ₹99",
       tagline: "Everything your pet needs, curated by vets.",
       desc: "Premium food, toys, accessories, grooming products, training tools, and travel essentials — vet-reviewed and delivered fast.",
@@ -1583,7 +1736,7 @@ function ServicesPage({ nav }) {
   ];
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ padding: "90px 0 70px", background: C.inkMd, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -100, right: -100, width: 500, height: 500, borderRadius: "50%", background: `${C.orange}12`, pointerEvents: "none" }} />
@@ -1614,57 +1767,45 @@ function ServicesPage({ nav }) {
             <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,54px)", color: C.ink, lineHeight: 1 }}>What would you like<br />to book today?</h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(340px,1fr))", gap: 28 }}>
-            {cats.map((cat, i) => (
-              <div key={i} className="card card-lift" style={{ cursor: "pointer", borderTop: `4px solid ${cat.color}` }} onClick={() => nav(cat.page)}>
-                {/* Image */}
-                <div style={{ height: 200, overflow: "hidden", position: "relative" }}>
-                  <Img src={cat.img} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .55s cubic-bezier(.22,1,.36,1)" }}
-                    onMouseEnter={e => e.target.style.transform = "scale(1.07)"}
-                    onMouseLeave={e => e.target.style.transform = "scale(1)"} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 55%)" }} />
-                  <div style={{ position: "absolute", bottom: 14, left: 16, display: "flex", alignItems: "center", gap: 8 }}>
-                    <span style={{ fontSize: 22 }}>{cat.icon}</span>
-                    <span className="melody" style={{ color: "#fff", fontSize: 20, lineHeight: 1 }}>{cat.name}</span>
+          <div className="services-bento-grid">
+            {cats.map((cat, index) => {
+              return (
+                <div key={index} className="bento-card card-lift" style={{ cursor: "pointer", borderTop: `4px solid ${cat.color}` }} onClick={() => nav(cat.page)}>
+                  <div style={{ height: 180, overflow: "hidden", position: "relative" }}>
+                    <Img src={cat.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt={cat.name} />
+                    <div style={{ position: "absolute", bottom: 12, left: 16, display: "flex", alignItems: "center", gap: 8, zIndex: 2 }}>
+                      <span style={{ fontSize: 20 }}>{cat.icon}</span>
+                      <span className="melody" style={{ color: "#fff", fontSize: 20, lineHeight: 1 }}>{cat.name}</span>
+                    </div>
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,.65) 0%, transparent 60%)" }} />
+                    <div style={{ position: "absolute", top: 12, right: 12, background: "rgba(0,0,0,.6)", borderRadius: 100, padding: "4px 12px", zIndex: 2 }}>
+                      <span style={{ color: "#fff", fontSize: 11, fontWeight: 700 }}>{cat.price}</span>
+                    </div>
                   </div>
-                  <div style={{ position: "absolute", top: 12, right: 12, background: "rgba(0,0,0,.55)", borderRadius: 100, padding: "4px 12px" }}>
-                    <span style={{ color: "#fff", fontSize: 12, fontWeight: 600 }}>{cat.price}</span>
-                  </div>
-                </div>
+                  <div style={{ padding: 24, flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                    <div>
 
-                {/* Content */}
-                <div style={{ padding: "22px 24px" }}>
-                  <p style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.7, marginBottom: 16 }}>{cat.desc}</p>
-
-                  {/* Highlights */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 18 }}>
-                    {cat.highlights.map(h => (
-                      <span key={h} style={{ fontSize: 11, fontWeight: 500, color: cat.color, background: `${cat.color}12`, padding: "3px 10px", borderRadius: 100, border: `1px solid ${cat.color}22` }}>
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Mini stats */}
-                  <div style={{ display: "flex", gap: 0, borderTop: `1px solid ${C.border}`, paddingTop: 14 }}>
-                    {cat.stats.map(([v, l], si) => (
-                      <div key={si} style={{ flex: 1, textAlign: "center", borderRight: si < cat.stats.length - 1 ? `1px solid ${C.border}` : "none" }}>
-                        <div className="melody" style={{ fontSize: 16, color: cat.color, lineHeight: 1 }}>{v}</div>
-                        <div style={{ fontSize: 10, color: C.inkSft, marginTop: 3 }}>{l}</div>
+                      {/* Stats row */}
+                      <div style={{ display: "flex", marginBottom: 18 }}>
+                        <div style={{ flex: 1, textAlign: "center", borderRight: `1px solid ${C.border}` }}>
+                          <div className="melody" style={{ fontSize: 20, color: cat.color, lineHeight: 1 }}>{cat.stats[0][0]}</div>
+                          <div style={{ fontSize: 10, color: C.inkSft, marginTop: 3 }}>{cat.stats[0][1]}</div>
+                        </div>
+                        <div style={{ flex: 1, textAlign: "center" }}>
+                          <div className="melody" style={{ fontSize: 20, color: cat.color, lineHeight: 1 }}>{cat.stats[1][0]}</div>
+                          <div style={{ fontSize: 10, color: C.inkSft, marginTop: 3 }}>{cat.stats[1][1]}</div>
+                        </div>
                       </div>
-                    ))}
+
+                      {/* Explore Button */}
+                      <button className="btn btn-md" style={{ width: "100%", background: cat.color, color: "#fff", boxShadow: `0 4px 12px ${cat.color}25`, justifyContent: "center", fontWeight: 700 }} onClick={e => { e.stopPropagation(); nav(cat.page); }}>
+                        Explore {cat.name} →
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                {/* CTA row */}
-                <div style={{ padding: "0 24px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: 13, color: C.inkSft }}>{cat.highlights.length} services available</span>
-                  <button className="btn btn-sm btn-primary" style={{ background: cat.color, boxShadow: `0 4px 14px ${cat.color}44` }} onClick={e => { e.stopPropagation(); nav(cat.page); }}>
-                    Explore →
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1768,7 +1909,7 @@ function AdoptPage({ nav }) {
   const af = (k) => (e) => setAForm(x => ({ ...x, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value }));
 
   if (step === "success") return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 68 }}>
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 96 }}>
       <div style={{ textAlign: "center", padding: 60 }}>
         <div style={{ fontSize: 80, marginBottom: 24, animation: "float 2s ease-in-out infinite" }}>🎉</div>
         <h2 className="melody" style={{ fontSize: 52, fontWeight: 700, color: C.ink, marginBottom: 16 }}>Application Sent!</h2>
@@ -1779,7 +1920,7 @@ function AdoptPage({ nav }) {
   );
 
   if (step === "form" && pet) return (
-    <div style={{ paddingTop: 68, background: C.cream, minHeight: "100vh" }}>
+    <div style={{ paddingTop: 96, background: C.cream, minHeight: "100vh" }}>
       <div style={{ maxWidth: 860, margin: "0 auto", padding: "48px 32px 80px" }}>
         <button className="btn btn-md btn-ghost" onClick={() => setStep("detail")} style={{ marginBottom: 32 }}>← Back to {pet.name}'s Profile</button>
         <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 40, padding: "20px 24px", background: C.white, borderRadius: 20, border: `1px solid ${C.border}` }}>
@@ -1902,7 +2043,7 @@ function AdoptPage({ nav }) {
   );
 
   if (step === "detail" && pet) return (
-    <div style={{ paddingTop: 68, background: C.cream, minHeight: "100vh" }}>
+    <div style={{ paddingTop: 96, background: C.cream, minHeight: "100vh" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 32px" }}>
         <button className="btn btn-md btn-ghost" onClick={() => setStep("list")} style={{ marginBottom: 32 }}>← All Pets</button>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "start" }}>
@@ -1941,7 +2082,7 @@ function AdoptPage({ nav }) {
 
   // LIST
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       <section style={{ padding: "90px 0 60px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill pill-green" style={{ marginBottom: 24 }}>Adoption</div>
@@ -1949,7 +2090,7 @@ function AdoptPage({ nav }) {
           <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 480 }}>Every pet here is verified, health-checked, and waiting for exactly the right person — maybe that's you.</p>
         </div>
       </section>
-      <section style={{ padding: "0 0 100px", background: C.cream }}>
+      <section style={{ padding: "40px 0 100px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           {/* Filters */}
           <div style={{ display: "flex", gap: 12, marginBottom: 36, flexWrap: "wrap", alignItems: "center", padding: "18px 22px", background: C.white, borderRadius: 18, border: `1px solid ${C.border}` }}>
@@ -2013,7 +2154,7 @@ function VetPage() {
   ];
 
   if (confirmed) return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 68 }}>
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 96 }}>
       <div style={{ textAlign: "center", padding: 60 }}>
         <div style={{ width: 80, height: 80, borderRadius: "50%", background: C.green, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 36, color: "#fff", margin: "0 auto 24px", animation: "float 2s ease-in-out infinite" }}>✓</div>
         <h2 className="melody" style={{ fontSize: 48, fontWeight: 700, color: C.ink, marginBottom: 12 }}>Appointment Confirmed!</h2>
@@ -2025,7 +2166,7 @@ function VetPage() {
   );
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       <section style={{ padding: "90px 0 60px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill pill-blue" style={{ marginBottom: 24 }}>Veterinary</div>
@@ -2124,7 +2265,7 @@ function ShopPage() {
   const total = cart.reduce((s, p) => s + p.price, 0);
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       <section style={{ padding: "90px 0 60px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <div>
@@ -2140,7 +2281,7 @@ function ShopPage() {
 
       {/* Cart drawer */}
       {cartOpen && (
-        <div style={{ position: "fixed", top: 0, right: 0, bottom: 0, width: 380, background: C.white, boxShadow: "-20px 0 60px rgba(0,0,0,.14)", zIndex: 800, display: "flex", flexDirection: "column", paddingTop: 68 }}>
+        <div style={{ position: "fixed", top: 0, right: 0, bottom: 0, width: 380, background: C.white, boxShadow: "-20px 0 60px rgba(0,0,0,.14)", zIndex: 800, display: "flex", flexDirection: "column", paddingTop: 96 }}>
           <div style={{ padding: "22px 26px", borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <h3 className="melody" style={{ fontWeight: 700, color: C.ink, fontSize: 18 }}>Cart ({cart.length})</h3>
             <button onClick={() => setCartOpen(false)} style={{ background: C.cream, border: "none", borderRadius: "50%", width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>✕</button>
@@ -2168,7 +2309,7 @@ function ShopPage() {
         </div>
       )}
 
-      <section style={{ padding: "0 0 100px", background: C.cream }}>
+      <section style={{ padding: "40px 0 100px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ display: "flex", gap: 8, marginBottom: 36, flexWrap: "wrap" }}>
             {cats.map(c => (
@@ -2340,7 +2481,7 @@ function LostFoundPage() {
   ];
 
   if (submitted) return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 68 }}>
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 96 }}>
       <div style={{ textAlign: "center", padding: 60 }}>
         <div style={{ fontSize: 80, marginBottom: 24, animation: "float 2s ease-in-out infinite" }}>✅</div>
         <h2 className="melody" style={{ fontSize: 48, fontWeight: 700, color: C.ink, marginBottom: 16 }}>{type === "lost" ? "Report Submitted!" : "Found Report Submitted!"}</h2>
@@ -2368,7 +2509,7 @@ function LostFoundPage() {
   );
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ padding: "90px 0 60px", background: C.inkMd, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -60, right: -60, width: 320, height: 320, borderRadius: "50%", background: `${C.orange}15`, pointerEvents: "none" }} />
@@ -2392,7 +2533,7 @@ function LostFoundPage() {
       </section>
 
       {/* Tab bar */}
-      <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, position: "sticky", top: 68, zIndex: 50 }}>
+      <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, position: "sticky", top: 96, zIndex: 50 }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", gap: 0 }}>
           {[
             { id: "report", label: "📝 Report a Pet" },
@@ -2766,7 +2907,7 @@ function DashboardPage({ nav }) {
   const resetAddPet = () => { setNewPet(emptyPet); setPetImgPreview(null); setAddStep(1); setShowAddPet(false); };
 
   return (
-    <div style={{ paddingTop: 68, minHeight: "100vh", background: C.cream }}>
+    <div style={{ paddingTop: 96, minHeight: "100vh", background: C.cream }}>
 
       {/* ── Header ── */}
       <div style={{ background: C.inkMd, padding: "36px 0" }}>
@@ -3091,7 +3232,7 @@ function AuthPage({ type, nav }) {
   const iStyle = { padding: "14px 18px", borderRadius: 14, border: `1.5px solid ${C.border}`, fontSize: 15, outline: "none", background: "#fff", color: C.ink, transition: "border .18s", width: "100%" };
 
   return (
-    <div style={{ minHeight: "100vh", display: "grid", gridTemplateColumns: "1fr 1fr", paddingTop: 68 }}>
+    <div style={{ minHeight: "100vh", display: "grid", gridTemplateColumns: "1fr 1fr", paddingTop: 96 }}>
       <div style={{ position: "relative", overflow: "hidden" }}>
         <Img src={P.about1} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.52)" }} />
@@ -3166,7 +3307,7 @@ function ContactPage() {
   const iStyle = { padding: "13px 16px", borderRadius: 12, border: `1.5px solid ${C.border}`, fontSize: 15, outline: "none", color: C.ink, background: "#fff", transition: "border .18s", width: "100%" };
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       <section style={{ padding: "100px 0", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
           <div>
@@ -3414,12 +3555,13 @@ function BookingForm({ serviceName, nav }) {
 /* Generic service category page template */
 function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, services, whyUs, faqItems, nav }) {
   const [activeSvc, setActiveSvc] = useState(null);
-  const [faqOpen, setFaqOpen] = useState(null);
+
+
 
   const activeSvcData = activeSvc ? services.find(s => s.name === activeSvc) : null;
 
   if (activeSvcData) return (
-    <div style={{ paddingTop: 68, background: C.cream, minHeight: "100vh" }}>
+    <div style={{ paddingTop: 96, background: C.cream, minHeight: "100vh" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 32px 80px" }}>
         <button className="btn btn-md btn-ghost" style={{ marginBottom: 32 }} onClick={() => setActiveSvc(null)}>← Back to {cat}</button>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "start" }}>
@@ -3465,7 +3607,7 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
   );
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ position: "relative", height: 440, overflow: "hidden" }}>
         <Img src={heroImg} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -3535,26 +3677,6 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
                 <div style={{ fontSize: 32, marginBottom: 14 }}>{p.icon}</div>
                 <div className="melody" style={{ fontSize: 20, color: "#fff", marginBottom: 8 }}>{p.title}</div>
                 <p style={{ fontSize: 13, color: "rgba(255,255,255,.5)", lineHeight: 1.7 }}>{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ padding: "80px 0", background: C.cream }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 32px" }}>
-          <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", color: C.ink, marginBottom: 40, lineHeight: 1 }}>Frequently Asked<br />Questions</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            {faqItems.map((f, i) => (
-              <div key={i} style={{ background: C.white, borderRadius: 16, border: `1px solid ${C.border}`, overflow: "hidden" }}>
-                <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 24px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
-                  <span style={{ fontSize: 15, fontWeight: 600, color: C.ink, paddingRight: 20, lineHeight: 1.4 }}>{f.q}</span>
-                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: faqOpen === i ? color : C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "background .2s" }}>
-                    <span style={{ color: faqOpen === i ? "#fff" : C.inkSft, fontSize: 16, transform: faqOpen === i ? "rotate(45deg)" : "", display: "block", transition: "transform .25s" }}>+</span>
-                  </div>
-                </button>
-                {faqOpen === i && <div style={{ padding: "0 24px 18px" }}><p style={{ fontSize: 14, color: C.inkSft, lineHeight: 1.8, borderTop: `1px solid ${C.border}`, paddingTop: 14 }}>{f.a}</p></div>}
               </div>
             ))}
           </div>
@@ -3699,7 +3821,7 @@ function SvcRetailPage({ nav }) {
   const total = cart.reduce((s, p) => s + parseInt(p.price.replace(/[^0-9]/g, "") || 0), 0);
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ position: "relative", height: 360, overflow: "hidden" }}>
         <Img src={P.shop1} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -3721,7 +3843,7 @@ function SvcRetailPage({ nav }) {
 
       {/* Cart drawer */}
       {cartOpen && (
-        <div style={{ position: "fixed", top: 0, right: 0, bottom: 0, width: 380, background: C.white, boxShadow: "-20px 0 60px rgba(0,0,0,.14)", zIndex: 800, display: "flex", flexDirection: "column", paddingTop: 68 }}>
+        <div style={{ position: "fixed", top: 0, right: 0, bottom: 0, width: 380, background: C.white, boxShadow: "-20px 0 60px rgba(0,0,0,.14)", zIndex: 800, display: "flex", flexDirection: "column", paddingTop: 96 }}>
           <div style={{ padding: "22px 26px", borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div className="melody" style={{ fontWeight: 700, color: C.ink, fontSize: 22 }}>Cart ({cart.length})</div>
             <button onClick={() => setCartOpen(false)} style={{ background: C.cream, border: "none", borderRadius: "50%", width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>✕</button>
@@ -4423,7 +4545,7 @@ function PetVideosPage({ nav }) {
   );
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       {playing && <VideoModal v={videos.find(v => v.id === playing)} />}
 
       {/* Hero */}
@@ -4771,7 +4893,7 @@ function DogBreedsPage({ nav }) {
   };
 
   return (
-    <div style={{ paddingTop: 68 }}>
+    <div style={{ paddingTop: 96 }}>
       {selectedBreed && <BreedModal b={selectedBreed} />}
 
       {/* ── Hero ── */}
@@ -4805,7 +4927,7 @@ function DogBreedsPage({ nav }) {
       </section>
 
       {/* ── Filter bar (sticky) ── */}
-      <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, position: "sticky", top: 68, zIndex: 50 }}>
+      <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, position: "sticky", top: 96, zIndex: 50 }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", gap: 0, overflowX: "auto" }}>
           {FILTERS.map(f => (
             <button key={f} onClick={() => { setActiveFilter(f); setActiveLetter("All"); setSizeFilter("All"); }}
@@ -5010,6 +5132,12 @@ export default function App() {
   return (
     <>
       <GlobalStyles />
+      {/* Thin top progress brand accent bar */}
+      <div style={{
+        position: "fixed", top: 0, left: 0, right: 0, height: 3,
+        background: `linear-gradient(to right, ${C.orange}, ${C.blue})`,
+        zIndex: 1001
+      }} />
       <Navbar page={page} nav={nav} />
       <main key={page} style={{ animation: "fadeIn .3s ease both" }}>
         {PAGE_MAP[page] ?? PAGE_MAP.home}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,10 +27,9 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <div
-          style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; fontSize: 17px;">
-          🐾</div>
-        <span class="melody" style="font-size: 24px; color: var(--color-ink); letter-spacing: .04em;">Pawprint</span>
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <span
+          style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
 
       <!-- Nav Links -->
@@ -51,20 +50,14 @@
           </button>
           <div id="dropdown-company" class="dropdown-menu"
             style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 About Us</button>
+            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
             <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
           </div>
         </div>
 
-        <!-- Services Mega-Menu Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-services" class="nav-trigger" onclick="toggleMegaMenu()">
-            Services
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
+        <!-- Services Link -->
+        <div style="position: relative;">
+          <button id="nav-btn-services" class="nav-link" onclick="nav('services')">Services</button>
         </div>
 
         <!-- Adopt Link -->
@@ -423,9 +416,7 @@
         <!-- Brand column -->
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <div
-              style="width: 34px; height: 34px; border-radius: 9px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-              🐾</div>
+            <img src="Logo.png" alt="Pawprint Logo" style="width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 8px;">
             <span class="melody" style="font-size: 22px; color: #fff; letter-spacing: .03em;">Pawprint</span>
           </div>
           <p

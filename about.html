@@ -27,10 +27,9 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <div
-          style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; fontSize: 17px;">
-          🐾</div>
-        <span class="melody" style="font-size: 24px; color: var(--color-ink); letter-spacing: .04em;">Pawprint</span>
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <span
+          style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
 
       <!-- Nav Links -->
@@ -51,20 +50,14 @@
           </button>
           <div id="dropdown-company" class="dropdown-menu"
             style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 About Us</button>
+            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
             <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
           </div>
         </div>
 
-        <!-- Services Mega-Menu Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-services" class="nav-trigger" onclick="toggleMegaMenu()">
-            Services
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
+        <!-- Services Link -->
+        <div style="position: relative;">
+          <button id="nav-btn-services" class="nav-link" onclick="nav('services')">Services</button>
         </div>
 
         <!-- Adopt Link -->
@@ -135,7 +128,8 @@
   <main id="main-content" style="padding-top: 96px;">
     <section id="page-about" class="page-section">
       <!-- About Hero -->
-      <section style="position: relative; min-height: 620px; overflow: hidden; display: flex; align-items: center; padding: 112px 0 100px;">
+      <section
+        style="position: relative; min-height: 620px; overflow: hidden; display: flex; align-items: center; padding: 80px 0 100px;">
         <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=80&fit=crop"
           style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
           alt="Pets Collage">
@@ -145,17 +139,16 @@
         <div
           style="position: absolute; top: -120px; right: -120px; width: 480px; height: 480px; border-radius: 50%; border: 2px solid rgba(229, 93, 26, 0.18); pointer-events: none;">
         </div>
-        <div
-          style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 48px; width: 100%;">
+        <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 48px; width: 100%;">
           <div class="pill pill-orange" style="margin-bottom: 24px;">Our Story · Our Team · Our Mission</div>
           <h1 class="melody"
             style="font-size: clamp(58px,7.5vw,110px); color: #fff; line-height: .9; margin-bottom: 28px; max-width: 900px;">
             Born from love.<br><span style="color: var(--color-orange);">Built for pets.</span>
           </h1>
           <p
-            style="font-size: 19px; color: rgba(255,255,255,.7); line-height: 1.75; max-width: 580px; margin-bottom: 44px;">
-            Pawprint started when Dr. Kiran couldn't find a single trusted platform to manage his three rescue dogs.
-            That frustration became a mission — and that mission became India's most loved pet care platform.
+            style="font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.75; max-width: 580px; margin-bottom: 44px;">
+            Pawprint started when Dr. Sriram couldn't find a single trusted platform to manage the rescue dogs.
+            That frustration became a mission and that mission became India's Most Loved Pet Care Platform.
           </p>
           <div
             style="display: flex; gap: 0; background: rgba(255,255,255,.08); backdrop-filter: blur(12px); border-radius: 18px; border: 1px solid rgba(255,255,255,.12); overflow: hidden; width: fit-content;">
@@ -195,52 +188,68 @@
               <div class="pill pill-orange" style="margin-bottom: 20px;">The Origin Story</div>
               <h2 class="melody"
                 style="font-size: clamp(38px,4vw,58px); color: var(--color-ink); line-height: .95; margin-bottom: 28px;">
-                A vet, an engineer,<br>and a rescue dog<br>named Diesel.
+                A Designer, an HR,<br>an Engineer, &<br>a Rescue Dog named Spikey.
               </h2>
               <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.85; margin-bottom: 20px;">
-                In 2019, Dr. Kiran Patel's rescue Labrador Diesel developed a kidney condition that went undetected for
-                months — not because good vets didn't exist, but because there was no single, trusted platform to book
-                them, track health records, or even get a timely reminder.
+                In 2023, Dr. Sriram's rescue pet Spikey developed a kidney condition that went undetected for
+                months - not because good vets didn't exist but because there was no single trusted platform to book
+                them, track health records or even get a timely reminder.
               </p>
               <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.85; margin-bottom: 20px;">
-                Dr. Kiran called his college friend Sneha Krishnamurthy, then a machine learning engineer at Google.
-                They sketched Pawprint on a napkin that night. Six months later, they both quit their jobs. Arjun Mehta
-                joined soon after, bringing operational scale from his years at Swiggy.
+                Dr. Sriram called his office friend Sharmila, then an HR.
+                They sketched Pawprint on a napkin that night. Six months later, they both quit their jobs. Arjun
+                joined soon after, bringing operational scale from his years at Google.
               </p>
               <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.85;">
-                Today Pawprint serves 45,000+ pets across 85+ cities — but the mission hasn't changed. Every decision,
+                Today Pawprint serves 50,000+ Pets across 100+ Cities - but the Mission hasn't Changed. Every decision,
                 every feature, every hire still comes back to the same question: <em
-                  style="color: var(--color-ink); font-style: italic;">does this make life better for pets and the
-                  people who love them?</em>
+                  style="color: var(--color-ink); font-style: italic;">Does this Make Life Better for Pets and the
+                  People who Love them?</em>
               </p>
             </div>
             <div style="display: flex; flex-direction: column; gap: 32px;">
               <!-- Mission Card -->
               <div class="mission-card">
                 <div class="glow-bg"></div>
-                <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; position: relative; z-index: 2;">
-                  <div style="width: 48px; height: 48px; border-radius: 14px; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">🎯</div>
+                <div
+                  style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; position: relative; z-index: 2;">
+                  <div
+                    style="width: 48px; height: 48px; border-radius: 14px; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+                    🎯</div>
                   <div>
-                    <h3 class="melody" style="font-size: 28px; color: var(--color-ink); margin: 0; line-height: 1;">Our Mission</h3>
-                    <div style="font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-sft); margin-top: 4px;">Why we exist</div>
+                    <h3 class="melody" style="font-size: 28px; color: var(--color-ink); margin: 0; line-height: 1;">Our
+                      Mission</h3>
+                    <div
+                      style="font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-sft); margin-top: 4px;">
+                      Why we exist</div>
                   </div>
                 </div>
-                <p style="font-size: 14px; color: var(--color-ink); line-height: 1.7; font-weight: 400; position: relative; z-index: 2; margin: 0;">
-                  To make world-class pet care accessible, affordable, and joyful for every pet family in India — from the smallest hamlet to the largest city.
+                <p
+                  style="font-size: 14px; color: var(--color-ink); line-height: 1.7; font-weight: 400; position: relative; z-index: 2; margin: 0;">
+                  To make world-class pet care accessible, affordable, and joyful for every pet family in India - from
+                  the smallest hamlet to the largest city.
                 </p>
               </div>
               <!-- Vision Card -->
               <div class="vision-card">
                 <div class="glow-bg"></div>
-                <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; position: relative; z-index: 2;">
-                  <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,0.10); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">🌟</div>
+                <div
+                  style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; position: relative; z-index: 2;">
+                  <div
+                    style="width: 48px; height: 48px; border-radius: 14px; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+                    🌟</div>
                   <div>
-                    <h3 class="melody" style="font-size: 28px; color: #fff; margin: 0; line-height: 1;">Our Vision</h3>
-                    <div style="font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.50); margin-top: 4px;">Where we're going</div>
+                    <h3 class="melody" style="font-size: 28px; color: var(--color-ink); margin: 0; line-height: 1;">Our
+                      Vision</h3>
+                    <div
+                      style="font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-sft); margin-top: 4px;">
+                      Where we're going</div>
                   </div>
                 </div>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.7; font-weight: 400; position: relative; z-index: 2; margin: 0;">
-                  A world where no pet goes without proper healthcare, no animal waits too long for adoption, and every pet parent has the confidence to give their very best.
+                <p
+                  style="font-size: 14px; color: var(--color-ink); line-height: 1.7; font-weight: 400; position: relative; z-index: 2; margin: 0;">
+                  A world where no pet goes without proper healthcare, no animal waits too long for adoption, and every
+                  pet parent has the confidence to give their very best.
                 </p>
               </div>
             </div>
@@ -249,14 +258,15 @@
       </section>
 
       <!-- Values Grid -->
-      <section style="padding: 100px 0; background: var(--color-cream);">
+      <section style="padding: 60px 0 100px; background: var(--color-cream);">
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; text-align: center;">
           <div class="pill pill-orange" style="margin-bottom: 20px;">Our Values</div>
           <h2 class="melody"
             style="font-size: clamp(36px,4vw,54px); color: var(--color-ink); line-height: .95; margin-bottom: 16px;">
             What we stand for.</h2>
-          <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.8; max-width: 600px; margin: 0 auto 52px;">
-            These six principles aren't wall decor. They're the filter every decision at Pawprint passes through.
+          <p
+            style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.8; max-width: 600px; margin: 0 auto 52px;">
+            These five principles aren't wall decor. They're the filter every decision at Pawprint passes through.
           </p>
           <div id="about-values-grid" class="values-grid">
             <!-- Loaded dynamically in app.js -->
@@ -272,13 +282,13 @@
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
           <div class="pill pill-orange" style="margin-bottom: 20px;">Our Journey</div>
           <h2 class="melody"
-            style="font-size: clamp(36px,4vw,56px); color: #fff; line-height: .95; margin-bottom: 64px;">Six
-            years.<br>One relentless mission.</h2>
+            style="font-size: clamp(36px,4vw,56px); color: #fff; line-height: .95; margin-bottom: 64px;">Four
+            years.<br>One Relentless Mission.</h2>
           <div style="position: relative;">
             <div
               style="position: absolute; top: 28px; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--color-orange), var(--color-blue)); border-radius: 1px;">
             </div>
-            <div id="about-timeline-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+            <div id="about-timeline-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;">
               <!-- Loaded dynamically in app.js -->
             </div>
           </div>
@@ -290,70 +300,132 @@
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
           <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 48px;">
             <div class="pill pill-orange">Leadership</div>
-            <h2 class="melody" style="font-size: clamp(36px,4vw,56px); color: var(--color-ink); line-height: .95; margin: 0;">The founders<br>behind Pawprint.</h2>
-            <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.8; max-width: 600px; margin: 0;">Three people who left stable careers to build something they believed the world needed.</p>
+            <h2 class="melody"
+              style="font-size: clamp(36px,4vw,56px); color: var(--color-ink); line-height: .95; margin: 0;">The
+              founders<br>behind Pawprint.</h2>
+            <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.8; max-width: 600px; margin: 0;">
+              Three people who left stable careers to build something they believed the world needed.</p>
           </div>
 
           <!-- Leadership Side-by-Side Cards Grid -->
-          <div id="leadership-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+          <div id="leadership-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
             <!-- Loaded dynamically in app.js -->
           </div>
         </div>
       </section>
 
-      <!-- Extended Team -->
+      <!-- Press and Recognition -->
       <section style="padding: 80px 0 100px; background: var(--color-cream);">
-        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px;">
-            <div class="pill pill-orange">The Team</div>
-            <h2 class="melody" style="font-size: clamp(32px,4vw,50px); color: var(--color-ink); line-height: .95; margin: 0;">The people who make<br>it happen every day.</h2>
-            <p style="font-size: 16px; color: var(--color-ink-sft); max-width: 600px; line-height: 1.75; margin: 0;">A 120-person team of vets, engineers, designers, and dog lovers — united by one mission.</p>
-          </div>
-          <!-- Scrolling Bento Cards Marquee -->
-          <div class="team-marquee-wrap" style="overflow: hidden; padding: 20px 0; background: transparent; position: relative;">
-            <div style="position: absolute; top: 0; bottom: 0; left: 0; width: 100px; background: linear-gradient(to right, var(--color-cream), transparent); z-index: 2; pointer-events: none;"></div>
-            <div style="position: absolute; top: 0; bottom: 0; right: 0; width: 100px; background: linear-gradient(to left, var(--color-cream), transparent); z-index: 2; pointer-events: none;"></div>
-            
-            <div id="about-extended-team-marquee" class="team-marquee-track" style="display: flex; gap: 20px; width: max-content;">
-              <!-- Loaded dynamically in app.js -->
+        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; text-align: center;">
+          <div style="margin-bottom: 36px;"><span class="pill pill-dark">Recognised By</span></div>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto;">
+            <!-- Y Combinator card -->
+            <div class="recognition-card">
+              <svg class="star-badge" style="animation-delay: 0s;" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg class="paw-bg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="7.5" cy="9.5" r="2" />
+                <circle cx="10.5" cy="6.5" r="2" />
+                <circle cx="14.5" cy="6.5" r="2" />
+                <circle cx="17.5" cy="9.5" r="2" />
+                <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+              </svg>
+              <div
+                style="font-weight: 800; font-size: 15px; color: #E55D1A; display: flex; align-items: center; gap: 4px;">
+                <span
+                  style="background: #E55D1A; color: #fff; width: 20px; height: 20px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900;">Y</span>
+                Combinator
+              </div>
+              <div
+                style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">
+                S21 Alumni</div>
+            </div>
+            <!-- Google card -->
+            <div class="recognition-card">
+              <svg class="star-badge" style="animation-delay: 0.4s;" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg class="paw-bg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="7.5" cy="9.5" r="2" />
+                <circle cx="10.5" cy="6.5" r="2" />
+                <circle cx="14.5" cy="6.5" r="2" />
+                <circle cx="17.5" cy="9.5" r="2" />
+                <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+              </svg>
+              <div
+                style="font-weight: 800; font-size: 15px; color: var(--color-ink); display: flex; align-items: center; gap: 6px;">
+                <span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span
+                  style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span
+                  style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
+              </div>
+              <div
+                style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">
+                India Cohort</div>
+            </div>
+            <!-- Forbes card -->
+            <div class="recognition-card">
+              <svg class="star-badge" style="animation-delay: 0.8s;" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg class="paw-bg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="7.5" cy="9.5" r="2" />
+                <circle cx="10.5" cy="6.5" r="2" />
+                <circle cx="14.5" cy="6.5" r="2" />
+                <circle cx="17.5" cy="9.5" r="2" />
+                <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+              </svg>
+              <div
+                style="font-family: Georgia, serif; font-weight: 900; font-size: 17px; color: var(--color-ink); font-style: italic;">
+                Forbes</div>
+              <div
+                style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">
+                Ones to Watch 2023</div>
+            </div>
+            <!-- Economic Times card -->
+            <div class="recognition-card">
+              <svg class="star-badge" style="animation-delay: 1.2s;" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg class="paw-bg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="7.5" cy="9.5" r="2" />
+                <circle cx="10.5" cy="6.5" r="2" />
+                <circle cx="14.5" cy="6.5" r="2" />
+                <circle cx="17.5" cy="9.5" r="2" />
+                <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+              </svg>
+              <div style="font-weight: 900; font-size: 11px; color: var(--color-ink); letter-spacing: 0.5px;">THE
+                ECONOMIC TIMES</div>
+              <div
+                style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">
+                Startup of the Year 2024</div>
+            </div>
+            <!-- NASSCOM card -->
+            <div class="recognition-card">
+              <svg class="star-badge" style="animation-delay: 1.6s;" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <svg class="paw-bg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="7.5" cy="9.5" r="2" />
+                <circle cx="10.5" cy="6.5" r="2" />
+                <circle cx="14.5" cy="6.5" r="2" />
+                <circle cx="17.5" cy="9.5" r="2" />
+                <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+              </svg>
+              <div style="font-weight: 800; font-size: 13px; color: var(--color-ink); letter-spacing: 1px;">NASSCOM
+              </div>
+              <div
+                style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">
+                Top 10 DeepTech</div>
             </div>
           </div>
-
-          <!-- Press and Recognition -->
-          <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid var(--color-border); text-align: center;">
-            <div style="margin-bottom: 36px;"><span class="pill pill-dark">Recognised By</span></div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto;">
-              <!-- Y Combinator card -->
-              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
-                <div style="font-weight: 800; font-size: 15px; color: #E55D1A; display: flex; align-items: center; gap: 4px;">
-                  <span style="background: #E55D1A; color: #fff; width: 20px; height: 20px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900;">Y</span> Combinator
-                </div>
-                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">S21 Alumni</div>
-              </div>
-              <!-- Google card -->
-              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
-                <div style="font-weight: 800; font-size: 15px; color: var(--color-ink); display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
-                </div>
-                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">India Cohort</div>
-              </div>
-              <!-- Forbes card -->
-              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
-                <div style="font-family: Georgia, serif; font-weight: 900; font-size: 17px; color: var(--color-ink); font-style: italic;">Forbes</div>
-                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">Ones to Watch 2023</div>
-              </div>
-              <!-- Economic Times card -->
-              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
-                <div style="font-weight: 900; font-size: 11px; color: var(--color-ink); letter-spacing: 0.5px;">THE ECONOMIC TIMES</div>
-                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">Startup of the Year 2024</div>
-              </div>
-              <!-- NASSCOM card -->
-              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
-                <div style="font-weight: 800; font-size: 13px; color: var(--color-ink); letter-spacing: 1px;">NASSCOM</div>
-                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">Top 10 DeepTech</div>
-              </div>
-            </div>
-          </div>
+        </div>
         </div>
       </section>
     </section>
@@ -392,9 +464,8 @@
         <!-- Brand column -->
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <div
-              style="width: 34px; height: 34px; border-radius: 9px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 16px;">
-              🐾</div>
+            <img src="Logo.png" alt="Pawprint Logo"
+              style="width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 8px;">
             <span class="melody" style="font-size: 22px; color: #fff; letter-spacing: .03em;">Pawprint</span>
           </div>
           <p
@@ -403,19 +474,42 @@
           <!-- Socials -->
           <div style="display: flex; gap: 8px;">
             <button class="btn btn-social" onclick="alert('Redirecting to Facebook...')" aria-label="Facebook">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
             </button>
             <button class="btn btn-social" onclick="alert('Redirecting to Instagram...')" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
             </button>
             <button class="btn btn-social" onclick="alert('Redirecting to LinkedIn...')" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
             </button>
             <button class="btn btn-social" onclick="alert('Redirecting to X...')" aria-label="X">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
             </button>
             <button class="btn btn-social" onclick="alert('Redirecting to YouTube...')" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
             </button>
           </div>
         </div>
@@ -484,9 +578,14 @@
   <!-- ==========================================
        CHATBOT OVERLAY (WIDGET)
        ========================================== -->
-  
+
   <!-- Go to Top Button -->
-  <button id="gotop-btn" class="gotop-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Go to Top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></button>
+  <button id="gotop-btn" class="gotop-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="Go to Top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg></button>
   <div id="chatbot-wrapper" style="position: fixed; bottom: 28px; right: 28px; z-index: 1000;">
     <!-- Chat chatbot window -->
     <div id="chatbot-window"

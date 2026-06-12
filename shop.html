@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,10 +27,9 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <div
-          style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; fontSize: 17px;">
-          🐾</div>
-        <span class="melody" style="font-size: 24px; color: var(--color-ink); letter-spacing: .04em;">Pawprint</span>
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <span
+          style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
 
       <!-- Nav Links -->
@@ -51,20 +50,14 @@
           </button>
           <div id="dropdown-company" class="dropdown-menu"
             style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 About Us</button>
+            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
             <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
           </div>
         </div>
 
-        <!-- Services Mega-Menu Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-services" class="nav-trigger" onclick="toggleMegaMenu()">
-            Services
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
+        <!-- Services Link -->
+        <div style="position: relative;">
+          <button id="nav-btn-services" class="nav-link" onclick="nav('services')">Services</button>
         </div>
 
         <!-- Adopt Link -->
@@ -134,31 +127,39 @@
        ========================================== -->
   <main id="main-content" style="padding-top: 96px;">
     <section id="page-shop" class="page-section">
-      <section style="padding: 90px 0 60px; background: var(--color-cream);">
+      <section style="padding: 120px 0 80px; position: relative; overflow: hidden;">
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1400&q=80&fit=crop"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
+          alt="Shop Hero Background">
         <div
-          style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end;">
+          style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%);">
+        </div>
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2;">
           <div>
             <div class="pill pill-orange" style="margin-bottom: 24px;">Shop</div>
             <h1 class="melody-italic"
-              style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: var(--color-ink);">
+              style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: #fff;">
               Premium.<br>Trusted. Fast.</h1>
           </div>
-          <button class="btn btn-md btn-outline" onclick="toggleCartDrawer()" style="position: relative;">
-            🛒 Cart
-            <span id="shop-cart-badge"
-              style="display: none; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--color-orange); color: #fff; font-size: 11px; font-weight: 700; align-items: center; justify-content: center;">0</span>
-          </button>
         </div>
       </section>
 
-      <section style="padding: 0 0 100px; background: var(--color-cream);">
+      <section style="padding: 60px 0 100px; background: var(--color-cream);">
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-          <!-- Categories list -->
-          <div id="shop-categories-tabs" style="display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap;">
-            <!-- Rendered in app.js -->
+          <!-- Categories list and Cart button container -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; gap: 16px; flex-wrap: wrap;">
+            <div id="shop-categories-tabs" style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <!-- Rendered in app.js -->
+            </div>
+            <button class="btn btn-md btn-outline" onclick="toggleCartDrawer()" style="position: relative; color: var(--color-ink); border-color: var(--color-border);">
+              🛒 Cart
+              <span id="shop-cart-badge"
+                style="display: none; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--color-orange); color: #fff; font-size: 11px; font-weight: 700; align-items: center; justify-content: center;">0</span>
+            </button>
           </div>
           <!-- Products Catalog -->
-          <div id="shop-products-grid" class="app-grid">
+          <div id="shop-products-grid" class="shop-grid">
             <!-- Loaded dynamically in app.js -->
           </div>
         </div>

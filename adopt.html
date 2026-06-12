@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,10 +27,9 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <div
-          style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; fontSize: 17px;">
-          🐾</div>
-        <span class="melody" style="font-size: 24px; color: var(--color-ink); letter-spacing: .04em;">Pawprint</span>
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <span
+          style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
 
       <!-- Nav Links -->
@@ -51,20 +50,14 @@
           </button>
           <div id="dropdown-company" class="dropdown-menu"
             style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 About Us</button>
+            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
             <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
           </div>
         </div>
 
-        <!-- Services Mega-Menu Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-services" class="nav-trigger" onclick="toggleMegaMenu()">
-            Services
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
+        <!-- Services Link -->
+        <div style="position: relative;">
+          <button id="nav-btn-services" class="nav-link" onclick="nav('services')">Services</button>
         </div>
 
         <!-- Adopt Link -->
@@ -152,7 +145,7 @@
               is verified, health-checked, and waiting for exactly the right person — maybe that's you.</p>
           </div>
         </section>
-        <section style="padding: 0 0 100px; background: var(--color-cream);">
+        <section style="padding: 60px 0 100px; background: var(--color-cream);">
           <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
             <!-- Filters bar -->
             <div
@@ -160,15 +153,7 @@
               <span
                 style="font-size: 13px; font-weight: 700; color: var(--color-ink-sft); letter-spacing: .04em; text-transform: uppercase;">Filter:</span>
 
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <span style="font-size: 12px; color: var(--color-ink-sft); font-weight: 600;">Species:</span>
-                <select id="adopt-filter-species" onchange="filterPets()"
-                  style="padding: 6px 12px; border-radius: 100px; border: 1.5px solid var(--color-border); font-size: 13px; background: #fff; cursor: pointer;">
-                  <option value="All">All Species</option>
-                  <option value="Dog">Dog</option>
-                  <option value="Cat">Cat</option>
-                </select>
-              </div>
+
 
               <div style="display: flex; gap: 6px; align-items: center;">
                 <span style="font-size: 12px; color: var(--color-ink-sft); font-weight: 600;">Size:</span>
@@ -191,12 +176,12 @@
                 </select>
               </div>
 
-              <span id="adopt-count" style="margin-left: auto; font-size: 13px; color: var(--color-ink-sft);">6 pets
+              <span id="adopt-count" style="margin-left: auto; font-size: 13px; color: var(--color-ink-sft);">8 dogs
                 found</span>
             </div>
 
             <!-- Pets Grid -->
-            <div id="adopt-grid" class="app-grid">
+            <div id="adopt-grid" class="shop-grid">
               <!-- Populated dynamically in app.js -->
             </div>
           </div>
