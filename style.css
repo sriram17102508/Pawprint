@@ -1240,13 +1240,7 @@ a {
   animation: pulseGlow 2s infinite !important;
 }
 
-.founder-card:hover img {
-  transform: scale(1.06);
-}
 
-.founder-card:hover .founder-overlay {
-  opacity: 1 !important;
-}
 
 .team-bento-card:hover .team-bento-hover {
   opacity: 1 !important;
@@ -1270,4 +1264,245 @@ a {
   display: none !important;
 }
 
+
+
+/* ==========================================
+   Premium Mission & Vision Card Design
+   ========================================== */
+.mission-card, .vision-card {
+  padding: 40px 44px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  border: 1.5px solid transparent !important;
+}
+
+.mission-card {
+  background: linear-gradient(135deg, #ffffff, #fffdfa);
+  border-color: rgba(229, 93, 26, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(229, 93, 26, 0.03) !important;
+}
+
+.mission-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(229, 93, 26, 0.25) !important;
+  box-shadow: 0 20px 45px rgba(229, 93, 26, 0.12) !important;
+}
+
+.vision-card {
+  background: linear-gradient(135deg, #181820, #0c0c10);
+  border-color: rgba(41, 121, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.vision-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(41, 121, 255, 0.25) !important;
+  box-shadow: 0 20px 45px rgba(41, 121, 255, 0.18) !important;
+}
+
+/* Glowing backdrops inside cards */
+.mission-card .glow-bg {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 93, 26, 0.15) 0%, rgba(229, 93, 26, 0) 70%);
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mission-card:hover .glow-bg {
+  transform: scale(1.2) translate(-10px, 10px);
+}
+
+.vision-card .glow-bg {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(41, 121, 255, 0.25) 0%, rgba(41, 121, 255, 0) 70%);
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vision-card:hover .glow-bg {
+  transform: scale(1.2) translate(-10px, 10px);
+}
+
+/* ==========================================
+   Premium Mission & Vision Card Design
+   ========================================== */
+.mission-card, .vision-card {
+  padding: 40px 44px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  border: 1.5px solid transparent !important;
+}
+
+.mission-card {
+  background: linear-gradient(135deg, #ffffff, #fffdfa);
+  border-color: rgba(229, 93, 26, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(229, 93, 26, 0.03) !important;
+}
+
+.mission-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(229, 93, 26, 0.25) !important;
+  box-shadow: 0 20px 45px rgba(229, 93, 26, 0.12) !important;
+}
+
+.vision-card {
+  background: linear-gradient(135deg, #181820, #0c0c10);
+  border-color: rgba(41, 121, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.vision-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(41, 121, 255, 0.25) !important;
+  box-shadow: 0 20px 45px rgba(41, 121, 255, 0.18) !important;
+}
+
+/* Glowing backdrops inside cards */
+.mission-card .glow-bg {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 93, 26, 0.15) 0%, rgba(229, 93, 26, 0) 70%);
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mission-card:hover .glow-bg {
+  transform: scale(1.2) translate(-10px, 10px);
+}
+
+.vision-card .glow-bg {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(41, 121, 255, 0.25) 0%, rgba(41, 121, 255, 0) 70%);
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vision-card:hover .glow-bg {
+  transform: scale(1.2) translate(-10px, 10px);
+}
+
+/* ==========================================
+   VALUES GRID AND CARDS REDESIGN (BENTO BOX)
+   ========================================== */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.value-card {
+  background: var(--card-bg, var(--color-white));
+  border: 1px solid var(--card-border, var(--color-border));
+  border-radius: 24px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.value-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--card-accent) !important;
+  box-shadow: 0 20px 40px var(--card-shadow, rgba(0, 0, 0, 0.08));
+  background: var(--card-hover-bg) !important;
+}
+
+.value-card .value-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.2) rotate(6deg);
+}
+
+.value-card .value-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+  z-index: 2;
+}
+
+.value-card .value-desc {
+  font-size: 11.5px;
+  color: var(--color-ink-sft);
+  line-height: 1.5;
+  margin: 0;
+  z-index: 2;
+}
+
+.value-card .card-paw-watermark {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 80px;
+  height: 80px;
+  color: var(--card-accent);
+  opacity: 0.04;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  z-index: 1;
+}
+
+.value-card:hover .card-paw-watermark {
+  opacity: 0.09;
+  transform: scale(1.15) rotate(-12deg);
+}
+
+/* Responsiveness for values-grid */
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
 

@@ -189,12 +189,11 @@ const milestones = [
 ];
 
 const values = [
-  { icon:"❤️", title:"Compassion First",    desc:"Every product decision, every hire, every partnership — animal welfare always comes first." },
-  { icon:"🔬", title:"Science-Backed",      desc:"We partner with leading veterinary institutions and never recommend what isn't evidence-based." },
-  { icon:"○",  title:"Radical Transparency",desc:"Open pricing, honest advice, and no hidden fees — ever. What you see is exactly what you get." },
-  { icon:"🌱", title:"Sustainability",       desc:"Eco-conscious products, paperless records, and carbon-offset delivery on all shop orders." },
-  { icon:"⬡",  title:"Community",           desc:"We're building a nation of confident, informed, and responsible pet parents — one family at a time." },
-  { icon:"🚀", title:"Innovation",          desc:"AI health tools, smart tracking, predictive care — technology deployed thoughtfully in service of pets." },
+  { icon:"🐾❤️", title:"Compassion First",    desc:"Every product decision, every hire, every partnership - animal welfare always comes first.", bg:"#FEF2F2", border:"#FCA5A5", accent:"#EF4444", shadowRgb:"239, 68, 68" },
+  { icon:"🦮🔬", title:"Science-Backed",      desc:"We partner with leading veterinary institutions and never recommend what isn't evidence-based.", bg:"#EFF6FF", border:"#BFDBFE", accent:"#3B82F6", shadowRgb:"59, 130, 246" },
+  { icon:"🐕🔍", title:"Radical Transparency",desc:"Open pricing, honest advice, and no hidden fees - ever. What you see is exactly what you get.", bg:"#FFFBEB", border:"#FDE68A", accent:"#D97706", shadowRgb:"217, 119, 6" },
+  { icon:"🌱🐾", title:"Sustainability",       desc:"Eco-conscious products, paperless records, and carbon-offset delivery on all shop orders.", bg:"#F0FDF4", border:"#BBF7D0", accent:"#22C55E", shadowRgb:"34, 197, 94" },
+  { icon:"🐩🐺", title:"Community",           desc:"We're building a nation of confident, informed, and responsible pet parents - one family at a time.", bg:"#FAF5FF", border:"#E9D5FF", accent:"#8B5CF6", shadowRgb:"139, 92, 246" },
 ];
 
 const leadership = [
@@ -222,12 +221,18 @@ const leadership = [
 ];
 
 const extended = [
-  { name:"Priya Venkatesh",   role:"Head of Veterinary Ops", dept:"Medical",    img:P.vet2,     note:"Manages all 1,200+ vet partner relationships and clinical quality standards." },
-  { name:"Rahul Desai",       role:"VP Engineering",          dept:"Product",    img:P.team1,    note:"Leads the 60-person engineering team building Pawprint's core platform." },
-  { name:"Meenakshi Iyer",    role:"Head of Grooming Ops",    dept:"Operations", img:P.team2,    note:"Certified master groomer overseeing training and quality for all grooming partners." },
-  { name:"Siddharth Nair",    role:"Chief of Staff",          dept:"Strategy",   img:P.team3,    note:"Ex-McKinsey. Coordinates cross-functional strategy and investor relations." },
-  { name:"Lakshmi Subramanian",role:"Head of Brand & Design", dept:"Brand",      img:P.vet2,     note:"Award-winning designer who shaped Pawprint's identity from day one." },
-  { name:"Vivek Krishnan",    role:"Head of AI Research",     dept:"Medical AI", img:P.team1,    note:"PhD in computational biology. Leads the AI health assistant and disease-prediction models." },
+  { name:"Sriram",            role:"VP of Product",          dept:"Product",    img:P.team1,    note:"Shapes the roadmap and ensures our pet management features are world-class." },
+  { name:"Swathi",            role:"Head of Veterinary Care", dept:"Medical",    img:P.vet2,    note:"Coordinates with veterinary institutions to ensure evidence-based care." },
+  { name:"Nikila",            role:"Lead UX Designer",       dept:"Brand",      img:P.team2,    note:"Designs beautiful, premium experiences for pet parents." },
+  { name:"Sharmila",          role:"Head of Grooming Ops",   dept:"Operations", img:P.team3,    note:"Manages our groomer training and service standards across all cities." },
+  { name:"Prabavathi",        role:"Lead Software Architect", dept:"Product",    img:P.team1,    note:"Builds predictive algorithms for the Paws AI health assistant." },
+  { name:"Gopinath",          role:"VP of Engineering",      dept:"Product",    img:P.team3,    note:"Scales real-time data services and ensures 100% platform uptime." },
+  { name:"Swetha",            role:"Head of Adoption",       dept:"Operations", img:P.team2,    note:"Partners with shelters to make verification and meet-and-greets simple." },
+  { name:"Abinaya",           role:"Brand Copywriter",       dept:"Brand",      img:P.vet2,    note:"Crafts clear, caring guides and resources for our pet community." },
+  { name:"Dhivyadharisni",    role:"Senior App Developer",   dept:"Product",    img:P.team1,    note:"Develops smooth native mobile experiences for health tracking on the go." },
+  { name:"Siva",              role:"Logistics Manager",      dept:"Operations", img:P.team3,    note:"Manages supply chains for eco-conscious products in the Pet Shop." },
+  { name:"Vanisree",          role:"Customer Support Lead",  dept:"Operations", img:P.team2,    note:"Ensures 24/7 empathetic support for queries, bookings, and emergencies." },
+  { name:"Nandhini",          role:"Senior Data Analyst",    dept:"Strategy",   img:P.vet2,    note:"Extracts behavioral insights to personalize dietary and wellness advice." }
 ];
 
 const videos = [
@@ -914,7 +919,6 @@ function renderHomeTestimonials() {
         box-shadow: ${active ? '0 20px 40px rgba(0,0,0,0.12)' : 'none'};">
         <div class="ear-left"></div>
         <div class="ear-right"></div>
-        <div class="pop-dog">${t.dogEmoji || '🐶'}</div>
         <div class="tail"></div>
         <div class="dog-card-body">
           <div class="paw-watermark">🐾</div>
@@ -1012,10 +1016,17 @@ function renderAboutTabContent() {
   const valGrid = document.getElementById('about-values-grid');
   if (valGrid) {
     valGrid.innerHTML = values.map(v => `
-      <div class="card card-lift" style="padding: 32px 28px;">
-        <div style="font-size: 28px; margin-bottom: 14px;">${v.icon}</div>
-        <div class="melody" style="font-size: 21px; color: var(--color-ink); margin-bottom: 8px;">${v.title}</div>
-        <p style="font-size: 13.5px; color: var(--color-ink-sft); line-height: 1.75;">${v.desc}</p>
+      <div class="value-card" style="--card-bg: ${v.bg}; --card-border: ${v.border}; --card-accent: ${v.accent}; --card-hover-bg: linear-gradient(145deg, ${v.bg} 0%, #FFFFFF 100%); --card-shadow: 0 20px 40px rgba(${v.shadowRgb}, 0.12);">
+        <div class="value-icon">${v.icon}</div>
+        <div class="value-title melody">${v.title}</div>
+        <p class="value-desc">${v.desc}</p>
+        <svg class="card-paw-watermark" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="7.5" cy="9.5" r="2" />
+          <circle cx="10.5" cy="6.5" r="2" />
+          <circle cx="14.5" cy="6.5" r="2" />
+          <circle cx="17.5" cy="9.5" r="2" />
+          <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+        </svg>
       </div>
     `).join('');
   }
@@ -1049,16 +1060,12 @@ function renderAboutTabContent() {
       <div class="card card-lift founder-card" style="position: relative; overflow: hidden; border-radius: 24px; background: var(--color-white); border: 1px solid var(--color-border-md); display: flex; flex-direction: column; height: 100%;">
         <div style="height: 330px; overflow: hidden; position: relative;">
           <img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);" alt="${l.name}">
-          <!-- Quote overlay on hover -->
-          <div class="founder-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(229, 93, 26, 0.96), rgba(29, 95, 196, 0.96)); padding: 28px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; z-index: 5;">
-            <p style="color: #fff; font-size: 14px; font-style: italic; line-height: 1.7; font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">${l.quote}</p>
           </div>
-        </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
           <div style="margin-bottom: 20px;">
             <div class="pill pill-orange" style="font-size: 10px; padding: 4px 10px; margin-bottom: 12px; width: fit-content; text-transform: uppercase;">${l.role}</div>
             <h3 class="melody" style="font-size: 26px; color: var(--color-ink); margin-bottom: 8px; line-height: 1.1;">${l.name}</h3>
-            <p style="font-size: 13.5px; color: var(--color-ink-sft); line-height: 1.7; margin-bottom: 0;">${l.bio.split(". ").slice(0, 2).join(". ")}.</p>
+            
           </div>
           <div>
             <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-sand); margin-bottom: 8px;">Key Background</div>

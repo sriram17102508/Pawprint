@@ -51,8 +51,7 @@
           </button>
           <div id="dropdown-company" class="dropdown-menu"
             style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
-            <button onclick="nav('about')" class="dropdown-item">👥 Our Team</button>
+            <button onclick="nav('about')" class="dropdown-item">📖 About Us</button>
             <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
           </div>
         </div>
@@ -136,7 +135,7 @@
   <main id="main-content" style="padding-top: 96px;">
     <section id="page-about" class="page-section">
       <!-- About Hero -->
-      <section style="position: relative; min-height: 620px; overflow: hidden; display: flex; align-items: center; padding: 120px 0 100px;">
+      <section style="position: relative; min-height: 620px; overflow: hidden; display: flex; align-items: center; padding: 112px 0 100px;">
         <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=80&fit=crop"
           style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
           alt="Pets Collage">
@@ -215,55 +214,33 @@
                   people who love them?</em>
               </p>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 40px;">
+            <div style="display: flex; flex-direction: column; gap: 32px;">
               <!-- Mission Card -->
-              <div
-                style="padding: 40px 44px; border-radius: 24px; background: var(--color-cream); border: 1px solid var(--color-border); position: relative; overflow: hidden;">
-                <div
-                  style="position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; border-radius: 50%; background: rgba(229, 93, 26, 0.06);">
-                </div>
-                <div
-                  style="display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; position: relative; z-index: 2;">
-                  <div
-                    style="width: 44px; height: 44px; border-radius: 12px; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
-                    🎯</div>
+              <div class="mission-card">
+                <div class="glow-bg"></div>
+                <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; position: relative; z-index: 2;">
+                  <div style="width: 48px; height: 48px; border-radius: 14px; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">🎯</div>
                   <div>
-                    <div
-                      style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 4px;">
-                      Our Mission</div>
-                    <div class="melody" style="font-size: 15px; color: var(--color-ink-sft); letter-spacing: .03em;">Why
-                      we exist</div>
+                    <h3 class="melody" style="font-size: 28px; color: var(--color-ink); margin: 0; line-height: 1;">Our Mission</h3>
+                    <div style="font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-sft); margin-top: 4px;">Why we exist</div>
                   </div>
                 </div>
-                <p
-                  style="font-size: 17px; color: var(--color-ink); line-height: 1.75; font-weight: 500; position: relative; z-index: 2;">
-                  To make world-class pet care accessible, affordable, and joyful for every pet family in India — from
-                  the smallest hamlet to the largest city.
+                <p style="font-size: 14px; color: var(--color-ink); line-height: 1.7; font-weight: 400; position: relative; z-index: 2; margin: 0;">
+                  To make world-class pet care accessible, affordable, and joyful for every pet family in India — from the smallest hamlet to the largest city.
                 </p>
               </div>
               <!-- Vision Card -->
-              <div
-                style="padding: 40px 44px; border-radius: 24px; background: var(--color-ink); position: relative; overflow: hidden;">
-                <div
-                  style="position: absolute; top: -50px; right: -50px; width: 180px; height: 180px; border-radius: 50%; background: rgba(29, 95, 196, 0.15);">
-                </div>
-                <div
-                  style="display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; position: relative; z-index: 2;">
-                  <div
-                    style="width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
-                    🌟</div>
+              <div class="vision-card">
+                <div class="glow-bg"></div>
+                <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px; position: relative; z-index: 2;">
+                  <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,0.10); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">🌟</div>
                   <div>
-                    <div
-                      style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-blue); margin-bottom: 4px;">
-                      Our Vision</div>
-                    <div class="melody" style="font-size: 15px; color: rgba(255,255,255,.45); letter-spacing: .03em;">
-                      Where we're going</div>
+                    <h3 class="melody" style="font-size: 28px; color: #fff; margin: 0; line-height: 1;">Our Vision</h3>
+                    <div style="font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.50); margin-top: 4px;">Where we're going</div>
                   </div>
                 </div>
-                <p
-                  style="font-size: 17px; color: rgba(255,255,255,.85); line-height: 1.75; font-weight: 500; position: relative; z-index: 2;">
-                  A world where no pet goes without proper healthcare, no animal waits too long for adoption, and every
-                  pet parent has the confidence to give their very best.
+                <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.7; font-weight: 400; position: relative; z-index: 2; margin: 0;">
+                  A world where no pet goes without proper healthcare, no animal waits too long for adoption, and every pet parent has the confidence to give their very best.
                 </p>
               </div>
             </div>
@@ -273,30 +250,16 @@
 
       <!-- Values Grid -->
       <section style="padding: 100px 0; background: var(--color-cream);">
-        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-          <div style="display: grid; grid-template-columns: 280px 1.2fr 1fr; gap: 48px; align-items: start;">
-            <div style="position: sticky; top: 100px;">
-              <div class="pill pill-orange" style="margin-bottom: 20px;">Our Values</div>
-              <h2 class="melody"
-                style="font-size: clamp(36px,4vw,54px); color: var(--color-ink); line-height: .95; margin-bottom: 20px;">
-                What we<br>stand for.</h2>
-              <p style="font-size: 15px; color: var(--color-ink-sft); line-height: 1.8;">These six principles aren't
-                wall decor. They're the filter every decision at Pawprint passes through.</p>
-            </div>
-            <div id="about-values-grid" style="display: grid; grid-template-columns: 1fr; gap: 16px;">
-              <!-- Loaded dynamically in app.js -->
-            </div>
-            <!-- GIF/Image Sidebar -->
-            <div style="position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px;">
-              <div class="card" style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 48px rgba(0,0,0,0.08); border: 1px solid var(--color-border-md);">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q1M25ycjVwbDRldThicTZybmF0aGNzMDN0ZnZ6dnZ4NmQ0dHkyMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vz58J8shQm5BC/giphy.gif" style="width: 100%; height: 260px; object-fit: cover;" alt="Cute Dog Playing">
-              </div>
-              <div class="card" style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 48px rgba(0,0,0,0.08); border: 1px solid var(--color-border-md); padding: 24px; background: var(--color-white); text-align: center;">
-                <span style="font-size: 36px; display: block; margin-bottom: 8px;">🐕🐈</span>
-                <p style="font-size: 14px; font-weight: 700; color: var(--color-ink);">Driven by a love for animals.</p>
-                <p style="font-size: 12px; color: var(--color-ink-sft); margin-top: 6px;">Every day we strive to make their lives as happy, healthy, and full of joy as they make ours.</p>
-              </div>
-            </div>
+        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; text-align: center;">
+          <div class="pill pill-orange" style="margin-bottom: 20px;">Our Values</div>
+          <h2 class="melody"
+            style="font-size: clamp(36px,4vw,54px); color: var(--color-ink); line-height: .95; margin-bottom: 16px;">
+            What we stand for.</h2>
+          <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.8; max-width: 600px; margin: 0 auto 52px;">
+            These six principles aren't wall decor. They're the filter every decision at Pawprint passes through.
+          </p>
+          <div id="about-values-grid" class="values-grid">
+            <!-- Loaded dynamically in app.js -->
           </div>
         </div>
       </section>
@@ -325,15 +288,10 @@
       <!-- Leadership Tabs & Profiles -->
       <section style="padding: 100px 0; background: var(--color-white);">
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-          <div
-            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; flex-wrap: wrap; gap: 20px;">
-            <div>
-              <div class="pill pill-orange" style="margin-bottom: 20px;">Leadership</div>
-              <h2 class="melody" style="font-size: clamp(36px,4vw,56px); color: var(--color-ink); line-height: .95;">The
-                founders<br>behind Pawprint.</h2>
-            </div>
-            <p style="font-size: 15px; color: var(--color-ink-sft); line-height: 1.8; max-width: 360px;">Three people
-              who left stable careers to build something they believed the world needed.</p>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 48px;">
+            <div class="pill pill-orange">Leadership</div>
+            <h2 class="melody" style="font-size: clamp(36px,4vw,56px); color: var(--color-ink); line-height: .95; margin: 0;">The founders<br>behind Pawprint.</h2>
+            <p style="font-size: 16px; color: var(--color-ink-sft); line-height: 1.8; max-width: 600px; margin: 0;">Three people who left stable careers to build something they believed the world needed.</p>
           </div>
 
           <!-- Leadership Side-by-Side Cards Grid -->
@@ -346,13 +304,10 @@
       <!-- Extended Team -->
       <section style="padding: 80px 0 100px; background: var(--color-cream);">
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-          <div class="pill pill-orange" style="margin-bottom: 16px;">The Team</div>
-          <div
-            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 16px;">
-            <h2 class="melody" style="font-size: clamp(32px,4vw,50px); color: var(--color-ink); line-height: .95;">The
-              people who make<br>it happen every day.</h2>
-            <p style="font-size: 15px; color: var(--color-ink-sft); max-width: 360px; line-height: 1.75;">A 120-person
-              team of vets, engineers, designers, and dog lovers — united by one mission.</p>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px;">
+            <div class="pill pill-orange">The Team</div>
+            <h2 class="melody" style="font-size: clamp(32px,4vw,50px); color: var(--color-ink); line-height: .95; margin: 0;">The people who make<br>it happen every day.</h2>
+            <p style="font-size: 16px; color: var(--color-ink-sft); max-width: 600px; line-height: 1.75; margin: 0;">A 120-person team of vets, engineers, designers, and dog lovers — united by one mission.</p>
           </div>
           <!-- Scrolling Bento Cards Marquee -->
           <div class="team-marquee-wrap" style="overflow: hidden; padding: 20px 0; background: transparent; position: relative;">
@@ -365,51 +320,37 @@
           </div>
 
           <!-- Press and Recognition -->
-          <div
-            style="margin-top: 80px; padding-top: 60px; border-top: 1px solid var(--color-border); text-align: center;">
-            <div style="margin-bottom: 32px;"><span class="pill pill-dark">Recognised By</span></div>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap;">
-              <!-- Y Combinator logo -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 160px;">
-                <svg width="110" height="24" viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="24" height="24" rx="4" fill="#E55D1A"/>
-                  <text x="7" y="18" fill="#fff" font-family="sans-serif" font-weight="bold" font-size="16">Y</text>
-                  <text x="32" y="17" fill="var(--color-sand)" font-family="sans-serif" font-weight="bold" font-size="14">Combinator</text>
-                </svg>
-                <div style="font-size: 11px; font-weight: 600; color: var(--color-sand); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3;">S21 Alumni</div>
+          <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid var(--color-border); text-align: center;">
+            <div style="margin-bottom: 36px;"><span class="pill pill-dark">Recognised By</span></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto;">
+              <!-- Y Combinator card -->
+              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
+                <div style="font-weight: 800; font-size: 15px; color: #E55D1A; display: flex; align-items: center; gap: 4px;">
+                  <span style="background: #E55D1A; color: #fff; width: 20px; height: 20px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900;">Y</span> Combinator
+                </div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">S21 Alumni</div>
               </div>
-
-              <!-- Google for Startups logo -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 160px;">
-                <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.5 12c0-3.3 2.7-6 6-6 1.8 0 3.3.8 4.4 2.1l4.2-4.2C20.6 1.5 17.5 0 14.5 0 6.5 0 0 6.5 0 14.5S6.5 29 14.5 29c7.5 0 13.5-5.5 14.5-12.5h-14.5v-4.5h19c.3 1 .5 2 .5 3 0 8.5-5.8 14.5-14.5 14.5-8 0-14.5-6.5-14.5-14.5z" fill="var(--color-sand)" transform="scale(0.6)"/>
-                  <text x="24" y="16" fill="var(--color-sand)" font-family="sans-serif" font-weight="bold" font-size="14">Google</text>
-                </svg>
-                <div style="font-size: 11px; font-weight: 600; color: var(--color-sand); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3;">India Cohort</div>
+              <!-- Google card -->
+              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
+                <div style="font-weight: 800; font-size: 15px; color: var(--color-ink); display: flex; align-items: center; gap: 6px;">
+                  <span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
+                </div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">India Cohort</div>
               </div>
-
-              <!-- Forbes India logo -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 160px;">
-                <svg width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="0" y="18" fill="var(--color-sand)" font-family="Georgia, serif" font-weight="bold" font-size="20" font-style="italic" letter-spacing="-0.5">Forbes</text>
-                </svg>
-                <div style="font-size: 11px; font-weight: 600; color: var(--color-sand); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3;">Ones to Watch 2023</div>
+              <!-- Forbes card -->
+              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
+                <div style="font-family: Georgia, serif; font-weight: 900; font-size: 17px; color: var(--color-ink); font-style: italic;">Forbes</div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">Ones to Watch 2023</div>
               </div>
-
-              <!-- Economic Times logo -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 160px;">
-                <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="0" y="18" fill="var(--color-sand)" font-family="sans-serif" font-weight="900" font-size="16" letter-spacing="1">THE ECONOMIC TIMES</text>
-                </svg>
-                <div style="font-size: 11px; font-weight: 600; color: var(--color-sand); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3;">Startup of the Year 2024</div>
+              <!-- Economic Times card -->
+              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
+                <div style="font-weight: 900; font-size: 11px; color: var(--color-ink); letter-spacing: 0.5px;">THE ECONOMIC TIMES</div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">Startup of the Year 2024</div>
               </div>
-
-              <!-- NASSCOM logo -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 160px;">
-                <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="0" y="18" fill="var(--color-sand)" font-family="sans-serif" font-weight="800" font-size="16" letter-spacing="1.5">NASSCOM</text>
-                </svg>
-                <div style="font-size: 11px; font-weight: 600; color: var(--color-sand); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3;">Top 10 DeepTech</div>
+              <!-- NASSCOM card -->
+              <div style="background: var(--color-white); padding: 20px; border-radius: 16px; border: 1.5px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
+                <div style="font-weight: 800; font-size: 13px; color: var(--color-ink); letter-spacing: 1px;">NASSCOM</div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase; letter-spacing: 0.05em;">Top 10 DeepTech</div>
               </div>
             </div>
           </div>
@@ -545,7 +486,7 @@
        ========================================== -->
   
   <!-- Go to Top Button -->
-  <button id="gotop-btn" class="gotop-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth' })" title="Go to Top">â†‘</button>
+  <button id="gotop-btn" class="gotop-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Go to Top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></button>
   <div id="chatbot-wrapper" style="position: fixed; bottom: 28px; right: 28px; z-index: 1000;">
     <!-- Chat chatbot window -->
     <div id="chatbot-window"
