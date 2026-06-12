@@ -1114,12 +1114,11 @@ function AboutPage({ nav }) {
   ];
 
   const values = [
-    { icon: "❤️", title: "Compassion First", desc: "Every product decision, every hire, every partnership — animal welfare always comes first." },
-    { icon: "🔬", title: "Science-Backed", desc: "We partner with leading veterinary institutions and never recommend what isn't evidence-based." },
-    { icon: "○", title: "Radical Transparency", desc: "Open pricing, honest advice, and no hidden fees — ever. What you see is exactly what you get." },
-    { icon: "🌱", title: "Sustainability", desc: "Eco-conscious products, paperless records, and carbon-offset delivery on all shop orders." },
-    { icon: "⬡", title: "Community", desc: "We're building a nation of confident, informed, and responsible pet parents — one family at a time." },
-    { icon: "🚀", title: "Innovation", desc: "AI health tools, smart tracking, predictive care — technology deployed thoughtfully in service of pets." },
+    { icon: "🐾❤️", title: "Compassion First", desc: "Every product decision, every hire, every partnership - animal welfare always comes first.", bg: "#FEF2F2", border: "#FCA5A5", accent: "#EF4444", shadowRgb: "239, 68, 68" },
+    { icon: "🦮🔬", title: "Science-Backed", desc: "We partner with leading veterinary institutions and never recommend what isn't evidence-based.", bg: "#EFF6FF", border: "#BFDBFE", accent: "#3B82F6", shadowRgb: "59, 130, 246" },
+    { icon: "🐕🔍", title: "Radical Transparency", desc: "Open pricing, honest advice, and no hidden fees - ever. What you see is exactly what you get.", bg: "#FFFBEB", border: "#FDE68A", accent: "#D97706", shadowRgb: "217, 119, 6" },
+    { icon: "🌱🐾", title: "Sustainability", desc: "Eco-conscious products, paperless records, and carbon-offset delivery on all shop orders.", bg: "#F0FDF4", border: "#BBF7D0", accent: "#22C55E", shadowRgb: "34, 197, 94" },
+    { icon: "🐩🐺", title: "Community", desc: "We're building a nation of confident, informed, and responsible pet parents - one family at a time.", bg: "#FAF5FF", border: "#E9D5FF", accent: "#8B5CF6", shadowRgb: "139, 92, 246" },
   ];
 
   const leadership = [
@@ -1162,7 +1161,7 @@ function AboutPage({ nav }) {
     <div style={{ paddingTop: 68, fontFamily: "'Inter',sans-serif" }}>
 
       {/* ════ 1. CINEMATIC HERO ════ */}
-      <section style={{ position: "relative", minHeight: 620, overflow: "hidden", display: "flex", alignItems: "center", padding: "120px 0 100px" }}>
+      <section style={{ position: "relative", minHeight: 620, overflow: "hidden", display: "flex", alignItems: "center", padding: "116px 0 100px" }}>
         <Img src={P.about1} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(17,17,17,.72) 0%, rgba(17,17,17,.3) 60%, rgba(17,17,17,.75) 100%)" }} />
 
@@ -1257,53 +1256,43 @@ function AboutPage({ nav }) {
         </div>
       </section>
 
-      {/* ════ 3. VALUES (3-column layout) ════ */}
+      {/* ════ 3. VALUES (Single Row of Squared Cards) ════ */}
       <section style={{ padding: "100px 0", background: C.cream }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "280px 1.2fr 1fr", gap: 48, alignItems: "start" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
+          <div className="pill pill-orange" style={{ marginBottom: 20, display: "inline-block" }}>
+            Our Values
+          </div>
+          <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,54px)", color: C.ink, lineHeight: .95, marginBottom: 20 }}>
+            What we stand for.
+          </h2>
+          <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.8, maxWidth: 600, margin: "0 auto 52px" }}>
+            These five principles aren't wall decor. They're the filter every decision at Pawprint passes through.
+          </p>
 
-            {/* Left sticky label */}
-            <div style={{ position: "sticky", top: 100 }}>
-              <div className="pill pill-orange" style={{ marginBottom: 20 }}>
-                Our Values
-              </div>
-              <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,54px)", color: C.ink, lineHeight: .95, marginBottom: 20 }}>
-                What we<br />stand for.
-              </h2>
-              <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.8 }}>
-                These six principles aren't wall decor. They're the filter every decision at Pawprint passes through.
-              </p>
-            </div>
-
-            {/* Middle values cards stack */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              {values.map((v, i) => (
-                <div key={i} style={{
-                  padding: "32px 28px", borderRadius: 20,
-                  background: C.white, border: `1px solid ${C.border}`,
-                  transition: "transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s ease",
-                  cursor: "default",
+          <div className="values-grid">
+            {values.map((v, i) => (
+              <div key={i}
+                className="value-card"
+                style={{
+                  '--card-bg': v.bg,
+                  '--card-border': v.border,
+                  '--card-accent': v.accent,
+                  '--card-hover-bg': `linear-gradient(145deg, ${v.bg} 0%, #FFFFFF 100%)`,
+                  '--card-shadow': `0 20px 40px rgba(${v.shadowRgb}, 0.12)`,
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 48px rgba(0,0,0,.09)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
-                  <div style={{ fontSize: 28, marginBottom: 14 }}>{v.icon}</div>
-                  <div className="melody" style={{ fontSize: 21, color: C.ink, marginBottom: 8 }}>{v.title}</div>
-                  <p style={{ fontSize: 13.5, color: C.inkSft, lineHeight: 1.75 }}>{v.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Right GIF/Image sidebar */}
-            <div style={{ position: "sticky", top: 100, display: "flex", flexDirection: "column", gap: 20 }}>
-              <div className="card" style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 20px 48px rgba(0,0,0,0.08)", border: `1px solid ${C.border}` }}>
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q1M25ycjVwbDRldThicTZybmF0aGNzMDN0ZnZ6dnZ4NmQ0dHkyMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vz58J8shQm5BC/giphy.gif" style={{ width: "100%", height: 260, objectFit: "cover" }} alt="Cute Dog Playing" />
+              >
+                <div className="value-icon">{v.icon}</div>
+                <div className="melody value-title">{v.title}</div>
+                <p className="value-desc">{v.desc}</p>
+                <svg className="card-paw-watermark" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="7.5" cy="9.5" r="2" />
+                  <circle cx="10.5" cy="6.5" r="2" />
+                  <circle cx="14.5" cy="6.5" r="2" />
+                  <circle cx="17.5" cy="9.5" r="2" />
+                  <path d="M12 11.5c-2 0-3.5 1.5-3.5 3.5 0 2.5 1.5 4 3.5 4s3.5-1.5 3.5-4c0-2-1.5-3.5-3.5-3.5z" />
+                </svg>
               </div>
-              <div className="card" style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 20px 48px rgba(0,0,0,0.08)", border: `1px solid ${C.border}`, padding: 24, background: C.white, textAlign: "center" }}>
-                <span style={{ fontSize: 36, display: "block", marginBottom: 8 }}>🐕🐈</span>
-                <p style={{ fontSize: 14, fontWeight: 700, color: C.ink }}>Driven by a love for animals.</p>
-                <p style={{ fontSize: 12, color: C.inkSft, marginTop: 6 }}>Every day we strive to make their lives as happy, healthy, and full of joy as they make ours.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
