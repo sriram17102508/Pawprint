@@ -2200,4 +2200,201 @@ a {
   }
 }
 
+/* ==========================================
+   Innovative Auth Wizard & Dashboard Styles
+   ========================================== */
+.glass-form {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 30px 80px rgba(17, 17, 17, 0.08) !important;
+  border-radius: 32px !important;
+}
+
+.glow-input {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.glow-input:focus {
+  border-color: var(--color-orange) !important;
+  box-shadow: 0 0 0 4px rgba(229, 93, 26, 0.14), inset 0 2px 4px rgba(0, 0, 0, 0.01) !important;
+  background: #fff !important;
+}
+
+/* Step Wizard Progress Bar */
+.wizard-progress {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 36px;
+}
+.wizard-progress::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-border);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.wizard-progress-bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-orange), var(--color-blue));
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wizard-progress-step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 2px solid var(--color-border-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-ink-sft);
+  position: relative;
+  z-index: 3;
+  transition: all 0.35s ease;
+}
+.wizard-progress-step.active {
+  border-color: var(--color-orange) !important;
+  background: var(--color-orange-lt) !important;
+  color: var(--color-orange) !important;
+  box-shadow: 0 0 16px rgba(229, 93, 26, 0.25) !important;
+  transform: scale(1.1) !important;
+}
+.wizard-progress-step.completed {
+  border-color: var(--color-blue) !important;
+  background: var(--color-blue) !important;
+  color: #fff !important;
+}
+
+/* Gender Toggle Buttons */
+.gender-select-btn {
+  flex: 1;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gender-select-btn:hover {
+  border-color: var(--color-orange);
+  background: var(--color-orange-lt);
+}
+.gender-select-btn.active {
+  border-color: var(--color-orange) !important;
+  background: var(--color-orange) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(229, 93, 26, 0.25) !important;
+}
+
+/* Floating Ambient Blobs for Dashboard Hero */
+.ambient-blob-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+  animation: floatAround 14s ease-in-out infinite alternate;
+}
+.ambient-blob-orange {
+  background: var(--color-orange);
+  width: 320px;
+  height: 320px;
+  top: -80px;
+  left: 15%;
+}
+.ambient-blob-blue {
+  background: var(--color-blue);
+  width: 380px;
+  height: 380px;
+  bottom: -120px;
+  right: 10%;
+  animation-delay: -4s;
+}
+
+@keyframes floatAround {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(45px, -25px) scale(1.1);
+  }
+  100% {
+    transform: translate(-25px, 35px) scale(0.9);
+  }
+}
+
+/* Pulsing Red Warning Pulse */
+.pulsing-alert-icon {
+  width: 14px;
+  height: 14px;
+  background: var(--color-red);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.pulsing-alert-icon::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 3px solid var(--color-red);
+  opacity: 0;
+  animation: pulseWarning 1.8s infinite;
+}
+
+@keyframes pulseWarning {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Custom premium filter select dropdowns */
+.filter-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23555555' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 12px !important;
+  padding-right: 36px !important;
+}
+
+
+
 

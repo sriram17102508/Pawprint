@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,7 +27,7 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 55px; height: 55px; object-fit: contain; flex-shrink: 0;">
         <span
           style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
@@ -221,25 +221,59 @@
         <!-- Brand column -->
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <img src="Logo.png" alt="Pawprint Logo" style="width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 8px;">
+            <img src="Logo.png" alt="Pawprint Logo" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; border-radius: 10px;">
             <span class="melody" style="font-size: 22px; color: #fff; letter-spacing: .03em;">Pawprint</span>
           </div>
           <p
             style="color: rgba(255,255,255,.38); font-size: 13px; line-height: 1.8; max-width: 220px; margin-bottom: 24px;">
             India's First Dog Care Ecosystem - Adoption, Healthcare, Grooming, and More.</p>
           <!-- Socials -->
-          <div style="display: flex; gap: 8px;">
-            <button class="btn btn-social" onclick="alert('Redirecting to Facebook...')">f</button>
-            <button class="btn btn-social" onclick="alert('Redirecting to LinkedIn...')">in</button>
-            <button class="btn btn-social" onclick="alert('Redirecting to X...')">𝕏</button>
-            <button class="btn btn-social" onclick="alert('Redirecting to YouTube...')">▶</button>
+                    <div style="display: flex; gap: 8px;">
+            <button class="btn btn-social" onclick="alert('Redirecting to Facebook...')" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to Instagram...')" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to LinkedIn...')" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to X...')" aria-label="X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to YouTube...')" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </button>
           </div>
         </div>
 
         <!-- Links columns -->
         <div>
           <h4
-            style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px;">
+            style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px;">
             Services</h4>
           <button onclick="nav('vet')" class="footer-link">Veterinary</button>
           <button onclick="nav('svc-grooming')" class="footer-link">Grooming</button>
@@ -250,7 +284,7 @@
         </div>
         <div>
           <h4
-            style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px;">
+            style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px;">
             Explore</h4>
           <button onclick="nav('adopt')" class="footer-link">Adopt a Pet</button>
           <button onclick="nav('dog-breeds')" class="footer-link">Dog Breeds</button>
@@ -261,7 +295,7 @@
         </div>
         <div>
           <h4
-            style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px;">
+            style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px;">
             Company</h4>
           <button onclick="nav('about')" class="footer-link">About Us</button>
           <button onclick="nav('contact')" class="footer-link">Contact Us</button>
@@ -288,11 +322,7 @@
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
         <p style="color: rgba(255,255,255,.22); font-size: 12px;">© 2026 Pawprint Technologies Pvt. Ltd. · Made with ❤️
           in Coimbatore, India</p>
-        <div style="display: flex; gap: 20px;">
-          <button onclick="nav('home')" class="footer-bottom-link">Privacy</button>
-          <button onclick="nav('home')" class="footer-bottom-link">Terms</button>
-          <button onclick="nav('home')" class="footer-bottom-link">Cookies</button>
-        </div>
+        
       </div>
     </div>
   </footer>

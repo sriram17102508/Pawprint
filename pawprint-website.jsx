@@ -549,7 +549,7 @@ function Navbar({ page, nav }) {
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", height: 96, gap: 6 }}>
         {/* Logo */}
         <button onClick={() => nav("home")} style={{ display: "flex", alignItems: "center", gap: 10, background: "none", border: "none", marginRight: 28, cursor: "pointer" }}>
-          <img src="Logo.png" alt="Pawprint Logo" style={{ width: 40, height: 40, objectFit: "contain", flexShrink: 0 }} />
+          <img src="Logo.png" alt="Pawprint Logo" style={{ width: 55, height: 55, objectFit: "contain", flexShrink: 0 }} />
           <span style={{ fontFamily: "'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif", fontSize: 20, fontWeight: 800, color: C.ink, letterSpacing: "0.05em", textTransform: "uppercase" }}>Pawprint</span>
         </button>
 
@@ -1954,9 +1954,9 @@ function AdoptPage({ nav }) {
           <div style={{ background: C.white, borderRadius: 20, padding: "32px", border: `1px solid ${C.border}` }}>
             <h3 className="melody" style={{ fontSize: 20, fontWeight: 700, color: C.ink, marginBottom: 24 }}>👤 Personal Details</h3>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-              <div className="field"><label>First Name *</label><input placeholder="Priya" value={aForm.fname} onChange={af("fname")} /></div>
+              <div className="field"><label>First Name *</label><input placeholder="Geetha" value={aForm.fname} onChange={af("fname")} /></div>
               <div className="field"><label>Last Name *</label><input placeholder="Sharma" value={aForm.lname} onChange={af("lname")} /></div>
-              <div className="field"><label>Email Address *</label><input type="email" placeholder="priya@example.com" value={aForm.email} onChange={af("email")} /></div>
+              <div className="field"><label>Email Address *</label><input type="email" placeholder="geetha@example.com" value={aForm.email} onChange={af("email")} /></div>
               <div className="field"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" value={aForm.phone} onChange={af("phone")} /></div>
             </div>
           </div>
@@ -2794,7 +2794,7 @@ function LostFoundPage() {
                     <div className="report-form-grid">
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Your Full Name *</label>
-                        <input placeholder="Priya Sharma" value={lForm.ownerName} onChange={lf("ownerName")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="Geetha Sharma" value={lForm.ownerName} onChange={lf("ownerName")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Primary Phone *</label>
@@ -3416,14 +3416,10 @@ function LostFoundPage() {
 // ══════════════════════════════════════════════════════════════════
 //  DASHBOARD
 // ══════════════════════════════════════════════════════════════════
-function DashboardPage({ nav }) {
+function DashboardPage({ nav, pets, setPets, currentUser }) {
   const [tab, setTab] = useState("overview");
   const [showAddPet, setShowAddPet] = useState(false);
   const [addStep, setAddStep] = useState(1); // 1=form, 2=success
-  const [pets, setPets] = useState([
-    { name: "Max", breed: "Golden Retriever", species: "Dog", age: "3 yrs", gender: "Male", img: P.dog1, health: 95, weight: "32 kg", color: "Golden", microchip: "MX001234", allergies: "None", conditions: "None", nextVet: "Jun 15", nextVacc: "Jul 20", food: "Royal Canin Medium Adult" },
-    { name: "Bella", breed: "Persian Cat", species: "Cat", age: "2 yrs", gender: "Female", img: P.cat1, health: 88, weight: "4.2 kg", color: "White", microchip: "MX005678", allergies: "Dairy", conditions: "None", nextVet: "Jul 3", nextVacc: "Aug 5", food: "Whiskas Adult Tuna" },
-  ]);
 
   const emptyPet = { name: "", species: "", breed: "", gender: "", dob: "", color: "", weight: "", microchip: "", allergies: "", conditions: "", food: "", vetName: "", vetPhone: "", emergencyContact: "", emergencyPhone: "", notes: "" };
   const [newPet, setNewPet] = useState(emptyPet);
@@ -3455,16 +3451,35 @@ function DashboardPage({ nav }) {
     <div style={{ paddingTop: 96, minHeight: "100vh", background: C.cream }}>
 
       {/* ── Header ── */}
-      <div style={{ background: C.inkMd, padding: "36px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div>
-            <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.65)", marginBottom: 10 }}>Dashboard</div>
-            <h1 className="melody" style={{ fontSize: 36, color: "#fff" }}>Good morning, Priya 🌤</h1>
-            <p style={{ color: "rgba(255,255,255,.5)", fontSize: 14, marginTop: 4 }}>Max's vaccination is due in 9 days. Book a vet now.</p>
-          </div>
-          <div style={{ display: "flex", gap: 12 }}>
-            <button className="btn btn-md btn-ghost" style={{ color: "rgba(255,255,255,.6)", borderColor: "rgba(255,255,255,.2)" }} onClick={() => nav("lost")}>📍 Lost & Found</button>
-            <button className="btn btn-md btn-primary" onClick={() => { setShowAddPet(true); setAddStep(1); }}>+ Add Pet</button>
+      <div style={{ background: "linear-gradient(135deg, var(--color-ink-md), #0d0d0d)", padding: "44px 0", position: "relative", overflow: "hidden" }}>
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1400&q=80&fit=crop" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.25, mixBlendMode: "overlay", pointerEvents: "none" }} />
+        {/* Ambient Blobs */}
+        <div className="ambient-blob-container">
+          <div className="ambient-blob ambient-blob-orange"></div>
+          <div className="ambient-blob ambient-blob-blue"></div>
+        </div>
+
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 2 }}>
+          <div style={{ width: "100%" }}>
+            <div className="pill" style={{ background: "rgba(255,255,255,.08)", color: "rgba(255,255,255,.7)", border: "1px solid rgba(255,255,255,0.1)", marginBottom: 12, backdropFilter: "blur(4px)" }}>Dashboard</div>
+            <h1 className="melody" style={{ fontSize: 44, color: "#fff", marginBottom: 2 }}>Good morning, {currentUser.name} 👋</h1>
+            
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, marginTop: 14, flexWrap: "wrap" }}>
+              {/* Vaccination Alert Glass Widget */}
+              <div className="glass-form" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", gap: 16, padding: "16px 20px", borderRadius: 18, boxShadow: "0 16px 40px rgba(0,0,0,0.2)", flex: 1, minWidth: 300, maxWidth: 680 }}>
+                <div className="pulsing-alert-icon" style={{ background: C.red, marginLeft: 2 }}></div>
+                <div style={{ color: "rgba(255,255,255,0.85)", fontSize: "13.5px", lineHeight: 1.5, flex: 1 }}>
+                  🛡️ <strong>{currentUser.name !== "Geetha" && pets.length > 2 ? pets[pets.length - 1].name : (pets.length > 0 ? pets[0].name : "Max")}'s</strong> booster shot is due in <strong>9 days</strong>. Book a certified clinic vet now to maintain immunity.
+                </div>
+                <button className="btn btn-sm btn-primary" onClick={() => nav("vet")} style={{ background: C.orange, border: "none", fontSize: 12, fontWeight: 700, padding: "8px 16px", boxShadow: "0 4px 12px rgba(229,93,26,0.3)", flexShrink: 0 }}>Book Vet</button>
+              </div>
+
+              {/* Buttons on the right side of the book vet card */}
+              <div style={{ display: "flex", gap: 12, flexShrink: 0, alignItems: "center" }}>
+                <button className="btn btn-md btn-ghost" style={{ color: "rgba(255,255,255,.7)", borderColor: "rgba(255,255,255,.15)", background: "rgba(255,255,255,0.03)", backdropFilter: "blur(4px)" }} onClick={() => nav("lost")}>📍 Lost & Found</button>
+                <button className="btn btn-md btn-primary" onClick={() => { setShowAddPet(true); setAddStep(1); }}>+ Add Pet</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3658,7 +3673,7 @@ function DashboardPage({ nav }) {
         {tab === "overview" && (
           <>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginBottom: 24 }}>
-              {[["🐾", "My Pets", String(pets.length), C.orange], ["📋", "Bookings", "5", C.blue], ["📦", "Orders", "12", C.green], ["💉", "Due Vaccines", "1", C.red]].map(([ic, l, v, c]) => (
+              {[["🐾", "My Pets", String(pets.length), C.orange], ["📋", "Bookings", "4", C.blue], ["📦", "Orders", "3", C.green], ["💉", "Due Vaccines", "1", C.red]].map(([ic, l, v, c]) => (
                 <div key={l} className="card" style={{ padding: "24px" }}>
                   <div style={{ fontSize: 22, marginBottom: 10 }}>{ic}</div>
                   <div className="melody" style={{ fontSize: 36, color: c, lineHeight: 1 }}>{v}</div>
@@ -3699,7 +3714,7 @@ function DashboardPage({ nav }) {
                     <div style={{ width: 34, height: 34, borderRadius: 9, background: a.urgent ? "#FEF2F2" : C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, flexShrink: 0 }}>{a.ic}</div>
                     <div>
                       <div style={{ fontWeight: 600, color: a.urgent ? C.red : C.ink, fontSize: 13 }}>{a.t}</div>
-                      <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2 }}>{a.d}{a.urgent && " ⚠️ Due soon"}</div>
+                      <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2 }}>{a.d}{a.urgent && <span style={{ color: C.red, marginLeft: 8, fontWeight: 600 }}>⚠️ Due soon</span>}</div>
                     </div>
                   </div>
                 ))}
@@ -3708,46 +3723,46 @@ function DashboardPage({ nav }) {
           </>
         )}
 
-        {/* Pets tab */}
+        {/* My Pets Subtab */}
         {tab === "pets" && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(320px,1fr))", gap: 24 }}>
-            {pets.map((p, pi) => (
-              <div key={pi} className="card" style={{ borderRadius: 24 }}>
+          <div className="app-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+            {pets.map(p => (
+              <div key={p.name} className="card" style={{ borderRadius: 24, overflow: "hidden", display: "flex", flexDirection: "column", height: "100%" }}>
                 <div style={{ height: 180, overflow: "hidden", position: "relative" }}>
                   <Img src={p.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(0,0,0,.45),transparent)" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,.45), transparent)" }} />
                   <h3 className="melody" style={{ position: "absolute", bottom: 14, left: 18, color: "#fff", fontSize: 24 }}>{p.name}</h3>
                 </div>
-                <div style={{ padding: "20px 24px" }}>
-                  <p style={{ color: C.inkSft, fontSize: 14, marginBottom: 16 }}>{p.breed} · {p.age || "Unknown age"} · {p.weight}</p>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
-                    {[["Next Vet", p.nextVet], ["Next Vaccine", p.nextVacc]].map(([l, v]) => (
-                      <div key={l} style={{ background: C.cream, borderRadius: 11, padding: "10px 14px" }}>
-                        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>{l}</div>
-                        <div style={{ fontWeight: 700, color: C.ink, fontSize: 14, marginTop: 2 }}>{v}</div>
+                <div style={{ padding: "20px 24px", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between" }}>
+                  <div>
+                    <p style={{ color: C.inkSft, fontSize: 14, marginBottom: 16 }}>{p.breed} · {p.age || 'Unknown age'} · {p.weight}</p>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
+                      <div style={{ background: C.cream, borderRadius: 11, padding: "10px 14px" }}>
+                        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Next Vet</div>
+                        <div style={{ fontWeight: 700, color: C.ink, fontSize: 14, marginTop: 2 }}>{p.nextVet}</div>
                       </div>
-                    ))}
+                      <div style={{ background: C.cream, borderRadius: 11, padding: "10px 14px" }}>
+                        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Next Vaccine</div>
+                        <div style={{ fontWeight: 700, color: C.ink, fontSize: 14, marginTop: 2 }}>{p.nextVacc}</div>
+                      </div>
+                    </div>
+                    {p.food && <p style={{ fontSize: 12, color: C.inkSft, marginBottom: 12 }}>🍽 {p.food}</p>}
+                    {p.allergies && p.allergies !== 'None' && <p style={{ fontSize: 12, color: C.red, marginBottom: 12 }}>⚠️ Allergies: {p.allergies}</p>}
                   </div>
-                  {/* Show extra details if added via form */}
-                  {p.food && <p style={{ fontSize: 12, color: C.inkSft, marginBottom: 12 }}>🍽 {p.food}</p>}
-                  {p.allergies && p.allergies !== "None" && <p style={{ fontSize: 12, color: C.red, marginBottom: 12 }}>⚠️ Allergies: {p.allergies}</p>}
-                  <div style={{ display: "flex", gap: 10 }}>
-                    <button className="btn btn-md btn-ghost" style={{ flex: 1 }}>Edit</button>
-                    <button className="btn btn-md btn-primary" style={{ flex: 1 }}>Health Records</button>
+                  <div style={{ display: "flex", gap: 10, marginTop: "auto" }}>
+                    <button className="btn btn-md btn-ghost" style={{ flex: 1 }} onClick={() => alert('Profile details edit is mock-only.')}>Edit</button>
+                    <button className="btn btn-md btn-primary" style={{ flex: 1 }} onClick={() => alert('Loading full health reports charts...')}>Health Records</button>
                   </div>
                 </div>
               </div>
             ))}
-            {/* Add New Pet card */}
-            <div className="card-lift" style={{
-              borderRadius: 24, border: `2px dashed ${C.sand}`, background: "transparent",
-              boxShadow: "none", display: "flex", flexDirection: "column",
-              alignItems: "center", justifyContent: "center", padding: 48,
-              cursor: "pointer", minHeight: 300, transition: "border-color .2s",
-            }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = C.orange}
-              onMouseLeave={e => e.currentTarget.style.borderColor = C.sand}
-              onClick={() => { setShowAddPet(true); setAddStep(1); }}>
+            {/* Add Pet Card */}
+            <div className="add-pet-dash-card" onClick={() => { setShowAddPet(true); setAddStep(1); }} style={{
+              border: `2px dashed ${C.border}`, borderRadius: 24, padding: "32px 24px",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", background: "rgba(255,255,255,0.4)", height: "100%", minHeight: 320,
+              transition: "all .25s ease"
+            }}>
               <div style={{ width: 56, height: 56, borderRadius: "50%", background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, marginBottom: 14, color: C.orange }}>+</div>
               <div className="melody" style={{ color: C.inkSft, fontSize: 20 }}>Add a New Pet</div>
               <div style={{ fontSize: 13, color: C.sand, marginTop: 6, textAlign: "center" }}>Track health, vaccines, diet & more</div>
@@ -3755,29 +3770,192 @@ function DashboardPage({ nav }) {
           </div>
         )}
 
-        {(tab === "bookings" || tab === "orders") && (
-          <div className="card" style={{ padding: 60, textAlign: "center" }}>
-            <div style={{ fontSize: 60, marginBottom: 16 }}>{tab === "bookings" ? "📋" : "📦"}</div>
-            <h2 className="melody" style={{ color: C.ink, fontSize: 24, marginBottom: 8 }}>{tab === "bookings" ? "Your Bookings" : "Your Orders"}</h2>
-            <p style={{ color: C.inkSft }}>Full history appears here in the production app.</p>
+        {/* Bookings Subtab */}
+        {tab === "bookings" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {[
+              { id: "BK-1082", petName: "Max", service: "Veterinary Consultation", date: "Jun 15, 2026", time: "10:30 AM", provider: "Dr. Kiran Patel", status: "Upcoming", price: "₹650", icon: "🏥" },
+              { id: "BK-1054", petName: "Bella", service: "Full Grooming Session", date: "Jun 25, 2026", time: "02:00 PM", provider: "Pawprint Grooming Studio", status: "Upcoming", price: "₹1,499", icon: "✂️" },
+              { id: "BK-0982", petName: "Max", service: "Behavioral Puppy Training", date: "Jun 20, 2026", time: "09:00 AM", provider: "Priya Venkatesh", status: "Upcoming", price: "₹1,200", icon: "🎓" },
+              { id: "BK-0841", petName: "Bella", service: "Deworming Clinic Visit", date: "May 28, 2026", time: "11:00 AM", provider: "Dr. Kiran Patel", status: "Completed", price: "₹450", icon: "💉" }
+            ].map(b => (
+              <div key={b.id} className="card" style={{ padding: 24, flexDirection: "row", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+                <div style={{ width: 50, height: 50, borderRadius: 12, background: C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>
+                  {b.icon}
+                </div>
+                <div style={{ flex: 1, minWidth: 200 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                    <span style={{ fontWeight: 700, color: C.ink, fontSize: 16 }}>{b.service}</span>
+                    <span className="pill" style={{ background: C.creamDk, color: C.inkSft, fontSize: 11 }}>{b.id}</span>
+                  </div>
+                  <div style={{ fontSize: 13.5, color: C.inkSft, display: "flex", gap: 12, flexWrap: "wrap" }}>
+                    <span>Pet: <strong>{b.petName}</strong></span>
+                    <span>Date: <strong>{b.date} · {b.time}</strong></span>
+                    <span>With: <strong>{b.provider}</strong></span>
+                  </div>
+                </div>
+                <div style={{ textAlign: "right", flexShrink: 0, marginLeft: "auto" }}>
+                  <div style={{ fontWeight: 800, fontSize: 16, color: C.ink }}>{b.price}</div>
+                  <span className="pill" style={{ marginTop: 6, display: "inline-block", background: b.status === 'Upcoming' ? C.blueLt : C.greenLt, color: b.status === 'Upcoming' ? C.blue : C.green, fontWeight: 700 }}>
+                    {b.status}
+                  </span>
+                </div>
+                <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: "auto", width: "100%", borderTop: `1px solid ${C.border}`, paddingTop: 16, marginTop: 8 }}>
+                  {b.status === 'Upcoming' ? (
+                    <>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert(`Rescheduling booking ${b.id}...`)}>Reschedule</button>
+                      <button className="btn btn-sm btn-primary" style={{ background: C.red, borderColor: C.red, color: "white" }} onClick={() => alert(`Cancelling booking ${b.id}...`)}>Cancel</button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert(`Downloading invoice for ${b.id}...`)}>View Invoice</button>
+                      <button className="btn btn-sm btn-primary" onClick={() => alert('Rebooking service...')}>Book Again</button>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Orders Subtab */}
+        {tab === "orders" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {[
+              { id: "PW-9951", date: "Jun 13, 2026", item: "Reflective Safe-Grip Leash", category: "Accessories", price: "₹1,199", status: "Processing", icon: "🦮" },
+              { id: "PW-9904", date: "Jun 12, 2026", item: "Organic Chicken & Oats Treats (Pack of 2)", category: "Food & Treats", price: "₹799", status: "In Transit", icon: "🦴" },
+              { id: "PW-9823", date: "Jun 10, 2026", item: "Premium Orthopedic Dog Bed", category: "Bedding", price: "₹2,499", status: "Delivered", icon: "🛏️" }
+            ].map(o => (
+              <div key={o.id} className="card" style={{ padding: 24, flexDirection: "row", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+                <div style={{ width: 50, height: 50, borderRadius: 12, background: C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>
+                  {o.icon}
+                </div>
+                <div style={{ flex: 1, minWidth: 200 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                    <span style={{ fontWeight: 700, color: C.ink, fontSize: 16 }}>{o.item}</span>
+                    <span className="pill" style={{ background: C.creamDk, color: C.inkSft, fontSize: 11 }}>{o.id}</span>
+                  </div>
+                  <div style={{ fontSize: 13.5, color: C.inkSft, display: "flex", gap: 12 }}>
+                    <span>Category: <strong>{o.category}</strong></span>
+                    <span>Order Date: <strong>{o.date}</strong></span>
+                  </div>
+                </div>
+                <div style={{ textAlignment: "right", flexShrink: 0, marginLeft: "auto" }}>
+                  <div style={{ fontWeight: 800, fontSize: 16, color: C.ink }}>{o.price}</div>
+                  <span className="pill" style={{ marginTop: 6, display: "inline-block", background: o.status === 'Processing' ? C.orangeLt : o.status === 'In Transit' ? C.blueLt : C.greenLt, color: o.status === 'Processing' ? C.orange : o.status === 'In Transit' ? C.blue : C.green, fontWeight: 700 }}>
+                    {o.status}
+                  </span>
+                </div>
+                <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: "auto", width: "100%", borderTop: `1px solid ${C.border}`, paddingTop: 16, marginTop: 8 }}>
+                  {o.status !== 'Delivered' ? (
+                    <>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert(`Tracking order ${o.id}...`)}>Track Order</button>
+                      <button className="btn btn-sm btn-primary" onClick={() => alert(`Opening customer support for order ${o.id}...`)}>Support</button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert('Opening return policy...')}>Return/Replace</button>
+                      <button className="btn btn-sm btn-primary" onClick={() => alert('Item added to cart for reorder.')}>Buy Again</button>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
     </div>
   );
 }
-
-// ══════════════════════════════════════════════════════════════════
-//  AUTH
-// ══════════════════════════════════════════════════════════════════
-function AuthPage({ type, nav }) {
   const [step, setStep] = useState(1);
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [signupGender, setSignupGender] = useState("Male");
+  const [form, setForm] = useState({
+    name: "", email: "", password: "",
+    petName: "", breed: "", age: "", weight: ""
+  });
+  
   const f = (k) => (e) => setForm(x => ({ ...x, [k]: e.target.value }));
-  const iStyle = { padding: "14px 18px", borderRadius: 14, border: `1.5px solid ${C.border}`, fontSize: 15, outline: "none", background: "#fff", color: C.ink, transition: "border .18s", width: "100%" };
+  
+  const iStyle = {
+    padding: "14px 18px", borderRadius: 14, border: `1.5px solid ${C.border}`,
+    fontSize: 15, outline: "none", background: "#fff", color: C.ink,
+    transition: "all .3s cubic-bezier(.22, 1, .36, 1)", width: "100%"
+  };
+
+  const handleNext = () => {
+    if (type === "login") {
+      if (!form.email) {
+        alert("Please fill in your email address.");
+        return;
+      }
+      const prefix = form.email.split('@')[0];
+      const capitalized = prefix.charAt(0).toUpperCase() + prefix.slice(1);
+      setCurrentUser({ name: capitalized, email: form.email });
+      alert(`Welcome back, ${capitalized}! 🐾`);
+      nav("dashboard");
+    } else {
+      if (step === 1) {
+        if (!form.name || !form.email || !form.password) {
+          alert("Please fill in Name, Email, and Password.");
+          return;
+        }
+        setStep(2);
+      } else if (step === 2) {
+        if (!form.petName || !form.breed || !form.age || !form.weight) {
+          alert("Please fill in all your dog's profile details.");
+          return;
+        }
+        setStep(3);
+      } else {
+        const newDog = {
+          name: form.petName,
+          breed: form.breed,
+          species: "Dog",
+          age: form.age.includes("yr") || form.age.includes("mo") ? form.age : `${form.age} yrs`,
+          gender: signupGender,
+          img: P.dog4,
+          health: 100,
+          weight: form.weight.includes("kg") ? form.weight : `${form.weight} kg`,
+          color: "Golden Brown",
+          microchip: "MX" + Math.floor(100000 + Math.random() * 900000),
+          allergies: "None",
+          conditions: "None",
+          nextVet: "TBD",
+          nextVacc: "TBD",
+          food: "Premium Kibble"
+        };
+        setPets(p => [...p, newDog]);
+        setCurrentUser({ name: form.name, email: form.email });
+        alert(`Account created successfully and ${form.petName} is registered! 🎉`);
+        nav("dashboard");
+      }
+    }
+  };
+
+  const handleFocus = (e) => {
+    e.target.style.borderColor = C.orange;
+    e.target.style.boxShadow = `0 0 0 4px rgba(229, 93, 26, 0.14)`;
+  };
+
+  const handleBlur = (e) => {
+    e.target.style.borderColor = C.border;
+    e.target.style.boxShadow = "none";
+  };
+
+  // Gender Toggle Styles
+  const gBtnStyle = (active) => ({
+    flex: 1, padding: "14px", borderRadius: 14,
+    border: `1.5px solid ${active ? C.orange : C.border}`,
+    background: active ? C.orange : "#fff",
+    color: active ? "#fff" : C.inkMd,
+    fontSize: 14, fontWeight: 600, cursor: "pointer",
+    display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+    boxShadow: active ? `0 6px 20px rgba(229, 93, 26, 0.25)` : "none",
+    transition: "all 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
+  });
 
   return (
-    <div style={{ minHeight: "100vh", display: "grid", gridTemplateColumns: "1fr 1fr", paddingTop: 96 }}>
+    <div style={{ minHeight: "100vh", display: "grid", gridTemplateColumns: "1fr 1fr", paddingTop: 96, background: C.cream }}>
       <div style={{ position: "relative", overflow: "hidden" }}>
         <Img src={P.about1} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.52)" }} />
@@ -3787,53 +3965,143 @@ function AuthPage({ type, nav }) {
         </div>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, padding: 48 }}>
-        <div style={{ width: "100%", maxWidth: 400 }}>
-          <div style={{ marginBottom: 36, display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", background: `radial-gradient(circle at 10% 20%, rgba(229, 93, 26, 0.03) 0%, rgba(29, 95, 196, 0.03) 90%), ${C.cream}`, padding: 48 }}>
+        <div className="glass-form fade-up" style={{ width: "100%", maxWidth: 460, padding: "40px 36px" }}>
+          <div style={{ marginBottom: 24, display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => nav("home")}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17 }}>🐾</div>
-            <span className="melody" style={{ fontSize: 20, fontWeight: 700, color: C.ink }}>Pawprint</span>
+            <span className="melody" style={{ fontSize: 20, fontWeight: 700, color: C.ink, letterSpacing: "0.04em" }}>Pawprint</span>
           </div>
 
-          <h1 className="melody" style={{ fontSize: 36, fontWeight: 700, color: C.ink, marginBottom: 8 }}>
-            {type === "login" ? "Welcome back." : (step === 1 ? "Create account." : "Verify email.")}
-          </h1>
-          <p style={{ fontSize: 15, color: C.inkSft, marginBottom: 32 }}>
-            {type === "login" ? "Sign in to your Pawprint account." : (step === 1 ? "Join 45,000+ pet parents." : (`A verification code was sent to ${form.email}`))}
-          </p>
+          {type === "signup" && (
+            <div className="wizard-progress">
+              <div className="wizard-progress-bar" style={{ width: step === 1 ? "0%" : (step === 2 ? "50%" : "100%") }}></div>
+              <div className={`wizard-progress-step ${step === 1 ? "active" : (step > 1 ? "completed" : "")}`}>1</div>
+              <div className={`wizard-progress-step ${step === 2 ? "active" : (step > 2 ? "completed" : "")}`}>2</div>
+              <div className={`wizard-progress-step ${step === 3 ? "active" : ""}`}>3</div>
+            </div>
+          )}
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            {type === "signup" && step === 1 && <input placeholder="Full Name" value={form.name} onChange={f("name")} style={iStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />}
-            {step !== 2 && <input type="email" placeholder="Email address" value={form.email} onChange={f("email")} style={iStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />}
-            {step !== 2 && <input type="password" placeholder="Password" value={form.password} onChange={f("password")} style={iStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />}
-            {step === 2 && (
-              <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
+          {/* Form Fields */}
+          {type === "login" && (
+            <div>
+              <h1 className="melody" style={{ fontSize: 36, fontWeight: 700, color: C.ink, marginBottom: 8 }}>Welcome back.</h1>
+              <p style={{ fontSize: 15, color: C.inkSft, marginBottom: 32 }}>Sign in to your Pawprint account.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
+                <div className="field">
+                  <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Email Address</label>
+                  <input type="email" placeholder="geetha@example.com" value={form.email} onChange={f("email")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                </div>
+                <div className="field">
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Password</label>
+                    <button style={{ background: "none", border: "none", color: C.orange, fontSize: 11, fontWeight: 700, cursor: "pointer" }}>Forgot?</button>
+                  </div>
+                  <input type="password" placeholder="••••••••" value={form.password} onChange={f("password")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {type === "signup" && step === 1 && (
+            <div>
+              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Create account.</h1>
+              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 24 }}>Join 45,000+ pet parents.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 20 }}>
+                <div className="field">
+                  <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Full Name</label>
+                  <input placeholder="e.g. Geetha Sharma" value={form.name} onChange={f("name")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                </div>
+                <div className="field">
+                  <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Email Address</label>
+                  <input type="email" placeholder="geetha@example.com" value={form.email} onChange={f("email")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                </div>
+                <div className="field">
+                  <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Password</label>
+                  <input type="password" placeholder="••••••••" value={form.password} onChange={f("password")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {type === "signup" && step === 2 && (
+            <div>
+              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Pet's Profile.</h1>
+              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 24 }}>Tell us about your dog to personalize care.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 24 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                  <div className="field">
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Dog's Name *</label>
+                    <input placeholder="e.g. Rocky" value={form.petName} onChange={f("petName")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  </div>
+                  <div className="field">
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Breed *</label>
+                    <input placeholder="e.g. Labrador" value={form.breed} onChange={f("breed")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  </div>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                  <div className="field">
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Age (years/months) *</label>
+                    <input placeholder="e.g. 2" value={form.age} onChange={f("age")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  </div>
+                  <div className="field">
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Weight (kg) *</label>
+                    <input placeholder="e.g. 25" value={form.weight} onChange={f("weight")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  </div>
+                </div>
+                <div className="field">
+                  <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Gender *</label>
+                  <div style={{ display: "flex", gap: 12 }}>
+                    <button type="button" style={gBtnStyle(signupGender === "Male")} onClick={() => setSignupGender("Male")}>♂ Male</button>
+                    <button type="button" style={gBtnStyle(signupGender === "Female")} onClick={() => setSignupGender("Female")}>♀ Female</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {type === "signup" && step === 3 && (
+            <div>
+              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Verify email.</h1>
+              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 28 }}>Enter the 6-digit code sent to your email.</p>
+              <div style={{ display: "flex", gap: 8, justifyContent: "center", marginBottom: 28 }}>
                 {[...Array(6)].map((_, i) => (
-                  <input key={i} maxLength={1} style={{ width: 48, height: 56, textAlign: "center", fontSize: 22, fontWeight: 700, borderRadius: 12, border: `1.5px solid ${C.border}`, outline: "none", background: "#fff", color: C.ink }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                  <input key={i} maxLength={1} style={{ width: 44, height: 52, textAlign: "center", fontSize: 20, fontWeight: 700, borderRadius: 12, border: `1.5px solid ${C.border}`, outline: "none", background: "#fff", color: C.ink }} onFocus={handleFocus} onBlur={handleBlur} onChange={(e) => {
+                    if (e.target.value.length === 1 && e.target.nextSibling) {
+                      e.target.nextSibling.focus();
+                    }
+                  }} onKeyDown={(e) => {
+                    if (e.key === "Backspace" && e.target.value.length === 0 && e.target.previousSibling) {
+                      e.target.previousSibling.focus();
+                    }
+                  }} />
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Action Buttons */}
+          <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
+            {type === "signup" && step > 1 && (
+              <button className="btn btn-lg btn-outline" style={{ flex: 1 }} onClick={() => setStep(step - 1)}>Back</button>
             )}
+            <button className="btn btn-lg btn-primary" style={{ flex: 2 }} onClick={handleNext}>
+              {type === "login" ? "Sign In →" : (step === 1 ? "Continue to Pet Profile →" : (step === 2 ? "Verify Account →" : "Create Account →"))}
+            </button>
           </div>
 
-          <button className="btn btn-lg btn-primary" style={{ width: "100%", marginTop: 20 }} onClick={() => {
-            if (type === "signup" && step === 1) { setStep(2); return; }
-            alert(type === "login" ? "Welcome back! 🐾" : "Account created! 🎉"); nav("home");
-          }}>
-            {type === "login" ? "Sign In →" : (step === 1 ? "Continue →" : "Verify & Create Account →")}
-          </button>
-
-          <div style={{ display: "flex", gap: 8, margin: "20px 0", alignItems: "center" }}>
-            <div style={{ flex: 1, height: 1, background: C.border }} /><span style={{ fontSize: 13, color: C.inkSft }}>or continue with</span><div style={{ flex: 1, height: 1, background: C.border }} />
+          <div style={{ display: "flex", gap: 8, margin: "24px 0", alignItems: "center" }}>
+            <div style={{ flex: 1, height: 1, background: C.border }} /><span style={{ fontSize: 12, color: C.inkSft, fontWeight: 500 }}>or continue with</span><div style={{ flex: 1, height: 1, background: C.border }} />
           </div>
 
-          <div style={{ display: "flex", gap: 10 }}>
-            {["🍎 Apple", "G Google", "f Facebook"].map(s => (
-              <button key={s} style={{ flex: 1, padding: "11px", border: `1.5px solid ${C.border}`, borderRadius: 12, background: "#fff", fontSize: 13, cursor: "pointer", fontWeight: 500, color: C.inkMd, transition: "border .18s" }} onMouseEnter={e => e.currentTarget.style.borderColor = C.inkMd} onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>{s}</button>
+          <div style={{ display: "flex", gap: 12, marginBottom: 28 }}>
+            {["🍎 Apple", "G Google"].map(s => (
+              <button key={s} style={{ flex: 1, padding: "12px", border: `1.5px solid ${C.border}`, borderRadius: 14, background: "#fff", fontSize: 13.5, cursor: "pointer", fontWeight: 600, color: C.inkMd, transition: "border .18s" }} onMouseEnter={e => e.currentTarget.style.borderColor = C.inkMd} onMouseLeave={e => e.currentTarget.style.borderColor = C.border} onClick={handleNext}>{s}</button>
             ))}
           </div>
 
-          <p style={{ textAlign: "center", fontSize: 14, color: C.inkSft, marginTop: 24 }}>
+          <p style={{ textAlign: "center", fontSize: 14.5, color: C.inkSft }}>
             {type === "login" ? "Don't have an account? " : "Already have an account? "}
-            <button style={{ background: "none", border: "none", color: C.orange, fontWeight: 700, cursor: "pointer", fontSize: 14 }} onClick={() => nav(type === "login" ? "signup" : "login")}>
+            <button style={{ background: "none", border: "none", color: C.orange, fontWeight: 700, cursor: "pointer", fontSize: 14.5 }} onClick={() => { setStep(1); nav(type === "login" ? "signup" : "login"); }}>
               {type === "login" ? "Sign Up Free" : "Sign In"}
             </button>
           </p>
@@ -3941,39 +4209,46 @@ function Footer({ nav }) {
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 48px 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 48, marginBottom: 48 }}>
 
-          {/* Brand */}
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-              <div style={{ width: 34, height: 34, borderRadius: 9, background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>🐾</div>
-              <span className="melody" style={{ fontSize: 22, color: "#fff", letterSpacing: ".03em" }}>Pawprint</span>
+            {/* Brand */}
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🐾</div>
+                <span className="melody" style={{ fontSize: 22, color: "#fff", letterSpacing: ".03em" }}>Pawprint</span>
+              </div>
+              <p style={{ color: "rgba(255,255,255,.38)", fontSize: 13, lineHeight: 1.8, maxWidth: 220, marginBottom: 24 }}>
+                India's most loved pet care ecosystem — adoption, healthcare, grooming, and more.
+              </p>
+              {/* Social */}
+              <div style={{ display: "flex", gap: 8 }}>
+                {[
+                  { k: "fb", svg: <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg> },
+                  { k: "insta", svg: <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> },
+                  { k: "x", svg: <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
+                  { k: "in", svg: <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> },
+                  { k: "yt", svg: <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.528 3.545 12 3.545 12 3.545s-7.528 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.022 0 12 0 12s0 3.978.502 5.837a3.003 3.003 0 002.11 2.11c1.86.508 9.388.508 9.388.508s7.528 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.978 24 12 24 12s0-3.978-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> }
+                ].map(item => (
+                  <button key={item.k} onClick={() => alert(`Redirecting to ${item.k}...`)} style={{
+                    width: 34, height: 34, borderRadius: "50%",
+                    background: "rgba(255,255,255,.07)",
+                    border: "1px solid rgba(255,255,255,.1)",
+                    color: "rgba(255,255,255,.5)",
+                    cursor: "pointer", transition: "all .2s",
+                    display: "flex", alignItems: "center", justifyContent: "center"
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.background = C.orange; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = C.orange; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,.07)"; e.currentTarget.style.color = "rgba(255,255,255,.5)"; e.currentTarget.style.borderColor = "rgba(255,255,255,.1)"; }}>
+                    {item.svg}
+                  </button>
+                ))}
+              </div>
             </div>
-            <p style={{ color: "rgba(255,255,255,.38)", fontSize: 13, lineHeight: 1.8, maxWidth: 220, marginBottom: 24 }}>
-              India's most loved pet care ecosystem — adoption, healthcare, grooming, and more.
-            </p>
-            {/* Social */}
-            <div style={{ display: "flex", gap: 8 }}>
-              {["f", "in", "𝕏", "▶"].map(s => (
-                <button key={s} style={{
-                  width: 34, height: 34, borderRadius: "50%",
-                  background: "rgba(255,255,255,.07)",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  color: "rgba(255,255,255,.5)", fontSize: 12, fontWeight: 700,
-                  cursor: "pointer", transition: "all .2s",
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.background = C.orange; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = C.orange; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,.07)"; e.currentTarget.style.color = "rgba(255,255,255,.5)"; e.currentTarget.style.borderColor = "rgba(255,255,255,.1)"; }}>
-                  {s}
-                </button>
-              ))}
-            </div>
-          </div>
 
           {/* Link columns */}
           {links.map(col => (
             <div key={col.h}>
               <h4 style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: ".12em",
-                textTransform: "uppercase", color: "rgba(255,255,255,.3)",
+                fontSize: 14, fontWeight: 700, letterSpacing: ".08em",
+                textTransform: "uppercase", color: "rgba(255,255,255,.35)",
                 marginBottom: 18,
               }}>{col.h}</h4>
               {col.items.map(([l, p]) => (
@@ -4019,17 +4294,6 @@ function Footer({ nav }) {
             © 2026 Pawprint Technologies Pvt. Ltd. · Made with ❤️ in Coimbatore, India
           </p>
           <div style={{ display: "flex", gap: 20 }}>
-            {[["Privacy", "home"], ["Terms", "home"], ["Cookies", "home"]].map(([l, p]) => (
-              <button key={l} onClick={() => nav(p)} style={{
-                background: "none", border: "none",
-                color: "rgba(255,255,255,.25)", fontSize: 12, cursor: "pointer",
-                transition: "color .18s",
-              }}
-                onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,.6)"}
-                onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,.25)"}>
-                {l}
-              </button>
-            ))}
           </div>
         </div>
       </div>
@@ -4065,8 +4329,8 @@ function BookingForm({ serviceName, nav }) {
       <div className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 6 }}>Book {serviceName}</div>
       <p style={{ fontSize: 14, color: C.inkSft, marginBottom: 24 }}>Fill in your details and we'll confirm within 2 hours.</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-        {[["Your Full Name", "name", "text", "Priya Sharma"], ["Phone Number", "phone", "tel", "+91 98765 43210"],
-        ["Email Address", "email", "email", "priya@email.com"], ["Pet's Name", "pet", "text", "Bruno"],
+        {[["Your Full Name", "name", "text", "Geetha Sharma"], ["Phone Number", "phone", "tel", "+91 98765 43210"],
+        ["Email Address", "email", "email", "geetha@email.com"], ["Pet's Name", "pet", "text", "Bruno"],
         ["Breed / Species", "breed", "text", "Labrador / Dog"]].map(([l, k, t, ph]) => (
           <div key={k} style={{ display: "flex", flexDirection: "column", gap: 5 }}>
             <label style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>{l}</label>
@@ -5353,6 +5617,8 @@ function DogBreedsPage({ nav }) {
   const BreedModal = ({ b }) => {
     const traits = b.type.filter(t => !["indian"].includes(t));
     const traitLabels = { guard: "Guard Dog", family: "Family Dog", popular: "Most Popular", working: "Working Dog", companion: "Companion", sighthound: "Sighthound" };
+    const isIndian = b.type.includes("indian");
+
     return (
       <div style={{ position: "fixed", inset: 0, background: "rgba(17,17,17,.75)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: 20, backdropFilter: "blur(8px)" }}
         onClick={e => e.target === e.currentTarget && setSelectedBreed(null)}>
@@ -5360,76 +5626,87 @@ function DogBreedsPage({ nav }) {
           {/* Header image */}
           <div style={{ position: "relative", height: 280, overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
             <Img src={b.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(17,17,17,.7) 0%,transparent 55%)" }} />
-            <button onClick={() => setSelectedBreed(null)} style={{ position: "absolute", top: 16, right: 16, width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,.2)", backdropFilter: "blur(6px)", border: "none", color: "#fff", fontSize: 18, cursor: "pointer" }}>✕</button>
-            {b.type.includes("indian") && (
-              <div style={{ position: "absolute", top: 16, left: 16 }} className="pill" style2={{ background: `${C.orange}ee`, color: "#fff" }}>
-                <span style={{ background: `${C.orange}ee`, color: "#fff", padding: "4px 12px", borderRadius: 100, fontSize: 11, fontWeight: 700 }}>🇮🇳 Indian Breed</span>
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(17,17,17,.8) 0%,transparent 60%)" }} />
+            <button onClick={() => setSelectedBreed(null)} style={{ position: "absolute", top: 16, right: 16, width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", border: "none", color: "#fff", fontSize: 18, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+            {isIndian && (
+              <div style={{ position: "absolute", top: 16, left: 16 }}>
+                <span style={{ background: C.orange, color: "#fff", padding: "5px 14px", borderRadius: 100, fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", boxShadow: "0 4px 12px rgba(229,93,26,0.3)" }}>🇮🇳 Indian Breed</span>
               </div>
             )}
-            <div style={{ position: "absolute", bottom: 20, left: 24 }}>
-              <h2 className="melody" style={{ fontSize: 44, color: "#fff", lineHeight: 1 }}>{b.name}</h2>
-              <p style={{ color: "rgba(255,255,255,.75)", fontSize: 15, marginTop: 4 }}>Origin: {b.origin}</p>
+            <div style={{ position: "absolute", bottom: 20, left: 24, right: 24, display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16 }}>
+              <div>
+                <h2 className="melody" style={{ fontSize: 40, color: "#fff", lineHeight: 1.1, margin: 0, textShadow: "0 2px 4px rgba(0,0,0,0.2)" }}>{b.name}</h2>
+                <p style={{ color: "rgba(255,255,255,.85)", fontSize: 15, marginTop: 6, fontWeight: 500 }}>Origin: {b.origin}</p>
+              </div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 2 }}>
+                {traits.map(t => (
+                  <span key={t} className="glass-badge">{traitLabels[t] || t.charAt(0).toUpperCase() + t.slice(1)}</span>
+                ))}
+                <span className="glass-badge">{b.size} Size</span>
+              </div>
             </div>
           </div>
 
           {/* Content */}
-          <div style={{ padding: "28px 32px 36px" }}>
-            {/* Type tags */}
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
-              {traits.map(t => <span key={t} style={{ background: `${C.orange}15`, color: C.orange, borderRadius: 100, padding: "4px 14px", fontSize: 12, fontWeight: 700 }}>{traitLabels[t] || t}</span>)}
-              <span style={{ background: C.blueLt, color: C.blue, borderRadius: 100, padding: "4px 14px", fontSize: 12, fontWeight: 700 }}>{b.size}</span>
-            </div>
-
+          <div style={{ padding: "28px 32px 32px" }}>
             {/* Stats grid */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginBottom: 28 }}>
-              {[
-                ["📏", "Size", b.size],
-                ["⚖️", "Weight", b.weight],
-                ["🎂", "Lifespan", b.lifespan],
-                ["🌍", "Origin", b.origin],
-              ].map(([ic, l, v]) => (
-                <div key={l} style={{ background: C.cream, borderRadius: 14, padding: "14px 12px", textAlign: "center" }}>
-                  <div style={{ fontSize: 22, marginBottom: 6 }}>{ic}</div>
-                  <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft, marginBottom: 4 }}>{l}</div>
-                  <div style={{ fontWeight: 700, color: C.ink, fontSize: 13, lineHeight: 1.3 }}>{v}</div>
-                </div>
-              ))}
+              <div style={{ background: C.blueLt, borderRadius: 14, padding: "14px 12px", textAlign: "center", border: `1px solid rgba(29, 95, 196, 0.08)` }}>
+                <div style={{ fontSize: 22, marginBottom: 6 }}>📏</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.blue, opacity: 0.8, marginBottom: 4 }}>Size</div>
+                <div style={{ fontWeight: 700, color: C.ink, fontSize: 13, lineHeight: 1.3 }}>{b.size}</div>
+              </div>
+              <div style={{ background: C.orangeLt, borderRadius: 14, padding: "14px 12px", textAlign: "center", border: `1px solid rgba(229, 93, 26, 0.08)` }}>
+                <div style={{ fontSize: 22, marginBottom: 6 }}>⚖️</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.orange, opacity: 0.8, marginBottom: 4 }}>Weight</div>
+                <div style={{ fontWeight: 700, color: C.ink, fontSize: 13, lineHeight: 1.3 }}>{b.weight}</div>
+              </div>
+              <div style={{ background: C.greenLt, borderRadius: 14, padding: "14px 12px", textAlign: "center", border: `1px solid rgba(30, 107, 69, 0.08)` }}>
+                <div style={{ fontSize: 22, marginBottom: 6 }}>⏳</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.green, opacity: 0.8, marginBottom: 4 }}>Lifespan</div>
+                <div style={{ fontWeight: 700, color: C.ink, fontSize: 13, lineHeight: 1.3 }}>{b.lifespan}</div>
+              </div>
+              <div style={{ background: C.creamDk, borderRadius: 14, padding: "14px 12px", textAlign: "center", border: `1px solid rgba(17, 17, 17, 0.05)` }}>
+                <div style={{ fontSize: 22, marginBottom: 6 }}>🌍</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft, marginBottom: 4 }}>Origin</div>
+                <div style={{ fontWeight: 700, color: C.ink, fontSize: 13, lineHeight: 1.3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }} title={b.origin}>{b.origin}</div>
+              </div>
             </div>
 
-            {/* Temperament */}
+            {/* Information */}
             <div style={{ marginBottom: 24 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: C.inkSft, marginBottom: 10 }}>Temperament</div>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: C.inkSft, marginBottom: 10 }}>Information</div>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {b.temperament.split(", ").map(t => (
-                  <span key={t} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 100, padding: "5px 14px", fontSize: 13, color: C.inkMd }}>{t}</span>
+                  <span key={t} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 100, padding: "5px 14px", fontSize: 13, color: C.inkMd, fontWeight: 500 }}>
+                    {t.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  </span>
                 ))}
               </div>
             </div>
 
             {/* Care guide */}
-            <div style={{ background: C.cream, borderRadius: 18, padding: "22px 24px", marginBottom: 24 }}>
+            <div style={{ background: C.cream, borderRadius: 18, padding: "22px 24px", marginBottom: 28, border: `1px solid ${C.border}` }}>
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: C.inkSft, marginBottom: 14 }}>Quick Care Guide</div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 24px" }}>
                 {[
-                  ["Exercise Needs", b.size === "Large" ? "High" : "Moderate"],
-                  ["Grooming", b.type.includes("companion") ? "High" : "Low–Moderate"],
-                  ["Good with Kids", b.type.includes("family") ? "Yes ✓" : "With supervision"],
-                  ["Guard Ability", b.type.includes("guard") ? "Excellent ✓" : "Low–Moderate"],
-                  ["Trainability", b.type.includes("working") || b.type.includes("popular") ? "High" : "Moderate"],
-                  ["Apartment Friendly", b.size === "Small" ? "Yes ✓" : "Needs space"],
+                  ["Exercise Needs", b.size === "Large" ? "High 🔥" : "Moderate ⚡"],
+                  ["Grooming", b.type.includes("companion") ? "High 🧼" : "Low–Moderate ✂️"],
+                  ["Good with Kids", b.type.includes("family") ? "Yes ✓" : "With supervision ⚠️"],
+                  ["Guard Ability", b.type.includes("guard") ? "Excellent 🛡️" : "Low–Moderate 🐕"],
+                  ["Trainability", b.type.includes("working") || b.type.includes("popular") ? "High 🎓" : "Moderate ⚡"],
+                  ["Apartment Friendly", b.size === "Small" ? "Yes ✓" : "Needs space 🏡"],
                 ].map(([l, v]) => (
                   <div key={l} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: `1px solid ${C.border}` }}>
-                    <span style={{ fontSize: 13, color: C.inkSft }}>{l}</span>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: v.includes("✓") ? C.green : C.ink }}>{v}</span>
+                    <span style={{ fontSize: 13, color: C.inkSft, fontWeight: 500 }}>{l}</span>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: v.includes("✓") || v.includes("Excellent") ? C.green : C.ink }}>{v}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div style={{ display: "flex", gap: 12 }}>
-              <button className="btn btn-lg btn-primary" style={{ flex: 1 }} onClick={() => { setSelectedBreed(null); nav("adopt"); }}>Find {b.name}s to Adopt →</button>
-              <button className="btn btn-lg btn-outline" onClick={() => { setSelectedBreed(null); nav("svc-health"); }}>Book Vet Consultation</button>
+              <button className="btn btn-lg btn-outline" style={{ flex: 1, borderRadius: 14, fontWeight: 700 }} onClick={() => setSelectedBreed(null)}>Close</button>
             </div>
           </div>
         </div>
@@ -5442,57 +5719,42 @@ function DogBreedsPage({ nav }) {
       {selectedBreed && <BreedModal b={selectedBreed} />}
 
       {/* ── Hero ── */}
-      <section style={{ background: C.ink, padding: "90px 0 70px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: -80, right: -80, width: 400, height: 400, borderRadius: "50%", background: `${C.orange}14`, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: -60, left: -60, width: 280, height: 280, borderRadius: "50%", background: `${C.blue}10`, pointerEvents: "none" }} />
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.65)", marginBottom: 22 }}>🐕 Dog Breeds</div>
-          <h1 className="melody" style={{ fontSize: "clamp(52px,7vw,98px)", color: "#fff", lineHeight: .93, marginBottom: 18 }}>
-            Every Breed,<br /><span style={{ color: C.orange }}>Every Story.</span>
-          </h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.75, maxWidth: 540, marginBottom: 40 }}>
-            An A–Z encyclopedia of {ALL_BREEDS.length}+ recognized dog breeds — with origin, temperament, care guides, and Indian breeds celebrated separately.
-          </p>
-          {/* Quick counts */}
-          <div style={{ display: "flex", gap: 36, flexWrap: "wrap" }}>
-            {[
-              [ALL_BREEDS.length + "+", "Total Breeds"],
-              [ALL_BREEDS.filter(b => b.type.includes("indian")).length, "Indian Breeds"],
-              [ALL_BREEDS.filter(b => b.type.includes("popular")).length, "Most Popular"],
-              [ALL_BREEDS.filter(b => b.type.includes("guard")).length, "Guard Breeds"],
-              [ALL_BREEDS.filter(b => b.type.includes("family")).length, "Family Breeds"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <div className="melody" style={{ fontSize: 32, color: C.orange, lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,.45)", marginTop: 4 }}>{l}</div>
-              </div>
-            ))}
+      <section style={{ padding: "120px 0 80px", position: "relative", overflow: "hidden" }}>
+        <Img src="dog_breeds_hero.png" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(17,17,17,.82) 0%, rgba(17,17,17,.4) 60%, rgba(17,17,17,.85) 100%)" }} />
+
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+          <div>
+            <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.85)", marginBottom: 24, display: "inline-block" }}>🐕 Encyclopedia</div>
+            <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: "#fff", margin: "0 0 20px" }}>
+              Dog Breeds<br />A to Z.
+            </h1>
+            <p style={{ fontSize: 18, color: "rgba(255,255,255,.75)", lineHeight: 1.7, maxWidth: 560, marginBottom: 40 }}>
+              An A–Z encyclopedia of recognized dog breeds in the world — with origin, temperament, care guides, and Indian breeds celebrated separately.
+            </p>
+            {/* Quick counts */}
+            <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+              {[
+                [ALL_BREEDS.length + "+", "Total Breeds"],
+                [ALL_BREEDS.filter(b => b.type.includes("indian")).length, "Indian Breeds"],
+                [ALL_BREEDS.filter(b => b.type.includes("popular")).length, "Most Popular"],
+                [ALL_BREEDS.filter(b => b.type.includes("guard")).length, "Guard Breeds"],
+                [ALL_BREEDS.filter(b => b.type.includes("family")).length, "Family Breeds"],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <div className="melody" style={{ fontSize: 28, color: C.orange, lineHeight: 1 }}>{v}</div>
+                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.5)", marginTop: 4 }}>{l}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Filter bar (sticky) ── */}
-      <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, position: "sticky", top: 96, zIndex: 50 }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", gap: 0, overflowX: "auto" }}>
-          {FILTERS.map(f => (
-            <button key={f} onClick={() => { setActiveFilter(f); setActiveLetter("All"); setSizeFilter("All"); }}
-              style={{
-                padding: "15px 22px", border: "none", background: "none", cursor: "pointer",
-                fontSize: 14, fontWeight: activeFilter === f ? 700 : 500, whiteSpace: "nowrap",
-                color: activeFilter === f ? filterColors[f].bg : C.inkSft,
-                borderBottom: activeFilter === f ? `3px solid ${filterColors[f].bg}` : "3px solid transparent",
-                transition: "all .2s",
-              }}>
-              {f === "A–Z List" ? "📋 " + f : f === "Indian Breeds" ? "🇮🇳 " + f : f === "Most Popular" ? "⭐ " + f : f === "Guard Dogs" ? "🛡 " + f : "🏡 " + f}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <section style={{ padding: "40px 0 100px", background: C.cream }}>
+      <section style={{ padding: "48px 0 100px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
 
-          {/* ── Search & secondary filters ── */}
+          {/* ── Search & consolidated filters ── */}
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center", marginBottom: 28, padding: "16px 20px", background: C.white, borderRadius: 18, border: `1px solid ${C.border}` }}>
             {/* Search */}
             <div style={{ position: "relative", flex: 1, minWidth: 200 }}>
@@ -5500,65 +5762,81 @@ function DogBreedsPage({ nav }) {
               <input
                 value={search} onChange={e => setSearch(e.target.value)}
                 placeholder="Search breeds or origin country…"
-                style={{ width: "100%", padding: "10px 14px 10px 42px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, outline: "none", color: C.ink, transition: "border-color .18s", boxSizing: "border-box" }}
+                style={{ width: "100%", padding: "10px 14px 10px 42px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, outline: "none", color: C.ink, transition: "border-color .18s", boxSizing: "box-sizing" }}
                 onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border}
               />
             </div>
-            {/* Size */}
-            <select value={sizeFilter} onChange={e => setSizeFilter(e.target.value)}
-              style={{ padding: "10px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, cursor: "pointer", outline: "none", color: C.ink, background: "#fff" }}>
-              <option value="All">All Sizes</option>
-              <option>Small</option><option>Medium</option><option>Large</option>
+            {/* Type */}
+            <select value={activeFilter} onChange={e => { setActiveFilter(e.target.value); setActiveLetter("All"); }}
+              className="filter-select"
+              style={{ padding: "10px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, cursor: "pointer", outline: "none", color: C.ink, background: "#fff", minWidth: 150 }}>
+              <option value="A–Z List">All Breeds</option>
+              <option value="Indian Breeds">🇮🇳 Indian Breeds</option>
+              <option value="Most Popular">⭐ Most Popular</option>
+              <option value="Guard Dogs">🛡 Guard Dogs</option>
+              <option value="Friendly Family Dogs">🏡 Family Dogs</option>
             </select>
             {/* Origin */}
             <select value={originFilter} onChange={e => setOriginFilter(e.target.value)}
-              style={{ padding: "10px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, cursor: "pointer", outline: "none", color: C.ink, background: "#fff", maxWidth: 200 }}>
+              className="filter-select"
+              style={{ padding: "10px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, cursor: "pointer", outline: "none", color: C.ink, background: "#fff", minWidth: 150, maxWidth: 200 }}>
               {origins.map(o => <option key={o}>{o === "All" ? "All Origins" : o}</option>)}
             </select>
-            <span style={{ fontSize: 13, color: C.inkSft, whiteSpace: "nowrap" }}>{filtered.length} breeds</span>
+            {/* Size */}
+            <select value={sizeFilter} onChange={e => setSizeFilter(e.target.value)}
+              className="filter-select"
+              style={{ padding: "10px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, fontSize: 14, cursor: "pointer", outline: "none", color: C.ink, background: "#fff", minWidth: 130 }}>
+              <option value="All">All Sizes</option>
+              <option>Small</option><option>Medium</option><option>Large</option>
+            </select>
           </div>
 
-          {/* ── A–Z Letter index (only in A–Z mode) ── */}
-          {activeFilter === "A–Z List" && (
-            <div style={{ display: "flex", gap: 4, flexWrap: "wrap", marginBottom: 28 }}>
-              {letters.map(l => (
-                <button key={l} onClick={() => setActiveLetter(l)} style={{
-                  width: l === "All" ? 44 : 34, height: 34, borderRadius: 8, border: `1.5px solid ${activeLetter === l ? C.orange : C.border}`,
-                  background: activeLetter === l ? C.orange : "#fff", color: activeLetter === l ? "#fff" : C.inkSft,
-                  fontSize: 13, fontWeight: activeLetter === l ? 700 : 400, cursor: "pointer", transition: "all .18s",
-                }}>{l}</button>
-              ))}
+          {/* Letter Indices & Count Row */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28, flexWrap: "wrap", gap: 16 }}>
+            {activeFilter === "A–Z List" ? (
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                {letters.map(l => (
+                  <button key={l} onClick={() => setActiveLetter(l)} style={{
+                    width: l === "All" ? 44 : 34, height: 34, borderRadius: 8, border: `1.5px solid ${activeLetter === l ? C.orange : C.border}`,
+                    background: activeLetter === l ? C.orange : "#fff", color: activeLetter === l ? "#fff" : C.inkSft,
+                    fontSize: 13, fontWeight: activeLetter === l ? 700 : 400, cursor: "pointer", transition: "all .18s",
+                  }}>{l}</button>
+                ))}
+              </div>
+            ) : <div />}
+            <div style={{ background: C.white, padding: "8px 18px", borderRadius: 100, border: `1px solid ${C.border}`, display: "inline-flex", alignItems: "center", gap: 6, boxShadow: "0 2px 8px rgba(17,17,17,0.02)", marginLeft: "auto" }}>
+              <span style={{ fontSize: 13.5, fontWeight: 700, color: C.inkMd }}>📊 {filtered.length} breeds</span>
             </div>
-          )}
+          </div>
 
           {/* ── Indian Breeds special header ── */}
           {activeFilter === "Indian Breeds" && (
-            <div style={{ background: `linear-gradient(135deg,#FF6B35,#FF8C55)`, borderRadius: 20, padding: "28px 32px", marginBottom: 32, display: "flex", gap: 24, alignItems: "center" }}>
+            <div style={{ background: "linear-gradient(135deg, rgba(255, 107, 53, 0.08), rgba(255, 140, 85, 0.08))", border: "1px solid rgba(255, 107, 53, 0.2)", borderRadius: 20, padding: "28px 32px", marginBottom: 32, display: "flex", gap: 24, alignItems: "center" }}>
               <div style={{ fontSize: 52 }}>🇮🇳</div>
               <div>
-                <h2 className="melody" style={{ fontSize: 32, color: "#fff", lineHeight: 1, marginBottom: 6 }}>Indian Dog Breeds</h2>
-                <p style={{ fontSize: 15, color: "rgba(255,255,255,.8)", lineHeight: 1.7 }}>Ancient, hardy, and perfectly adapted to the Indian subcontinent — these indigenous breeds are intelligent, low-maintenance, and deeply loyal. Many are endangered today and deserve your love.</p>
+                <h2 className="melody" style={{ fontSize: 32, color: "#FF6B35", lineHeight: 1, marginBottom: 6 }}>Indian Dog Breeds</h2>
+                <p style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.65, margin: 0 }}>Ancient, hardy, and perfectly adapted to the Indian subcontinent — these indigenous breeds are intelligent, low-maintenance, and deeply loyal. Many are endangered today and deserve your love.</p>
               </div>
             </div>
           )}
 
           {/* ── Category special headers ── */}
           {activeFilter === "Most Popular" && (
-            <div style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDark || "#C94E12"})`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
-              <h2 className="melody" style={{ fontSize: 28, color: "#fff", marginBottom: 6 }}>⭐ Most Popular Breeds</h2>
-              <p style={{ color: "rgba(255,255,255,.8)", fontSize: 15 }}>The world's most beloved and widely recognized dog breeds — chosen for temperament, adaptability, and all-round family compatibility.</p>
+            <div style={{ background: `linear-gradient(135deg, rgba(229, 93, 26, 0.08), rgba(201, 78, 18, 0.08))`, border: `1px solid ${C.orange}33`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
+              <h2 className="melody" style={{ fontSize: 28, color: C.orange, marginBottom: 6 }}>⭐ Most Popular Breeds</h2>
+              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>The world's most beloved and widely recognized dog breeds — chosen for temperament, adaptability, and all-round family compatibility.</p>
             </div>
           )}
           {activeFilter === "Guard Dogs" && (
-            <div style={{ background: `linear-gradient(135deg,${C.red},#A02020)`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
-              <h2 className="melody" style={{ fontSize: 28, color: "#fff", marginBottom: 6 }}>🛡 Guard Dog Breeds</h2>
-              <p style={{ color: "rgba(255,255,255,.8)", fontSize: 15 }}>Naturally protective, loyal, and alert — these breeds are ideal for home protection when paired with proper training and socialisation.</p>
+            <div style={{ background: `linear-gradient(135deg, rgba(192, 57, 43, 0.08), rgba(160, 32, 32, 0.08))`, border: `1px solid ${C.red}33`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
+              <h2 className="melody" style={{ fontSize: 28, color: C.red, marginBottom: 6 }}>🛡 Guard Dog Breeds</h2>
+              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>Naturally protective, loyal, and alert — these breeds are ideal for home protection when paired with proper training and socialisation.</p>
             </div>
           )}
           {activeFilter === "Friendly Family Dogs" && (
-            <div style={{ background: `linear-gradient(135deg,${C.green},#155C38)`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
-              <h2 className="melody" style={{ fontSize: 28, color: "#fff", marginBottom: 6 }}>🏡 Friendly Family Dog Breeds</h2>
-              <p style={{ color: "rgba(255,255,255,.8)", fontSize: 15 }}>Gentle, patient, and great with children — these breeds thrive in family environments and are perfect companions for all ages.</p>
+            <div style={{ background: `linear-gradient(135deg, rgba(30, 107, 69, 0.08), rgba(21, 92, 56, 0.08))`, border: `1px solid ${C.green}33`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
+              <h2 className="melody" style={{ fontSize: 28, color: C.green, marginBottom: 6 }}>🏡 Friendly Family Dog Breeds</h2>
+              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>Gentle, patient, and great with children — these breeds thrive in family environments and are perfect companions for all ages.</p>
             </div>
           )}
 
@@ -5580,19 +5858,6 @@ function DogBreedsPage({ nav }) {
                       onMouseEnter={e => e.target.style.transform = "scale(1.07)"}
                       onMouseLeave={e => e.target.style.transform = "scale(1)"} />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(17,17,17,.6) 0%,transparent 50%)" }} />
-
-                    {/* Badges */}
-                    <div style={{ position: "absolute", top: 10, left: 10, display: "flex", gap: 5, flexWrap: "wrap" }}>
-                      {b.type.includes("indian") && <span style={{ background: "#FF6B35", color: "#fff", fontSize: 9, fontWeight: 700, padding: "2px 8px", borderRadius: 100 }}>🇮🇳 Indian</span>}
-                      {b.type.includes("popular") && <span style={{ background: C.orange, color: "#fff", fontSize: 9, fontWeight: 700, padding: "2px 8px", borderRadius: 100 }}>⭐ Popular</span>}
-                      {b.type.includes("guard") && <span style={{ background: C.red, color: "#fff", fontSize: 9, fontWeight: 700, padding: "2px 8px", borderRadius: 100 }}>🛡 Guard</span>}
-                      {b.type.includes("family") && <span style={{ background: C.green, color: "#fff", fontSize: 9, fontWeight: 700, padding: "2px 8px", borderRadius: 100 }}>🏡 Family</span>}
-                    </div>
-
-                    {/* Size badge */}
-                    <div style={{ position: "absolute", top: 10, right: 10, background: "rgba(0,0,0,.6)", borderRadius: 100, padding: "3px 9px" }}>
-                      <span style={{ color: "#fff", fontSize: 10, fontWeight: 600 }}>{b.size}</span>
-                    </div>
 
                     {/* Name overlay */}
                     <div style={{ position: "absolute", bottom: 12, left: 14, right: 14 }}>
@@ -5625,17 +5890,6 @@ function DogBreedsPage({ nav }) {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section style={{ padding: "70px 0", background: C.orange }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
-          <h2 className="melody" style={{ fontSize: "clamp(34px,5vw,58px)", color: "#fff", lineHeight: .95, marginBottom: 16 }}>Found a breed you love?</h2>
-          <p style={{ fontSize: 17, color: "rgba(255,255,255,.8)", lineHeight: 1.75, marginBottom: 32 }}>Browse adoption listings for that breed, or connect with a Pawprint vet to ask breed-specific health questions.</p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <button className="btn btn-lg" style={{ background: "#fff", color: C.orange, fontWeight: 700 }} onClick={() => nav("adopt")}>Adopt a Dog →</button>
-            <button className="btn btn-lg" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", fontWeight: 600 }} onClick={() => nav("vet")}>Talk to a Vet</button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
@@ -5645,6 +5899,11 @@ function DogBreedsPage({ nav }) {
 // ══════════════════════════════════════════════════════════════════
 export default function App() {
   const [page, setPage] = useState("home");
+  const [pets, setPets] = useState([
+    { name: "Max", breed: "German Shepherd", species: "Dog", age: "3 yrs", gender: "Male", img: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=600&q=80&fit=crop", health: 95, weight: "35 kg", color: "Black & Tan", microchip: "MX001234", allergies: "None", conditions: "None", nextVet: "Jun 15", nextVacc: "Jul 20", food: "Royal Canin German Shepherd Adult" },
+    { name: "Bella", breed: "Pomeranian", species: "Dog", age: "2 yrs", gender: "Female", img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&q=80&fit=crop", health: 88, weight: "4.5 kg", color: "Orange Sable", microchip: "MX005678", allergies: "None", conditions: "None", nextVet: "Jul 3", nextVacc: "Aug 5", food: "Purina Pro Plan Small Breed" },
+  ]);
+  const [currentUser, setCurrentUser] = useState({ name: "Geetha", email: "geetha@example.com" });
 
   const nav = (p) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
@@ -5658,9 +5917,9 @@ export default function App() {
     vet: <VetPage nav={nav} />,
     shop: <ShopPage nav={nav} />,
     lost: <LostFoundPage nav={nav} />,
-    dashboard: <DashboardPage nav={nav} />,
-    login: <AuthPage type="login" nav={nav} />,
-    signup: <AuthPage type="signup" nav={nav} />,
+    dashboard: <DashboardPage nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} />,
+    login: <AuthPage type="login" nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} setCurrentUser={setCurrentUser} />,
+    signup: <AuthPage type="signup" nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} setCurrentUser={setCurrentUser} />,
     contact: <ContactPage nav={nav} />,
     "pet-videos": <PetVideosPage nav={nav} />,
     "dog-breeds": <DogBreedsPage nav={nav} />,

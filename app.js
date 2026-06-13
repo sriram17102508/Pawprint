@@ -378,29 +378,65 @@ const ALL_BREEDS = [
   { name: "Anatolian Shepherd Dog", origin: "Turkey", size: "Large", type: ["guard"], temperament: "Independent, reserved, protective", lifespan: "11–13 yrs", weight: "41–68 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
   { name: "Australian Cattle Dog", origin: "Australia", size: "Medium", type: ["working", "family"], temperament: "Alert, curious, intelligent", lifespan: "12–16 yrs", weight: "14–16 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
   { name: "Australian Shepherd", origin: "United States", size: "Medium", type: ["working", "family"], temperament: "Energetic, intelligent, loyal", lifespan: "12–15 yrs", weight: "16–32 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
-  { name: "Basenji", origin: "Congo", size: "Small", type: ["companion"], temperament: "Independent, clever, energetic", lifespan: "13–14 yrs", weight: "9–11 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Basenji", origin: "Democratic Republic of the Congo", size: "Small", type: ["companion"], temperament: "Independent, clever, energetic", lifespan: "13–14 yrs", weight: "9–11 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
   { name: "Basset Hound", origin: "France", size: "Medium", type: ["family"], temperament: "Tenacious, friendly, calm", lifespan: "12–13 yrs", weight: "20–29 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
   { name: "Beagle", origin: "United Kingdom", size: "Medium", type: ["family", "popular"], temperament: "Curious, merry, friendly", lifespan: "12–15 yrs", weight: "9–11 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Beauceron", origin: "France", size: "Large", type: ["guard", "working"], temperament: "Loyal, calm, versatile", lifespan: "10–12 yrs", weight: "30–45 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
   { name: "Belgian Malinois", origin: "Belgium", size: "Large", type: ["guard", "working"], temperament: "Confident, alert, hardworking", lifespan: "14–16 yrs", weight: "25–30 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
   { name: "Bernese Mountain Dog", origin: "Switzerland", size: "Large", type: ["family", "popular"], temperament: "Gentle, calm, affectionate", lifespan: "7–10 yrs", weight: "32–52 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
   { name: "Bichon Frise", origin: "Spain", size: "Small", type: ["companion", "family"], temperament: "Cheerful, playful, gentle", lifespan: "14–15 yrs", weight: "5–10 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Bloodhound", origin: "Belgium", size: "Large", type: ["working"], temperament: "Stubborn, curious, gentle", lifespan: "10–12 yrs", weight: "36–50 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
   { name: "Border Collie", origin: "United Kingdom", size: "Medium", type: ["working", "popular"], temperament: "Intelligent, energetic, responsive", "lifespan": "12–15 yrs", weight: "14–20 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Borzoi", origin: "Russia", size: "Large", type: ["sighthound"], temperament: "Calm, intelligent, independent", lifespan: "9–14 yrs", weight: "27–48 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
   { name: "Boston Terrier", origin: "United States", size: "Small", type: ["companion", "family"], temperament: "Friendly, lively, intelligent", lifespan: "13–15 yrs", weight: "5–11 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
   { name: "Boxer", origin: "Germany", size: "Large", type: ["guard", "family", "popular"], temperament: "Playful, patient, loyal", lifespan: "10–12 yrs", weight: "25–32 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
   { name: "Bulldog", origin: "United Kingdom", size: "Medium", type: ["companion", "popular"], temperament: "Calm, courageous, friendly", lifespan: "8–10 yrs", weight: "18–25 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Bullmastiff", origin: "United Kingdom", size: "Large", type: ["guard"], temperament: "Docile, loyal, devoted", lifespan: "7–9 yrs", weight: "45–59 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
   { name: "Cane Corso", origin: "Italy", size: "Large", type: ["guard"], temperament: "Stable, quiet, reserved", lifespan: "10–12 yrs", weight: "40–50 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Cavalier King Charles Spaniel", origin: "United Kingdom", size: "Small", type: ["companion", "family"], temperament: "Gentle, affectionate, graceful", lifespan: "12–15 yrs", weight: "5–8 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
   { name: "Chihuahua", origin: "Mexico", size: "Small", type: ["companion", "popular"], temperament: "Charming, bold, alert", lifespan: "14–16 yrs", weight: "1–3 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
   { name: "Chow Chow", origin: "China", size: "Large", type: ["guard", "companion"], temperament: "Aloof, loyal, quiet", lifespan: "9–15 yrs", weight: "20–32 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
   { name: "Cocker Spaniel", origin: "United Kingdom", size: "Medium", type: ["family", "popular"], temperament: "Playful, affectionate, gentle", lifespan: "12–15 yrs", weight: "7–14 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
+  { name: "Collie", origin: "Scotland", size: "Large", type: ["family", "working"], temperament: "Loyal, graceful, intelligent", lifespan: "12–14 yrs", weight: "23–34 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
   { name: "Dachshund", origin: "Germany", size: "Small", type: ["companion", "popular"], temperament: "Stubborn, clever, lively", lifespan: "12–16 yrs", weight: "4–15 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Dalmatian", origin: "Croatia", size: "Large", type: ["family", "working"], temperament: "Energetic, loyal, outgoing", lifespan: "13–16 yrs", weight: "23–27 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
   { name: "Doberman Pinscher", origin: "Germany", size: "Large", type: ["guard", "popular"], temperament: "Alert, loyal, fearless", lifespan: "10–13 yrs", weight: "32–45 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Dogo Argentino", origin: "Argentina", size: "Large", type: ["guard", "working"], temperament: "Loyal, cheerful, protective", lifespan: "9–15 yrs", weight: "35–45 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
   { name: "French Bulldog", origin: "France", size: "Small", type: ["companion", "popular"], temperament: "Adaptable, playful, smart", lifespan: "10–12 yrs", weight: "8–13 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
   { name: "German Shepherd", origin: "Germany", size: "Large", type: ["guard", "working", "popular"], temperament: "Confident, courageous, smart", lifespan: "9–13 yrs", weight: "22–40 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
-  { name: "Golden Retriever", origin: "Scotland", size: "Large", type: ["family", "popular"], temperament: "Friendly, intelligent, devoted", lifespan: "10–12 yrs", weight: "25–35 kg", img: P.dog4 },
-  { name: "Indian Pariah Dog", origin: "India", size: "Medium", type: ["indian", "family"], temperament: "Hardy, intelligent, alert", lifespan: "13–15 yrs", weight: "15–25 kg", img: P.dog3 },
-  { name: "Rajapalayam", origin: "India", size: "Large", type: ["indian", "guard"], temperament: "Affectionate, guard, courageous", lifespan: "10–12 yrs", weight: "30–45 kg", img: P.dog1 },
-  { name: "Mudhol Hound", origin: "India", size: "Large", type: ["indian", "sighthound"], temperament: "Graceful, alert, loyal", lifespan: "12–14 yrs", weight: "22–28 kg", img: P.dog2 },
-  { name: "Kombai", origin: "India", size: "Medium", type: ["indian", "guard"], temperament: "Fierce, loyal, protective", lifespan: "12–15 yrs", weight: "25–30 kg", img: P.dog4 },
+  { name: "Golden Retriever", origin: "Scotland", size: "Large", type: ["family", "popular"], temperament: "Friendly, reliable, trustworthy", lifespan: "10–12 yrs", weight: "25–34 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Great Dane", origin: "Germany", size: "Large", type: ["guard", "family"], temperament: "Friendly, patient, dependable", lifespan: "7–10 yrs", weight: "50–90 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Greyhound", origin: "United Kingdom", size: "Large", type: ["sighthound", "family"], temperament: "Gentle, affectionate, even-tempered", "lifespan": "10–14 yrs", weight: "27–40 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
+  { name: "Irish Setter", origin: "Ireland", size: "Large", type: ["family", "working"], temperament: "Spirited, playful, affectionate", lifespan: "12–15 yrs", weight: "25–32 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Irish Wolfhound", origin: "Ireland", size: "Large", type: ["family"], temperament: "Calm, dignified, generous", lifespan: "6–10 yrs", weight: "48–55 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Jack Russell Terrier", origin: "United Kingdom", size: "Small", type: ["companion", "family"], temperament: "Alert, lively, inquisitive", lifespan: "13–16 yrs", weight: "6–8 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Japanese Spitz", origin: "Japan", size: "Small", type: ["companion", "family"], temperament: "Obedient, playful, affectionate", lifespan: "10–16 yrs", weight: "5–10 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Labrador Retriever", origin: "Canada", size: "Large", type: ["family", "popular"], temperament: "Friendly, outgoing, active", lifespan: "10–12 yrs", weight: "25–36 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
+  { name: "Lhasa Apso", origin: "Tibet", size: "Small", type: ["companion"], temperament: "Confident, assertive, comical", lifespan: "12–15 yrs", weight: "6–8 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Maltese", origin: "Malta", size: "Small", type: ["companion", "popular"], temperament: "Gentle, playful, fearless", lifespan: "12–15 yrs", weight: "2–4 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Newfoundland", origin: "Canada", size: "Large", type: ["family", "working"], temperament: "Gentle, sweet, patient", lifespan: "8–10 yrs", weight: "45–68 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Pekingese", origin: "China", size: "Small", type: ["companion"], temperament: "Opinionated, loyal, regal", lifespan: "12–15 yrs", weight: "3–6 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Pembroke Welsh Corgi", origin: "Wales", size: "Small", type: ["family", "popular"], temperament: "Bold, tenacious, playful", lifespan: "12–15 yrs", weight: "10–14 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Pomeranian", origin: "Germany", size: "Small", type: ["companion", "popular"], temperament: "Lively, bold, inquisitive", lifespan: "12–16 yrs", weight: "1–3 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
+  { name: "Poodle", origin: "Germany", size: "Medium", type: ["family", "popular"], temperament: "Intelligent, active, alert", lifespan: "12–15 yrs", weight: "20–32 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Pug", origin: "China", size: "Small", type: ["companion", "popular"], temperament: "Charming, mischievous, loving", lifespan: "12–15 yrs", weight: "6–9 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Rottweiler", origin: "Germany", size: "Large", type: ["guard", "popular"], temperament: "Calm, confident, devoted", lifespan: "8–10 yrs", weight: "35–60 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Saint Bernard", origin: "Switzerland", size: "Large", type: ["family", "working"], temperament: "Gentle, patient, friendly", lifespan: "8–10 yrs", weight: "54–82 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Samoyed", origin: "Russia", size: "Large", type: ["family", "popular"], temperament: "Gentle, adaptable, friendly", lifespan: "12–14 yrs", weight: "16–30 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Shiba Inu", origin: "Japan", size: "Small", type: ["companion", "popular"], temperament: "Alert, active, attentive", lifespan: "13–16 yrs", weight: "8–11 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
+  { name: "Shih Tzu", origin: "China", size: "Small", type: ["companion", "popular"], temperament: "Outgoing, happy, affectionate", lifespan: "10–16 yrs", weight: "4–8 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Siberian Husky", origin: "Russia", size: "Large", type: ["working", "popular"], temperament: "Outgoing, mischievous, loyal", lifespan: "12–15 yrs", weight: "16–27 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Weimaraner", origin: "Germany", size: "Large", type: ["working", "family"], temperament: "Friendly, fearless, alert", lifespan: "11–14 yrs", weight: "25–40 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Yorkshire Terrier", origin: "United Kingdom", size: "Small", type: ["companion", "popular"], temperament: "Bold, confident, intelligent", lifespan: "13–16 yrs", weight: "3–7 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  /* ── Indian breeds ── */
+  { name: "Indian Pariah Dog", origin: "India", size: "Medium", type: ["indian", "guard", "family"], temperament: "Alert, intelligent, adaptable", lifespan: "14–16 yrs", weight: "14–22 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Rajapalayam", origin: "India", size: "Large", type: ["indian", "guard"], temperament: "Loyal, courageous, reserved", lifespan: "10–12 yrs", weight: "22–25 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Mudhol Hound", origin: "India", size: "Large", type: ["indian", "working"], temperament: "Alert, athletic, sensitive", lifespan: "10–12 yrs", weight: "20–30 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
+  { name: "Chippiparai", origin: "India", size: "Medium", type: ["indian", "working"], temperament: "Loyal, self-reliant, alert", lifespan: "12–14 yrs", weight: "15–20 kg", img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=75&fit=crop" },
+  { name: "Kombai", origin: "India", size: "Medium", type: ["indian", "guard"], temperament: "Aggressive, loyal, alert", lifespan: "12–14 yrs", weight: "22–25 kg", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75&fit=crop" },
+  { name: "Kanni", origin: "India", size: "Medium", type: ["indian", "working"], temperament: "Shy, loyal, gentle", lifespan: "14–16 yrs", weight: "15–22 kg", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400&q=75&fit=crop" },
+  { name: "Himalayan Sheepdog", origin: "India", size: "Large", type: ["indian", "guard", "working"], temperament: "Devoted, energetic, strong-willed", lifespan: "10–11 yrs", weight: "25–45 kg", img: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=75&fit=crop" },
+  { name: "Indian Spitz", origin: "India", size: "Small", type: ["indian", "companion"], temperament: "Lively, intelligent, playful", lifespan: "13–15 yrs", weight: "5–7 kg", img: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&q=75&fit=crop" },
 ];
 
 const KB = [
@@ -644,10 +680,27 @@ let lostListings = [
 ];
 
 // ── Dashboard state models for user's pets ──────────────────────
-let userPets = [
-  { name: "Max", breed: "Golden Retriever", species: "Dog", age: "3 yrs", gender: "Male", img: P.dog1, health: 95, weight: "32 kg", color: "Golden", microchip: "MX001234", allergies: "None", conditions: "None", nextVet: "Jun 15", nextVacc: "Jul 20", food: "Royal Canin Medium Adult" },
-  { name: "Bella", breed: "Persian Cat", species: "Cat", age: "2 yrs", gender: "Female", img: P.cat1, health: 88, weight: "4.2 kg", color: "White", microchip: "MX005678", allergies: "Dairy", conditions: "None", nextVet: "Jul 3", nextVacc: "Aug 5", food: "Whiskas Adult Tuna" },
-];
+let userPets = JSON.parse(localStorage.getItem('userPets'));
+if (!userPets || userPets.some(p => p.breed === "Persian Cat" || p.breed === "Golden Retriever")) {
+  userPets = [
+    { name: "Max", breed: "German Shepherd", species: "Dog", age: "3 yrs", gender: "Male", img: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=600&q=80&fit=crop", health: 95, weight: "35 kg", color: "Black & Tan", microchip: "MX001234", allergies: "None", conditions: "None", nextVet: "Jun 15", nextVacc: "Jul 20", food: "Royal Canin German Shepherd Adult" },
+    { name: "Bella", breed: "Pomeranian", species: "Dog", age: "2 yrs", gender: "Female", img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&q=80&fit=crop", health: 88, weight: "4.5 kg", color: "Orange Sable", microchip: "MX005678", allergies: "None", conditions: "None", nextVet: "Jul 3", nextVacc: "Aug 5", food: "Purina Pro Plan Small Breed" },
+  ];
+  localStorage.setItem('userPets', JSON.stringify(userPets));
+}
+function saveUserPets() {
+  localStorage.setItem('userPets', JSON.stringify(userPets));
+}
+
+let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+if (!currentUser || currentUser.name === "Priya") {
+  currentUser = { name: "Geetha", email: "geetha@example.com" };
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+}
+function saveCurrentUser() {
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+}
+
 
 // Testimonials & FAQ data sets
 const testis = [
@@ -770,6 +823,24 @@ function initPage(pageId) {
     setLostTab('browse');
   } else if (pageId === 'dashboard') {
     setDashboardTab(dashboardTab);
+    
+    // Dynamic greeting & vaccine alert widget updating
+    const greetingEl = document.querySelector('#page-dashboard h1') || document.querySelector('.dashboard-greeting-title');
+    if (greetingEl) {
+      greetingEl.innerHTML = `Good morning, ${currentUser.name} 👋`;
+    }
+    const vaccineAlertText = document.querySelector('.vaccine-alert-text');
+    if (vaccineAlertText) {
+      let alertPetName = "Max";
+      if (currentUser.name !== "Geetha" && userPets.length > 2) {
+        alertPetName = userPets[userPets.length - 1].name;
+      } else if (userPets.length > 0) {
+        alertPetName = userPets[0].name;
+      }
+      vaccineAlertText.innerHTML = `🛡️ <strong class="vaccine-alert-pet-name">${alertPetName}'s</strong> booster shot is due in <strong>9 days</strong>. Book a certified clinic vet now to maintain immunity.`;
+    }
+  } else if (pageId === 'signup') {
+    setupVerifyInputs();
   } else if (pageId === 'dog-breeds') {
     initBreedsPage();
   } else if (pageId === 'pet-videos') {
@@ -1627,9 +1698,9 @@ function renderSubPageBookingForm(svcName) {
       <p style="font-size: 14px; color: var(--color-ink-sft); margin-bottom: 24px;">Fill in your details and we'll confirm within 2 hours.</p>
       
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-        <div class="field"><label>Your Full Name</label><input id="bk-name" placeholder="Priya Sharma"></div>
+        <div class="field"><label>Your Full Name</label><input id="bk-name" placeholder="Geetha Sharma"></div>
         <div class="field"><label>Phone Number</label><input id="bk-phone" type="tel" placeholder="+91 98765 43210"></div>
-        <div class="field"><label>Email Address</label><input id="bk-email" type="email" placeholder="priya@email.com"></div>
+        <div class="field"><label>Email Address</label><input id="bk-email" type="email" placeholder="geetha@email.com"></div>
         <div class="field"><label>Pet's Name</label><input id="bk-pet" placeholder="Bruno"></div>
         <div class="field" style="grid-column: 1 / -1;"><label>Breed / Species</label><input id="bk-breed" placeholder="Labrador / Dog"></div>
         <div class="field"><label>Preferred Date</label><input id="bk-date" type="date"></div>
@@ -2801,6 +2872,10 @@ function setDashboardTab(tabId) {
     renderDashboardOverview();
   } else if (tabId === 'pets') {
     renderDashboardPets();
+  } else if (tabId === 'bookings') {
+    renderDashboardBookings();
+  } else if (tabId === 'orders') {
+    renderDashboardOrders();
   }
 }
 
@@ -2840,7 +2915,7 @@ function renderDashboardPets() {
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.45), transparent);"></div>
         <h3 class="melody" style="position: absolute; bottom: 14px; left: 18px; color: #fff; font-size: 24px;">${p.name}</h3>
       </div>
-      <div style="padding: 20px 24px;">
+      <div style="padding: 20px 24px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
         <p style="color: var(--color-ink-sft); font-size: 14px; margin-bottom: 16px;">${p.breed} · ${p.age || 'Unknown age'} · ${p.weight}</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
           <div style="background: var(--color-cream); border-radius: 11px; padding: 10px 14px;">
@@ -2854,7 +2929,7 @@ function renderDashboardPets() {
         </div>
         ${p.food ? `<p style="font-size: 12px; color: var(--color-ink-sft); margin-bottom: 12px;">🍽 ${p.food}</p>` : ''}
         ${p.allergies && p.allergies !== 'None' ? `<p style="font-size: 12px; color: var(--color-red); margin-bottom: 12px;">⚠️ Allergies: ${p.allergies}</p>` : ''}
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 10px; margin-top: auto;">
           <button class="btn btn-md btn-ghost" style="flex: 1;" onclick="alert('Profile details edit is mock-only.')">Edit</button>
           <button class="btn btn-md btn-primary" style="flex: 1;" onclick="alert('Loading full health reports charts...')">Health Records</button>
         </div>
@@ -2868,6 +2943,96 @@ function renderDashboardPets() {
       <div style="font-size: 13px; color: var(--color-sand); margin-top: 6px; text-align: center;">Track health, vaccines, diet & more</div>
     </div>
   `;
+}
+
+function renderDashboardBookings() {
+  const list = document.getElementById('dash-bookings-list');
+  if (!list) return;
+
+  const mockBookings = [
+    { id: "BK-1082", petName: "Max", service: "Veterinary Consultation", date: "Jun 15, 2026", time: "10:30 AM", provider: "Dr. Kiran Patel", status: "Upcoming", price: "₹650", icon: "🏥" },
+    { id: "BK-1054", petName: "Bella", service: "Full Grooming Session", date: "Jun 25, 2026", time: "02:00 PM", provider: "Pawprint Grooming Studio", status: "Upcoming", price: "₹1,499", icon: "✂️" },
+    { id: "BK-0982", petName: "Max", service: "Behavioral Puppy Training", date: "Jun 20, 2026", time: "09:00 AM", provider: "Priya Venkatesh", status: "Upcoming", price: "₹1,200", icon: "🎓" },
+    { id: "BK-0841", petName: "Bella", service: "Deworming Clinic Visit", date: "May 28, 2026", time: "11:00 AM", provider: "Dr. Kiran Patel", status: "Completed", price: "₹450", icon: "💉" }
+  ];
+
+  list.innerHTML = mockBookings.map(b => `
+    <div class="card" style="padding: 24px; flex-direction: row; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="width: 50px; height: 50px; border-radius: 12px; background: var(--color-cream); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
+        ${b.icon}
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+          <span style="font-weight: 700; color: var(--color-ink); font-size: 16px;">${b.service}</span>
+          <span class="pill" style="background: var(--color-cream-dk); color: var(--color-ink-sft); font-size: 11px;">${b.id}</span>
+        </div>
+        <div style="font-size: 13.5px; color: var(--color-ink-sft); display: flex; gap: 12px; flex-wrap: wrap;">
+          <span>Pet: <strong>${b.petName}</strong></span>
+          <span>Date: <strong>${b.date} · ${b.time}</strong></span>
+          <span>With: <strong>${b.provider}</strong></span>
+        </div>
+      </div>
+      <div style="text-align: right; flex-shrink: 0; margin-left: auto;">
+        <div style="font-weight: 800; font-size: 16px; color: var(--color-ink);">${b.price}</div>
+        <span class="pill" style="margin-top: 6px; display: inline-block; background: ${b.status === 'Upcoming' ? 'var(--color-blue-lt)' : 'var(--color-green-lt)'}; color: ${b.status === 'Upcoming' ? 'var(--color-blue)' : 'var(--color-green)'}; font-weight: 700;">
+          ${b.status}
+        </span>
+      </div>
+      <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; width: 100%; border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
+        ${b.status === 'Upcoming' ? `
+          <button class="btn btn-sm btn-ghost" onclick="alert('Rescheduling booking ${b.id}...')">Reschedule</button>
+          <button class="btn btn-sm btn-primary" style="background: var(--color-red); border-color: var(--color-red); color: white;" onclick="alert('Cancelling booking ${b.id}...')">Cancel</button>
+        ` : `
+          <button class="btn btn-sm btn-ghost" onclick="alert('Downloading invoice for ${b.id}...')">View Invoice</button>
+          <button class="btn btn-sm btn-primary" onclick="alert('Rebooking service...')">Book Again</button>
+        `}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderDashboardOrders() {
+  const list = document.getElementById('dash-orders-list');
+  if (!list) return;
+
+  const mockOrders = [
+    { id: "PW-9951", date: "Jun 13, 2026", item: "Reflective Safe-Grip Leash", category: "Accessories", price: "₹1,199", status: "Processing", icon: "🦮" },
+    { id: "PW-9904", date: "Jun 12, 2026", item: "Organic Chicken & Oats Treats (Pack of 2)", category: "Food & Treats", price: "₹799", status: "In Transit", icon: "🦴" },
+    { id: "PW-9823", date: "Jun 10, 2026", item: "Premium Orthopedic Dog Bed", category: "Bedding", price: "₹2,499", status: "Delivered", icon: "🛏️" }
+  ];
+
+  list.innerHTML = mockOrders.map(o => `
+    <div class="card" style="padding: 24px; flex-direction: row; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="width: 50px; height: 50px; border-radius: 12px; background: var(--color-cream); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
+        ${o.icon}
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+          <span style="font-weight: 700; color: var(--color-ink); font-size: 16px;">${o.item}</span>
+          <span class="pill" style="background: var(--color-cream-dk); color: var(--color-ink-sft); font-size: 11px;">${o.id}</span>
+        </div>
+        <div style="font-size: 13.5px; color: var(--color-ink-sft); display: flex; gap: 12px;">
+          <span>Category: <strong>${o.category}</strong></span>
+          <span>Order Date: <strong>${o.date}</strong></span>
+        </div>
+      </div>
+      <div style="text-align: right; flex-shrink: 0; margin-left: auto;">
+        <div style="font-weight: 800; font-size: 16px; color: var(--color-ink);">${o.price}</div>
+        <span class="pill" style="margin-top: 6px; display: inline-block; background: ${o.status === 'Processing' ? 'var(--color-orange-lt)' : o.status === 'In Transit' ? 'var(--color-blue-lt)' : 'var(--color-green-lt)'}; color: ${o.status === 'Processing' ? 'var(--color-orange)' : o.status === 'In Transit' ? 'var(--color-blue)' : 'var(--color-green)'}; font-weight: 700;">
+          ${o.status}
+        </span>
+      </div>
+      <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; width: 100%; border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
+        ${o.status !== 'Delivered' ? `
+          <button class="btn btn-sm btn-ghost" onclick="alert('Tracking order ${o.id}...')">Track Order</button>
+          <button class="btn btn-sm btn-primary" onclick="alert('Opening customer support for order ${o.id}...')">Support</button>
+        ` : `
+          <button class="btn btn-sm btn-ghost" onclick="alert('Opening return policy...')">Return/Replace</button>
+          <button class="btn btn-sm btn-primary" onclick="alert('Item added to cart for reorder.')">Buy Again</button>
+        `}
+      </div>
+    </div>
+  `).join('');
 }
 
 function openAddPetModal() {
@@ -2924,6 +3089,7 @@ function submitAddPet() {
   };
 
   userPets.push(newPetItem);
+  saveUserPets();
 
   document.getElementById('addpet-success-name').textContent = name;
   if (addPetPhoto) {
@@ -3026,37 +3192,42 @@ function filterBreeds() {
   if (activeBreedType !== 'All') {
     header.style.display = 'block';
     if (activeBreedType === 'indian') {
-      header.style.background = 'linear-gradient(135deg, #FF6B35, #FF8C55)';
+      header.style.background = 'linear-gradient(135deg, rgba(255, 107, 53, 0.08), rgba(255, 140, 85, 0.08))';
+      header.style.border = '1px solid rgba(255, 107, 53, 0.2)';
       header.innerHTML = `
-        <div style="display: flex; gap: 24px; align-items: center; color: #fff;">
+        <div style="display: flex; gap: 24px; align-items: center;">
           <div style="font-size: 52px;">🇮🇳</div>
           <div>
-            <h2 class="melody" style="font-size: 32px; line-height: 1; margin-bottom: 6px;">Indian Dog Breeds</h2>
-            <p style="font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.7;">Ancient, hardy, and perfectly adapted to the Indian subcontinent — these indigenous breeds are intelligent, low-maintenance, and deeply loyal. Many are endangered today and deserve your love.</p>
+            <h2 class="melody" style="font-size: 32px; line-height: 1; margin-bottom: 6px; color: #FF6B35;">Indian Dog Breeds</h2>
+            <p style="font-size: 13px; color: var(--color-ink-sft); line-height: 1.65; margin: 0;">Ancient, hardy, and perfectly adapted to the Indian subcontinent — these indigenous breeds are intelligent, low-maintenance, and deeply loyal. Many are endangered today and deserve your love.</p>
           </div>
         </div>
       `;
     } else if (activeBreedType === 'popular') {
-      header.style.background = 'linear-gradient(135deg, var(--color-orange), #C94E12)';
+      header.style.background = 'linear-gradient(135deg, rgba(229, 93, 26, 0.08), rgba(201, 78, 18, 0.08))';
+      header.style.border = '1px solid rgba(229, 93, 26, 0.2)';
       header.innerHTML = `
-        <h2 class="melody" style="font-size: 28px; color: #fff; margin-bottom: 6px;">⭐ Most Popular Breeds</h2>
-        <p style="color: rgba(255,255,255,.8); font-size: 15px;">The world's most beloved and widely recognized dog breeds — chosen for temperament, adaptability, and all-round family compatibility.</p>
+        <h2 class="melody" style="font-size: 28px; margin-bottom: 6px; color: var(--color-orange);">⭐ Most Popular Breeds</h2>
+        <p style="color: var(--color-ink-sft); font-size: 13px; line-height: 1.65; margin: 0;">The world's most beloved and widely recognized dog breeds — chosen for temperament, adaptability, and all-round family compatibility.</p>
       `;
     } else if (activeBreedType === 'guard') {
-      header.style.background = 'linear-gradient(135deg, var(--color-red), #A02020)';
+      header.style.background = 'linear-gradient(135deg, rgba(192, 57, 43, 0.08), rgba(160, 32, 32, 0.08))';
+      header.style.border = '1px solid rgba(192, 57, 43, 0.2)';
       header.innerHTML = `
-        <h2 class="melody" style="font-size: 28px; color: #fff; margin-bottom: 6px;">🛡 Guard Dog Breeds</h2>
-        <p style="color: rgba(255,255,255,.8); font-size: 15px;">Naturally protective, loyal, and alert — these breeds are ideal for home protection when paired with proper training and socialisation.</p>
+        <h2 class="melody" style="font-size: 28px; margin-bottom: 6px; color: var(--color-red);">🛡 Guard Dog Breeds</h2>
+        <p style="color: var(--color-ink-sft); font-size: 13px; line-height: 1.65; margin: 0;">Naturally protective, loyal, and alert — these breeds are ideal for home protection when paired with proper training and socialisation.</p>
       `;
     } else if (activeBreedType === 'family') {
-      header.style.background = 'linear-gradient(135deg, var(--color-green), #155C38)';
+      header.style.background = 'linear-gradient(135deg, rgba(30, 107, 69, 0.08), rgba(21, 92, 56, 0.08))';
+      header.style.border = '1px solid rgba(30, 107, 69, 0.2)';
       header.innerHTML = `
-        <h2 class="melody" style="font-size: 28px; color: #fff; margin-bottom: 6px;">🏡 Friendly Family Dog Breeds</h2>
-        <p style="color: rgba(255,255,255,.8); font-size: 15px;">Gentle, patient, and great with children — these breeds thrive in family environments and are perfect companions for all ages.</p>
+        <h2 class="melody" style="font-size: 28px; margin-bottom: 6px; color: var(--color-green);">🏡 Friendly Family Dog Breeds</h2>
+        <p style="color: var(--color-ink-sft); font-size: 13px; line-height: 1.65; margin: 0;">Gentle, patient, and great with children — these breeds thrive in family environments and are perfect companions for all ages.</p>
       `;
     }
   } else {
     header.style.display = 'none';
+    header.style.border = 'none';
   }
 
   const grid = document.getElementById('breeds-grid');
@@ -3078,17 +3249,6 @@ function filterBreeds() {
           <img src="${b.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${b.name}">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,.6) 0%, transparent 50%);"></div>
           
-          <div style="position: absolute; top: 10px; left: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
-            ${b.type.includes("indian") ? '<span style="background: #FF6B35; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 100px;">🇮🇳 Indian</span>' : ''}
-            ${b.type.includes("popular") ? '<span style="background: var(--color-orange); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 100px;">⭐ Popular</span>' : ''}
-            ${b.type.includes("guard") ? '<span style="background: var(--color-red); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 100px;">🛡 Guard</span>' : ''}
-            ${b.type.includes("family") ? '<span style="background: var(--color-green); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 100px;">🏡 Family</span>' : ''}
-          </div>
-
-          <div style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,.6); border-radius: 100px; padding: 3px 9px;">
-            <span style="color: #fff; font-size: 10px; font-weight: 600;">${b.size}</span>
-          </div>
-
           <div style="position: absolute; bottom: 12px; left: 14px; right: 14px;">
             <h3 class="melody" style="color: #fff; font-size: 20px; line-height: 1; margin-bottom: 2px;">${b.name}</h3>
             <p style="color: rgba(255,255,255,.75); font-size: 11px;">🌍 ${b.origin}</p>
@@ -3121,6 +3281,8 @@ function resetBreedsFilters() {
   document.getElementById('breeds-search-input').value = '';
   document.getElementById('breeds-filter-size').value = 'All';
   document.getElementById('breeds-filter-origin').value = 'All';
+  const typeFilter = document.getElementById('breeds-filter-type');
+  if (typeFilter) typeFilter.value = 'All';
   activeBreedLetter = 'All';
   activeBreedType = 'All';
   renderBreedLetters();
@@ -3135,34 +3297,90 @@ function viewBreedDetail(name) {
   const container = document.getElementById('breed-modal-content');
   if (!modal || !container) return;
 
+  const traits = b.type.filter(t => !["indian"].includes(t));
+  const traitLabels = { guard: "Guard Dog", family: "Family Dog", popular: "Most Popular", working: "Working Dog", companion: "Companion", sighthound: "Sighthound" };
+  const isIndian = b.type.includes("indian");
+
   container.innerHTML = `
-    <div style="display: grid; grid-template-columns: 280px 1fr; gap: 32px; padding: 40px;">
-      <div>
-        <div style="border-radius: 20px; overflow: hidden; height: 320px; box-shadow: 0 16px 40px rgba(0,0,0,.15); margin-bottom: 20px;">
-          <img src="${b.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${b.name}">
+    <!-- Header image -->
+    <div style="position: relative; height: 280px; overflow: hidden; border-radius: 28px 28px 0 0;">
+      <img src="${b.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${b.name}">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,.8) 0%, transparent 60%);"></div>
+      ${isIndian ? `
+        <div style="position: absolute; top: 20px; left: 20px;">
+          <span style="background: var(--color-orange); color: #fff; padding: 5px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(229,93,26,0.3);">🇮🇳 Indian Breed</span>
         </div>
-        <div style="background: var(--color-cream); border-radius: 14px; padding: 18px; border: 1px solid var(--color-border);">
-          <div style="font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-sft); margin-bottom: 8px;">Key Specs</div>
-          <div style="font-size: 13px; color: var(--color-ink-sft); display: flex; flex-direction: column; gap: 8px;">
-            <div>🌎 Origin: <strong>${b.origin}</strong></div>
-            <div>⏳ Lifespan: <strong>${b.lifespan}</strong></div>
-            <div>⚖️ Weight: <strong>${b.weight}</strong></div>
-            <div>📏 Size: <strong>${b.size}</strong></div>
-          </div>
+      ` : ''}
+      <div style="position: absolute; bottom: 20px; left: 24px; right: 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h2 class="melody" style="font-size: 40px; color: #fff; line-height: 1.1; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">${b.name}</h2>
+          <p style="color: rgba(255,255,255,.85); font-size: 15px; margin: 6px 0 0 0; font-weight: 500;">Origin: ${b.origin}</p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2px;">
+          ${traits.map(t => `<span class="glass-badge">${traitLabels[t] || t.charAt(0).toUpperCase() + t.slice(1)}</span>`).join('')}
+          <span class="glass-badge">${b.size} Size</span>
         </div>
       </div>
-      <div>
-        <h2 class="melody" style="font-size: 44px; color: var(--color-ink); margin-bottom: 12px;">${b.name}</h2>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-          ${b.type.map(t => `<span class="pill pill-orange">${t}</span>`).join('')}
+    </div>
+
+    <!-- Content -->
+    <div style="padding: 28px 32px 32px;">
+      <!-- Stats grid -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px;">
+        <div style="background: var(--color-blue-lt); border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid rgba(29, 95, 196, 0.08);">
+          <div style="font-size: 22px; margin-bottom: 6px;">📏</div>
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-blue); opacity: 0.8; margin-bottom: 4px;">Size</div>
+          <div style="font-weight: 700; color: var(--color-ink); font-size: 13px; line-height: 1.3;">${b.size}</div>
         </div>
-        <p style="font-size: 15px; color: var(--color-ink-sft); line-height: 1.8; margin-bottom: 24px;">
-          <strong>Temperament:</strong> ${b.temperament}. This breed is known for its adaptations, distinct physical structures, and companion behaviors. Detailed care guides are accessible inside the Pawprint Mobile app.
-        </p>
-        <div style="display: flex; gap: 12px; margin-top: 32px;">
-          <button class="btn btn-md btn-primary" onclick="closeBreedModal(); nav('adopt');">Adopt this Breed →</button>
-          <button class="btn btn-md btn-outline" onclick="closeBreedModal(); nav('vet');">Consult a Vet</button>
+        <div style="background: var(--color-orange-lt); border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid rgba(229, 93, 26, 0.08);">
+          <div style="font-size: 22px; margin-bottom: 6px;">⚖️</div>
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-orange); opacity: 0.8; margin-bottom: 4px;">Weight</div>
+          <div style="font-weight: 700; color: var(--color-ink); font-size: 13px; line-height: 1.3;">${b.weight}</div>
         </div>
+        <div style="background: var(--color-green-lt); border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid rgba(30, 107, 69, 0.08);">
+          <div style="font-size: 22px; margin-bottom: 6px;">⏳</div>
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-green); opacity: 0.8; margin-bottom: 4px;">Lifespan</div>
+          <div style="font-weight: 700; color: var(--color-ink); font-size: 13px; line-height: 1.3;">${b.lifespan}</div>
+        </div>
+        <div style="background: var(--color-cream-dk); border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid rgba(17, 17, 17, 0.05);">
+          <div style="font-size: 22px; margin-bottom: 6px;">🌍</div>
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-sft); margin-bottom: 4px;">Origin</div>
+          <div style="font-weight: 700; color: var(--color-ink); font-size: 13px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${b.origin}">${b.origin}</div>
+        </div>
+      </div>
+
+      <!-- Information -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-sft); margin-bottom: 10px;">Information</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${b.temperament.split(', ').map(t => `
+            <span style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: 100px; padding: 5px 14px; font-size: 13px; color: var(--color-ink-md); font-weight: 500;">${t.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- Care guide -->
+      <div style="background: var(--color-cream); border-radius: 18px; padding: 22px 24px; margin-bottom: 28px; border: 1px solid var(--color-border);">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-sft); margin-bottom: 14px;">Quick Care Guide</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px;">
+          ${[
+            ["Exercise Needs", b.size === "Large" ? "High 🔥" : "Moderate ⚡"],
+            ["Grooming", b.type.includes("companion") ? "High 🧼" : "Low–Moderate ✂️"],
+            ["Good with Kids", b.type.includes("family") ? "Yes ✓" : "With supervision ⚠️"],
+            ["Guard Ability", b.type.includes("guard") ? "Excellent 🛡️" : "Low–Moderate 🐕"],
+            ["Trainability", b.type.includes("working") || b.type.includes("popular") ? "High 🎓" : "Moderate ⚡"],
+            ["Apartment Friendly", b.size === "Small" ? "Yes ✓" : "Needs space 🏡"]
+          ].map(([l, v]) => `
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--color-border);">
+              <span style="font-size: 13px; color: var(--color-ink-sft); font-weight: 500;">${l}</span>
+              <span style="font-size: 13px; font-weight: 600; color: ${v.includes("✓") || v.includes("Excellent") ? 'var(--color-green)' : 'var(--color-ink)'};">${v}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button class="btn btn-lg btn-outline" style="width: 100%; border-radius: 14px; font-weight: 700;" onclick="closeBreedModal()">Close</button>
       </div>
     </div>
   `;
@@ -3315,7 +3533,18 @@ function closeVideoPlayer() {
 /* ================================================================
    AUTHENTICATION ENGINE (LOGIN / SIGNUP)
    ================================================================ */
-function proceedToVerify() {
+let signupGender = 'Male';
+function setSignupGender(g) {
+  signupGender = g;
+  const btnM = document.getElementById('gender-male');
+  const btnF = document.getElementById('gender-female');
+  if (btnM && btnF) {
+    btnM.classList.toggle('active', g === 'Male');
+    btnF.classList.toggle('active', g === 'Female');
+  }
+}
+
+function proceedToPetDetails() {
   const name = document.getElementById('signup-name').value.trim();
   const email = document.getElementById('signup-email').value.trim();
   const pass = document.getElementById('signup-password').value.trim();
@@ -3325,8 +3554,69 @@ function proceedToVerify() {
     return;
   }
 
+  updateSignupProgress(2);
   document.getElementById('signup-step-1').style.display = 'none';
   document.getElementById('signup-step-2').style.display = 'block';
+  document.getElementById('signup-step-3').style.display = 'none';
+}
+
+function proceedToVerify() {
+  const pName = document.getElementById('signup-pet-name').value.trim();
+  const breed = document.getElementById('signup-pet-breed').value.trim();
+  const age = document.getElementById('signup-pet-age').value.trim();
+  const weight = document.getElementById('signup-pet-weight').value.trim();
+
+  if (!pName || !breed || !age || !weight) {
+    alert("Please fill in all your dog's profile details.");
+    return;
+  }
+
+  updateSignupProgress(3);
+  document.getElementById('signup-step-1').style.display = 'none';
+  document.getElementById('signup-step-2').style.display = 'none';
+  document.getElementById('signup-step-3').style.display = 'block';
+
+  setTimeout(() => {
+    const firstInput = document.querySelector('.verify-code-input');
+    if (firstInput) firstInput.focus();
+  }, 100);
+}
+
+function backToStep(step) {
+  updateSignupProgress(step);
+  document.getElementById('signup-step-1').style.display = step === 1 ? 'block' : 'none';
+  document.getElementById('signup-step-2').style.display = step === 2 ? 'block' : 'none';
+  document.getElementById('signup-step-3').style.display = step === 3 ? 'block' : 'none';
+}
+
+function updateSignupProgress(step) {
+  const bar = document.getElementById('signup-progress-bar');
+  if (bar) {
+    bar.style.width = step === 1 ? '0%' : (step === 2 ? '50%' : '100%');
+  }
+  for (let i = 1; i <= 3; i++) {
+    const el = document.getElementById(`signup-step-indicator-${i}`);
+    if (el) {
+      el.classList.toggle('active', i === step);
+      el.classList.toggle('completed', i < step);
+    }
+  }
+}
+
+function setupVerifyInputs() {
+  const inputs = document.querySelectorAll('.verify-code-input');
+  inputs.forEach((input, index) => {
+    input.addEventListener('input', (e) => {
+      if (e.target.value.length === 1 && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && e.target.value.length === 0 && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
+  });
 }
 
 function handleAuthSubmit(type) {
@@ -3336,11 +3626,57 @@ function handleAuthSubmit(type) {
       alert("Please fill in your email address.");
       return;
     }
-    alert("Welcome back! 🐾");
+    
+    // Dynamically retrieve/create user profile name
+    const regUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (regUser && regUser.email === email) {
+      currentUser = regUser;
+    } else {
+      const defaultName = email.split('@')[0];
+      const name = defaultName.charAt(0).toUpperCase() + defaultName.slice(1);
+      currentUser = { name: name, email: email };
+      saveCurrentUser();
+    }
+    alert(`Welcome back, ${currentUser.name}! 🐾`);
+    nav('dashboard');
   } else {
-    alert("Account created successfully! 🎉");
+    // Compile account details and pet details
+    const name = document.getElementById('signup-name').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+    
+    const pName = document.getElementById('signup-pet-name').value.trim();
+    const breed = document.getElementById('signup-pet-breed').value.trim();
+    const age = document.getElementById('signup-pet-age').value.trim();
+    const weight = document.getElementById('signup-pet-weight').value.trim();
+
+    currentUser = { name: name, email: email };
+    saveCurrentUser();
+
+    // Add new registered dog
+    const newPet = {
+      name: pName,
+      breed: breed,
+      species: "Dog",
+      age: age.includes("yr") || age.includes("mo") ? age : `${age} yrs`,
+      gender: signupGender,
+      img: P.dog4,
+      health: 100,
+      weight: weight.includes("kg") ? weight : `${weight} kg`,
+      color: "Golden Brown",
+      microchip: "MX" + Math.floor(100000 + Math.random() * 900000),
+      allergies: "None",
+      conditions: "None",
+      nextVet: "TBD",
+      nextVacc: "TBD",
+      food: "Premium Kibble"
+    };
+
+    userPets.push(newPet);
+    saveUserPets();
+
+    alert(`Account created successfully and ${pName} is registered! 🎉`);
+    nav('dashboard');
   }
-  nav('home');
 }
 
 /* ================================================================

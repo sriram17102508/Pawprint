@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,7 +27,7 @@
       <!-- Logo -->
       <button onclick="nav('home')"
         style="display: flex; align-items: center; gap: 10px; background: none; border: none; margin-right: 28px; cursor: pointer;">
-        <img src="Logo.png" alt="Pawprint Logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;">
+        <img src="Logo.png" alt="Pawprint Logo" style="width: 55px; height: 55px; object-fit: contain; flex-shrink: 0;">
         <span
           style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 800; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
       </button>
@@ -143,45 +143,56 @@
         </div>
         <!-- Right Form panel -->
         <div
-          style="display: flex; align-items: center; justify-content: center; background: var(--color-cream); padding: 48px;">
-          <div style="width: 100%; max-width: 400px;">
+          style="display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 10% 20%, rgba(229, 93, 26, 0.03) 0%, rgba(29, 95, 196, 0.03) 90%), var(--color-cream); padding: 48px;">
+          <div class="glass-form fade-up" style="width: 100%; max-width: 440px; padding: 40px 36px;">
             <button onclick="nav('home')"
-              style="margin-bottom: 36px; display: flex; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; padding: 0;">
+              style="margin-bottom: 28px; display: flex; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; padding: 0;">
               <div
                 style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff;">
                 🐾</div>
-              <span class="melody" style="font-size: 20px; font-weight: 700; color: var(--color-ink);">Pawprint</span>
+              <span class="melody" style="font-size: 20px; font-weight: 700; color: var(--color-ink); letter-spacing: 0.04em;">Pawprint</span>
             </button>
             <h1 class="melody" style="font-size: 36px; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">
               Welcome back.</h1>
             <p style="font-size: 15px; color: var(--color-ink-sft); margin-bottom: 32px;">Sign in to your Pawprint
               account.</p>
 
-            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
-              <input id="login-email" type="email" placeholder="Email address"
-                style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
-              <input id="login-password" type="password" placeholder="Password"
-                style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+              <div class="field">
+                <label>Email Address</label>
+                <input id="login-email" class="glow-input" type="email" placeholder="geetha@example.com"
+                  style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none; background: #fff;">
+              </div>
+              <div class="field">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0px;">
+                  <label>Password</label>
+                  <button style="background: none; border: none; color: var(--color-orange); font-size: 11px; font-weight: 700; cursor: pointer;">Forgot?</button>
+                </div>
+                <input id="login-password" class="glow-input" type="password" placeholder="••••••••"
+                  style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none; background: #fff;">
+              </div>
             </div>
 
             <button class="btn btn-lg btn-primary" style="width: 100%;" onclick="handleAuthSubmit('login')">Sign In
               →</button>
 
-            <div style="display: flex; gap: 8px; margin: 20px 0; align-items: center;">
+            <div style="display: flex; gap: 8px; margin: 24px 0; align-items: center;">
               <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
-              <span style="font-size: 13px; color: var(--color-ink-sft);">or continue with</span>
+              <span style="font-size: 12px; color: var(--color-ink-sft); font-weight: 500;">or continue with</span>
               <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
             </div>
-            <div style="display: flex; gap: 10px; margin-bottom: 24px;">
+            <div style="display: flex; gap: 12px; margin-bottom: 28px;">
               <button class="btn"
-                style="flex: 1; padding: 11px; border: 1.5px solid var(--color-border); border-radius: 12px; background: #fff; font-size: 13px;"
+                style="flex: 1; padding: 12px; border: 1.5px solid var(--color-border); border-radius: 14px; background: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all .2s;"
+                onmouseenter="this.style.borderColor='var(--color-ink)'" onmouseleave="this.style.borderColor='var(--color-border)'"
                 onclick="handleAuthSubmit('login')">🍎 Apple</button>
               <button class="btn"
-                style="flex: 1; padding: 11px; border: 1.5px solid var(--color-border); border-radius: 12px; background: #fff; font-size: 13px;"
+                style="flex: 1; padding: 12px; border: 1.5px solid var(--color-border); border-radius: 14px; background: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all .2s;"
+                onmouseenter="this.style.borderColor='var(--color-ink)'" onmouseleave="this.style.borderColor='var(--color-border)'"
                 onclick="handleAuthSubmit('login')">G Google</button>
             </div>
-            <p style="text-align: center; font-size: 14px; color: var(--color-ink-sft);">Don't have an account? <button
-                style="background: none; border: none; color: var(--color-orange); font-weight: 700; cursor: pointer; font-size: 14px;"
+            <p style="text-align: center; font-size: 14.5px; color: var(--color-ink-sft);">Don't have an account? <button
+                style="background: none; border: none; color: var(--color-orange); font-weight: 700; cursor: pointer; font-size: 14.5px;"
                 onclick="nav('signup')">Sign Up Free</button></p>
           </div>
         </div>
@@ -220,25 +231,59 @@
         <!-- Brand column -->
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <img src="Logo.png" alt="Pawprint Logo" style="width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 8px;">
+            <img src="Logo.png" alt="Pawprint Logo" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; border-radius: 10px;">
             <span class="melody" style="font-size: 22px; color: #fff; letter-spacing: .03em;">Pawprint</span>
           </div>
           <p
             style="color: rgba(255,255,255,.38); font-size: 13px; line-height: 1.8; max-width: 220px; margin-bottom: 24px;">
             India's First Dog Care Ecosystem - Adoption, Healthcare, Grooming, and More.</p>
           <!-- Socials -->
-          <div style="display: flex; gap: 8px;">
-            <button class="btn btn-social" onclick="alert('Redirecting to Facebook...')">f</button>
-            <button class="btn btn-social" onclick="alert('Redirecting to LinkedIn...')">in</button>
-            <button class="btn btn-social" onclick="alert('Redirecting to X...')">𝕏</button>
-            <button class="btn btn-social" onclick="alert('Redirecting to YouTube...')">▶</button>
+                    <div style="display: flex; gap: 8px;">
+            <button class="btn btn-social" onclick="alert('Redirecting to Facebook...')" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to Instagram...')" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to LinkedIn...')" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to X...')" aria-label="X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </button>
+            <button class="btn btn-social" onclick="alert('Redirecting to YouTube...')" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </button>
           </div>
         </div>
 
         <!-- Links columns -->
         <div>
           <h4
-            style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px;">
+            style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px;">
             Services</h4>
           <button onclick="nav('vet')" class="footer-link">Veterinary</button>
           <button onclick="nav('svc-grooming')" class="footer-link">Grooming</button>
@@ -249,7 +294,7 @@
         </div>
         <div>
           <h4
-            style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px;">
+            style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px;">
             Explore</h4>
           <button onclick="nav('adopt')" class="footer-link">Adopt a Pet</button>
           <button onclick="nav('dog-breeds')" class="footer-link">Dog Breeds</button>
@@ -260,7 +305,7 @@
         </div>
         <div>
           <h4
-            style="font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px;">
+            style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px;">
             Company</h4>
           <button onclick="nav('about')" class="footer-link">About Us</button>
           <button onclick="nav('contact')" class="footer-link">Contact Us</button>
@@ -287,11 +332,7 @@
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
         <p style="color: rgba(255,255,255,.22); font-size: 12px;">© 2026 Pawprint Technologies Pvt. Ltd. · Made with ❤️
           in Coimbatore, India</p>
-        <div style="display: flex; gap: 20px;">
-          <button onclick="nav('home')" class="footer-bottom-link">Privacy</button>
-          <button onclick="nav('home')" class="footer-bottom-link">Terms</button>
-          <button onclick="nav('home')" class="footer-bottom-link">Cookies</button>
-        </div>
+        
       </div>
     </div>
   </footer>
