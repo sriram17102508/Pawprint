@@ -554,9 +554,93 @@ let chatbotTyping = false;
 
 // ── Dynamic data models for Lost & Found listings ────────────────
 let lostListings = [
-  { type: "lost", name: "Bruno", species: "Dog", breed: "Labrador Retriever", color: "Golden", area: "RS Puram", date: "2026-06-04", contact: "+91 98765 43210", reward: "₹5,000", img: P.dog1 },
-  { type: "found", name: "Spotted Kitty", species: "Cat", breed: "Domestic Shorthair", color: "White/Black", area: "Gandhipuram", date: "2026-06-03", contact: "+91 98765 43211", reward: "N/A", img: P.cat2 },
-  { type: "lost", name: "Bella", species: "Cat", breed: "Persian", color: "White", area: "Peelamedu", date: "2026-06-01", contact: "+91 87654 32109", reward: "₹2,000", img: P.cat1 },
+  {
+    id: 1,
+    type: "lost",
+    name: "Bruno",
+    species: "Dog",
+    breed: "Labrador Retriever",
+    color: "Golden",
+    area: "RS Puram",
+    date: "2026-06-04",
+    contact: "+91 98765 43210",
+    reward: "₹5,000",
+    img: P.dog1,
+    gender: "Male",
+    age: "3 years",
+    size: "Large (15-30kg)",
+    microchip: "981022300481",
+    features: "White patch on chest, floppy ears, very friendly.",
+    collar: "Yes",
+    collarDescription: "Red nylon collar with name tag 'Bruno'",
+    time: "14:30",
+    address: "12 MG Road, near Central Park",
+    city: "Coimbatore",
+    landmark: "Opposite City Bank",
+    ownerName: "Priya Sharma",
+    email: "priya@example.com",
+    phone2: "+91 98765 43219",
+    currentlyWith: "",
+    notes: "Bruno is microchipped. He might be scared of fireworks or loud vehicle noises."
+  },
+  {
+    id: 2,
+    type: "found",
+    name: "Spotted Kitty",
+    species: "Cat",
+    breed: "Domestic Shorthair",
+    color: "White/Black",
+    area: "Gandhipuram",
+    date: "2026-06-03",
+    contact: "+91 98765 43211",
+    reward: "N/A",
+    img: P.cat2,
+    gender: "Female",
+    age: "Under 1 year",
+    size: "Small (under 5kg)",
+    microchip: "None",
+    features: "Black spots around left eye, very vocal.",
+    collar: "Yes",
+    collarDescription: "Pink collar with small bell, no name tag",
+    time: "09:00",
+    address: "Crosscut Road, near hot chips",
+    city: "Coimbatore",
+    landmark: "Near Crosscut bus stop",
+    ownerName: "Rahul Nair",
+    email: "rahul@example.com",
+    phone2: "",
+    currentlyWith: "Me (safe at home)",
+    notes: "Very affectionate kitty, well behaved. Keeping her safe inside for now."
+  },
+  {
+    id: 3,
+    type: "lost",
+    name: "Bella",
+    species: "Cat",
+    breed: "Persian",
+    color: "White",
+    area: "Peelamedu",
+    date: "2026-06-01",
+    contact: "+91 87654 32109",
+    reward: "₹2,000",
+    img: P.cat1,
+    gender: "Female",
+    age: "2 years",
+    size: "Small (under 5kg)",
+    microchip: "None",
+    features: "Long fluffy white tail, blue eyes, very quiet.",
+    collar: "No",
+    collarDescription: "",
+    time: "18:00",
+    address: "PSG College Road",
+    city: "Coimbatore",
+    landmark: "Opposite PSG Tech gate",
+    ownerName: "Siddharth",
+    email: "sid@example.com",
+    phone2: "",
+    currentlyWith: "",
+    notes: "Requires special renal diet food. Please contact if seen."
+  }
 ];
 
 // ── Dashboard state models for user's pets ──────────────────────
@@ -1886,7 +1970,7 @@ function renderShopProducts(category) {
         <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin: 0 0 8px; line-height: 1.3;">${p.name}</h3>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
           <div style="display: flex; gap: 8px; align-items: baseline;">
-            <span class="melody" style="font-size: 20px; font-weight: 700; color: var(--color-ink);">₹${p.price.toLocaleString()}</span>
+            <span class="melody" style="font-size: 20px; font-weight: 500; color: var(--color-ink);">₹${p.price.toLocaleString()}</span>
             <span style="font-size: 13px; color: var(--color-sand); text-decoration: line-through;">₹${p.old.toLocaleString()}</span>
           </div>
           <span style="font-size: 12px; color: var(--color-orange); font-weight: 600;">⭐ ${p.rating}</span>
@@ -1996,16 +2080,22 @@ function setLostTab(tabId) {
   const btnBrowse = document.getElementById('lost-tab-btn-browse');
   const btnReport = document.getElementById('lost-tab-btn-report');
 
-  btnBrowse.style.background = tabId === 'browse' ? 'var(--color-orange)' : 'transparent';
-  btnBrowse.style.color = tabId === 'browse' ? '#fff' : 'var(--color-ink-sft)';
-  btnBrowse.style.fontWeight = tabId === 'browse' ? '600' : '400';
+  if (btnBrowse) {
+    btnBrowse.style.borderBottom = tabId === 'browse' ? '3px solid var(--color-orange)' : '3px solid transparent';
+    btnBrowse.style.color = tabId === 'browse' ? 'var(--color-orange)' : 'var(--color-ink-sft)';
+    btnBrowse.style.fontWeight = tabId === 'browse' ? '700' : '500';
+  }
 
-  btnReport.style.background = tabId === 'report' ? 'var(--color-orange)' : 'transparent';
-  btnReport.style.color = tabId === 'report' ? '#fff' : 'var(--color-ink-sft)';
-  btnReport.style.fontWeight = tabId === 'report' ? '600' : '400';
+  if (btnReport) {
+    btnReport.style.borderBottom = tabId === 'report' ? '3px solid var(--color-orange)' : '3px solid transparent';
+    btnReport.style.color = tabId === 'report' ? 'var(--color-orange)' : 'var(--color-ink-sft)';
+    btnReport.style.fontWeight = tabId === 'report' ? '700' : '500';
+  }
 
-  document.getElementById('lost-view-browse').style.display = tabId === 'browse' ? 'block' : 'none';
-  document.getElementById('lost-view-report').style.display = tabId === 'report' ? 'block' : 'none';
+  const browseView = document.getElementById('lost-view-browse');
+  const reportView = document.getElementById('lost-view-report');
+  if (browseView) browseView.style.display = tabId === 'browse' ? 'block' : 'none';
+  if (reportView) reportView.style.display = tabId === 'report' ? 'block' : 'none';
 
   if (tabId === 'browse') {
     renderLostListings();
@@ -2019,15 +2109,19 @@ function setLostMode(mode) {
   const btnLost = document.getElementById('lost-mode-btn-lost');
   const btnFound = document.getElementById('lost-mode-btn-found');
 
-  btnLost.style.background = mode === 'lost' ? 'var(--color-red)' : 'transparent';
-  btnLost.style.color = mode === 'lost' ? '#fff' : 'var(--color-ink-sft)';
-  btnLost.style.fontWeight = mode === 'lost' ? '700' : '500';
+  if (btnLost) {
+    btnLost.style.background = mode === 'lost' ? 'var(--color-red)' : 'transparent';
+    btnLost.style.color = mode === 'lost' ? '#fff' : 'var(--color-ink-sft)';
+    btnLost.style.fontWeight = mode === 'lost' ? '700' : '500';
+  }
 
-  btnFound.style.background = mode === 'found' ? 'var(--color-green)' : 'transparent';
-  btnFound.style.color = mode === 'found' ? '#fff' : 'var(--color-ink-sft)';
-  btnFound.style.fontWeight = mode === 'found' ? '700' : '500';
+  if (btnFound) {
+    btnFound.style.background = mode === 'found' ? 'var(--color-green)' : 'transparent';
+    btnFound.style.color = mode === 'found' ? '#fff' : 'var(--color-ink-sft)';
+    btnFound.style.fontWeight = mode === 'found' ? '700' : '500';
+  }
 
-  // Banner details styling updates
+  // Banner details styling updates (safe checks)
   const banner = document.getElementById('lost-info-banner');
   const bannerText = document.getElementById('lost-info-banner-text');
   const submitBtn = document.getElementById('lost-submit-btn');
@@ -2043,41 +2137,42 @@ function setLostMode(mode) {
   const sectionPetTitle = document.getElementById('lost-sec-pet-title');
   const sectionLocTitle = document.getElementById('lost-sec-loc-title');
 
-  if (mode === 'lost') {
-    banner.style.background = 'var(--color-red-lt)';
-    banner.style.borderColor = 'rgba(192, 57, 43, 0.2)';
-    bannerText.textContent = '🚨 Act fast — most pets are found within the first 24 hours. Fill in as much detail as possible.';
-    bannerText.style.color = 'var(--color-red)';
-    submitBtn.style.background = 'var(--color-red)';
-    submitBtn.style.boxShadow = '0 4px 18px rgba(192, 57, 43, 0.27)';
-    submitBtn.textContent = '🚨 Submit Lost Pet Report';
-    rewardField.style.display = 'flex';
-    currentlyWith.style.display = 'none';
-    currentlyWithSel.style.display = 'none';
-    petNameLabel.textContent = "Pet's Name *";
-    dateLabel.textContent = "Date Last Seen *";
-    timeLabel.textContent = "Approximate Time *";
-    addressLabel.textContent = "Street / Address Last Seen *";
-    sectionPetTitle.innerHTML = "<span>🐾</span> Pet Details";
-    sectionLocTitle.innerHTML = "<span>📍</span> Last Seen Location";
-  } else {
-    banner.style.background = 'var(--color-green-lt)';
-    banner.style.borderColor = 'rgba(30, 107, 69, 0.2)';
-    bannerText.textContent = "🙏 Thank you for helping! Fill in as much as you can — even partial info helps match with lost reports.";
-    bannerText.style.color = 'var(--color-green)';
-    submitBtn.style.background = 'var(--color-green)';
-    submitBtn.style.boxShadow = '0 4px 18px rgba(30, 107, 69, 0.27)';
-    submitBtn.textContent = '🐾 Submit Found Pet Report';
-    rewardField.style.display = 'none';
-    currentlyWith.style.display = 'block';
-    currentlyWithSel.style.display = 'block';
-    petNameLabel.textContent = "Pet's Name (best guess)";
-    dateLabel.textContent = "Date Found *";
-    timeLabel.textContent = "Approximate Time";
-    addressLabel.textContent = "Street / Address Found *";
-    sectionPetTitle.innerHTML = "<span>🐾</span> Found Pet Details";
-    sectionLocTitle.innerHTML = "<span>📍</span> Where was the Pet Found?";
+  if (banner && bannerText) {
+    if (mode === 'lost') {
+      banner.style.background = 'var(--color-red-lt)';
+      banner.style.borderColor = 'rgba(192, 57, 43, 0.2)';
+      bannerText.textContent = '🚨 Act fast — most pets are found within the first 24 hours. Fill in as much detail as possible.';
+      bannerText.style.color = 'var(--color-red)';
+    } else {
+      banner.style.background = 'var(--color-green-lt)';
+      banner.style.borderColor = 'rgba(30, 107, 69, 0.2)';
+      bannerText.textContent = "🙏 Thank you for helping! Fill in as much as you can — even partial info helps match with lost reports.";
+      bannerText.style.color = 'var(--color-green)';
+    }
   }
+
+  if (submitBtn) {
+    if (mode === 'lost') {
+      submitBtn.style.background = 'var(--color-red)';
+      submitBtn.style.boxShadow = '0 4px 18px rgba(192, 57, 43, 0.27)';
+      submitBtn.textContent = '🚨 Submit Lost Pet Report';
+    } else {
+      submitBtn.style.background = 'var(--color-green)';
+      submitBtn.style.boxShadow = '0 4px 18px rgba(30, 107, 69, 0.27)';
+      submitBtn.textContent = '🐾 Submit Found Pet Report';
+    }
+  }
+
+  if (rewardField) rewardField.style.display = mode === 'lost' ? 'flex' : 'none';
+  if (currentlyWith) currentlyWith.style.display = mode === 'lost' ? 'none' : 'block';
+  if (currentlyWithSel) currentlyWithSel.style.display = mode === 'lost' ? 'none' : 'block';
+  
+  if (petNameLabel) petNameLabel.textContent = mode === 'lost' ? "Pet's Name *" : "Pet's Name (best guess)";
+  if (dateLabel) dateLabel.textContent = mode === 'lost' ? "Date Last Seen *" : "Date Found *";
+  if (timeLabel) timeLabel.textContent = mode === 'lost' ? "Approximate Time *" : "Approximate Time";
+  if (addressLabel) addressLabel.textContent = mode === 'lost' ? "Street / Address Last Seen *" : "Street / Address Found *";
+  if (sectionPetTitle) sectionPetTitle.innerHTML = mode === 'lost' ? "<span>🐾</span> Pet Details" : "<span>🐾</span> Found Pet Details";
+  if (sectionLocTitle) sectionLocTitle.innerHTML = mode === 'lost' ? "<span>📍</span> Last Seen Location" : "<span>📍</span> Where was the Pet Found?";
 }
 
 function toggleLostCollarDesc() {
@@ -2140,8 +2235,9 @@ function submitLostReport() {
 
   // Push new listings database mock item
   const newListing = {
+    id: Date.now(),
     type: lostMode,
-    name: lostMode === 'lost' ? name : 'Spotted Pet',
+    name: lostMode === 'lost' ? name : (name || 'Spotted Pet'),
     species: spec,
     breed: document.getElementById('lost-field-breed').value.trim() || 'Mix',
     color: color,
@@ -2149,7 +2245,25 @@ function submitLostReport() {
     date: date,
     contact: oPhone,
     reward: lostMode === 'lost' ? (document.getElementById('lost-field-reward').value.trim() || 'N/A') : 'N/A',
-    img: lostPhotos[0] || (spec === 'Dog' ? P.dog4 : P.cat2)
+    img: lostPhotos[0] || (spec === 'Dog' ? P.dog4 : P.cat2),
+    
+    // Detailed properties
+    gender: document.getElementById('lost-field-gender').value || 'Unknown',
+    age: document.getElementById('lost-field-age').value.trim() || 'Unknown',
+    size: document.getElementById('lost-field-size').value || 'Unknown',
+    microchip: document.getElementById('lost-field-microchip').value.trim() || 'None',
+    features: features,
+    collar: document.getElementById('lost-field-collar').value || 'No',
+    collarDescription: document.getElementById('lost-field-collardesc') ? document.getElementById('lost-field-collardesc').value.trim() : '',
+    time: time,
+    address: addr,
+    city: city,
+    landmark: document.getElementById('lost-field-landmark').value.trim() || 'None',
+    ownerName: oName,
+    email: oEmail,
+    phone2: document.getElementById('lost-field-phone2') ? document.getElementById('lost-field-phone2').value.trim() : '',
+    currentlyWith: document.getElementById('lost-field-currently-with') ? document.getElementById('lost-field-currently-with').value : '',
+    notes: document.getElementById('lost-field-notes').value.trim() || ''
   };
 
   lostListings.unshift(newListing);
@@ -2158,9 +2272,18 @@ function submitLostReport() {
   document.getElementById('lost-form-success').style.display = 'block';
 }
 
+
 function resetLostForm() {
-  document.getElementById('lost-form-inputs').style.display = 'flex';
+  document.getElementById('lost-form-inputs').style.display = 'block';
   document.getElementById('lost-form-success').style.display = 'none';
+
+  // Reset to step 1
+  for (let i = 1; i <= 3; i++) {
+    const el = document.getElementById(`lost-step-${i}`);
+    if (el) el.style.display = i === 1 ? 'block' : 'none';
+  }
+  currentLostStep = 1;
+  updateLostStepIndicator(1);
 
   // Empty inputs
   const inputs = ['lost-field-name', 'lost-field-species', 'lost-field-breed', 'lost-field-gender', 'lost-field-age', 'lost-field-color', 'lost-field-size', 'lost-field-microchip', 'lost-field-features', 'lost-field-collar', 'lost-field-collardesc', 'lost-field-date', 'lost-field-time', 'lost-field-address', 'lost-field-city', 'lost-field-area', 'lost-field-landmark', 'lost-field-ownername', 'lost-field-phone', 'lost-field-phone2', 'lost-field-email', 'lost-field-currently-with', 'lost-field-notes', 'lost-field-reward'];
@@ -2174,32 +2297,150 @@ function resetLostForm() {
   setLostMode('lost');
 }
 
-function renderLostListings() {
-  const grid = document.getElementById('lost-listings-grid');
-  if (!grid) return;
 
-  grid.innerHTML = lostListings.map(l => `
-    <div class="card card-lift" style="border-top: 4px solid ${l.type === 'lost' ? 'var(--color-red)' : 'var(--color-green)'};">
-      <div style="display: grid; grid-template-columns: 120px 1fr; align-items: stretch; height: 100%;">
-        <div style="height: 100%;"><img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${l.name}"></div>
-        <div style="padding: 20px 22px;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-            <div>
-              <div class="pill ${l.type === 'lost' ? 'pill-red' : 'pill-green'}" style="margin-bottom: 6px;">${l.type === 'lost' ? '🔴 LOST' : '🟢 FOUND'}</div>
-              <div class="melody" style="font-size: 18px; font-weight: 700; color: var(--color-ink);">${l.name}</div>
-            </div>
-          </div>
-          <div style="font-size: 13px; color: var(--color-ink-sft); line-height: 1.6;">
-            <div>${l.species} · ${l.breed} · ${l.color}</div>
-            <div style="margin-top: 4px;">📍 ${l.area}</div>
-            <div style="margin-top: 2px;">📅 ${l.date}</div>
-            ${l.reward !== 'N/A' ? `<div style="margin-top: 4px; color: var(--color-orange); font-weight: 600;">🏆 Reward: ${l.reward}</div>` : ''}
-          </div>
-          <button class="btn btn-sm btn-outline" style="margin-top: 12px;" onclick="alert('Contact details: ${l.contact}')">📞 Contact</button>
+function getListingCardHtml(l) {
+  return `
+    <div class="card card-lift" onclick="openLostDetailModal(${l.id})" style="border-radius: 20px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--color-border); box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: transform .2s, box-shadow .2s;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 36px rgba(0,0,0,0.12)'" onmouseleave="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.06)'">
+      <!-- Image top -->
+      <div style="position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--color-cream-dk);">
+        <img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="${l.name}">
+        <!-- Status badge overlay -->
+        <div style="position: absolute; top: 12px; left: 12px;">
+          <span class="pill ${l.type === 'lost' ? 'pill-red' : 'pill-green'}" style="font-size: 11px; font-weight: 700; backdrop-filter: blur(8px);">${l.type === 'lost' ? '🔴 LOST' : '🟢 FOUND'}</span>
+        </div>
+        ${l.reward !== 'N/A' ? `<div style="position: absolute; top: 12px; right: 12px; background: var(--color-orange); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px;">🏆 Reward</div>` : ''}
+      </div>
+      <!-- Details below -->
+      <div style="padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div class="melody" style="font-size: 19px; font-weight: 700; color: var(--color-ink); line-height: 1.1;">${l.name}</div>
+          <div style="font-size: 11px; color: var(--color-ink-sft); background: var(--color-cream); padding: 3px 10px; border-radius: 100px;">${l.species}</div>
+        </div>
+        <div style="font-size: 13px; color: var(--color-ink-sft);">${l.breed} &middot; ${l.color}</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; color: var(--color-ink-sft); border-top: 1px solid var(--color-border); padding-top: 10px; margin-top: 2px;">
+          <div style="display: flex; align-items: center; gap: 6px;">📍 <span>${l.area}</span></div>
+          <div style="display: flex; align-items: center; gap: 6px;">📅 <span>${l.date}</span></div>
+          ${l.reward !== 'N/A' ? `<div style="display: flex; align-items: center; gap: 6px; color: var(--color-orange); font-weight: 600;">🏆 <span>${l.reward}</span></div>` : ''}
         </div>
       </div>
     </div>
-  `).join('');
+  `;
+}
+
+function renderLostListings() {
+  const grid = document.getElementById('lost-listings-grid');
+  if (!grid) return;
+  grid.innerHTML = lostListings.map(l => getListingCardHtml(l)).join('');
+}
+
+// ── Multi-step form navigation ──
+let currentLostStep = 1;
+
+function updateLostStepIndicator(step) {
+  for (let i = 1; i <= 3; i++) {
+    const dot = document.getElementById(`lost-step-dot-${i}`);
+    const label = document.getElementById(`lost-step-label-${i}`);
+    if (!dot) continue;
+    if (i < step) {
+      // Completed
+      dot.style.background = 'var(--color-orange)';
+      dot.style.color = '#fff';
+      dot.style.boxShadow = 'none';
+      dot.textContent = '✓';
+      if (label) { label.style.color = 'var(--color-orange)'; }
+    } else if (i === step) {
+      // Active
+      dot.style.background = 'var(--color-orange)';
+      dot.style.color = '#fff';
+      dot.style.boxShadow = '0 4px 14px rgba(230,93,42,0.35)';
+      dot.textContent = String(i);
+      if (label) { label.style.color = 'var(--color-orange)'; }
+    } else {
+      // Future
+      dot.style.background = 'var(--color-border)';
+      dot.style.color = 'var(--color-ink-sft)';
+      dot.style.boxShadow = 'none';
+      dot.textContent = String(i);
+      if (label) { label.style.color = 'var(--color-ink-sft)'; }
+    }
+  }
+  // Connector lines
+  const line1 = document.getElementById('lost-step-line-1');
+  const line2 = document.getElementById('lost-step-line-2');
+  if (line1) line1.style.background = step > 1 ? 'var(--color-orange)' : 'var(--color-border)';
+  if (line2) line2.style.background = step > 2 ? 'var(--color-orange)' : 'var(--color-border)';
+}
+
+function lostStepNext(fromStep) {
+  // Simple per-step validation
+  if (fromStep === 1) {
+    const spec = document.getElementById('lost-field-species').value;
+    const color = document.getElementById('lost-field-color').value.trim();
+    if (!spec || !color) {
+      alert('Please fill in at least Species and Primary Colour before proceeding.');
+      return;
+    }
+  } else if (fromStep === 2) {
+    const date = document.getElementById('lost-field-date').value;
+    const city = document.getElementById('lost-field-city').value.trim();
+    if (!date || !city) {
+      alert('Please fill in at least Date and City before proceeding.');
+      return;
+    }
+  }
+  const current = document.getElementById(`lost-step-${fromStep}`);
+  const next = document.getElementById(`lost-step-${fromStep + 1}`);
+  if (current) current.style.display = 'none';
+  if (next) { next.style.display = 'block'; next.style.animation = 'fadeInUp .3s ease both'; }
+  currentLostStep = fromStep + 1;
+  updateLostStepIndicator(currentLostStep);
+  // Scroll to top of form
+  const indicator = document.getElementById('lost-step-indicator');
+  if (indicator) indicator.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function lostStepBack(fromStep) {
+  const current = document.getElementById(`lost-step-${fromStep}`);
+  const prev = document.getElementById(`lost-step-${fromStep - 1}`);
+  if (current) current.style.display = 'none';
+  if (prev) { prev.style.display = 'block'; }
+  currentLostStep = fromStep - 1;
+  updateLostStepIndicator(currentLostStep);
+  const indicator = document.getElementById('lost-step-indicator');
+  if (indicator) indicator.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggleLostFilterDropdown() {
+  const dd = document.getElementById('lost-filter-dropdown');
+  if (!dd) return;
+  const isOpen = dd.style.display === 'block';
+  dd.style.display = isOpen ? 'none' : 'block';
+  // Close on outside click
+  if (!isOpen) {
+    const closeHandler = (e) => {
+      const btn = document.getElementById('lost-filter-dropdown-btn');
+      if (!dd.contains(e.target) && !btn.contains(e.target)) {
+        dd.style.display = 'none';
+        document.removeEventListener('click', closeHandler);
+      }
+    };
+    setTimeout(() => document.addEventListener('click', closeHandler), 0);
+  }
+}
+
+function selectLostFilter(typeFilter, label) {
+  const dd = document.getElementById('lost-filter-dropdown');
+  const labelEl = document.getElementById('lost-filter-label');
+  if (dd) dd.style.display = 'none';
+  if (labelEl) labelEl.textContent = '🗂 ' + label;
+  // Update button highlight
+  const btn = document.getElementById('lost-filter-dropdown-btn');
+  if (btn) {
+    btn.style.background = typeFilter !== 'All' ? 'var(--color-orange)' : 'var(--color-white)';
+    btn.style.color = typeFilter !== 'All' ? '#fff' : 'var(--color-ink)';
+    btn.style.borderColor = typeFilter !== 'All' ? 'var(--color-orange)' : 'var(--color-border)';
+  }
+  filterLostListings(typeFilter);
 }
 
 function filterLostListings(typeFilter) {
@@ -2209,28 +2450,7 @@ function filterLostListings(typeFilter) {
   }
   const grid = document.getElementById('lost-listings-grid');
   if (grid) {
-    grid.innerHTML = shown.map(l => `
-      <div class="card card-lift" style="border-top: 4px solid ${l.type === 'lost' ? 'var(--color-red)' : 'var(--color-green)'};">
-        <div style="display: grid; grid-template-columns: 120px 1fr; align-items: stretch; height: 100%;">
-          <div style="height: 100%;"><img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${l.name}"></div>
-          <div style="padding: 20px 22px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-              <div>
-                <div class="pill ${l.type === 'lost' ? 'pill-red' : 'pill-green'}" style="margin-bottom: 6px;">${l.type === 'lost' ? '🔴 LOST' : '🟢 FOUND'}</div>
-                <div class="melody" style="font-size: 18px; font-weight: 700; color: var(--color-ink);">${l.name}</div>
-              </div>
-            </div>
-            <div style="font-size: 13px; color: var(--color-ink-sft); line-height: 1.6;">
-              <div>${l.species} · ${l.breed} · ${l.color}</div>
-              <div style="margin-top: 4px;">📍 ${l.area}</div>
-              <div style="margin-top: 2px;">📅 ${l.date}</div>
-              ${l.reward !== 'N/A' ? `<div style="margin-top: 4px; color: var(--color-orange); font-weight: 600;">🏆 Reward: ${l.reward}</div>` : ''}
-            </div>
-            <button class="btn btn-sm btn-outline" style="margin-top: 12px;" onclick="alert('Contact details: ${l.contact}')">📞 Contact</button>
-          </div>
-        </div>
-      </div>
-    `).join('');
+    grid.innerHTML = shown.map(l => getListingCardHtml(l)).join('');
   }
 }
 
@@ -2245,28 +2465,318 @@ function searchLostListings() {
 
   const grid = document.getElementById('lost-listings-grid');
   if (grid) {
-    grid.innerHTML = matched.map(l => `
-      <div class="card card-lift" style="border-top: 4px solid ${l.type === 'lost' ? 'var(--color-red)' : 'var(--color-green)'};">
-        <div style="display: grid; grid-template-columns: 120px 1fr; align-items: stretch; height: 100%;">
-          <div style="height: 100%;"><img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${l.name}"></div>
-          <div style="padding: 20px 22px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-              <div>
-                <div class="pill ${l.type === 'lost' ? 'pill-red' : 'pill-green'}" style="margin-bottom: 6px;">${l.type === 'lost' ? '🔴 LOST' : '🟢 FOUND'}</div>
-                <div class="melody" style="font-size: 18px; font-weight: 700; color: var(--color-ink);">${l.name}</div>
-              </div>
-            </div>
-            <div style="font-size: 13px; color: var(--color-ink-sft); line-height: 1.6;">
-              <div>${l.species} · ${l.breed} · ${l.color}</div>
-              <div style="margin-top: 4px;">📍 ${l.area}</div>
-              <div style="margin-top: 2px;">📅 ${l.date}</div>
-              ${l.reward !== 'N/A' ? `<div style="margin-top: 4px; color: var(--color-orange); font-weight: 600;">🏆 Reward: ${l.reward}</div>` : ''}
-            </div>
-            <button class="btn btn-sm btn-outline" style="margin-top: 12px;" onclick="alert('Contact details: ${l.contact}')">📞 Contact</button>
+    grid.innerHTML = matched.map(l => getListingCardHtml(l)).join('');
+  }
+}
+
+function openLostDetailModal(id) {
+  const listing = lostListings.find(l => l.id == id);
+  if (!listing) return;
+
+  const body = document.getElementById('modal-lost-detail-body');
+  if (!body) return;
+
+  // Compile full details formatted as a form
+  if (listing.type === 'lost') {
+    body.innerHTML = `
+      <div style="padding: 32px;">
+        <!-- Form Header -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px; border-bottom: 2px solid var(--color-red-lt); padding-bottom: 16px;">
+          <span style="font-size: 32px;">🔴</span>
+          <div>
+            <h2 class="melody" style="font-size: 32px; color: var(--color-ink); margin: 0; line-height: 1.1;">I Lost My Pet — Report Form</h2>
+            <p style="font-size: 13px; color: var(--color-ink-sft); margin: 4px 0 0 0;">This form was submitted by the owner. Below are the registered details.</p>
           </div>
         </div>
+
+        <!-- Form Body -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Photo Display -->
+          <div style="width: 100%; height: 280px; border-radius: 16px; overflow: hidden; background: #eee;">
+            <img src="${listing.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${listing.name}">
+          </div>
+
+          <!-- Section 1: Pet Details -->
+          <div style="background: var(--color-cream); border-radius: 20px; padding: 24px; border: 1px solid var(--color-border);">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <span>🐾</span> Pet Details
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Pet's Name</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.name || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Species</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.species || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Breed</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.breed || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Gender</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.gender || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Approximate Age</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.age || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Primary Colour</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.color || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Size</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.size || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Microchip ID</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.microchip || 'None'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Wearing Collar?</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.collar || 'No'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Collar Description</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.collarDescription || 'N/A'}" disabled>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Distinctive Marks / Features</label>
+              <textarea style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px; resize: none; min-height: 60px; font-family: inherit;" disabled>${listing.features || 'None'}</textarea>
+            </div>
+          </div>
+
+          <!-- Section 2: Last Seen Location -->
+          <div style="background: var(--color-cream); border-radius: 20px; padding: 24px; border: 1px solid var(--color-border);">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <span>📍</span> Last Seen Location
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Date Last Seen</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.date || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Approximate Time</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.time || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">City</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.city || 'Coimbatore'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Area / Locality</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.area || ''}" disabled>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Street / Address Last Seen</label>
+              <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.address || ''}" disabled>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Nearby Landmark</label>
+              <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.landmark || 'None'}" disabled>
+            </div>
+          </div>
+
+          <!-- Section 3: Owner & Contact Info -->
+          <div style="background: var(--color-cream); border-radius: 20px; padding: 24px; border: 1px solid var(--color-border);">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <span>👤</span> Owner & Contact Information
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Your Full Name</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.ownerName || 'Anonymous'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Primary Phone</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.contact || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Alternate Phone</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.phone2 || 'None'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Email Address</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.email || ''}" disabled>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Additional Details / Behaviour Notes</label>
+              <textarea style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px; resize: none; min-height: 60px; font-family: inherit;" disabled>${listing.notes || ''}</textarea>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px; max-width: 300px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Reward Offered</label>
+              <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-orange); font-weight: bold; width: 100%; font-size: 14px;" value="${listing.reward || 'N/A'}" disabled>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px; border-top: 1px solid var(--color-border); padding-top: 20px;">
+          <button class="btn btn-md btn-outline" onclick="closeLostModal()">Close Form</button>
+          <a class="btn btn-md btn-primary" href="tel:${listing.contact}" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">📞 Contact Owner</a>
+        </div>
       </div>
-    `).join('');
+    `;
+  } else {
+    body.innerHTML = `
+      <div style="padding: 32px;">
+        <!-- Form Header -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px; border-bottom: 2px solid var(--color-green-lt); padding-bottom: 16px;">
+          <span style="font-size: 32px;">🟢</span>
+          <div>
+            <h2 class="melody" style="font-size: 32px; color: var(--color-ink); margin: 0; line-height: 1.1;">I Found a Pet — Report Form</h2>
+            <p style="font-size: 13px; color: var(--color-ink-sft); margin: 4px 0 0 0;">This form was submitted by the finder. Below are the registered details.</p>
+          </div>
+        </div>
+
+        <!-- Form Body -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Photo Display -->
+          <div style="width: 100%; height: 280px; border-radius: 16px; overflow: hidden; background: #eee;">
+            <img src="${listing.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${listing.name}">
+          </div>
+
+          <!-- Section 1: Found Pet Details -->
+          <div style="background: var(--color-cream); border-radius: 20px; padding: 24px; border: 1px solid var(--color-border);">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <span>🐾</span> Found Pet Details
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Species</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.species || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Breed (best guess)</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.breed || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Gender</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.gender || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Estimated Age</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.age || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Colour / Markings</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.color || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Size</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.size || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Has Collar?</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.collar || 'No'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Collar Description</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.collarDescription || 'N/A'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Microchip Scanned?</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.microchip || 'Not yet scanned'}" disabled>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Distinctive Marks / Features</label>
+              <textarea style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px; resize: none; min-height: 60px; font-family: inherit;" disabled>${listing.features || 'None'}</textarea>
+            </div>
+          </div>
+
+          <!-- Section 2: Found Location -->
+          <div style="background: var(--color-cream); border-radius: 20px; padding: 24px; border: 1px solid var(--color-border);">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <span>📍</span> Where was the Pet Found?
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Date Found</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.date || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Approximate Time</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.time || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">City</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.city || 'Coimbatore'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Area / Locality</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.area || ''}" disabled>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Street / Address Found</label>
+              <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.address || ''}" disabled>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Nearby Landmark</label>
+              <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.landmark || 'None'}" disabled>
+            </div>
+          </div>
+
+          <!-- Section 3: Contact Info -->
+          <div style="background: var(--color-cream); border-radius: 20px; padding: 24px; border: 1px solid var(--color-border);">
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <span>👤</span> Finder & Contact Information
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Your Full Name</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.ownerName || 'Anonymous'}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Primary Phone</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.contact || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Your Email</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.email || ''}" disabled>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Pet Currently With</label>
+                <input style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px;" value="${listing.currentlyWith || 'Not specified'}" disabled>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 16px;">
+              <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft);">Additional Notes</label>
+              <textarea style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-ink); width: 100%; font-size: 14px; resize: none; min-height: 60px; font-family: inherit;" disabled>${listing.notes || ''}</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px; border-top: 1px solid var(--color-border); padding-top: 20px;">
+          <button class="btn btn-md btn-outline" onclick="closeLostModal()">Close Form</button>
+          <a class="btn btn-md btn-primary" href="tel:${listing.contact}" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none; background: var(--color-green); border-color: var(--color-green);">📞 Contact Finder</a>
+        </div>
+      </div>
+    `;
+  }
+
+  // Show modal and register background close
+  const modal = document.getElementById('modal-lost-detail');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.onclick = closeLostModal;
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeLostModal() {
+  const modal = document.getElementById('modal-lost-detail');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
   }
 }
 

@@ -851,59 +851,65 @@
 
     <!-- ── LOST & FOUND PAGE ── -->
     <section id="page-lost" class="page-section">
-      <section style="padding: 90px 0 60px; background: var(--color-cream);">
+      <section style="padding: 120px 0 80px; position: relative; overflow: hidden;">
+        <img src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=1400&q=80&fit=crop"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
+          alt="Lost and Found Hero Background">
         <div
-          style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%);">
+        </div>
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; position: relative; z-index: 2;">
           <div>
             <div class="pill pill-red" style="margin-bottom: 24px;">Lost & Found</div>
             <h1 class="melody-italic"
-              style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: var(--color-ink);">
+              style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: #fff;">
               Reuniting<br>families.</h1>
             <p
-              style="font-size: 18px; color: var(--color-ink-sft); line-height: 1.7; max-width: 480px; margin-top: 12px;">
+              style="font-size: 18px; color: rgba(255, 255, 255, 0.75); line-height: 1.7; max-width: 480px; margin-top: 12px;">
               Report a lost or found pet in under 2 minutes. Our platform broadcasts alerts instantly to help bring them
               home.</p>
           </div>
-          <!-- Tabs toggle button -->
-          <div
-            style="display: flex; gap: 4px; padding: 5px; background: var(--color-white); border-radius: 14px; border: 1px solid var(--color-border); height: fit-content;">
-            <button id="lost-tab-btn-browse" onclick="setLostTab('browse')"
-              style="padding: 9px 22px; border-radius: 10px; border: none; background: var(--color-orange); color: #fff; font-weight: 600; cursor: pointer; font-size: 14px; transition: all .2s;">Browse
-              Listings</button>
-            <button id="lost-tab-btn-report" onclick="setLostTab('report')"
-              style="padding: 9px 22px; border-radius: 10px; border: none; background: transparent; color: var(--color-ink-sft); font-weight: 400; cursor: pointer; font-size: 14px; transition: all .2s;">Report
-              Pet</button>
-          </div>
         </div>
       </section>
+
+
 
       <!-- Browse Listings view -->
       <div id="lost-view-browse">
         <section style="padding: 40px 0 100px; background: var(--color-cream);">
           <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-            <!-- Filter Bar -->
-            <div
-              style="display: flex; gap: 10px; margin-bottom: 28px; padding: 16px 20px; background: var(--color-white); border-radius: 16px; border: 1px solid var(--color-border); flex-wrap: wrap; align-items: center;">
-              <span
-                style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-sft);">Filter:</span>
-              <button class="btn btn-sm btn-ghost" onclick="filterLostListings('All')"
-                style="border-radius: 100px; padding: 6px 16px;">All Listings</button>
-              <button class="btn btn-sm btn-ghost" onclick="filterLostListings('lost')"
-                style="border-radius: 100px; padding: 6px 16px; color: var(--color-red);">Lost 🔴</button>
-              <button class="btn btn-sm btn-ghost" onclick="filterLostListings('found')"
-                style="border-radius: 100px; padding: 6px 16px; color: var(--color-green);">Found 🟢</button>
+            <!-- Filter Bar: [Search] [Filter▼] [Report Pet] -->
+            <div id="lost-filter-bar"
+              style="display: flex; gap: 12px; margin-bottom: 28px; padding: 14px 20px; background: var(--color-white); border-radius: 16px; border: 1px solid var(--color-border); align-items: center; flex-wrap: wrap; position: relative;">
+              <!-- Search — full width -->
               <input id="lost-search" placeholder="Search by breed, area, city..." oninput="searchLostListings()"
-                style="padding: 10px 16px; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none; margin-left: auto; max-width: 240px;">
+                style="padding: 10px 16px; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none; flex: 1 1 200px; font-family: inherit; font-size: 14px;">
+              <!-- Filter Dropdown -->
+              <div style="position: relative; flex-shrink: 0;">
+                <button id="lost-filter-dropdown-btn" onclick="toggleLostFilterDropdown()"
+                  style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; border: 1.5px solid var(--color-border); background: var(--color-white); color: var(--color-ink); font-weight: 600; font-size: 14px; cursor: pointer; transition: all .18s; outline: none; font-family: inherit; height: 42px;">
+                  <span id="lost-filter-label">All Listings</span>
+                  <span style="font-size: 10px; opacity: 0.6;">▼</span>
+                </button>
+                <div id="lost-filter-dropdown"
+                  style="display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--color-white); border-radius: 12px; border: 1px solid var(--color-border); box-shadow: 0 12px 40px rgba(0,0,0,0.12); z-index: 100; min-width: 180px; overflow: hidden;">
+                  <button onclick="selectLostFilter('All', 'All Listings')" style="display: block; width: 100%; text-align: left; padding: 11px 18px; border: none; background: transparent; color: var(--color-ink); font-size: 14px; font-weight: 400; cursor: pointer; font-family: inherit;">All Listings</button>
+                  <button onclick="selectLostFilter('lost', 'Lost 🔴')" style="display: block; width: 100%; text-align: left; padding: 11px 18px; border: none; background: transparent; color: var(--color-ink); font-size: 14px; font-weight: 400; cursor: pointer; font-family: inherit;">Lost 🔴</button>
+                  <button onclick="selectLostFilter('found', 'Found 🟢')" style="display: block; width: 100%; text-align: left; padding: 11px 18px; border: none; background: transparent; color: var(--color-ink); font-size: 14px; font-weight: 400; cursor: pointer; font-family: inherit;">Found 🟢</button>
+                </div>
+              </div>
+              <!-- Report CTA -->
+              <button class="btn btn-sm btn-primary" onclick="setLostTab('report')"
+                style="border-radius: 10px; padding: 10px 22px; font-size: 13px; font-weight: 700; height: 42px; display: flex; align-items: center; gap: 6px; white-space: nowrap; flex-shrink: 0;">📝 Report Pet</button>
             </div>
 
-            <!-- Listings Grid -->
-            <div id="lost-listings-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <!-- Listings Grid — 3 columns for vertical cards -->
+            <div id="lost-listings-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
               <!-- Loaded dynamically in app.js -->
             </div>
 
-            <div style="text-align: center; margin-top: 36px;">
-              <button class="btn btn-lg btn-primary" onclick="setLostTab('report')">+ Report a Pet</button>
-            </div>
+
           </div>
         </section>
       </div>
@@ -911,18 +917,24 @@
       <!-- Report Form view -->
       <div id="lost-view-report" style="display: none;">
         <section style="padding: 20px 0 100px; background: var(--color-cream);">
-          <div style="max-width: 900px; margin: 0 auto; padding: 0 32px;">
+          <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
             <div id="lost-report-form-container">
-              <!-- Mode Toggle Lost vs Found -->
-              <div
-                style="display: flex; gap: 12px; margin-bottom: 36px; padding: 6px; background: var(--color-white); border-radius: 14px; border: 1px solid var(--color-border); width: fit-content;">
-                <button id="lost-mode-btn-lost" onclick="setLostMode('lost')"
-                  style="padding: 10px 22px; border-radius: 10px; border: none; background: var(--color-red); color: #fff; font-weight: 700; cursor: pointer; font-size: 14px;">🔴
-                  Lost Pet — I lost my pet</button>
-                <button id="lost-mode-btn-found" onclick="setLostMode('found')"
-                  style="padding: 10px 22px; border-radius: 10px; border: none; background: transparent; color: var(--color-ink-sft); font-weight: 500; cursor: pointer; font-size: 14px;">🟢
-                  Found Pet — I found someone's pet</button>
+              <!-- Mode Toggle Lost vs Found — centered -->
+              <div style="display: flex; justify-content: center;">
+                <div
+                  style="display: flex; gap: 12px; padding: 6px; background: var(--color-white); border-radius: 14px; border: 1px solid var(--color-border); width: fit-content;">
+                  <button id="lost-mode-btn-lost" onclick="setLostMode('lost')"
+                    style="padding: 10px 22px; border-radius: 10px; border: none; background: var(--color-red); color: #fff; font-weight: 700; cursor: pointer; font-size: 14px; font-family: inherit;">🔴
+                    Lost Pet — I lost my pet</button>
+                  <button id="lost-mode-btn-found" onclick="setLostMode('found')"
+                    style="padding: 10px 22px; border-radius: 10px; border: none; background: transparent; color: var(--color-ink-sft); font-weight: 500; cursor: pointer; font-size: 14px; font-family: inherit;">🟢
+                    Found Pet — I found someone's pet</button>
+                </div>
               </div>
+              <!-- Gap below toggle -->
+              <div style="height: 36px;"></div>
+              <!-- Centered form wrapper -->
+              <div style="max-width: 960px; margin: 0 auto;">
 
               <!-- Success panel -->
               <div id="lost-form-success" style="display: none; text-align: center; padding: 60px 0;">
@@ -939,13 +951,6 @@
 
               <!-- Interactive Form wrapper -->
               <div id="lost-form-inputs">
-                <!-- Info banner -->
-                <div id="lost-info-banner"
-                  style="background: var(--color-red-lt); border-radius: 16px; padding: 16px 20px; border: 1px solid rgba(192, 57, 43, 0.2); margin-bottom: 28px;">
-                  <p id="lost-info-banner-text" style="font-size: 14px; color: var(--color-red); font-weight: 600;">🚨
-                    Act fast — most pets are found within the first 24 hours. Fill in as much detail as possible.</p>
-                </div>
-
                 <!-- Form Fields -->
                 <div style="display: flex; flex-direction: column; gap: 32px;">
                   <!-- Pet details -->
@@ -955,7 +960,7 @@
                       style="font-size: 20px; font-weight: 700; color: var(--color-ink); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
                       <span>🐾</span> Pet Details
                     </h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div class="report-form-grid">
                       <div class="field"><label id="lost-field-name-label">Pet's Name *</label><input
                           id="lost-field-name" placeholder="e.g. Max"></div>
                       <div class="field">
@@ -1043,7 +1048,7 @@
                       style="font-size: 20px; font-weight: 700; color: var(--color-ink); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
                       <span>📍</span> <span id="lost-sec-loc-title">Last Seen Location</span>
                     </h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div class="report-form-grid">
                       <div class="field"><label id="lost-field-date-label">Date Last Seen *</label><input
                           id="lost-field-date" type="date"></div>
                       <div class="field"><label id="lost-field-time-label">Approximate Time *</label><input
@@ -1067,7 +1072,7 @@
                       style="font-size: 20px; font-weight: 700; color: var(--color-ink); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
                       <span>👤</span> Contact Information
                     </h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div class="report-form-grid">
                       <div class="field"><label>Your Full Name *</label><input id="lost-field-ownername"
                           placeholder="Priya Sharma"></div>
                       <div class="field"><label>Primary Phone *</label><input id="lost-field-phone" type="tel"
@@ -1103,6 +1108,19 @@
             </div>
           </div>
         </section>
+      </div>
+
+      <!-- Detail Modal Markup -->
+      <div id="modal-lost-detail" style="display: none; position: fixed; inset: 0; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(8px); z-index: 1100; align-items: flex-start; justify-content: center; padding: 120px 24px 40px; overflow-y: auto;">
+        <!-- Modal Content Container -->
+        <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; box-shadow: 0 40px 100px rgba(0,0,0,0.25); position: relative; animation: scaleIn 0.3s cubic-bezier(.22,1,.36,1) both;" onclick="event.stopPropagation()">
+          <!-- Close btn -->
+          <button onclick="closeLostModal()" style="position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(17,17,17,0.06); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; z-index: 10; transition: all 0.2s;" onmouseenter="this.style.background='rgba(17,17,17,0.12)'" onmouseleave="this.style.background='rgba(17,17,17,0.06)'">✕</button>
+          
+          <div id="modal-lost-detail-body">
+            <!-- Populated dynamically in app.js -->
+          </div>
+        </div>
       </div>
     </section>
 

@@ -1,0 +1,718 @@
+﻿diff --git a/pawprint-website.jsx b/pawprint-website.jsx
+index 2a04785..1c65e77 100644
+--- a/pawprint-website.jsx
++++ b/pawprint-website.jsx
+@@ -31,6 +31,23 @@ const FONTS_CSS = `
+   font-style: normal;      /* Bebas Neue has no italic; keep upright, same visual impact */
+   line-height: 1;
+ }
++
++/* Report Form Grid Styling */
++.report-form-grid {
++  display: grid;
++  grid-template-columns: 1fr;
++  gap: 24px;
++}
++@media (min-width: 768px) {
++  .report-form-grid {
++    grid-template-columns: repeat(2, 1fr);
++  }
++}
++@media (min-width: 1024px) {
++  .report-form-grid {
++    grid-template-columns: repeat(3, 1fr);
++  }
++}
+ `;
+ 
+ // ΓöÇΓöÇ Design tokens ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+@@ -1525,7 +1542,7 @@ function AboutPage({ nav }) {
+                     <p style={{ color: "#fff", fontSize: 14, fontStyle: "italic", lineHeight: 1.7, fontWeight: 500, textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>{l.quote}</p>
+                   </div>
+                 </div>
+-                <div style={{ padding: 24, display: "flex", flexDirection: "column", flex: 1, justifycontent: "space-between" }}>
++                <div style={{ padding: 24, display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between" }}>
+                   <div style={{ marginBottom: 20 }}>
+                     <div className="pill pill-orange" style={{ fontSize: 10, padding: "4px 10px", marginBottom: 12, width: "fit-content", textTransform: "uppercase" }}>{l.role}</div>
+                     <h3 className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 8, lineHeight: 1.1 }}>{l.name}</h3>
+@@ -2442,44 +2459,164 @@ function LostImageUpload({ label, hint, accentColor }) {
+ }
+ 
+ function LostFoundPage() {
+-  const [tab, setTab] = useState("report"); // report | found | browse
++  const [tab, setTab] = useState("browse"); // default to browse
+   const [type, setType] = useState("lost"); // lost | found (for report tab)
+   const [submitted, setSubmitted] = useState(false);
++  const [filterType, setFilterType] = useState("All");
++  const [searchQuery, setSearchQuery] = useState("");
++  const [detailListing, setDetailListing] = useState(null);
+ 
+   // Lost pet form
+   const [lForm, setLForm] = useState({
+-    // Pet details
+     petName: "", species: "", breed: "", gender: "", age: "", color: "", size: "", microchip: "", distinctiveMarks: "",
+-    // Last seen
+     lastSeenDate: "", lastSeenTime: "", lastSeenAddress: "", lastSeenCity: "", lastSeenArea: "", lastSeenLandmark: "",
+-    // Owner / contact
+     ownerName: "", ownerPhone: "", ownerPhone2: "", ownerEmail: "", ownerAddress: "", reward: "",
+-    // Description
+     description: "", vaccinated: "", collar: "", collarDescription: "",
+   });
+   const lf = (k) => (e) => setLForm(x => ({ ...x, [k]: e.target.value }));
+ 
+   // Found pet form
+   const [fForm, setFForm] = useState({
+-    // Pet details
+     species: "", breed: "", gender: "", estimatedAge: "", color: "", size: "", distinctiveMarks: "", hasCollar: "", collarDesc: "", microchipScanned: "",
+-    // Found location
+     foundDate: "", foundTime: "", foundAddress: "", foundCity: "", foundArea: "", foundLandmark: "",
+-    // Finder contact
+     finderName: "", finderPhone: "", finderEmail: "", currentlyWith: "", safeLocation: "",
+-    // Additional
+     photos: "", notes: "",
+   });
+   const ff = (k) => (e) => setFForm(x => ({ ...x, [k]: e.target.value }));
+ 
+   // Sample listings
+-  const listings = [
+-    { type: "lost", name: "Max", species: "Dog", breed: "Golden Retriever", color: "Golden", area: "RS Puram, Coimbatore", date: "May 18, 2026", img: P.dog4, contact: "98765 43210", reward: "Yes ΓÇö Γé╣5,000" },
+-    { type: "found", name: "Unknown", species: "Cat", breed: "Unknown", color: "Grey tabby", area: "Gandhipuram, Coimbatore", date: "May 20, 2026", img: P.cat2, contact: "87654 32109", reward: "N/A" },
+-    { type: "lost", name: "Cleo", species: "Dog", breed: "Beagle", color: "Tri-colour", area: "Saibaba Colony", date: "May 19, 2026", img: P.dog2, contact: "76543 21098", reward: "Yes ΓÇö Γé╣2,000" },
+-    { type: "found", name: "Unknown", species: "Dog", breed: "Labrador mix", color: "Black & white", area: "Peelamedu", date: "May 21, 2026", img: P.dog3, contact: "65432 10987", reward: "N/A" },
++  const initialListings = [
++    {
++      id: 1,
++      type: "lost",
++      name: "Bruno",
++      species: "Dog",
++      breed: "Labrador Retriever",
++      color: "Golden",
++      area: "RS Puram, Coimbatore",
++      date: "2026-06-04",
++      img: P.dog4,
++      contact: "98765 43210",
++      reward: "Yes ΓÇö Γé╣5,000",
++      gender: "Male",
++      age: "2 years",
++      size: "Large (15-30kg)",
++      microchip: "981022300481",
++      features: "Friendly golden retriever with a black collar. Responds to the name Bruno.",
++      collar: "Yes",
++      collarDescription: "Black collar with silver name tag",
++      time: "08:00 AM",
++      address: "14, East TV Swamy Road, near Post Office",
++      city: "Coimbatore",
++      landmark: "Near Post Office",
++      ownerName: "Sriram",
++      email: "sriram@example.com",
++      phone2: "",
++      currentlyWith: "",
++      notes: "Bruno is highly friendly and loves to play. Please contact if you spot him."
++    },
++    {
++      id: 2,
++      type: "found",
++      name: "Unknown",
++      species: "Cat",
++      breed: "Domestic Shorthair",
++      color: "Grey tabby",
++      area: "Gandhipuram, Coimbatore",
++      date: "2026-05-20",
++      img: P.cat2,
++      contact: "87654 32109",
++      reward: "N/A",
++      gender: "Unknown",
++      age: "Adult",
++      size: "Medium",
++      microchip: "Not yet scanned",
++      features: "Stripe pattern, very vocal, found near food court.",
++      collar: "No",
++      collarDescription: "",
++      time: "8:00 PM",
++      address: "Crosscut Road Market",
++      city: "Coimbatore",
++      landmark: "Near Lakshmi Complex",
++      ownerName: "Ankit",
++      email: "ankit@example.com",
++      phone2: "",
++      currentlyWith: "Local shelter",
++      notes: "Currently staying at the local rescue center."
++    },
++    {
++      id: 3,
++      type: "lost",
++      name: "Cleo",
++      species: "Dog",
++      breed: "Beagle",
++      color: "Tri-colour",
++      area: "Saibaba Colony, Coimbatore",
++      date: "2026-05-19",
++      img: P.dog2,
++      contact: "76543 21098",
++      reward: "Yes ΓÇö Γé╣2,000",
++      gender: "Female",
++      age: "1.5 years",
++      size: "Medium (5-15kg)",
++      microchip: "None",
++      features: "Distinct brown spot on her back, floppy ears.",
++      collar: "Yes",
++      collarDescription: "Red leather collar",
++      time: "4:00 PM",
++      address: "NSR Road",
++      city: "Coimbatore",
++      landmark: "Behind Annapoorna Restaurant",
++      ownerName: "Vikram",
++      email: "vikram@example.com",
++      phone2: "",
++      currentlyWith: "",
++      notes: "Skittish around cars, please approach gently."
++    },
++    {
++      id: 4,
++      type: "found",
++      name: "Unknown",
++      species: "Dog",
++      breed: "Labrador mix",
++      color: "Black & white",
++      area: "Peelamedu, Coimbatore",
++      date: "2026-05-21",
++      img: P.dog3,
++      contact: "65432 10987",
++      reward: "N/A",
++      gender: "Male",
++      age: "Approx 2 years",
++      size: "Large",
++      microchip: "Yes ΓÇö has chip",
++      features: "Black coat with a white star-shaped chest patch, wearing blue collar.",
++      collar: "Yes",
++      collarDescription: "Blue fabric collar, no tags",
++      time: "11:30 AM",
++      address: "Avinashi Road near PSG",
++      city: "Coimbatore",
++      landmark: "Near fun mall",
++      ownerName: "Ganesh",
++      email: "ganesh@example.com",
++      phone2: "",
++      currentlyWith: "Me (safe at home)",
++      notes: "Very healthy and energetic dog. Walks well on leash."
++    }
+   ];
+ 
++  const [listingsList, setListingsList] = useState(initialListings);
++
++  useEffect(() => {
++    if (detailListing) {
++      document.body.style.overflow = "hidden";
++    } else {
++      document.body.style.overflow = "";
++    }
++    return () => {
++      document.body.style.overflow = "";
++    };
++  }, [detailListing]);
++
+   if (submitted) return (
+     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.cream, paddingTop: 96 }}>
+       <div style={{ textAlign: "center", padding: 60 }}>
+@@ -2547,7 +2684,7 @@ function LostFoundPage() {
+       </div>
+ 
+       <section style={{ padding: "48px 0 100px", background: C.cream }}>
+-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px" }}>
++        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+ 
+           {/* ΓöÇ REPORT TAB ΓöÇ */}
+           {tab === "report" && (
+@@ -2567,13 +2704,9 @@ function LostFoundPage() {
+               {/* ΓöÇΓöÇ LOST PET FORM ΓöÇΓöÇ */}
+               {type === "lost" && (
+                 <div>
+-                  <div style={{ background: C.redLt, borderRadius: 16, padding: "16px 20px", border: `1px solid ${C.red}33`, marginBottom: 28 }}>
+-                    <p style={{ fontSize: 14, color: C.red, fontWeight: 600 }}>≡ƒÜ¿ Act fast ΓÇö most pets are found within the first 24 hours. Fill in as much detail as possible.</p>
+-                  </div>
+-
+                   {sectionBox(
+-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+-                      {[["Pet's Name", "petName", "text", "e.g. Max"], ["Species", "species", "select", ""], ["Breed", "breed", "text", "e.g. Golden Retriever"], ["Gender", "gender", "select", ""], ["Approximate Age", "age", "text", "e.g. 3 years"], ["Primary Colour", "color", "text", "e.g. Golden brown"], ["Size", "size", "select", ""], ["Microchip ID", "microchip", "text", "If available"]].map(([l, k, t, ph]) => (
++                    <div className="report-form-grid">
++                      {[["Pet's Name *", "petName", "text", "e.g. Max"], ["Species *", "species", "select", ""], ["Breed", "breed", "text", "e.g. Golden Retriever"], ["Gender", "gender", "select", ""], ["Approximate Age", "age", "text", "e.g. 3 years"], ["Primary Colour *", "color", "text", "e.g. Golden brown"], ["Size", "size", "select", ""], ["Microchip ID", "microchip", "text", "If available"]].map(([l, k, t, ph]) => (
+                         <div key={k} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                           <label style={labelStyle}>{l}</label>
+                           {t === "select"
+@@ -2617,7 +2750,7 @@ function LostFoundPage() {
+                   )}
+ 
+                   {sectionBox(
+-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
++                    <div className="report-form-grid">
+                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                         <label style={labelStyle}>Date Last Seen *</label>
+                         <input type="date" value={lForm.lastSeenDate} onChange={lf("lastSeenDate")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+@@ -2647,7 +2780,7 @@ function LostFoundPage() {
+                   )}
+ 
+                   {sectionBox(
+-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
++                    <div className="report-form-grid">
+                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                         <label style={labelStyle}>Your Full Name *</label>
+                         <input placeholder="Priya Sharma" value={lForm.ownerName} onChange={lf("ownerName")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+@@ -2683,8 +2816,39 @@ function LostFoundPage() {
+                   <button className="btn btn-lg btn-primary" style={{ width: "100%" }}
+                     onClick={() => {
+                       if (!lForm.petName || !lForm.ownerName || !lForm.ownerPhone || !lForm.ownerEmail || !lForm.lastSeenDate || !lForm.lastSeenCity) {
+-                        alert("Please fill in all required (*) fields."); return;
++                        alert("Please fill in all required (*) fields.");
++                        return;
+                       }
++                      const newPet = {
++                        id: Date.now(),
++                        type: "lost",
++                        name: lForm.petName,
++                        species: lForm.species || "Dog",
++                        breed: lForm.breed || "Unknown",
++                        color: lForm.color || "Unknown",
++                        area: lForm.lastSeenArea ? `${lForm.lastSeenArea}, ${lForm.lastSeenCity}` : lForm.lastSeenCity,
++                        date: lForm.lastSeenDate,
++                        img: P.dog4,
++                        contact: lForm.ownerPhone,
++                        reward: lForm.reward ? `Yes ΓÇö ${lForm.reward}` : "N/A",
++                        gender: lForm.gender || "Unknown",
++                        age: lForm.age || "Unknown",
++                        size: lForm.size || "Unknown",
++                        microchip: lForm.microchip || "None",
++                        features: lForm.distinctiveMarks || "None",
++                        collar: lForm.collar || "No",
++                        collarDescription: lForm.collarDescription || "",
++                        time: lForm.lastSeenTime || "Unknown",
++                        address: lForm.lastSeenAddress || "",
++                        city: lForm.lastSeenCity,
++                        landmark: lForm.lastSeenLandmark || "",
++                        ownerName: lForm.ownerName,
++                        email: lForm.ownerEmail,
++                        phone2: lForm.ownerPhone2 || "",
++                        currentlyWith: "",
++                        notes: lForm.description || ""
++                      };
++                      setListingsList(prev => [newPet, ...prev]);
+                       setSubmitted(true);
+                     }}>
+                     ≡ƒÜ¿ Submit Lost Pet Report
+@@ -2695,12 +2859,8 @@ function LostFoundPage() {
+               {/* ΓöÇΓöÇ FOUND PET FORM ΓöÇΓöÇ */}
+               {type === "found" && (
+                 <div>
+-                  <div style={{ background: C.greenLt, borderRadius: 16, padding: "16px 20px", border: `1px solid ${C.green}33`, marginBottom: 28 }}>
+-                    <p style={{ fontSize: 14, color: C.green, fontWeight: 600 }}>≡ƒÖÅ Thank you for helping! Fill in as much as you can ΓÇö even partial info helps match with lost reports.</p>
+-                  </div>
+-
+                   {sectionBox(
+-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
++                    <div className="report-form-grid">
+                       {[["Species *", "species", "select", ""], ["Breed (best guess)", "breed", "text", "e.g. Labrador mix"], ["Gender", "gender", "select", ""], ["Estimated Age", "estimatedAge", "text", "e.g. 1ΓÇô2 years"], ["Colour / Markings *", "color", "text", "e.g. Brown with white chest"], ["Size", "size", "select", ""]].map(([l, k, t, ph]) => (
+                         <div key={k} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                           <label style={labelStyle}>{l}</label>
+@@ -2749,7 +2909,7 @@ function LostFoundPage() {
+                   )}
+ 
+                   {sectionBox(
+-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
++                    <div className="report-form-grid">
+                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                         <label style={labelStyle}>Date Found *</label>
+                         <input type="date" value={fForm.foundDate} onChange={ff("foundDate")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+@@ -2779,7 +2939,7 @@ function LostFoundPage() {
+                   )}
+ 
+                   {sectionBox(
+-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
++                    <div className="report-form-grid">
+                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                         <label style={labelStyle}>Your Full Name *</label>
+                         <input placeholder="Rahul Nair" value={fForm.finderName} onChange={ff("finderName")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+@@ -2809,8 +2969,39 @@ function LostFoundPage() {
+                   <button className="btn btn-lg btn-primary" style={{ width: "100%", background: C.green, boxShadow: `0 4px 18px ${C.green}44` }}
+                     onClick={() => {
+                       if (!fForm.species || !fForm.finderName || !fForm.finderPhone || !fForm.foundDate || !fForm.foundCity) {
+-                        alert("Please fill in all required (*) fields."); return;
++                        alert("Please fill in all required (*) fields.");
++                        return;
+                       }
++                      const newPet = {
++                        id: Date.now(),
++                        type: "found",
++                        name: "Unknown",
++                        species: fForm.species,
++                        breed: fForm.breed || "Unknown",
++                        color: fForm.color || "Unknown",
++                        area: fForm.foundArea ? `${fForm.foundArea}, ${fForm.foundCity}` : fForm.foundCity,
++                        date: fForm.foundDate,
++                        img: P.cat2,
++                        contact: fForm.finderPhone,
++                        reward: "N/A",
++                        gender: fForm.gender || "Unknown",
++                        age: fForm.estimatedAge || "Unknown",
++                        size: fForm.size || "Unknown",
++                        microchip: fForm.microchipScanned || "Not yet scanned",
++                        features: fForm.distinctiveMarks || "None",
++                        collar: fForm.hasCollar || "No",
++                        collarDescription: fForm.collarDesc || "",
++                        time: fForm.foundTime || "Unknown",
++                        address: fForm.foundAddress || "",
++                        city: fForm.foundCity,
++                        landmark: fForm.foundLandmark || "",
++                        ownerName: fForm.finderName,
++                        email: fForm.finderEmail || "",
++                        phone2: "",
++                        currentlyWith: fForm.currentlyWith || "",
++                        notes: fForm.notes || ""
++                      };
++                      setListingsList(prev => [newPet, ...prev]);
+                       setSubmitted(true);
+                     }}>
+                     ≡ƒÉ╛ Submit Found Pet Report
+@@ -2825,17 +3016,29 @@ function LostFoundPage() {
+             <div>
+               <div style={{ display: "flex", gap: 10, marginBottom: 28, padding: "16px 20px", background: C.white, borderRadius: 16, border: `1px solid ${C.border}`, flexWrap: "wrap", alignItems: "center" }}>
+                 <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Filter:</span>
+-                {[["All", "All"], ["Lost ≡ƒö┤", "lost"], ["Found ≡ƒƒó", "found"]].map(([l, v]) => (
+-                  <button key={v} style={{ padding: "7px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, background: "transparent", color: C.inkSft, fontSize: 13, cursor: "pointer", transition: "all .18s" }}
+-                    onMouseEnter={e => e.currentTarget.style.borderColor = C.orange} onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>{l}</button>
++                {[["All Listings", "All"], ["Lost ≡ƒö┤", "lost"], ["Found ≡ƒƒó", "found"]].map(([l, v]) => (
++                  <button key={v} onClick={() => setFilterType(v)} style={{ padding: "7px 16px", borderRadius: 100, border: `1.5px solid ${C.border}`, background: filterType === v ? C.orange : "transparent", color: filterType === v ? "#fff" : (v === "lost" ? C.red : v === "found" ? C.green : C.inkSft), fontSize: 13, cursor: "pointer", transition: "all .18s", fontWeight: filterType === v ? 700 : 500 }}
++                    onMouseEnter={e => { if (filterType !== v) e.currentTarget.style.borderColor = C.orange; }} onMouseLeave={e => { if (filterType !== v) e.currentTarget.style.borderColor = C.border; }}>{l}</button>
+                 ))}
+-                <input placeholder="Search by breed, area, cityΓÇª" style={{ ...inputStyle, maxWidth: 240, marginLeft: "auto" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
++                <input placeholder="Search by breed, area, cityΓÇª" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} style={{ ...inputStyle, maxWidth: 240, marginLeft: "auto" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
++                <button className="btn btn-sm btn-primary" onClick={() => setTab("report")}
++                  style={{ borderRadius: 100, padding: "10px 20px", fontSize: 13, fontWeight: 700, height: 40, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginLeft: 12 }}>
++                  ≡ƒô¥ Report Pet
++                </button>
+               </div>
+ 
+               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+-                {listings.map((l, i) => (
+-                  <div key={i} className="card card-lift" style={{ borderTop: `4px solid ${l.type === "lost" ? C.red : C.green}` }}>
+-                    <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", alignItems: "stretch" }}>
++                {listingsList.filter(l => {
++                  const typeMatch = filterType === "All" || l.type === filterType;
++                  const searchMatch = !searchQuery || 
++                    l.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
++                    l.breed.toLowerCase().includes(searchQuery.toLowerCase()) ||
++                    l.area.toLowerCase().includes(searchQuery.toLowerCase()) ||
++                    l.color.toLowerCase().includes(searchQuery.toLowerCase());
++                  return typeMatch && searchMatch;
++                }).map((l, i) => (
++                  <div key={l.id || i} className="card card-lift" onClick={() => setDetailListing(l)} style={{ borderTop: `4px solid ${l.type === "lost" ? C.red : C.green}`, cursor: "pointer" }}>
++                    <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", alignItems: "stretch" }}>
+                       <Img src={l.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                       <div style={{ padding: "20px 22px" }}>
+                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
+@@ -2850,7 +3053,7 @@ function LostFoundPage() {
+                           <div style={{ marginTop: 2 }}>≡ƒôà {l.date}</div>
+                           {l.reward !== "N/A" && <div style={{ marginTop: 4, color: C.orange, fontWeight: 600 }}>≡ƒÅå Reward: {l.reward}</div>}
+                         </div>
+-                        <button className="btn btn-sm btn-outline" style={{ marginTop: 12 }} onClick={() => alert(`Contact: ${l.contact}`)}>≡ƒô₧ Contact</button>
++                        <button className="btn btn-sm btn-outline" style={{ marginTop: 12 }} onClick={(e) => { e.stopPropagation(); setDetailListing(l); }}>≡ƒô₧ Contact</button>
+                       </div>
+                     </div>
+                   </div>
+@@ -2864,6 +3067,298 @@ function LostFoundPage() {
+           )}
+         </div>
+       </section>
++
++      {/* Detail Modal Overlay */}
++      {detailListing && (
++        <div style={{ position: "fixed", inset: 0, background: "rgba(17, 17, 17, 0.6)", backdropFilter: "blur(8px)", zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }} onClick={() => setDetailListing(null)}>
++          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 800, maxHeight: "90vh", overflowY: "auto", boxShadow: "0 40px 100px rgba(0,0,0,0.25)", position: "relative", animation: "scaleIn 0.3s cubic-bezier(.22,1,.36,1) both" }} onClick={e => e.stopPropagation()}>
++            {/* Close button */}
++            <button onClick={() => setDetailListing(null)} style={{ position: "absolute", top: 20, right: 20, width: 36, height: 36, borderRadius: "50%", border: "none", background: "rgba(17,17,17,0.06)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: "bold", zIndex: 10, transition: "all 0.2s" }} onMouseEnter={e => e.currentTarget.style.background='rgba(17,17,17,0.12)'} onMouseLeave={e => e.currentTarget.style.background='rgba(17,17,17,0.06)'}>Γ£ò</button>
++
++            {detailListing.type === 'lost' ? (
++              <div style={{ padding: 32 }}>
++                {/* Form Header */}
++                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28, borderBottom: `2px solid ${C.redLt}`, paddingBottom: 16 }}>
++                  <span style={{ fontSize: 32 }}>≡ƒö┤</span>
++                  <div>
++                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, margin: 0, lineHeight: 1.1 }}>I Lost My Pet ΓÇö Report Form</h2>
++                    <p style={{ fontSize: 13, color: C.inkSft, margin: "4px 0 0 0" }}>This form was submitted by the owner. Below are the registered details.</p>
++                  </div>
++                </div>
++
++                {/* Form Body */}
++                <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
++                  {/* Photo Display */}
++                  <div style={{ width: "100%", height: 280, borderRadius: 16, overflow: "hidden", background: "#eee" }}>
++                    <img src={detailListing.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt={detailListing.name} />
++                  </div>
++
++                  {/* Section 1: Pet Details */}
++                  <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
++                    <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
++                      <span>≡ƒÉ╛</span> Pet Details
++                    </h3>
++                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Pet's Name</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.name || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Species</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.species || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Breed</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.breed || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Gender</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.gender || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Approximate Age</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.age || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Primary Colour</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.color || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Size</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.size || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Microchip ID</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.microchip || 'None'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Wearing Collar?</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.collar || 'No'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Collar Description</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.collarDescription || 'N/A'} disabled />
++                      </div>
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Distinctive Marks / Features</label>
++                      <textarea style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14, resize: "none", minHeight: 60, fontFamily: "inherit" }} value={detailListing.features || 'None'} disabled />
++                    </div>
++                  </div>
++
++                  {/* Section 2: Last Seen Location */}
++                  <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
++                    <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
++                      <span>≡ƒôì</span> Last Seen Location
++                    </h3>
++                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Date Last Seen</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.date || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Approximate Time</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.time || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>City</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.city || 'Coimbatore'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Area / Locality</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.area || ''} disabled />
++                      </div>
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Street / Address Last Seen</label>
++                      <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.address || ''} disabled />
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Nearby Landmark</label>
++                      <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.landmark || 'None'} disabled />
++                    </div>
++                  </div>
++
++                  {/* Section 3: Owner & Contact Info */}
++                  <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
++                    <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
++                      <span>≡ƒæñ</span> Owner & Contact Information
++                    </h3>
++                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Your Full Name</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.ownerName || 'Anonymous'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Primary Phone</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.contact || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Alternate Phone</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.phone2 || 'None'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Email Address</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.email || ''} disabled />
++                      </div>
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Additional Details / Behaviour Notes</label>
++                      <textarea style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14, resize: "none", minHeight: 60, fontFamily: "inherit" }} value={detailListing.notes || ''} disabled />
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16, maxWidth: 300 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Reward Offered</label>
++                      <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.orange, fontWeight: "bold", width: "100%", fontSize: 14 }} value={detailListing.reward || 'N/A'} disabled />
++                    </div>
++                  </div>
++                </div>
++
++                {/* Footer Actions */}
++                <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", marginTop: 28, borderTop: `1px solid ${C.border}`, paddingTop: 20 }}>
++                  <button className="btn btn-md btn-outline" onClick={() => setDetailListing(null)}>Close Form</button>
++                  <a className="btn btn-md btn-primary" href={`tel:${detailListing.contact}`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>≡ƒô₧ Contact Owner</a>
++                </div>
++              </div>
++            ) : (
++              <div style={{ padding: 32 }}>
++                {/* Form Header */}
++                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28, borderBottom: `2px solid ${C.greenLt}`, paddingBottom: 16 }}>
++                  <span style={{ fontSize: 32 }}>≡ƒƒó</span>
++                  <div>
++                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, margin: 0, lineHeight: 1.1 }}>I Found a Pet ΓÇö Report Form</h2>
++                    <p style={{ fontSize: 13, color: C.inkSft, margin: "4px 0 0 0" }}>This form was submitted by the finder. Below are the registered details.</p>
++                  </div>
++                </div>
++
++                {/* Form Body */}
++                <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
++                  {/* Photo Display */}
++                  <div style={{ width: "100%", height: 280, borderRadius: 16, overflow: "hidden", background: "#eee" }}>
++                    <img src={detailListing.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt={detailListing.name} />
++                  </div>
++
++                  {/* Section 1: Found Pet Details */}
++                  <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
++                    <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
++                      <span>≡ƒÉ╛</span> Found Pet Details
++                    </h3>
++                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Species</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.species || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Breed (best guess)</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.breed || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Gender</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.gender || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Estimated Age</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.age || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Colour / Markings</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.color || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Size</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.size || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Has Collar?</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.collar || 'No'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Collar Description</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.collarDescription || 'N/A'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Microchip Scanned?</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.microchip || 'Not yet scanned'} disabled />
++                      </div>
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Distinctive Marks / Features</label>
++                      <textarea style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14, resize: "none", minHeight: 60, fontFamily: "inherit" }} value={detailListing.features || 'None'} disabled />
++                    </div>
++                  </div>
++
++                  {/* Section 2: Found Location */}
++                  <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
++                    <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
++                      <span>≡ƒôì</span> Where was the Pet Found?
++                    </h3>
++                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Date Found</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.date || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Approximate Time</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.time || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>City</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.city || 'Coimbatore'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Area / Locality</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.area || ''} disabled />
++                      </div>
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Street / Address Found</label>
++                      <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.address || ''} disabled />
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Nearby Landmark</label>
++                      <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.landmark || 'None'} disabled />
++                    </div>
++                  </div>
++
++                  {/* Section 3: Finder Contact Info */}
++                  <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
++                    <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
++                      <span>≡ƒæñ</span> Finder & Contact Information
++                    </h3>
++                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Your Full Name</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.ownerName || 'Anonymous'} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Primary Phone</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.contact || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Your Email</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.email || ''} disabled />
++                      </div>
++                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
++                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Pet Currently With</label>
++                        <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.currentlyWith || 'Not specified'} disabled />
++                      </div>
++                    </div>
++                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
++                      <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Additional Notes</label>
++                      <textarea style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14, resize: "none", minHeight: 60, fontFamily: "inherit" }} value={detailListing.notes || ''} disabled />
++                    </div>
++                  </div>
++                </div>
++
++                {/* Footer Actions */}
++                <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", marginTop: 28, borderTop: `1px solid ${C.border}`, paddingTop: 20 }}>
++                  <button className="btn btn-md btn-outline" onClick={() => setDetailListing(null)}>Close Form</button>
++                  <a className="btn btn-md btn-primary" href={`tel:${detailListing.contact}`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", background: C.green, borderColor: C.green }}>≡ƒô₧ Contact Finder</a>
++                </div>
++              </div>
++            )}
++          </div>
++        </div>
++      )}
+     </div>
+   );
+ }
