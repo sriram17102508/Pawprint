@@ -82,7 +82,7 @@ const SERVICE_CATS = [
       { label: "Nail Clipping", page: "svc-grooming" },
       { label: "Ear Cleaning", page: "svc-grooming" },
       { label: "Teeth Brushing", page: "svc-grooming" },
-      { label: "De-shedding Treatment", page: "svc-grooming" },
+      { label: "De-Shedding Treatment", page: "svc-grooming" },
       { label: "Flea Bath", page: "svc-grooming" },
       { label: "Paw Care", page: "svc-grooming" },
       { label: "Skin & Coat Treatment", page: "svc-grooming" },
@@ -138,7 +138,7 @@ const SERVICE_CATS = [
       { label: "Breeding Consultation", page: "svc-specialty" },
       { label: "Pregnancy & Whelping", page: "svc-specialty" },
       { label: "Rehabilitation Therapy", page: "svc-specialty" },
-      { label: "Hospice & End-of-Life Care", page: "svc-specialty" },
+      { label: "Hospice & End-Of-Life Care", page: "svc-specialty" },
       { label: "Pet Photography", page: "svc-specialty" },
       { label: "Dog Events & Parties", page: "svc-specialty" },
       { label: "Emotional Support Dog", page: "svc-specialty" },
@@ -182,7 +182,7 @@ const vets = [
 ];
 
 const products = [
-  { id: 1, name: "Royal Canin Medium Adult 4kg", cat: "Food", price: 2499, old: 2999, img: P.shop1, rating: 4.8, rev: 1240, badge: "Food", bc: C.orange },
+  { id: 1, name: "Royal Canin Medium Adult 4Kg", cat: "Food", price: 2499, old: 2999, img: P.shop1, rating: 4.8, rev: 1240, badge: "Food", bc: C.orange },
   { id: 2, name: "Kong Extreme Chew Toy", cat: "Toys", price: 899, old: 1100, img: P.dog2, rating: 4.7, rev: 890, badge: "Toys", bc: C.blue },
   { id: 3, name: "GPS Pet Tracker Pro 2026", cat: "Tech", price: 3999, old: 4999, img: P.shop2, rating: 4.9, rev: 456, badge: "Tech", bc: C.green },
   { id: 4, name: "Himalaya PetCare Shampoo", cat: "Grooming", price: 349, old: 449, img: P.groom, rating: 4.6, rev: 2100, badge: "Grooming", bc: "#8B5CF6" },
@@ -193,18 +193,18 @@ const products = [
 ];
 
 const milestones = [
-  { year: "2023", title: "Born from Love (Idea)", desc: "Frustrated by disconnected records and hard-to-reach vet clinics, Dr. Sriram and Sharmila sketch a blueprint of Pawprint on a napkin." },
-  { year: "2024", title: "Execution & Launch", desc: "Making the dream a reality. Launched pet onboarding, verified vet directory, and custom shelters. Expanded to 100+ Indian cities." },
-  { year: "2025", title: "Expanding Nation-Wide", desc: "Scaling nationwide. Expanding verified veterinary consultation, emergency care, and custom adoption shelters to every tier-1 and tier-2 city in India." },
-  { year: "2026", title: "Shining Future", desc: "Leading with intelligence. Scaling our AI-driven disease predictors, smart feeding calculators, and predictive vet monitoring." }
+  { year: "2023", title: "Born From Love (Idea)", desc: "Frustrated By Disconnected Records And Hard-To-Reach Vet Clinics, Dr. Sriram And Sharmila Sketch A Blueprint Of Pawprint On A Napkin." },
+  { year: "2024", title: "Execution & Launch", desc: "Making The Dream A Reality. Launched Pet Onboarding, Verified Vet Directory, And Custom Shelters. Expanded To 100+ Indian Cities." },
+  { year: "2025", title: "Expanding Nation-Wide", desc: "Scaling Nationwide. Expanding Verified Veterinary Consultation, Emergency Care, And Custom Adoption Shelters To Every Tier-1 And Tier-2 City In India." },
+  { year: "2026", title: "Shining Future", desc: "Leading With Intelligence. Scaling Our AI-Driven Disease Predictors, Smart Feeding Calculators, And Predictive Vet Monitoring." }
 ];
 
 const values = [
-  { icon: "🐾", title: "Compassion First", desc: "Every product decision, every hire, every partnership - animal welfare always comes first.", bg: "#FEF2F2", border: "#FCA5A5", accent: "#EF4444", shadowRgb: "239, 68, 68" },
-  { icon: "🔬", title: "Science-Backed", desc: "We partner with leading veterinary institutions and never recommend what isn't evidence-based.", bg: "#EFF6FF", border: "#BFDBFE", accent: "#3B82F6", shadowRgb: "59, 130, 246" },
-  { icon: "🔍", title: "Radical Transparency", desc: "Open pricing, honest advice, and no hidden fees - ever. What you see is exactly what you get.", bg: "#FFFBEB", border: "#FDE68A", accent: "#D97706", shadowRgb: "217, 119, 6" },
-  { icon: "🌱", title: "Sustainability", desc: "Eco-conscious products, paperless records, and carbon-offset delivery on all shop orders.", bg: "#F0FDF4", border: "#BBF7D0", accent: "#22C55E", shadowRgb: "34, 197, 94" },
-  { icon: "💪", title: "Community", desc: "We're building a nation of confident, informed, and responsible pet parents - one family at a time.", bg: "#FAF5FF", border: "#E9D5FF", accent: "#8B5CF6", shadowRgb: "139, 92, 246" },
+  { icon: "🐾", title: "Compassion First", desc: "Every Product Decision, Every Hire, Every Partnership - Animal Welfare Always Comes First.", bg: "#FEF2F2", border: "#FCA5A5", accent: "#EF4444", shadowRgb: "239, 68, 68" },
+  { icon: "🔬", title: "Science-Backed", desc: "We Partner With Leading Veterinary Institutions And Never Recommend What Isn't Evidence-Based.", bg: "#EFF6FF", border: "#BFDBFE", accent: "#3B82F6", shadowRgb: "59, 130, 246" },
+  { icon: "🔍", title: "Radical Transparency", desc: "Open Pricing, Honest Advice, And No Hidden Fees - Ever. What You See Is Exactly What You Get.", bg: "#FFFBEB", border: "#FDE68A", accent: "#D97706", shadowRgb: "217, 119, 6" },
+  { icon: "🌱", title: "Sustainability", desc: "Eco-Conscious Products, Paperless Records, And Carbon-Offset Delivery On All Shop Orders.", bg: "#F0FDF4", border: "#BBF7D0", accent: "#22C55E", shadowRgb: "34, 197, 94" },
+  { icon: "💪", title: "Community", desc: "We're Building A Nation Of Confident, Informed, And Responsible Pet Parents - One Family At A Time.", bg: "#FAF5FF", border: "#E9D5FF", accent: "#8B5CF6", shadowRgb: "139, 92, 246" },
 ];
 
 const leadership = [
@@ -263,7 +263,7 @@ const videos = [
     title: "Puppy's First Week Home — Complete Training Guide",
     instructor: "Dr. Kiran Patel", role: "CEO & Head Vet",
     thumb: P.dog1,
-    desc: "Everything you need to know for the first 7 days with your new puppy — sleeping, feeding, crate training, and first commands.",
+    desc: "Everything You Need To Know For The First 7 Days With Your New Puppy — Sleeping, Feeding, Crate Training, And First Commands.",
     chapters: ["0:00 Welcome home", "1:30 Setting up the sleep space", "3:10 First commands: Sit & Stay", "5:45 Crate training basics", "7:00 Q&A tips"],
     tags: ["Puppy", "Beginners", "Crate Training", "Commands"],
   },
@@ -272,52 +272,52 @@ const videos = [
     title: "5 Essential Commands Every Dog Must Know",
     instructor: "Rahul Sharma", role: "CPDT-Certified Trainer",
     thumb: P.dog2,
-    desc: "Sit, Down, Stay, Come, and Leave It — the five commands that form the backbone of a safe, well-behaved dog. Step-by-step with real dogs.",
+    desc: "Sit, Down, Stay, Come, And Leave It — The Five Commands That Form The Backbone Of A Safe, Well-Behaved Dog. Step-By-Step With Real Dogs.",
     chapters: ["0:00 Introduction", "1:00 Sit", "3:15 Down", "5:30 Stay", "8:00 Come (Recall)", "10:20 Leave It"],
     tags: ["Obedience", "Commands", "Positive Reinforcement"],
   },
   {
     id: 3, cat: "Obedience", duration: "9:55", level: "Intermediate", views: "67K",
-    title: "Stop Leash Pulling in 10 Minutes — Proven Method",
+    title: "Stop Leash Pulling In 10 Minutes — Proven Method",
     instructor: "Priya Venkatesh", role: "Behavioral Specialist",
     thumb: P.dog3,
-    desc: "The most requested skill. This video shows the exact loose-leash walking technique that works for all breeds, sizes, and ages.",
+    desc: "The Most Requested Skill. This Video Shows The Exact Loose-Leash Walking Technique That Works For All Breeds, Sizes, And Ages.",
     chapters: ["0:00 Why dogs pull", "1:40 Equipment guide", "3:00 The anchor technique", "6:00 Real-time demo", "8:30 Common mistakes"],
     tags: ["Leash Training", "Walking", "Reactive Dogs"],
   },
   {
     id: 4, cat: "Grooming Tips", duration: "14:30", level: "Beginner", views: "156K",
-    title: "At-Home Grooming for Beginners — Full Walkthrough",
+    title: "At-Home Grooming For Beginners — Full Walkthrough",
     instructor: "Meenakshi Iyer", role: "Master Groomer",
     thumb: P.groom,
-    desc: "Learn to bathe, brush, clip nails, clean ears, and brush teeth at home with tools you already own. Covers all coat types.",
+    desc: "Learn To Bathe, Brush, Clip Nails, Clean Ears, And Brush Teeth At Home With Tools You Already Own. Covers All Coat Types.",
     chapters: ["0:00 Tools you need", "2:00 Bathing step-by-step", "5:30 Brushing technique", "8:00 Nail clipping safely", "11:00 Ear & teeth care"],
     tags: ["Grooming", "At-Home", "All Breeds", "Beginners"],
   },
   {
     id: 5, cat: "Grooming Tips", duration: "7:45", level: "Beginner", views: "43K",
-    title: "How to Clip Dog Nails Without Fear — Step by Step",
+    title: "How To Clip Dog Nails Without Fear — Step By Step",
     instructor: "Meenakshi Iyer", role: "Master Groomer",
     thumb: P.groom,
-    desc: "Nail clipping anxiety affects both dogs and owners. This calm, positive method makes it stress-free every time.",
+    desc: "Nail Clipping Anxiety Affects Both Dogs And Owners. This Calm, Positive Method Makes It Stress-Free Every Time.",
     chapters: ["0:00 Why nail care matters", "1:30 Reading the quick", "3:00 The clip technique", "5:00 If you hit the quick", "6:30 Desensitisation tips"],
     tags: ["Nail Care", "Grooming", "Anxiety-Free"],
   },
   {
     id: 6, cat: "Health & Care", duration: "11:00", level: "All Levels", views: "201K",
-    title: "10 Early Warning Signs Your Dog Needs a Vet",
+    title: "10 Early Warning Signs Your Dog Needs A Vet",
     instructor: "Dr. Kiran Patel", role: "CEO & Head Vet",
     thumb: P.vet1,
-    desc: "Changes in appetite, energy, breathing, and behaviour that every pet parent must recognise immediately. Could save your dog's life.",
+    desc: "Changes In Appetite, Energy, Breathing, And Behaviour That Every Pet Parent Must Recognise Immediately. Could Save Your Dog's Life.",
     chapters: ["0:00 Introduction", "1:00 Lethargy & energy changes", "2:30 Appetite changes", "4:00 Breathing issues", "6:00 Skin & coat signals", "8:30 Behavioural red flags"],
     tags: ["Health", "Emergency Signs", "Vet Tips", "Must Watch"],
   },
   {
     id: 7, cat: "Health & Care", duration: "6:20", level: "All Levels", views: "88K",
-    title: "Vaccination Schedule Explained — From 8 Weeks to Adult",
+    title: "Vaccination Schedule Explained — From 8 Weeks To Adult",
     instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
     thumb: P.vet2,
-    desc: "A clear, no-jargon guide to exactly which vaccines your dog or cat needs, when, and why. Includes a downloadable schedule.",
+    desc: "A Clear, No-Jargon Guide To Exactly Which Vaccines Your Dog Or Cat Needs, When, And Why. Includes A Downloadable Schedule.",
     chapters: ["0:00 Why vaccines matter", "1:30 Core vaccines list", "3:00 Puppy schedule", "4:30 Adult boosters", "5:30 Cat vaccine guide"],
     tags: ["Vaccination", "Puppy Care", "Adult Dogs", "Cats"],
   },
@@ -326,43 +326,43 @@ const videos = [
     title: "What Should You Feed Your Dog? — Complete Nutrition Guide",
     instructor: "Dr. Kiran Patel", role: "CEO & Head Vet",
     thumb: P.shop1,
-    desc: "Kibble vs wet vs raw vs home-cooked — the real science behind dog nutrition. Learn how to read labels and choose the right food.",
+    desc: "Kibble Vs Wet Vs Raw Vs Home-Cooked — The Real Science Behind Dog Nutrition. Learn How To Read Labels And Choose The Right Food.",
     chapters: ["0:00 Introduction to dog nutrition", "2:00 Reading food labels", "4:30 Kibble pros & cons", "7:00 Raw feeding basics", "9:30 Foods to avoid", "11:30 Portion guide"],
     tags: ["Nutrition", "Dog Food", "Kibble", "Raw Diet"],
   },
   {
     id: 9, cat: "Nutrition", duration: "5:40", level: "All Levels", views: "56K",
-    title: "Human Foods Safe (and Dangerous) for Dogs",
+    title: "Human Foods Safe (And Dangerous) For Dogs",
     instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
     thumb: P.shop2,
-    desc: "Which fruits, vegetables, and kitchen staples are safe for dogs — and which ones can be fatal. A must-watch for every pet parent.",
+    desc: "Which Fruits, Vegetables, And Kitchen Staples Are Safe For Dogs — And Which Ones Can Be Fatal. A Must-Watch For Every Pet Parent.",
     chapters: ["0:00 Safe fruits", "1:30 Safe vegetables", "2:45 Dangerous foods", "4:00 Toxic plants", "5:00 Emergency what to do"],
     tags: ["Nutrition", "Food Safety", "Toxic Foods", "Emergency"],
   },
   {
     id: 10, cat: "Behavior", duration: "10:30", level: "Intermediate", views: "78K",
-    title: "Why Your Dog is Aggressive — And How to Fix It",
+    title: "Why Your Dog Is Aggressive — And How To Fix It",
     instructor: "Priya Venkatesh", role: "Behavioral Specialist",
     thumb: P.train,
-    desc: "Aggression is almost always fear or pain. Understanding the root cause is the only way to fix it safely. No punishment methods.",
+    desc: "Aggression Is Almost Always Fear Or Pain. Understanding The Root Cause Is The Only Way To Fix It Safely. No Punishment Methods.",
     chapters: ["0:00 Types of aggression", "2:00 Fear-based aggression", "4:30 Resource guarding", "6:30 Desensitisation protocol", "9:00 When to get professional help"],
     tags: ["Aggression", "Behavior", "Fear", "Training"],
   },
   {
     id: 11, cat: "Behavior", duration: "8:50", level: "Beginner", views: "93K",
-    title: "Separation Anxiety — Complete Guide to Calm Departures",
+    title: "Separation Anxiety — Complete Guide To Calm Departures",
     instructor: "Priya Venkatesh", role: "Behavioral Specialist",
     thumb: P.dog4,
-    desc: "Howling, destruction, accidents — separation anxiety is stressful for dogs and owners. This step-by-step protocol rebuilds confidence.",
+    desc: "Howling, Destruction, Accidents — Separation Anxiety Is Stressful For Dogs And Owners. This Step-By-Step Protocol Rebuilds Confidence.",
     chapters: ["0:00 Signs of separation anxiety", "2:00 Graduated departure training", "4:30 Enrichment while alone", "6:30 What not to do", "8:00 Severe cases — getting help"],
     tags: ["Separation Anxiety", "Behavior", "Alone Time", "Calm Dog"],
   },
   {
     id: 12, cat: "Fun & Tricks", duration: "9:00", level: "All Levels", views: "185K",
-    title: "Teach Your Dog 5 Impressive Tricks in One Weekend",
+    title: "Teach Your Dog 5 Impressive Tricks In One Weekend",
     instructor: "Rahul Sharma", role: "CPDT-Certified Trainer",
     thumb: P.dog1,
-    desc: "Spin, Roll Over, Play Dead, High Five, and Wave — five crowd-pleasing tricks taught with positive reinforcement in easy steps.",
+    desc: "Spin, Roll Over, Play Dead, High Five, And Wave — Five Crowd-Pleasing Tricks Taught With Positive Reinforcement In Easy Steps.",
     chapters: ["0:00 Getting started", "1:30 Spin", "3:00 Roll Over", "4:30 Play Dead", "6:00 High Five", "7:30 Wave"],
     tags: ["Tricks", "Fun", "Positive Reinforcement", "All Dogs"],
   },
@@ -547,8 +547,8 @@ const KB = [
 ];
 
 const QUICK_TOPICS = [
-  { label: "🐾 Adopt a Pet", query: "I want to adopt a pet" },
-  { label: "🏥 Book a Vet", query: "How do I book a vet?" },
+  { label: "🐾 Adopt A Pet", query: "I want to adopt a pet" },
+  { label: "🏥 Book A Vet", query: "How do I book a vet?" },
   { label: "✂️ Grooming", query: "Tell me about grooming services" },
   { label: "🎓 Pet Training", query: "What training options do you have?" },
   { label: "🐕 Dog Breeds", query: "Tell me about dog breeds" },
@@ -718,14 +718,14 @@ const testis = [
 let activeTesti = 0;
 
 const faqs = [
-  { q: "How does pet adoption work?", a: "Browse verified shelter listings, apply online, meet the pet, and complete adoption paperwork with our guidance — typically 3–5 business days." },
-  { q: "Can I consult a vet online?", a: "Yes. Our video consultation connects you with licensed vets 24/7. For emergencies we also offer rapid in-home vet dispatch." },
-  { q: "Is there a free plan?", a: "Yes — free tier includes one pet profile, community access, and basic vet listings. Premium unlocks AI tools, unlimited bookings, and shop discounts." },
-  { q: "Which cities is Pawprint in?", a: "Currently live in 85+ cities across India, including all metros and major Tier-2 cities." },
-  { q: "How does the AI health assistant work?", a: "Describe your pet's symptoms in plain language. Our AI provides an initial triage and recommends next steps — always encouraging a real vet for anything serious." },
-  { q: "How do you verify your service providers?", a: "Every veterinarian, groomer, and trainer on Pawprint undergoes rigorous background checks, certification checks, and in-person interviews to ensure your pet is in safe hands." },
-  { q: "What is your refund and cancellation policy?", a: "You can cancel any booking up to 2 hours before the scheduled time for a full refund. Cancellations made within 2 hours are subject to a nominal cancellation fee." },
-  { q: "Can I track my pet during grooming or boarding?", a: "Yes! All grooming pickup vehicles and boarding hosts are equipped with GPS tracking and offer live updates, photos, and video calls directly through your dashboard." }
+  { q: "How Does Pet Adoption Work?", a: "Browse Verified Shelter Listings, Apply Online, Meet The Pet, And Complete Adoption Paperwork With Our Guidance — Typically 3–5 Business Days." },
+  { q: "Can I Consult A Vet Online?", a: "Yes. Our Video Consultation Connects You With Licensed Vets 24/7. For Emergencies We Also Offer Rapid In-Home Vet Dispatch." },
+  { q: "Is There A Free Plan?", a: "Yes — Free Tier Includes One Pet Profile, Community Access, And Basic Vet Listings. Premium Unlocks AI Tools, Unlimited Bookings, And Shop Discounts." },
+  { q: "Which Cities Is Pawprint In?", a: "Currently Live In 85+ Cities Across India, Including All Metros And Major Tier-2 Cities." },
+  { q: "How Does The AI Health Assistant Work?", a: "Describe Your Pet's Symptoms In Plain Language. Our AI Provides An Initial Triage And Recommends Next Steps — Always Encouraging A Real Vet For Anything Serious." },
+  { q: "How Do You Verify Your Service Providers?", a: "Every Veterinarian, Groomer, And Trainer On Pawprint Undergoes Rigorous Background Checks, Certification Checks, And In-Person Interviews To Ensure Your Pet Is In Safe Hands." },
+  { q: "What Is Your Refund And Cancellation Policy?", a: "You Can Cancel Any Booking Up To 2 Hours Before The Scheduled Time For A Full Refund. Cancellations Made Within 2 Hours Are Subject To A Nominal Cancellation Fee." },
+  { q: "Can I Track My Pet During Grooming Or Boarding?", a: "Yes! All Grooming Pickup Vehicles And Boarding Hosts Are Equipped With GPS Tracking And Offer Live Updates, Photos, And Video Calls Directly Through Your Dashboard." }
 ];
 
 /* ================================================================
@@ -1059,9 +1059,9 @@ function renderHomeDynamicLists() {
 
   // 3. Features
   const features = [
-    { icon: "🏥", title: "Veterinary Care", sub: "Book certified vets — home, clinic, or video.", color: C.blue, page: "vet", img: P.vet1 },
-    { icon: "✂️", title: "Grooming", sub: "Professional grooming with pickup & drop.", color: C.green, page: "svc-grooming", img: P.groom },
-    { icon: "🎓", title: "Training", sub: "Certified trainers using positive methods.", color: C.orange, page: "svc-training", img: P.train },
+    { icon: "🏥", title: "Veterinary Care", sub: "Book Certified Vets - Home, Clinic, Or Video.", color: C.blue, page: "vet", img: P.vet1 },
+    { icon: "✂️", title: "Grooming", sub: "Professional Grooming With Pickup & Drop.", color: C.green, page: "svc-grooming", img: P.groom },
+    { icon: "🎓", title: "Training", sub: "Certified Trainers Using Positive Methods.", color: C.orange, page: "svc-training", img: P.train },
   ];
   const featuresList = document.getElementById('home-features-list');
   if (featuresList) {
@@ -1341,13 +1341,13 @@ function renderServicesCategoriesList() {
   container.className = 'services-bento-grid';
 
   const cats = [
-    { icon: "🏥", name: "Health & Care", page: "svc-health", color: C.blue, img: P.vet1, price: "from ₹149", tagline: "Expert medical care for every stage of life.", desc: "From routine checkups and vaccinations to emergency surgeries and physiotherapy — our 1,200+ certified vets have every health need covered.", highlights: ["General Checkups", "Vaccinations", "Emergency Care", "Surgery", "Dental Care", "Puppy & Senior Care"], stats: [["1,200+", "Vets"], ["24/7", "Emergency"], ["4.9★", "Rating"]], layout: 'wide' },
-    { icon: "✂️", name: "Grooming & Hygiene", page: "svc-grooming", color: C.green, img: P.groom, price: "from ₹149", tagline: "Professional pampering, every time.", desc: "Certified groomers, premium cruelty-free products, and free pickup & drop — so your pet always walks out looking (and smelling) incredible.", highlights: ["Full Grooming", "Bath & Blow Dry", "Nail Clipping", "De-shedding", "Flea Bath", "Skin & Coat Treatment"], stats: [["500+", "Groomers"], ["Pickup", "& Drop Free"], ["4.9★", "Rating"]], layout: 'standard' },
-    { icon: "🎓", name: "Training & Behavior", page: "svc-training", color: C.orange, img: P.train, price: "from ₹799/mo", tagline: "Force-free training that actually works.", desc: "CPDT-certified trainers using only positive reinforcement — from basic puppy commands to obedience, behavioural correction, and therapy dog prep.", highlights: ["Puppy Training", "Obedience Training", "Behavioral Correction", "Aggression Management", "Therapy Dog Training", "Leash Training"], stats: [["200+", "Trainers"], ["98%", "Success Rate"], ["Force-Free", "Methods"]], layout: 'tall' },
-    { icon: "🏠", name: "Boarding & Sitting", page: "svc-boarding", color: "#7C3AED", img: P.boarding, price: "from ₹299/visit", tagline: "Safe, loving care when you can't be there.", desc: "CCTV-monitored facilities, background-checked home sitters, cage-free options, and daily photo updates — your pet is always in the best hands.", highlights: ["Dog Boarding", "Luxury Boarding", "Dog Daycare", "Pet Sitting", "Cage-Free Boarding", "Puppy Daycare"], stats: [["CCTV", "24/7"], ["Daily", "Updates"], ["4.9★", "Rating"]], layout: 'wide' },
-    { icon: "🏃", name: "Activity & Lifestyle", page: "svc-activity", color: "#D97706", img: P.dog3, price: "from ₹199/walk", tagline: "Active pets are happy pets.", desc: "GPS-tracked walks, canine fitness programmes, adventure hikes, swimming sessions, and outdoor socialisation — keeping your dog physically and mentally thriving.", highlights: ["Dog Walking", "Exercise Sessions", "Adventure Walks", "Swimming Sessions", "Hiking Trips", "Dog Park Visits"], stats: [["GPS", "Every Walk"], ["Insured", "Walkers"], ["10K+", "Walks Done"]], layout: 'standard' },
-    { icon: "⭐", name: "Specialty Services", page: "svc-specialty", color: C.red, img: P.about1, price: "Varies", tagline: "Unique care for life's special moments.", desc: "From pet photography and dog parties to hospice care, microchipping, pet relocation, and emotional support dog training — specialised services for when standard isn't enough.", highlights: ["Pet Photography", "Microchipping", "Pet Relocation", "Dog Events & Parties", "Hospice Care", "Rehabilitation Therapy"], stats: [["Specialist", "Team"], ["100%", "Compassionate"], ["5,000+", "Families Helped"]], layout: 'standard' },
-    { icon: "🛍️", name: "Retail & Extras", page: "svc-retail", color: "#0EA5E9", img: P.shop1, price: "from ₹99", tagline: "Curated premium products for healthy pets.", desc: "Premium food, toys, accessories, grooming products, training tools, and travel essentials — vet-reviewed and delivered fast.", highlights: ["Dog Food", "Toys", "Collars & Leashes", "Grooming Products", "Training Tools", "Travel Accessories"], stats: [["1,000+", "Products"], ["Vet", "Reviewed"], ["Next-Day", "Delivery"]], layout: 'full' },
+    { icon: "🏥", name: "Health & Care", page: "svc-health", color: C.blue, img: P.vet1, price: "From ₹149", tagline: "Expert Medical Care For Every Stage Of Life.", desc: "From Routine Checkups And Vaccinations To Emergency Surgeries And Physiotherapy — Our 1,200+ Certified Vets Have Every Health Need Covered.", highlights: ["General Checkups", "Vaccinations", "Emergency Care", "Surgery", "Dental Care", "Puppy & Senior Care"], stats: [["1,200+", "Vets"], ["24/7", "Emergency"], ["4.9★", "Rating"]], layout: 'wide' },
+    { icon: "✂️", name: "Grooming & Hygiene", page: "svc-grooming", color: C.green, img: P.groom, price: "From ₹149", tagline: "Professional Pampering, Every Time.", desc: "Certified Groomers, Premium Cruelty-Free Products, And Free Pickup & Drop — So Your Pet Always Walks Out Looking (And Smelling) Incredible.", highlights: ["Full Grooming", "Bath & Blow Dry", "Nail Clipping", "De-shedding", "Flea Bath", "Skin & Coat Treatment"], stats: [["500+", "Groomers"], ["Pickup", "& Drop Free"], ["4.9★", "Rating"]], layout: 'standard' },
+    { icon: "🎓", name: "Training & Behavior", page: "svc-training", color: C.orange, img: P.train, price: "From ₹799/Mo", tagline: "Force-Free Training That Actually Works.", desc: "CPDT-Certified Trainers Using Only Positive Reinforcement — From Basic Puppy Commands To Obedience, Behavioural Correction, And Therapy Dog Prep.", highlights: ["Puppy Training", "Obedience Training", "Behavioral Correction", "Aggression Management", "Therapy Dog Training", "Leash Training"], stats: [["200+", "Trainers"], ["98%", "Success Rate"], ["Force-Free", "Methods"]], layout: 'tall' },
+    { icon: "🏠", name: "Boarding & Sitting", page: "svc-boarding", color: "#7C3AED", img: P.boarding, price: "From ₹299/Visit", tagline: "Safe, Loving Care When You Can't Be There.", desc: "CCTV-Monitored Facilities, Background-Checked Home Sitters, Cage-Free Options, And Daily Photo Updates — Your Pet Is Always In The Best Hands.", highlights: ["Dog Boarding", "Luxury Boarding", "Dog Daycare", "Pet Sitting", "Cage-Free Boarding", "Puppy Daycare"], stats: [["CCTV", "24/7"], ["Daily", "Updates"], ["4.9★", "Rating"]], layout: 'wide' },
+    { icon: "🏃", name: "Activity & Lifestyle", page: "svc-activity", color: "#D97706", img: P.dog3, price: "From ₹199/Walk", tagline: "Active Pets Are Happy Pets.", desc: "GPS-Tracked Walks, Canine Fitness Programmes, Adventure Hikes, Swimming Sessions, And Outdoor Socialisation — Keeping Your Dog Physically And Mentally Thriving.", highlights: ["Dog Walking", "Exercise Sessions", "Adventure Walks", "Swimming Sessions", "Hiking Trips", "Dog Park Visits"], stats: [["GPS", "Every Walk"], ["Insured", "Walkers"], ["10K+", "Walks Done"]], layout: 'standard' },
+    { icon: "⭐", name: "Specialty Services", page: "svc-specialty", color: C.red, img: P.about1, price: "Varies", tagline: "Unique Care For Life's Special Moments.", desc: "From Pet Photography And Dog Parties To Hospice Care, Microchipping, Pet Relocation, And Emotional Support Dog Training — Specialised Services For When Standard Isn't Enough.", highlights: ["Pet Photography", "Microchipping", "Pet Relocation", "Dog Events & Parties", "Hospice Care", "Rehabilitation Therapy"], stats: [["Specialist", "Team"], ["100%", "Compassionate"], ["5,000+", "Families Helped"]], layout: 'standard' },
+    { icon: "🛍️", name: "Retail & Extras", page: "svc-retail", color: "#0EA5E9", img: P.shop1, price: "From ₹99", tagline: "Curated Premium Products For Healthy Pets.", desc: "Premium Food, Toys, Accessories, Grooming Products, Training Tools, And Travel Essentials — Vet-Reviewed And Delivered Fast.", highlights: ["Dog Food", "Toys", "Collars & Leashes", "Grooming Products", "Training Tools", "Travel Accessories"], stats: [["1,000+", "Products"], ["Vet", "Reviewed"], ["Next-Day", "Delivery"]], layout: 'full' },
   ];
 
   container.innerHTML = cats.map((cat, index) => {
@@ -1393,129 +1393,129 @@ function renderServicesCategoriesList() {
 // ── Service category pages template builder ──────────────────────────
 const servicePagesData = {
   "svc-health": {
-    cat: "Health & Care", icon: "🏥", color: C.blue, heroImg: P.vet1, tagline: "Expert Care,\nHealthier Lives.",
-    about: "Certified veterinarians, advanced diagnostics, and compassionate care — for every stage of your pet's life.",
-    whyUs: { stats: [["1,200+", "Certified Vets"], ["24/7", "Emergency Care"], ["4.9★", "Average Rating"], ["50K+", "Consultations"]], points: [{ icon: "🏥", title: "Certified Vets Only", desc: "Every vet on Pawprint is VCPN-verified with minimum 3 years of clinical experience." }, { icon: "🔬", title: "Evidence-Based Medicine", desc: "We follow the latest veterinary clinical guidelines — no guesswork, only science." }, { icon: "📋", title: "Digital Health Records", desc: "Every visit, prescription, and report is stored securely and accessible anytime." }, { icon: "🚑", title: "24/7 Emergency", desc: "Our emergency line and rapid-response vets are available round the clock." }] },
-    faqItems: [{ q: "How often should I take my dog for a checkup?", a: "Healthy adult dogs benefit from bi-annual checkups. Puppies and senior dogs (7+) should visit every 3–4 months." }, { q: "Are your vets qualified?", a: "All Pawprint vets hold a BVSc or MVSc degree and are registered with the Veterinary Council of India." }, { q: "Can I consult online first?", a: "Absolutely. Our video consultation service connects you with a vet in minutes — available 24/7." }, { q: "What vaccines does my puppy need?", a: "Core vaccines include Distemper, Parvovirus, Hepatitis, and Rabies. Our vets will create a tailored schedule at your first visit." }, { q: "Do you offer home visits?", a: "Yes. All services, including checkups, vaccinations, and deworming, are available as home visits at a small additional charge." }],
+    cat: "Health & Care", icon: "🏥", color: C.blue, heroImg: P.vet1, tagline: "Expert Care,\NHealthier Lives.",
+    about: "Certified Veterinarians, Advanced Diagnostics, And Compassionate Care — For Every Stage Of Your Pet's Life.",
+    whyUs: { stats: [["1,200+", "Certified Vets"], ["24/7", "Emergency Care"], ["4.9★", "Average Rating"], ["50K+", "Consultations"]], points: [{ icon: "🏥", title: "Certified Vets Only", desc: "Every Vet On Pawprint Is VCPN-Verified With Minimum 3 Years Of Clinical Experience." }, { icon: "🔬", title: "Evidence-Based Medicine", desc: "We Follow The Latest Veterinary Clinical Guidelines — No Guesswork, Only Science." }, { icon: "📋", title: "Digital Health Records", desc: "Every Visit, Prescription, And Report Is Stored Securely And Accessible Anytime." }, { icon: "🚑", title: "24/7 Emergency", desc: "Our Emergency Line And Rapid-Response Vets Are Available Round The Clock." }] },
+    faqItems: [{ q: "How Often Should I Take My Dog For A Checkup?", a: "Healthy Adult Dogs Benefit From Bi-Annual Checkups. Puppies And Senior Dogs (7+) Should Visit Every 3–4 Months." }, { q: "Are Your Vets Qualified?", a: "All Pawprint Vets Hold A BVSc Or MVSc Degree And Are Registered With The Veterinary Council Of India." }, { q: "Can I Consult Online First?", a: "Absolutely. Our Video Consultation Service Connects You With A Vet In Minutes — Available 24/7." }, { q: "What Vaccines Does My Puppy Need?", a: "Core Vaccines Include Distemper, Parvovirus, Hepatitis, And Rabies. Our Vets Will Create A Tailored Schedule At Your First Visit." }, { q: "Do You Offer Home Visits?", a: "Yes. All Services, Including Checkups, Vaccinations, And Deworming, Are Available As Home Visits At A Small Additional Charge." }],
     services: [
-      { name: "General Checkups", price: "₹299", duration: "30 min", rating: "4.9", img: P.vet1, shortDesc: "Full physical examination, vitals check, and health assessment by a certified vet.", desc: "Our general checkup includes a comprehensive nose-to-tail physical examination. The vet checks eyes, ears, teeth, skin, coat, weight, and all vital signs. You'll receive a written health report and recommendations.", includes: ["Full physical examination", "Vitals & weight check", "Parasite screening", "Dietary recommendations", "Written health report", "Follow-up advice"] },
-      { name: "Vaccinations", price: "₹199", duration: "20 min", rating: "4.9", img: P.vet2, shortDesc: "All core and lifestyle vaccines administered by certified veterinarians with digital records.", desc: "We offer complete vaccination drives covering all core vaccines (Distemper, Parvovirus, Rabies) and lifestyle vaccines. You receive a digital health passport with all records and smart reminders for upcoming doses.", includes: ["Core & lifestyle vaccines", "Digital health passport", "Vaccine certificate", "Smart reminder setup", "Post-vaccine guidance", "Free 24h helpline"] },
-      { name: "Deworming", price: "₹149", duration: "15 min", rating: "4.8", img: P.groom, shortDesc: "Safe, vet-prescribed deworming treatments for all ages and breeds.", desc: "Deworming is essential every 3–6 months. Our vets assess your pet's weight, age, and risk factors to prescribe the right treatment. Includes follow-up to ensure full efficacy.", includes: ["Weight-based dosing", "Broad-spectrum coverage", "Puppy-safe options", "Follow-up check", "Treatment record", "Preventive schedule"] },
-      { name: "Flea & Tick Treatment", price: "₹349", duration: "30 min", rating: "4.8", img: P.train, shortDesc: "Effective flea and tick prevention and treatment for a comfortable, healthy pet.", desc: "Our certified vets provide both topical and systemic flea & tick treatments, selecting the safest and most effective option for your pet's breed, age, and lifestyle.", includes: ["Vet-selected product", "Topical or oral option", "Environmental advice", "Collar options", "Safe for all ages", "Monthly plan available"] },
-      { name: "Dental Care", price: "₹599", duration: "45 min", rating: "4.7", img: P.vet1, shortDesc: "Professional dental cleaning and oral health assessment to prevent disease.", desc: "Periodontal disease affects 80% of dogs over 3. Our dental care service includes professional scaling, polishing, full oral exam, and a home care plan.", includes: ["Professional scaling", "Polishing", "Full oral examination", "X-ray if needed", "Home care kit", "Dietary guidance"] },
-      { name: "Spay & Neuter", price: "₹3,999", duration: "2–3 hrs", rating: "4.9", img: P.vet2, shortDesc: "Safe, medically supervised spay and neuter procedures by experienced surgeons.", desc: "Our spay/neuter surgeries are performed by experienced veterinary surgeons with full pre-op bloodwork, anesthesia monitoring, and post-op care included.", includes: ["Pre-op blood panel", "General anesthesia", "Expert surgery", "Post-op care kit", "Pain management", "Free follow-up visit"] },
-      { name: "Emergency Care", price: "₹999", duration: "On-Demand", rating: "4.9", img: P.vet1, shortDesc: "Urgent veterinary consultation and stabilizing care, available 24/7.", desc: "For immediate medical attention when your pet is in distress or injured. Our trauma-ready veterinary team is always on call to provide critical stabilization, pain management, and diagnostics.", includes: ["24/7 priority triage", "Immediate vitals check", "Oxygen therapy if needed", "Critical diagnostics", "Stabilizing treatment", "Emergency referral support"] },
-      { name: "Surgery", price: "from ₹4,999", duration: "Varies", rating: "4.9", img: P.vet2, shortDesc: "Soft-tissue, orthopedic, and minor surgical procedures by senior surgeons.", desc: "Safe, sterile surgical interventions using state-of-the-art anesthesia monitoring. Includes comprehensive pre-op workup and intensive post-operative care planning.", includes: ["Pre-anesthetic blood work", "Isoflurane gas anesthesia", "Continuous vitals monitoring", "Certified surgical assistants", "Post-op pain management", "Suture removal checks"] },
-      { name: "Nutrition Consultation", price: "₹499", duration: "45 min", rating: "4.8", img: P.shop1, shortDesc: "Tailored diet plan and weight management advice from pet nutrition experts.", desc: "Get a personalized nutritional analysis based on your pet's breed, age, weight, and health status. Perfect for treating food allergies, obesity, or chronic illnesses.", includes: ["Detailed calorie needs analysis", "Custom meal formulation", "Allergen elimination guide", "Weight management plan", "Smart feeding schedules", "15-day chat support"] },
-      { name: "Senior Dog Care", price: "₹799", duration: "60 min", rating: "4.9", img: P.dog3, shortDesc: "Comprehensive wellness check, mobility assessments, and age-specific health care.", desc: "Designed for pets aged 7 and above. We screen for early signs of arthritis, cognitive decline, organ failure, and other age-related conditions to ensure comfortable golden years.", includes: ["Arthritis & mobility screening", "Senior blood profile check", "Organ function assessment", "Joint supplement guidance", "Cognitive wellness tips", "Home adjustments consultation"] },
-      { name: "Puppy Care", price: "₹599", duration: "45 min", rating: "4.9", img: P.dog4, shortDesc: "Growth tracking, wellness check, basic screening, and developmental guidance.", desc: "Give your new family member the best start. We cover physical checks, weight tracking, parasite screening, and vital developmental advice on socialization and behavior.", includes: ["Growth & developmental assessment", "First parasite screening", "Vaccination scheduling", "Socialization advice", "Puppy feeding guide", "Flea/tick prevention plan"] },
-      { name: "Physiotherapy & Rehab", price: "₹899", duration: "60 min", rating: "4.8", img: P.train, shortDesc: "Post-surgery recovery, laser therapy, and exercises to rebuild muscle and mobility.", desc: "Targeted physical rehabilitation for dogs recovering from spinal issues, bone fractures, or joint surgery. Uses laser therapy, passive stretching, and assisted movements.", includes: ["Individual mobility assessment", "Targeted stretching & massage", "Cold laser therapy session", "Muscle-building exercises", "Home rehab program card", "Progress tracking report"] }
+      { name: "General Checkups", price: "₹299", duration: "30 Min", rating: "4.9", img: P.vet1, shortDesc: "Full Physical Examination, Vitals Check, And Health Assessment By A Certified Vet.", desc: "Our General Checkup Includes A Comprehensive Nose-To-Tail Physical Examination. The Vet Checks Eyes, Ears, Teeth, Skin, Coat, Weight, And All Vital Signs. You'll Receive A Written Health Report And Recommendations.", includes: ["Full physical examination", "Vitals & weight check", "Parasite screening", "Dietary recommendations", "Written health report", "Follow-up advice"] },
+      { name: "Vaccinations", price: "₹199", duration: "20 Min", rating: "4.9", img: P.vet2, shortDesc: "All Core And Lifestyle Vaccines Administered By Certified Veterinarians With Digital Records.", desc: "We Offer Complete Vaccination Drives Covering All Core Vaccines (Distemper, Parvovirus, Rabies) And Lifestyle Vaccines. You Receive A Digital Health Passport With All Records And Smart Reminders For Upcoming Doses.", includes: ["Core & lifestyle vaccines", "Digital health passport", "Vaccine certificate", "Smart reminder setup", "Post-vaccine guidance", "Free 24h helpline"] },
+      { name: "Deworming", price: "₹149", duration: "15 Min", rating: "4.8", img: P.groom, shortDesc: "Safe, Vet-Prescribed Deworming Treatments For All Ages And Breeds.", desc: "Deworming Is Essential Every 3–6 Months. Our Vets Assess Your Pet's Weight, Age, And Risk Factors To Prescribe The Right Treatment. Includes Follow-Up To Ensure Full Efficacy.", includes: ["Weight-based dosing", "Broad-spectrum coverage", "Puppy-safe options", "Follow-up check", "Treatment record", "Preventive schedule"] },
+      { name: "Flea & Tick Treatment", price: "₹349", duration: "30 Min", rating: "4.8", img: P.train, shortDesc: "Effective Flea And Tick Prevention And Treatment For A Comfortable, Healthy Pet.", desc: "Our Certified Vets Provide Both Topical And Systemic Flea & Tick Treatments, Selecting The Safest And Most Effective Option For Your Pet's Breed, Age, And Lifestyle.", includes: ["Vet-selected product", "Topical or oral option", "Environmental advice", "Collar options", "Safe for all ages", "Monthly plan available"] },
+      { name: "Dental Care", price: "₹599", duration: "45 Min", rating: "4.7", img: P.vet1, shortDesc: "Professional Dental Cleaning And Oral Health Assessment To Prevent Disease.", desc: "Periodontal Disease Affects 80% Of Dogs Over 3. Our Dental Care Service Includes Professional Scaling, Polishing, Full Oral Exam, And A Home Care Plan.", includes: ["Professional scaling", "Polishing", "Full oral examination", "X-ray if needed", "Home care kit", "Dietary guidance"] },
+      { name: "Spay & Neuter", price: "₹3,999", duration: "2–3 Hrs", rating: "4.9", img: P.vet2, shortDesc: "Safe, Medically Supervised Spay And Neuter Procedures By Experienced Surgeons.", desc: "Our Spay/Neuter Surgeries Are Performed By Experienced Veterinary Surgeons With Full Pre-Op Bloodwork, Anesthesia Monitoring, And Post-Op Care Included.", includes: ["Pre-op blood panel", "General anesthesia", "Expert surgery", "Post-op care kit", "Pain management", "Free follow-up visit"] },
+      { name: "Emergency Care", price: "₹999", duration: "On-Demand", rating: "4.9", img: P.vet1, shortDesc: "Urgent Veterinary Consultation And Stabilizing Care, Available 24/7.", desc: "For Immediate Medical Attention When Your Pet Is In Distress Or Injured. Our Trauma-Ready Veterinary Team Is Always On Call To Provide Critical Stabilization, Pain Management, And Diagnostics.", includes: ["24/7 priority triage", "Immediate vitals check", "Oxygen therapy if needed", "Critical diagnostics", "Stabilizing treatment", "Emergency referral support"] },
+      { name: "Surgery", price: "From ₹4,999", duration: "Varies", rating: "4.9", img: P.vet2, shortDesc: "Soft-Tissue, Orthopedic, And Minor Surgical Procedures By Senior Surgeons.", desc: "Safe, Sterile Surgical Interventions Using State-Of-The-Art Anesthesia Monitoring. Includes Comprehensive Pre-Op Workup And Intensive Post-Operative Care Planning.", includes: ["Pre-anesthetic blood work", "Isoflurane gas anesthesia", "Continuous vitals monitoring", "Certified surgical assistants", "Post-op pain management", "Suture removal checks"] },
+      { name: "Nutrition Consultation", price: "₹499", duration: "45 Min", rating: "4.8", img: P.shop1, shortDesc: "Tailored Diet Plan And Weight Management Advice From Pet Nutrition Experts.", desc: "Get A Personalized Nutritional Analysis Based On Your Pet's Breed, Age, Weight, And Health Status. Perfect For Treating Food Allergies, Obesity, Or Chronic Illnesses.", includes: ["Detailed calorie needs analysis", "Custom meal formulation", "Allergen elimination guide", "Weight management plan", "Smart feeding schedules", "15-day chat support"] },
+      { name: "Senior Dog Care", price: "₹799", duration: "60 Min", rating: "4.9", img: P.dog3, shortDesc: "Comprehensive Wellness Check, Mobility Assessments, And Age-Specific Health Care.", desc: "Designed For Pets Aged 7 And Above. We Screen For Early Signs Of Arthritis, Cognitive Decline, Organ Failure, And Other Age-Related Conditions To Ensure Comfortable Golden Years.", includes: ["Arthritis & mobility screening", "Senior blood profile check", "Organ function assessment", "Joint supplement guidance", "Cognitive wellness tips", "Home adjustments consultation"] },
+      { name: "Puppy Care", price: "₹599", duration: "45 Min", rating: "4.9", img: P.dog4, shortDesc: "Growth Tracking, Wellness Check, Basic Screening, And Developmental Guidance.", desc: "Give Your New Family Member The Best Start. We Cover Physical Checks, Weight Tracking, Parasite Screening, And Vital Developmental Advice On Socialization And Behavior.", includes: ["Growth & developmental assessment", "First parasite screening", "Vaccination scheduling", "Socialization advice", "Puppy feeding guide", "Flea/tick prevention plan"] },
+      { name: "Physiotherapy & Rehab", price: "₹899", duration: "60 Min", rating: "4.8", img: P.train, shortDesc: "Post-Surgery Recovery, Laser Therapy, And Exercises To Rebuild Muscle And Mobility.", desc: "Targeted Physical Rehabilitation For Dogs Recovering From Spinal Issues, Bone Fractures, Or Joint Surgery. Uses Laser Therapy, Passive Stretching, And Assisted Movements.", includes: ["Individual mobility assessment", "Targeted stretching & massage", "Cold laser therapy session", "Muscle-building exercises", "Home rehab program card", "Progress tracking report"] }
     ]
   },
   "svc-grooming": {
-    cat: "Grooming & Hygiene", icon: "✂️", color: C.green, heroImg: P.groom, tagline: "Looking Good,\nFeeling Great.",
-    about: "Certified groomers, premium products, and stress-free sessions — because your pet deserves to look and feel their very best.",
-    whyUs: { stats: [["500+", "Certified Groomers"], ["4.9★", "Client Rating"], ["Pickup", "& Drop Free"], ["All", "Breeds Welcome"]], points: [{ icon: "✂️", title: "Breed-Certified Groomers", desc: "All groomers complete a 120-hour breed-specific certification programme." }, { icon: "🌿", title: "Premium Products", desc: "We use only pet-safe, cruelty-free, dermatologically tested grooming products." }, { icon: "🚗", title: "Free Pickup & Drop", desc: "Available in all major cities — we come to you, saving you time and stress." }, { icon: "📸", title: "Before & After Photos", desc: "We capture the transformation so you can share your pet's glow-up." }] },
-    faqItems: [{ q: "How often should I groom my dog?", a: "Most dogs benefit from professional grooming every 4–8 weeks depending on breed and coat type. Double-coated breeds may need more frequent de-shedding." }, { q: "Is your grooming salon safe for anxious pets?", a: "Yes. We use calm, force-free handling techniques. For very anxious pets, we offer one-on-one sessions with extra patience and breaks." }, { q: "Do you offer mobile grooming?", a: "We offer pickup and drop at no extra charge. Full mobile grooming vans are available in select cities." }, { q: "What shampoo do you use?", a: "We use pH-balanced, breed-appropriate shampoos — medicated options are available for skin conditions on vet recommendation." }, { q: "Can I request a specific grooming style?", a: "Absolutely. Bring reference photos and our groomers will do their best to achieve your desired look." }],
+    cat: "Grooming & Hygiene", icon: "✂️", color: C.green, heroImg: P.groom, tagline: "Looking Good,\NFeeling Great.",
+    about: "Certified Groomers, Premium Products, And Stress-Free Sessions — Because Your Pet Deserves To Look And Feel Their Very Best.",
+    whyUs: { stats: [["500+", "Certified Groomers"], ["4.9★", "Client Rating"], ["Pickup", "& Drop Free"], ["All", "Breeds Welcome"]], points: [{ icon: "✂️", title: "Breed-Certified Groomers", desc: "All Groomers Complete A 120-Hour Breed-Specific Certification Programme." }, { icon: "🌿", title: "Premium Products", desc: "We Use Only Pet-Safe, Cruelty-Free, Dermatologically Tested Grooming Products." }, { icon: "🚗", title: "Free Pickup & Drop", desc: "Available In All Major Cities — We Come To You, Saving You Time And Stress." }, { icon: "📸", title: "Before & After Photos", desc: "We Capture The Transformation So You Can Share Your Pet's Glow-Up." }] },
+    faqItems: [{ q: "How Often Should I Groom My Dog?", a: "Most Dogs Benefit From Professional Grooming Every 4–8 Weeks Depending On Breed And Coat Type. Double-Coated Breeds May Need More Frequent De-Shedding." }, { q: "Is Your Grooming Salon Safe For Anxious Pets?", a: "Yes. We Use Calm, Force-Free Handling Techniques. For Very Anxious Pets, We Offer One-On-One Sessions With Extra Patience And Breaks." }, { q: "Do You Offer Mobile Grooming?", a: "We Offer Pickup And Drop At No Extra Charge. Full Mobile Grooming Vans Are Available In Select Cities." }, { q: "What Shampoo Do You Use?", a: "We Use PH-Balanced, Breed-Appropriate Shampoos — Medicated Options Are Available For Skin Conditions On Vet Recommendation." }, { q: "Can I Request A Specific Grooming Style?", a: "Absolutely. Bring Reference Photos And Our Groomers Will Do Their Best To Achieve Your Desired Look." }],
     services: [
-      { name: "Full Grooming", price: "₹799", duration: "90 min", rating: "4.9", img: P.groom, shortDesc: "Complete bath, haircut, nail trim, ear clean, and finishing — the full spa experience.", desc: "Our full grooming session covers everything your pet needs: breed-specific shampoo bath, blow dry, haircut, nail clipping, ear cleaning, and a final fragrance spritz. Walk in, walk out pampered.", includes: ["Breed-specific bath", "Professional blow dry", "Custom haircut", "Nail clipping", "Ear cleaning", "Fragrance & bow"] },
-      { name: "Bath & Blow Dry", price: "₹399", duration: "45 min", rating: "4.8", img: P.groom, shortDesc: "Thorough medicated or regular bath followed by professional blow dry and brush-out.", desc: "A deep cleanse with premium, pet-safe shampoo followed by a professional blow dry and thorough brush-out to leave your pet's coat clean, tangle-free, and glossy.", includes: ["Medicated or regular shampoo", "Conditioning treatment", "Professional blow dry", "Brush-out", "Coat check", "Basic hygiene check"] },
-      { name: "Hair Trimming & Styling", price: "₹499", duration: "60 min", rating: "4.8", img: P.groom, shortDesc: "Expert breed-standard and custom styling by certified groomers.", desc: "Our groomers are trained in breed standards as well as custom cuts. Whether it's a precise Poodle clip or a practical trim, we deliver clean, consistent results.", includes: ["Breed-standard or custom cut", "Scissor & clipper finishing", "Fringe & face trim", "Paw & sanitary trim", "Final inspection", "Style photo"] },
-      { name: "Nail Clipping", price: "₹149", duration: "15 min", rating: "4.9", img: P.groom, shortDesc: "Safe, stress-free nail trimming with grinding option for perfectly smooth edges.", desc: "Overgrown nails can cause pain and postural issues. Our groomers use sharp, proper-sized clippers with an optional grinder finish to ensure smooth, safe nails.", includes: ["All four paws", "Quick detection & care", "Grinder finish option", "Paw massage", "Paw pad check", "Moisturiser application"] },
-      { name: "Ear Cleaning", price: "₹149", duration: "15 min", rating: "4.8", img: P.groom, shortDesc: "Safe, gentle ear cleaning to prevent yeast and bacterial infections.", desc: "We use veterinary-approved ear flushes to remove wax, dirt, and debris. Includes checking for redness, discharge, or signs of ear mites to keep ears clean and healthy.", includes: ["Gentle debris flushing", "Wax removal with sterile cotton", "Yeast & infection check", "Soothing anti-itch drops", "Ear hair trimming if needed", "Care tips for home"] },
-      { name: "Teeth Brushing", price: "₹199", duration: "15 min", rating: "4.7", img: P.vet1, shortDesc: "Plaque removal using enzymatic pet-safe toothpaste for fresh breath.", desc: "Regular brushing helps prevent gum disease. We use pet-safe enzymatic toothpaste (poultry or beef flavored) and specialized finger brushes to clean plaque and freshen breath.", includes: ["Enzymatic pet-safe toothpaste", "Double-headed toothbrush clean", "Plaque build-up analysis", "Gum health inspection", "Oral spray finish", "Dental health report card"] },
-      { name: "De-shedding Treatment", price: "₹599", duration: "60 min", rating: "4.9", img: P.groom, shortDesc: "Professional de-shedding to dramatically reduce loose fur and keep your home cleaner.", desc: "Our de-shedding treatment combines a specialised shampoo, high-velocity blow dry, and deshedding brush to remove up to 90% of loose undercoat — leaving your home fur-free.", includes: ["Deshedding shampoo", "Conditioning mask", "High-velocity dry", "Furminator brush", "Coat health check", "Shedding reduction guarantee"] },
-      { name: "Flea Bath", price: "₹499", duration: "45 min", rating: "4.8", img: P.groom, shortDesc: "Medicated bath targeting fleas and ticks on contact for rapid relief.", desc: "A specialized treatment bath using highly effective, natural, and veterinary-approved flea/tick shampoos to eliminate active infestations and soothe irritated skin.", includes: ["Flea-elimination shampoo", "15-minute contact soak", "Thorough full-body rinse", "Manual flea combing", "Soothing skin conditioner", "Prevention plan consultation"] },
-      { name: "Paw Care", price: "₹249", duration: "20 min", rating: "4.9", img: P.dog4, shortDesc: "Paw pad cleaning, hair trimming, and organic pad balm moisturizing.", desc: "Paws take a lot of wear. We clean the pads, trim excess hair between toes, check for thorns, and massage with organic wax to heal dry, cracked paw pads.", includes: ["Inter-digital hair trimming", "Warm water paw soak & sanitize", "Foreign object check", "Organic pad-soothing balm", "Gentle massage", "Nail tip checking"] },
-      { name: "Skin & Coat Treatment", price: "₹699", duration: "45 min", rating: "4.8", img: P.groom, shortDesc: "Deep-conditioning, anti-dandruff, or hot-oil treatment for a glossy coat.", desc: "Perfect for dry, itchy, or dull coats. We apply specialized moisture masks, oatmeal extracts, or organic oils to nourish the skin, eliminate dandruff, and restore coat shine.", includes: ["Oatmeal or hot-oil mask", "Soothing skin massage", "Dandruff flake removal", "Deep conditioning wash", "High-velocity dry", "Brushing and styling"] }
+      { name: "Full Grooming", price: "₹799", duration: "90 Min", rating: "4.9", img: P.groom, shortDesc: "Complete Bath, Haircut, Nail Trim, Ear Clean, And Finishing — The Full Spa Experience.", desc: "Our Full Grooming Session Covers Everything Your Pet Needs: Breed-Specific Shampoo Bath, Blow Dry, Haircut, Nail Clipping, Ear Cleaning, And A Final Fragrance Spritz. Walk In, Walk Out Pampered.", includes: ["Breed-specific bath", "Professional blow dry", "Custom haircut", "Nail clipping", "Ear cleaning", "Fragrance & bow"] },
+      { name: "Bath & Blow Dry", price: "₹399", duration: "45 Min", rating: "4.8", img: P.groom, shortDesc: "Thorough Medicated Or Regular Bath Followed By Professional Blow Dry And Brush-Out.", desc: "A Deep Cleanse With Premium, Pet-Safe Shampoo Followed By A Professional Blow Dry And Thorough Brush-Out To Leave Your Pet's Coat Clean, Tangle-Free, And Glossy.", includes: ["Medicated or regular shampoo", "Conditioning treatment", "Professional blow dry", "Brush-out", "Coat check", "Basic hygiene check"] },
+      { name: "Hair Trimming & Styling", price: "₹499", duration: "60 Min", rating: "4.8", img: P.groom, shortDesc: "Expert Breed-Standard And Custom Styling By Certified Groomers.", desc: "Our Groomers Are Trained In Breed Standards As Well As Custom Cuts. Whether It's A Precise Poodle Clip Or A Practical Trim, We Deliver Clean, Consistent Results.", includes: ["Breed-standard or custom cut", "Scissor & clipper finishing", "Fringe & face trim", "Paw & sanitary trim", "Final inspection", "Style photo"] },
+      { name: "Nail Clipping", price: "₹149", duration: "15 Min", rating: "4.9", img: P.groom, shortDesc: "Safe, Stress-Free Nail Trimming With Grinding Option For Perfectly Smooth Edges.", desc: "Overgrown Nails Can Cause Pain And Postural Issues. Our Groomers Use Sharp, Proper-Sized Clippers With An Optional Grinder Finish To Ensure Smooth, Safe Nails.", includes: ["All four paws", "Quick detection & care", "Grinder finish option", "Paw massage", "Paw pad check", "Moisturiser application"] },
+      { name: "Ear Cleaning", price: "₹149", duration: "15 Min", rating: "4.8", img: P.groom, shortDesc: "Safe, Gentle Ear Cleaning To Prevent Yeast And Bacterial Infections.", desc: "We Use Veterinary-Approved Ear Flushes To Remove Wax, Dirt, And Debris. Includes Checking For Redness, Discharge, Or Signs Of Ear Mites To Keep Ears Clean And Healthy.", includes: ["Gentle debris flushing", "Wax removal with sterile cotton", "Yeast & infection check", "Soothing anti-itch drops", "Ear hair trimming if needed", "Care tips for home"] },
+      { name: "Teeth Brushing", price: "₹199", duration: "15 Min", rating: "4.7", img: P.vet1, shortDesc: "Plaque Removal Using Enzymatic Pet-Safe Toothpaste For Fresh Breath.", desc: "Regular Brushing Helps Prevent Gum Disease. We Use Pet-Safe Enzymatic Toothpaste (Poultry Or Beef Flavored) And Specialized Finger Brushes To Clean Plaque And Freshen Breath.", includes: ["Enzymatic pet-safe toothpaste", "Double-headed toothbrush clean", "Plaque build-up analysis", "Gum health inspection", "Oral spray finish", "Dental health report card"] },
+      { name: "De-Shedding Treatment", price: "₹599", duration: "60 Min", rating: "4.9", img: P.groom, shortDesc: "Professional De-Shedding To Dramatically Reduce Loose Fur And Keep Your Home Cleaner.", desc: "Our De-Shedding Treatment Combines A Specialised Shampoo, High-Velocity Blow Dry, And Deshedding Brush To Remove Up To 90% Of Loose Undercoat — Leaving Your Home Fur-Free.", includes: ["Deshedding shampoo", "Conditioning mask", "High-velocity dry", "Furminator brush", "Coat health check", "Shedding reduction guarantee"] },
+      { name: "Flea Bath", price: "₹499", duration: "45 Min", rating: "4.8", img: P.groom, shortDesc: "Medicated Bath Targeting Fleas And Ticks On Contact For Rapid Relief.", desc: "A Specialized Treatment Bath Using Highly Effective, Natural, And Veterinary-Approved Flea/Tick Shampoos To Eliminate Active Infestations And Soothe Irritated Skin.", includes: ["Flea-elimination shampoo", "15-minute contact soak", "Thorough full-body rinse", "Manual flea combing", "Soothing skin conditioner", "Prevention plan consultation"] },
+      { name: "Paw Care", price: "₹249", duration: "20 Min", rating: "4.9", img: P.dog4, shortDesc: "Paw Pad Cleaning, Hair Trimming, And Organic Pad Balm Moisturizing.", desc: "Paws Take A Lot Of Wear. We Clean The Pads, Trim Excess Hair Between Toes, Check For Thorns, And Massage With Organic Wax To Heal Dry, Cracked Paw Pads.", includes: ["Inter-digital hair trimming", "Warm water paw soak & sanitize", "Foreign object check", "Organic pad-soothing balm", "Gentle massage", "Nail tip checking"] },
+      { name: "Skin & Coat Treatment", price: "₹699", duration: "45 Min", rating: "4.8", img: P.groom, shortDesc: "Deep-Conditioning, Anti-Dandruff, Or Hot-Oil Treatment For A Glossy Coat.", desc: "Perfect For Dry, Itchy, Or Dull Coats. We Apply Specialized Moisture Masks, Oatmeal Extracts, Or Organic Oils To Nourish The Skin, Eliminate Dandruff, And Restore Coat Shine.", includes: ["Oatmeal or hot-oil mask", "Soothing skin massage", "Dandruff flake removal", "Deep conditioning wash", "High-velocity dry", "Brushing and styling"] }
     ]
   },
   "svc-training": {
-    cat: "Training & Behavior", icon: "🎓", color: C.orange, heroImg: P.train, tagline: "Well-Trained,\nWell-Loved.",
-    about: "Certified, force-free trainers using reward-based science to build obedient, confident, and happy dogs.",
-    whyUs: { stats: [["200+", "Certified Trainers"], ["98%", "Success Rate"], ["10,000+", "Dogs Trained"], ["Force-Free", "Methods Only"]], points: [{ icon: "🎓", title: "CPDT-Certified Trainers", desc: "All trainers hold international certifications and follow force-free, science-backed methods." }, { icon: "❤️", title: "No Aversive Tools", desc: "We never use choke chains, prong collars, or shock collars. Positive reinforcement only." }, { icon: "📊", title: "Progress Tracking", desc: "Weekly session reports and a training app to practice between sessions." }, { icon: "🏠", title: "Home & Group Options", desc: "In-home sessions, group classes, and board & train packages available." }] },
-    faqItems: [{ q: "What age can I start training my puppy?", a: "Training can begin as early as 8 weeks old. Early socialisation and basic commands at this stage have the most lasting impact." }, { q: "Do you use punishment-based methods?", a: "Never. All Pawprint trainers are force-free certified. We use positive reinforcement exclusively." }, { q: "How many sessions will my dog need?", a: "This varies by the dog and goal. Basic obedience typically takes 6–8 sessions. Behaviour modification may require 3–6 months." }, { q: "Can older dogs be trained?", a: "Absolutely. The saying 'you can't teach an old dog new tricks' is a myth. Dogs of any age respond well to reward-based training." }],
+    cat: "Training & Behavior", icon: "🎓", color: C.orange, heroImg: P.train, tagline: "Well-Trained,\NWell-Loved.",
+    about: "Certified, Force-Free Trainers Using Reward-Based Science To Build Obedient, Confident, And Happy Dogs.",
+    whyUs: { stats: [["200+", "Certified Trainers"], ["98%", "Success Rate"], ["10,000+", "Dogs Trained"], ["Force-Free", "Methods Only"]], points: [{ icon: "🎓", title: "CPDT-Certified Trainers", desc: "All Trainers Hold International Certifications And Follow Force-Free, Science-Backed Methods." }, { icon: "❤️", title: "No Aversive Tools", desc: "We Never Use Choke Chains, Prong Collars, Or Shock Collars. Positive Reinforcement Only." }, { icon: "📊", title: "Progress Tracking", desc: "Weekly Session Reports And A Training App To Practice Between Sessions." }, { icon: "🏠", title: "Home & Group Options", desc: "In-Home Sessions, Group Classes, And Board & Train Packages Available." }] },
+    faqItems: [{ q: "What Age Can I Start Training My Puppy?", a: "Training Can Begin As Early As 8 Weeks Old. Early Socialisation And Basic Commands At This Stage Have The Most Lasting Impact." }, { q: "Do You Use Punishment-Based Methods?", a: "Never. All Pawprint Trainers Are Force-Free Certified. We Use Positive Reinforcement Exclusively." }, { q: "How Many Sessions Will My Dog Need?", a: "This Varies By The Dog And Goal. Basic Obedience Typically Takes 6–8 Sessions. Behaviour Modification May Require 3–6 Months." }, { q: "Can Older Dogs Be Trained?", a: "Absolutely. The Saying 'You Can't Teach An Old Dog New Tricks' Is A Myth. Dogs Of Any Age Respond Well To Reward-Based Training." }],
     services: [
-      { name: "Puppy Training", price: "₹1,499/mo", duration: "60 min/session", rating: "4.9", img: P.train, shortDesc: "Foundation skills for puppies 8–16 weeks: sit, stay, come, socialisation, and bite inhibition.", desc: "The first weeks are the most important. Our puppy training programme establishes a positive foundation through socialisation, basic commands, and confidence building — all using reward-based methods.", includes: ["Basic commands (sit, stay, come)", "Bite inhibition", "Socialisation exercises", "Leash introduction", "Crate training", "Parent coaching"] },
-      { name: "Obedience Training", price: "₹1,999/mo", duration: "60 min/session", rating: "4.9", img: P.train, shortDesc: "Comprehensive obedience for dogs of all ages: heel, down, recall, stay, and off-leash control.", desc: "Our obedience curriculum covers all foundational and advanced commands. Dogs graduate with reliable on- and off-leash responses in a variety of environments.", includes: ["14 core commands", "On & off-leash control", "Distraction training", "Group & solo sessions", "Progress tracking", "Certificate on completion"] },
-      { name: "Leash Training", price: "₹999/mo", duration: "45 min/session", rating: "4.8", img: P.dog3, shortDesc: "Stop pulling, reactive barking, and lunging — walk your dog calmly and confidently.", desc: "Loose-leash walking is one of the most requested skills. Our trainers use positive reinforcement and structured exercises to teach dogs to walk calmly beside their owners.", includes: ["Loose-leash fundamentals", "Anti-pull techniques", "Reactive dog protocols", "Equipment guidance", "Real-world practice", "Owner coaching"] },
-      { name: "Potty Training", price: "₹999/mo", duration: "45 min/session", rating: "4.8", img: P.train, shortDesc: "Establish clean habits, crate schedules, and bladder control routines.", desc: "Put an end to indoor accidents. We establish strict potty schedules, teach cue words, utilize crate training effectively, and show you how to clean accidents to prevent remarks.", includes: ["Cue word conditioning", "Strict feeding & potty schedule", "Crate training guidance", "Accident management tips", "Owner home setup layout", "Weekly tracking sheets"] },
-      { name: "Behavioral Correction", price: "₹2,499/mo", duration: "75 min/session", rating: "4.8", img: P.train, shortDesc: "Identify and correct unwanted behaviors: jumping, barking, chewing, separation anxiety.", desc: "Our certified behaviourists identify the root cause of problem behaviours and develop a tailored modification plan — no punishment, just science-backed positive techniques.", includes: ["Full behaviour assessment", "Custom modification plan", "Root cause analysis", "Weekly sessions", "Progress reports", "Emergency support line"] },
-      { name: "Aggression Management", price: "₹2,999/mo", duration: "60 min/session", rating: "4.9", img: P.dog3, shortDesc: "Safe behavioral modification for dog-to-dog or dog-to-human aggression.", desc: "Led by certified veterinary behaviorists. We identify triggers, manage risk, teach safety mechanics, and implement counter-conditioning to reduce aggressive reactions.", includes: ["Detailed triggers analysis", "Safety & muzzle conditioning", "Desensitization sessions", "Counter-conditioning protocols", "Owner safety mechanics", "Direct trainer chat access"] },
-      { name: "Socialization Training", price: "₹1,299/mo", duration: "60 min/session", rating: "4.9", img: P.train, shortDesc: "Expose your pet safely to other dogs, people, sounds, and environments.", desc: "Crucial for dogs under 1 year. We guide your dog through controlled exposures to ensure they grow up confident, calm, and friendly around strangers, traffic, and other pets.", includes: ["Controlled dog encounters", "Stranger greetings practice", "Environmental sound checks", "Confidence building games", "Body language coaching", "Graduation certificate"] },
-      { name: "Guard Dog Training", price: "₹2,499/mo", duration: "60 min/session", rating: "4.8", img: P.dog3, shortDesc: "Teach alertness, territory defense, and controlled alert barking.", desc: "We focus on safety and obedience first. We train dogs to alert to intruders, bark on command, stand guard, and stop immediately on the handler's release word.", includes: ["Alert-bark conditioning", "Territory patrol checks", "Intruder identification", "Immediate release command", "Handler obedience drills", "Protection assessment"] },
-      { name: "Advanced Training", price: "₹2,199/mo", duration: "60 min/session", rating: "4.9", img: P.train, shortDesc: "Agility training, distance commands, hand signals, and off-leash work.", desc: "For dogs that have mastered basic obedience. We introduce complex distance commands, silent hand signals, target tracking, agility obstacles, and reliable off-leash recall.", includes: ["Silent hand signals", "Distance down & stay", "Reliable off-leash recall", "Agility obstacle work", "Object fetch & hold", "Advanced tracking games"] },
-      { name: "Therapy Dog Training", price: "₹2,799/mo", duration: "60 min/session", rating: "4.9", img: P.dog2, shortDesc: "Prep for hospital, school, or nursing home visits; emotional stability.", desc: "Prepare your dog to provide comfort and affection. We train for extreme emotional stability, gentle interactions with wheelchairs/walkers, and indifference to loud noises.", includes: ["Medical equipment familiarity", "Gentle pressure touch", "Sudden noise stability", "Crowd & contact management", "Therapy certification prep", "Mock evaluation test"] }
+      { name: "Puppy Training", price: "₹1,499/Mo", duration: "60 Min/Session", rating: "4.9", img: P.train, shortDesc: "Foundation Skills For Puppies 8–16 Weeks: Sit, Stay, Come, Socialisation, And Bite Inhibition.", desc: "The First Weeks Are The Most Important. Our Puppy Training Programme Establishes A Positive Foundation Through Socialisation, Basic Commands, And Confidence Building — All Using Reward-Based Methods.", includes: ["Basic commands (sit, stay, come)", "Bite inhibition", "Socialisation exercises", "Leash introduction", "Crate training", "Parent coaching"] },
+      { name: "Obedience Training", price: "₹1,999/Mo", duration: "60 Min/Session", rating: "4.9", img: P.train, shortDesc: "Comprehensive Obedience For Dogs Of All Ages: Heel, Down, Recall, Stay, And Off-Leash Control.", desc: "Our Obedience Curriculum Covers All Foundational And Advanced Commands. Dogs Graduate With Reliable On- And Off-Leash Responses In A Variety Of Environments.", includes: ["14 core commands", "On & off-leash control", "Distraction training", "Group & solo sessions", "Progress tracking", "Certificate on completion"] },
+      { name: "Leash Training", price: "₹999/Mo", duration: "45 Min/Session", rating: "4.8", img: P.dog3, shortDesc: "Stop Pulling, Reactive Barking, And Lunging — Walk Your Dog Calmly And Confidently.", desc: "Loose-Leash Walking Is One Of The Most Requested Skills. Our Trainers Use Positive Reinforcement And Structured Exercises To Teach Dogs To Walk Calmly Beside Their Owners.", includes: ["Loose-leash fundamentals", "Anti-pull techniques", "Reactive dog protocols", "Equipment guidance", "Real-world practice", "Owner coaching"] },
+      { name: "Potty Training", price: "₹999/Mo", duration: "45 Min/Session", rating: "4.8", img: P.train, shortDesc: "Establish Clean Habits, Crate Schedules, And Bladder Control Routines.", desc: "Put An End To Indoor Accidents. We Establish Strict Potty Schedules, Teach Cue Words, Utilize Crate Training Effectively, And Show You How To Clean Accidents To Prevent Remarks.", includes: ["Cue word conditioning", "Strict feeding & potty schedule", "Crate training guidance", "Accident management tips", "Owner home setup layout", "Weekly tracking sheets"] },
+      { name: "Behavioral Correction", price: "₹2,499/Mo", duration: "75 Min/Session", rating: "4.8", img: P.train, shortDesc: "Identify And Correct Unwanted Behaviors: Jumping, Barking, Chewing, Separation Anxiety.", desc: "Our Certified Behaviourists Identify The Root Cause Of Problem Behaviours And Develop A Tailored Modification Plan — No Punishment, Just Science-Backed Positive Techniques.", includes: ["Full behaviour assessment", "Custom modification plan", "Root cause analysis", "Weekly sessions", "Progress reports", "Emergency support line"] },
+      { name: "Aggression Management", price: "₹2,999/Mo", duration: "60 Min/Session", rating: "4.9", img: P.dog3, shortDesc: "Safe Behavioral Modification For Dog-To-Dog Or Dog-To-Human Aggression.", desc: "Led By Certified Veterinary Behaviorists. We Identify Triggers, Manage Risk, Teach Safety Mechanics, And Implement Counter-Conditioning To Reduce Aggressive Reactions.", includes: ["Detailed triggers analysis", "Safety & muzzle conditioning", "Desensitization sessions", "Counter-conditioning protocols", "Owner safety mechanics", "Direct trainer chat access"] },
+      { name: "Socialization Training", price: "₹1,299/Mo", duration: "60 Min/Session", rating: "4.9", img: P.train, shortDesc: "Expose Your Pet Safely To Other Dogs, People, Sounds, And Environments.", desc: "Crucial For Dogs Under 1 Year. We Guide Your Dog Through Controlled Exposures To Ensure They Grow Up Confident, Calm, And Friendly Around Strangers, Traffic, And Other Pets.", includes: ["Controlled dog encounters", "Stranger greetings practice", "Environmental sound checks", "Confidence building games", "Body language coaching", "Graduation certificate"] },
+      { name: "Guard Dog Training", price: "₹2,499/Mo", duration: "60 Min/Session", rating: "4.8", img: P.dog3, shortDesc: "Teach Alertness, Territory Defense, And Controlled Alert Barking.", desc: "We Focus On Safety And Obedience First. We Train Dogs To Alert To Intruders, Bark On Command, Stand Guard, And Stop Immediately On The Handler's Release Word.", includes: ["Alert-bark conditioning", "Territory patrol checks", "Intruder identification", "Immediate release command", "Handler obedience drills", "Protection assessment"] },
+      { name: "Advanced Training", price: "₹2,199/Mo", duration: "60 Min/Session", rating: "4.9", img: P.train, shortDesc: "Agility Training, Distance Commands, Hand Signals, And Off-Leash Work.", desc: "For Dogs That Have Mastered Basic Obedience. We Introduce Complex Distance Commands, Silent Hand Signals, Target Tracking, Agility Obstacles, And Reliable Off-Leash Recall.", includes: ["Silent hand signals", "Distance down & stay", "Reliable off-leash recall", "Agility obstacle work", "Object fetch & hold", "Advanced tracking games"] },
+      { name: "Therapy Dog Training", price: "₹2,799/Mo", duration: "60 Min/Session", rating: "4.9", img: P.dog2, shortDesc: "Prep For Hospital, School, Or Nursing Home Visits; Emotional Stability.", desc: "Prepare Your Dog To Provide Comfort And Affection. We Train For Extreme Emotional Stability, Gentle Interactions With Wheelchairs/Walkers, And Indifference To Loud Noises.", includes: ["Medical equipment familiarity", "Gentle pressure touch", "Sudden noise stability", "Crowd & contact management", "Therapy certification prep", "Mock evaluation test"] }
     ]
   },
   "svc-boarding": {
-    cat: "Boarding & Sitting", icon: "🏠", color: "#7C3AED", heroImg: P.boarding, tagline: "Home Away\nFrom Home.",
-    about: "Secure, CCTV-monitored, comfortable temporary homes for your pets — supervised 24/7.",
-    whyUs: { stats: [["CCTV", "24/7"], ["Daily", "Photo updates"], ["Vet", "On call 24/7"], ["All", "Pets insured"]], points: [{ icon: "🛡️", title: "100% Insured", desc: "Every pet boarded is fully covered by our veterinary insurance program." }, { icon: "📹", title: "Live CCTV Access", desc: "Luxury suites feature direct live video feeds accessible via the Pawprint dashboard." }] },
-    faqItems: [{ q: "What should I pack for my pet?", a: "We recommend bringing their current food and a familiar smelling blanket/toy. We supply bedding, bowls, and pure drinking water." }],
+    cat: "Boarding & Sitting", icon: "🏠", color: "#7C3AED", heroImg: P.boarding, tagline: "Home Away\NFrom Home.",
+    about: "Secure, CCTV-Monitored, Comfortable Temporary Homes For Your Pets — Supervised 24/7.",
+    whyUs: { stats: [["CCTV", "24/7"], ["Daily", "Photo updates"], ["Vet", "On call 24/7"], ["All", "Pets insured"]], points: [{ icon: "🛡️", title: "100% Insured", desc: "Every Pet Boarded Is Fully Covered By Our Veterinary Insurance Program." }, { icon: "📹", title: "Live CCTV Access", desc: "Luxury Suites Feature Direct Live Video Feeds Accessible Via The Pawprint Dashboard." }] },
+    faqItems: [{ q: "What Should I Pack For My Pet?", a: "We Recommend Bringing Their Current Food And A Familiar Smelling Blanket/Toy. We Supply Bedding, Bowls, And Pure Drinking Water." }],
     services: [
-      { name: "Dog Boarding", price: "₹599/night", duration: "Per night", rating: "4.9", img: P.boarding, shortDesc: "Safe, supervised overnight boarding in clean, comfortable facilities.", desc: "Our boarding facilities provide a home-away-from-home experience. Each dog gets their own cozy space, regular feeding, exercise w/ other dogs, and 24/7 supervisor care.", includes: ["Own private cabin", "2 exercise walk sessions/day", "Medication support", "Daily video/photo reports", "Vet checkup on arrival"] },
-      { name: "Luxury Boarding", price: "₹1,499/night", duration: "Per night", rating: "4.9", img: P.boarding, shortDesc: "Premium AC suites with live webcam access and custom diet plans.", desc: "The ultimate boarding experience. Private climate-controlled suites, personalized nutrition, interactive playtime sessions, and live camera access so you can watch them anytime.", includes: ["Private AC suite", "Live webcam access", "Custom chef-prepared diet", "Grooming brush session", "Individal playground session"] },
-      { name: "Overnight Stay", price: "₹799/night", duration: "Per night", rating: "4.8", img: P.boarding, shortDesc: "Reliable overnight boarding with evening activities and cozy sleeping arrangements.", desc: "Ideal for weekend getaways. Includes standard social playtime, structured dinner and breakfast schedules, and quiet sleeping cabins under constant monitoring.", includes: ["Cozy individual cabin", "Dinner & breakfast feedings", "Evening group play", "24/7 supervisor on site", "Morning walk session"] },
-      { name: "Dog Daycare", price: "₹399/day", duration: "Per day", rating: "4.9", img: P.dog4, shortDesc: "Structured daytime care filled with play, social events, and nap times.", desc: "Leave your pet with us while you work. We provide interactive play groups, enrichment toys, scheduled naps, and a safe space to burn off energy.", includes: ["Up to 10 hours stay", "Socialized group play", "Enrichment puzzle games", "Scheduled nap times", "Photo updates at noon", "Fresh water access"] },
-      { name: "Pet Sitting", price: "₹499/visit", duration: "60 mins", rating: "4.8", img: P.cat1, shortDesc: "A background-checked sitter visits your home to feed, clean, and play.", desc: "Keep your pets in their own stress-free home. Our certified pet sitters visit to feed, refill water bowls, clean litter boxes or walk, and spend quality time.", includes: ["Feeding & fresh water", "Litter box cleaning", "15-minute walk or play", "Photo/video updates", "Mail & plant watering option", "Sitter background check"] },
-      { name: "Home Visit Care", price: "₹799/day", duration: "Per day", rating: "4.9", img: P.dog1, shortDesc: "Multiple home check-ins throughout the day for premium at-home care.", desc: "Includes 3 detailed home visits (morning, noon, evening) by a dedicated sitter. Perfect for cats or independent dogs who prefer staying home but need regular check-ins.", includes: ["3 home visits per day", "Morning/Noon/Night feeding", "Walking & waste pickup", "Administering medications", "Detailed daily check-in logs", "CCTV camera setup option"] },
-      { name: "Long-Term Boarding", price: "₹12,000/mo", duration: "Per month", rating: "4.9", img: P.boarding, shortDesc: "Discounted monthly boarding plans for travel or relocation gaps.", desc: "Safe, stress-free boarding for durations longer than 2 weeks. Includes discounted rates, regular health checks, grooming maintenance, and video updates twice a week.", includes: ["Discounted monthly rate", "Bi-weekly bath & groom", "Regular veterinary checks", "Weekly live video call", "Custom nutrition plan", "Pet insurance coverage"] },
-      { name: "Cage-Free Boarding", price: "₹899/night", duration: "Per night", rating: "4.9", img: P.boarding, shortDesc: "Open-plan home environment boarding without cages or kennels.", desc: "Dogs live like family inside our verified cage-free boarding homes. They enjoy free access to secure indoor spaces, sofas, and supervised outdoor yards.", includes: ["100% cage-free space", "Constant human supervision", "Sofa & bed sleep access", "Large fenced play yard", "Daily text/photo logs", "Interactive social group"] },
-      { name: "Puppy Daycare", price: "₹499/day", duration: "Per day", rating: "4.8", img: P.dog4, shortDesc: "Safe socialization and supervised care tailored for puppies under 6 months.", desc: "Puppies need special attention. We offer frequent potty breaks, gentle socialization with appropriate playmates, crate practice, and hand-feeding to build confidence.", includes: ["Frequent potty breaks (2h)", "Gentle puppy-only groups", "Basic training practice", "Confidence building tasks", "Puppy nutrition schedule", "Candid photo stream"] }
+      { name: "Dog Boarding", price: "₹599/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Safe, Supervised Overnight Boarding In Clean, Comfortable Facilities.", desc: "Our Boarding Facilities Provide A Home-Away-From-Home Experience. Each Dog Gets Their Own Cozy Space, Regular Feeding, Exercise W/ Other Dogs, And 24/7 Supervisor Care.", includes: ["Own private cabin", "2 exercise walk sessions/day", "Medication support", "Daily video/photo reports", "Vet checkup on arrival"] },
+      { name: "Luxury Boarding", price: "₹1,499/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Premium AC Suites With Live Webcam Access And Custom Diet Plans.", desc: "The Ultimate Boarding Experience. Private Climate-Controlled Suites, Personalized Nutrition, Interactive Playtime Sessions, And Live Camera Access So You Can Watch Them Anytime.", includes: ["Private AC suite", "Live webcam access", "Custom chef-prepared diet", "Grooming brush session", "Individal playground session"] },
+      { name: "Overnight Stay", price: "₹799/Night", duration: "Per Night", rating: "4.8", img: P.boarding, shortDesc: "Reliable Overnight Boarding With Evening Activities And Cozy Sleeping Arrangements.", desc: "Ideal For Weekend Getaways. Includes Standard Social Playtime, Structured Dinner And Breakfast Schedules, And Quiet Sleeping Cabins Under Constant Monitoring.", includes: ["Cozy individual cabin", "Dinner & breakfast feedings", "Evening group play", "24/7 supervisor on site", "Morning walk session"] },
+      { name: "Dog Daycare", price: "₹399/Day", duration: "Per Day", rating: "4.9", img: P.dog4, shortDesc: "Structured Daytime Care Filled With Play, Social Events, And Nap Times.", desc: "Leave Your Pet With Us While You Work. We Provide Interactive Play Groups, Enrichment Toys, Scheduled Naps, And A Safe Space To Burn Off Energy.", includes: ["Up to 10 hours stay", "Socialized group play", "Enrichment puzzle games", "Scheduled nap times", "Photo updates at noon", "Fresh water access"] },
+      { name: "Pet Sitting", price: "₹499/Visit", duration: "60 Mins", rating: "4.8", img: P.cat1, shortDesc: "A Background-Checked Sitter Visits Your Home To Feed, Clean, And Play.", desc: "Keep Your Pets In Their Own Stress-Free Home. Our Certified Pet Sitters Visit To Feed, Refill Water Bowls, Clean Litter Boxes Or Walk, And Spend Quality Time.", includes: ["Feeding & fresh water", "Litter box cleaning", "15-minute walk or play", "Photo/video updates", "Mail & plant watering option", "Sitter background check"] },
+      { name: "Home Visit Care", price: "₹799/Day", duration: "Per Day", rating: "4.9", img: P.dog1, shortDesc: "Multiple Home Check-Ins Throughout The Day For Premium At-Home Care.", desc: "Includes 3 Detailed Home Visits (Morning, Noon, Evening) By A Dedicated Sitter. Perfect For Cats Or Independent Dogs Who Prefer Staying Home But Need Regular Check-Ins.", includes: ["3 home visits per day", "Morning/Noon/Night feeding", "Walking & waste pickup", "Administering medications", "Detailed daily check-in logs", "CCTV camera setup option"] },
+      { name: "Long-Term Boarding", price: "₹12,000/Mo", duration: "Per Month", rating: "4.9", img: P.boarding, shortDesc: "Discounted Monthly Boarding Plans For Travel Or Relocation Gaps.", desc: "Safe, Stress-Free Boarding For Durations Longer Than 2 Weeks. Includes Discounted Rates, Regular Health Checks, Grooming Maintenance, And Video Updates Twice A Week.", includes: ["Discounted monthly rate", "Bi-weekly bath & groom", "Regular veterinary checks", "Weekly live video call", "Custom nutrition plan", "Pet insurance coverage"] },
+      { name: "Cage-Free Boarding", price: "₹899/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Open-Plan Home Environment Boarding Without Cages Or Kennels.", desc: "Dogs Live Like Family Inside Our Verified Cage-Free Boarding Homes. They Enjoy Free Access To Secure Indoor Spaces, Sofas, And Supervised Outdoor Yards.", includes: ["100% cage-free space", "Constant human supervision", "Sofa & bed sleep access", "Large fenced play yard", "Daily text/photo logs", "Interactive social group"] },
+      { name: "Puppy Daycare", price: "₹499/Day", duration: "Per Day", rating: "4.8", img: P.dog4, shortDesc: "Safe Socialization And Supervised Care Tailored For Puppies Under 6 Months.", desc: "Puppies Need Special Attention. We Offer Frequent Potty Breaks, Gentle Socialization With Appropriate Playmates, Crate Practice, And Hand-Feeding To Build Confidence.", includes: ["Frequent potty breaks (2h)", "Gentle puppy-only groups", "Basic training practice", "Confidence building tasks", "Puppy nutrition schedule", "Candid photo stream"] }
     ]
   },
   "svc-activity": {
-    cat: "Activity & Lifestyle", icon: "🏃", color: "#D97706", heroImg: P.dog3, tagline: "Active. Fit.\nHappy.",
-    about: "Enriching physical activities, hiking trips, swimming exercises, and walks for high energy dogs.",
-    whyUs: { stats: [["GPS", "Insured walks"], ["Insured", "Walkers"], ["10K+", "Walks completed"], ["Safety", "First"]], points: [{ icon: "📍", title: "GPS Live Tracking", desc: "Follow their walking route in real time on our interactive map." }] },
-    faqItems: [{ q: "Can I choose the walking route?", a: "Yes, we have pre-approved safe walking paths and you can indicate custom preferences." }],
+    cat: "Activity & Lifestyle", icon: "🏃", color: "#D97706", heroImg: P.dog3, tagline: "Active. Fit.\NHappy.",
+    about: "Enriching Physical Activities, Hiking Trips, Swimming Exercises, And Walks For High Energy Dogs.",
+    whyUs: { stats: [["GPS", "Insured walks"], ["Insured", "Walkers"], ["10K+", "Walks completed"], ["Safety", "First"]], points: [{ icon: "📍", title: "GPS Live Tracking", desc: "Follow Their Walking Route In Real Time On Our Interactive Map." }] },
+    faqItems: [{ q: "Can I Choose The Walking Route?", a: "Yes, We Have Pre-Approved Safe Walking Paths And You Can Indicate Custom Preferences." }],
     services: [
-      { name: "Dog Walking", price: "₹199/walk", duration: "30 mins", rating: "4.9", img: P.dog3, shortDesc: "Professional, GPS-tracked walks for physical and mental enrichment.", desc: "Background-checked walkers take your pet on an active, controlled walk. View live GPS map tracking, pooping updates, and photos.", includes: ["GPS live map walk tracking", "Poop and pee reports", "Water bowl replenishment", "Photo updates", "Leash check", "Feet wipe on return"] },
-      { name: "Exercise Sessions", price: "₹249/session", duration: "45 mins", rating: "4.8", img: P.dog3, shortDesc: "High-energy workout sessions: fetching, running, and active games.", desc: "For high-energy breeds that need more than a standard walk. We engage your dog in running, fetch, flirt-pole play, and structured cardio games to keep them fit.", includes: ["Running & jogging drills", "Interactive fetch games", "Flirt-pole cardio session", "Agility jumps intro", "Water hydration breaks", "Heart rate tracking check"] },
-      { name: "Playtime Activities", price: "₹199/session", duration: "30 mins", rating: "4.9", img: P.dog4, shortDesc: "Interactive brain games, puzzle toys, and basic trick practice.", desc: "Mental stimulation is just as important as physical exercise. We spend time teaching fun tricks, hiding treats in puzzle mats, and playing scent-work games.", includes: ["Puzzle toy challenges", "Scent-work tracking games", "Fun trick learning (high-five)", "Tug & chase sessions", "Cool-down sensory play", "Progress report card"] },
-      { name: "Adventure Walks", price: "₹399/walk", duration: "60 mins", rating: "4.9", img: P.dog1, shortDesc: "Off-trail walks in scenic, nature-filled paths with enrichment tracking.", desc: "A premium sensory walk outside the neighborhood. We take your dog to wooded areas, trails, or beaches where they can explore new smells, textures, and open spaces safely.", includes: ["Nature trail travel", "Long-line tracking leash", "Sensory exploration check", "Safety harness inspection", "Post-walk paw sanitizing", "HD photo collection"] },
-      { name: "Swimming Sessions", price: "₹799/session", duration: "45 mins", rating: "4.9", img: P.boarding, shortDesc: "Low-impact hydrotherapy and water play in a secure pet pool.", desc: "Excellent for joints and high cardiovascular health. Sessions are supervised by certified hydrotherapists inside our secure indoor pet pool. Life jacket included.", includes: ["Supervised pet pool access", "Pet life-vest rental", "Certified hydrotherapist guide", "Warm water rinsing", "Blow-dry & coat brush", "Treat motivation awards"] },
-      { name: "Fitness Training", price: "₹1,499/mo", duration: "45 min/session", rating: "4.8", img: P.train, shortDesc: "Core strength, balance disc exercises, and weight management programs.", desc: "Improve your dog's strength, flexibility, and longevity. We use balance boards, cavaletti poles, and targeted exercises to build core strength and manage weight.", includes: ["Cavaletti pole drills", "Balance disc work", "Core stabilization tasks", "Weight loss tracking plan", "Fitness progress logs", "Home training homework"] },
-      { name: "Outdoor Socialization", price: "₹299/session", duration: "60 mins", rating: "4.9", img: P.dog4, shortDesc: "Supervised group walks and interactions in public parks.", desc: "Help your dog feel comfortable in public. We take small, balanced groups of dogs on structured walks through parks, teaching neutral behaviors around other pets and people.", includes: ["Structured group walking", "Public park etiquette", "Neutrality conditioning", "Loose-leash group drills", "Sitter supervision (1:3)", "Socialization log card"] },
-      { name: "Hiking Trips", price: "₹1,999/trip", duration: "Half-Day", rating: "4.9", img: P.dog3, shortDesc: "Weekend group hikes to forest trails with transport and safety gear.", desc: "The ultimate doggie day out. We transport a group of dogs to nature reserves for a 3-hour hike. Includes safety harnesses, first-aid, swimming stops, and snack breaks.", includes: ["Round-trip AC transport", "3-hour guided hike", "Safety GPS tag tracking", "Dog first-aid on site", "Snacks & fresh water", "GoPro video highlights"] },
-      { name: "Dog Park Visits", price: "₹349/visit", duration: "60 mins", rating: "4.8", img: P.dog4, shortDesc: "Supervised social play sessions at certified off-leash dog parks.", desc: "Let your dog run wild and play off-leash. Our walkers take your pet to fully fenced, clean dog parks and monitor their play to ensure positive and safe interactions.", includes: ["Fenced park admission", "Constant active monitoring", "Playmate matching check", "Hydration intervals", "Feet and body wipe", "Play details report"] }
+      { name: "Dog Walking", price: "₹199/Walk", duration: "30 Mins", rating: "4.9", img: P.dog3, shortDesc: "Professional, GPS-Tracked Walks For Physical And Mental Enrichment.", desc: "Background-Checked Walkers Take Your Pet On An Active, Controlled Walk. View Live GPS Map Tracking, Pooping Updates, And Photos.", includes: ["GPS live map walk tracking", "Poop and pee reports", "Water bowl replenishment", "Photo updates", "Leash check", "Feet wipe on return"] },
+      { name: "Exercise Sessions", price: "₹249/Session", duration: "45 Mins", rating: "4.8", img: P.dog3, shortDesc: "High-Energy Workout Sessions: Fetching, Running, And Active Games.", desc: "For High-Energy Breeds That Need More Than A Standard Walk. We Engage Your Dog In Running, Fetch, Flirt-Pole Play, And Structured Cardio Games To Keep Them Fit.", includes: ["Running & jogging drills", "Interactive fetch games", "Flirt-pole cardio session", "Agility jumps intro", "Water hydration breaks", "Heart rate tracking check"] },
+      { name: "Playtime Activities", price: "₹199/Session", duration: "30 Mins", rating: "4.9", img: P.dog4, shortDesc: "Interactive Brain Games, Puzzle Toys, And Basic Trick Practice.", desc: "Mental Stimulation Is Just As Important As Physical Exercise. We Spend Time Teaching Fun Tricks, Hiding Treats In Puzzle Mats, And Playing Scent-Work Games.", includes: ["Puzzle toy challenges", "Scent-work tracking games", "Fun trick learning (high-five)", "Tug & chase sessions", "Cool-down sensory play", "Progress report card"] },
+      { name: "Adventure Walks", price: "₹399/Walk", duration: "60 Mins", rating: "4.9", img: P.dog1, shortDesc: "Off-Trail Walks In Scenic, Nature-Filled Paths With Enrichment Tracking.", desc: "A Premium Sensory Walk Outside The Neighborhood. We Take Your Dog To Wooded Areas, Trails, Or Beaches Where They Can Explore New Smells, Textures, And Open Spaces Safely.", includes: ["Nature trail travel", "Long-line tracking leash", "Sensory exploration check", "Safety harness inspection", "Post-walk paw sanitizing", "HD photo collection"] },
+      { name: "Swimming Sessions", price: "₹799/Session", duration: "45 Mins", rating: "4.9", img: P.boarding, shortDesc: "Low-Impact Hydrotherapy And Water Play In A Secure Pet Pool.", desc: "Excellent For Joints And High Cardiovascular Health. Sessions Are Supervised By Certified Hydrotherapists Inside Our Secure Indoor Pet Pool. Life Jacket Included.", includes: ["Supervised pet pool access", "Pet life-vest rental", "Certified hydrotherapist guide", "Warm water rinsing", "Blow-dry & coat brush", "Treat motivation awards"] },
+      { name: "Fitness Training", price: "₹1,499/Mo", duration: "45 Min/Session", rating: "4.8", img: P.train, shortDesc: "Core Strength, Balance Disc Exercises, And Weight Management Programs.", desc: "Improve Your Dog's Strength, Flexibility, And Longevity. We Use Balance Boards, Cavaletti Poles, And Targeted Exercises To Build Core Strength And Manage Weight.", includes: ["Cavaletti pole drills", "Balance disc work", "Core stabilization tasks", "Weight loss tracking plan", "Fitness progress logs", "Home training homework"] },
+      { name: "Outdoor Socialization", price: "₹299/Session", duration: "60 Mins", rating: "4.9", img: P.dog4, shortDesc: "Supervised Group Walks And Interactions In Public Parks.", desc: "Help Your Dog Feel Comfortable In Public. We Take Small, Balanced Groups Of Dogs On Structured Walks Through Parks, Teaching Neutral Behaviors Around Other Pets And People.", includes: ["Structured group walking", "Public park etiquette", "Neutrality conditioning", "Loose-leash group drills", "Sitter supervision (1:3)", "Socialization log card"] },
+      { name: "Hiking Trips", price: "₹1,999/Trip", duration: "Half-Day", rating: "4.9", img: P.dog3, shortDesc: "Weekend Group Hikes To Forest Trails With Transport And Safety Gear.", desc: "The Ultimate Doggie Day Out. We Transport A Group Of Dogs To Nature Reserves For A 3-Hour Hike. Includes Safety Harnesses, First-Aid, Swimming Stops, And Snack Breaks.", includes: ["Round-trip AC transport", "3-hour guided hike", "Safety GPS tag tracking", "Dog first-aid on site", "Snacks & fresh water", "GoPro video highlights"] },
+      { name: "Dog Park Visits", price: "₹349/Visit", duration: "60 Mins", rating: "4.8", img: P.dog4, shortDesc: "Supervised Social Play Sessions At Certified Off-Leash Dog Parks.", desc: "Let Your Dog Run Wild And Play Off-Leash. Our Walkers Take Your Pet To Fully Fenced, Clean Dog Parks And Monitor Their Play To Ensure Positive And Safe Interactions.", includes: ["Fenced park admission", "Constant active monitoring", "Playmate matching check", "Hydration intervals", "Feet and body wipe", "Play details report"] }
     ]
   },
   "svc-specialty": {
-    cat: "Specialty Services", icon: "⭐", color: "#B45309", heroImg: P.about1, tagline: "Unique Care.\nSpecial Moments.",
-    about: "For when normal isn't enough: microchipping, relocation, events, hydrotherapy rehabilitation.",
-    whyUs: { stats: [["Specialist", "Experts"], ["5,000+", "Families helped"]], points: [{ icon: "⭐", title: "Certified Specialists", desc: "Relocations and surgeries are managed by verified veterinarians and professionals." }] },
-    faqItems: [{ q: "Is microchipping safe?", a: "Yes, microchipping is a quick, safe, standard injection that lasts a lifetime." }],
+    cat: "Specialty Services", icon: "⭐", color: "#B45309", heroImg: P.about1, tagline: "Unique Care.\NSpecial Moments.",
+    about: "For When Normal Isn't Enough: Microchipping, Relocation, Events, Hydrotherapy Rehabilitation.",
+    whyUs: { stats: [["Specialist", "Experts"], ["5,000+", "Families helped"]], points: [{ icon: "⭐", title: "Certified Specialists", desc: "Relocations And Surgeries Are Managed By Verified Veterinarians And Professionals." }] },
+    faqItems: [{ q: "Is Microchipping Safe?", a: "Yes, Microchipping Is A Quick, Safe, Standard Injection That Lasts A Lifetime." }],
     services: [
-      { name: "Adoption Assistance", price: "₹499", duration: "60 min", rating: "4.9", img: P.cat1, shortDesc: "Expert guidance to find, match, and onboard your perfect rescue pet.", desc: "We evaluate your home environment and lifestyle to match you with compatible shelter animals. We assist with applications, meet-and-greets, and veterinary onboarding.", includes: ["Lifestyle matching assessment", "Shelter list compilation", "Adoption interview practice", "Home check preparation", "Veterinary transition guide", "Onboarding supply list"] },
-      { name: "Breeding Consultation", price: "₹999", duration: "60 min", rating: "4.7", img: P.vet2, shortDesc: "Genetic compatibility, health screening, and ethical breeding guidance.", desc: "Veterinary-led consultation focusing on ethical breeding standards. We verify bloodline clearances, review genetic tests, and analyze lineage to prevent hereditary diseases.", includes: ["Genetic test report review", "Bloodline health screening", "Ethical standard guidelines", "Mating cycle timing advice", "Pre-breeding vet checks", "Litter preparation tips"] },
-      { name: "Pregnancy & Whelping", price: "₹2,499", duration: "Ongoing", rating: "4.9", img: P.vet1, shortDesc: "Ultrasound checks, whelping kit setup, and active veterinary delivery support.", desc: "Complete maternity care for your dog. Includes gestational ultrasound checks, nutritional guidance, whelping box setup assistance, and an emergency delivery helpline.", includes: ["Gestational ultrasound checks", "Pregnancy nutritional guide", "Whelping box setup check", "Delivery emergency phone", "Post-natal checkup (1st)", "Puppy nursing support"] },
-      { name: "Rehabilitation Therapy", price: "₹999/session", duration: "60 min", rating: "4.9", img: P.train, shortDesc: "Hydrotherapy, balance rehab, and laser care for chronic issues or injuries.", desc: "Advanced therapy plans combining warm-water swimming, laser therapy, and passive joint motion exercises to help pets regain mobility after strokes or leg injuries.", includes: ["Hydrotherapy pool session", "Mobility diagnostics check", "Cold laser healing session", "Joint massage & stretches", "Progress metrics report", "Home mobility guidelines"] },
-      { name: "Hospice & End-of-Life Care", price: "₹1,499", duration: "Consultation", rating: "4.9", img: P.vet1, shortDesc: "Palliative pain management, quality-of-life checks, and peaceful transitions.", desc: "Compassionate, home-based palliative care to manage pain and maintain dignity for terminally ill or geriatric pets. Includes counseling and peaceful in-home euthanasia options.", includes: ["Palliative pain assessment", "Home comfort setup check", "Medication management card", "Quality of life counseling", "Peaceful in-home transition", "Memorial guidance support"] },
-      { name: "Pet Photography", price: "₹2,999", duration: "90 mins", rating: "4.9", img: P.about1, shortDesc: "Professional studio or outdoor photo sessions with props and high-res edits.", desc: "Capture your pet's personality forever. Our professional animal photographer uses high-speed cameras, pet-safe lighting, and toys to capture stunning high-resolution portraits.", includes: ["90-minute photoshoot", "Studio or outdoor option", "Toys & accessories rental", "25 high-resolution edits", "Online digital gallery", "Pet-sitter handling assist"] },
-      { name: "Dog Events & Parties", price: "from ₹4,999", duration: "3 hours", rating: "4.8", img: P.dog4, shortDesc: "Custom birthday parties, dog pools, pet cakes, and games management.", desc: "Celebrate milestones in style. We organize dog birthday parties complete with dog-safe cakes, party games, pools, fenced park rentals, and photo/video highlights.", includes: ["Fenced party park rental", "Dog-safe birthday cake", "Interactive agility games", "Pet party favor bags", "Professional coordinator", "Digital invitations designer"] },
-      { name: "Emotional Support Dog", price: "₹1,999/mo", duration: "60 min/session", rating: "4.9", img: P.dog2, shortDesc: "Training and evaluation for psychiatric service and emotional support tags.", desc: "We help train your dog to support mental health needs. Includes calming behaviors, pressure therapy, deep-pressure simulation, and ESA documentation support.", includes: ["Psychiatric assistance training", "Deep pressure stimulation", "Calming cue conditioning", "Public transport exposure", "ESA evaluation report", "Official vest and tag"] },
-      { name: "Microchipping", price: "₹399", duration: "15 mins", rating: "4.9", img: P.vet1, shortDesc: "Permanent ID implant registered on the national database.", desc: "A painless, standard injection under the shoulder blades. Crucial to reuniting lost pets and standard for international travels.", includes: ["ISO Standard Microchip", "National database registration", "Microchip ID card", "Lost Alert setup", "Vet verification"] },
-      { name: "Pet Relocation Services", price: "Varies", duration: "Full Journey", rating: "4.9", img: P.shop2, shortDesc: "IATA-approved crates, flight booking, customs clearance, and road transit.", desc: "Complete domestic and international pet shipping. We handle health certificates, IATA crate sizing, flight reservations, airline check-ins, customs clearance, and road transfers.", includes: ["IATA-certified crate supply", "Import/Export customs paperwork", "Health certificates clearance", "AC pet transport vehicle", "Flight check-in assistance", "Real-time trip updates"] }
+      { name: "Adoption Assistance", price: "₹499", duration: "60 Min", rating: "4.9", img: P.cat1, shortDesc: "Expert Guidance To Find, Match, And Onboard Your Perfect Rescue Pet.", desc: "We Evaluate Your Home Environment And Lifestyle To Match You With Compatible Shelter Animals. We Assist With Applications, Meet-And-Greets, And Veterinary Onboarding.", includes: ["Lifestyle matching assessment", "Shelter list compilation", "Adoption interview practice", "Home check preparation", "Veterinary transition guide", "Onboarding supply list"] },
+      { name: "Breeding Consultation", price: "₹999", duration: "60 Min", rating: "4.7", img: P.vet2, shortDesc: "Genetic Compatibility, Health Screening, And Ethical Breeding Guidance.", desc: "Veterinary-Led Consultation Focusing On Ethical Breeding Standards. We Verify Bloodline Clearances, Review Genetic Tests, And Analyze Lineage To Prevent Hereditary Diseases.", includes: ["Genetic test report review", "Bloodline health screening", "Ethical standard guidelines", "Mating cycle timing advice", "Pre-breeding vet checks", "Litter preparation tips"] },
+      { name: "Pregnancy & Whelping", price: "₹2,499", duration: "Ongoing", rating: "4.9", img: P.vet1, shortDesc: "Ultrasound Checks, Whelping Kit Setup, And Active Veterinary Delivery Support.", desc: "Complete Maternity Care For Your Dog. Includes Gestational Ultrasound Checks, Nutritional Guidance, Whelping Box Setup Assistance, And An Emergency Delivery Helpline.", includes: ["Gestational ultrasound checks", "Pregnancy nutritional guide", "Whelping box setup check", "Delivery emergency phone", "Post-natal checkup (1st)", "Puppy nursing support"] },
+      { name: "Rehabilitation Therapy", price: "₹999/Session", duration: "60 Min", rating: "4.9", img: P.train, shortDesc: "Hydrotherapy, Balance Rehab, And Laser Care For Chronic Issues Or Injuries.", desc: "Advanced Therapy Plans Combining Warm-Water Swimming, Laser Therapy, And Passive Joint Motion Exercises To Help Pets Regain Mobility After Strokes Or Leg Injuries.", includes: ["Hydrotherapy pool session", "Mobility diagnostics check", "Cold laser healing session", "Joint massage & stretches", "Progress metrics report", "Home mobility guidelines"] },
+      { name: "Hospice & End-Of-Life Care", price: "₹1,499", duration: "Consultation", rating: "4.9", img: P.vet1, shortDesc: "Palliative Pain Management, Quality-Of-Life Checks, And Peaceful Transitions.", desc: "Compassionate, Home-Based Palliative Care To Manage Pain And Maintain Dignity For Terminally Ill Or Geriatric Pets. Includes Counseling And Peaceful In-Home Euthanasia Options.", includes: ["Palliative pain assessment", "Home comfort setup check", "Medication management card", "Quality of life counseling", "Peaceful in-home transition", "Memorial guidance support"] },
+      { name: "Pet Photography", price: "₹2,999", duration: "90 Mins", rating: "4.9", img: P.about1, shortDesc: "Professional Studio Or Outdoor Photo Sessions With Props And High-Res Edits.", desc: "Capture Your Pet's Personality Forever. Our Professional Animal Photographer Uses High-Speed Cameras, Pet-Safe Lighting, And Toys To Capture Stunning High-Resolution Portraits.", includes: ["90-minute photoshoot", "Studio or outdoor option", "Toys & accessories rental", "25 high-resolution edits", "Online digital gallery", "Pet-sitter handling assist"] },
+      { name: "Dog Events & Parties", price: "From ₹4,999", duration: "3 Hours", rating: "4.8", img: P.dog4, shortDesc: "Custom Birthday Parties, Dog Pools, Pet Cakes, And Games Management.", desc: "Celebrate Milestones In Style. We Organize Dog Birthday Parties Complete With Dog-Safe Cakes, Party Games, Pools, Fenced Park Rentals, And Photo/Video Highlights.", includes: ["Fenced party park rental", "Dog-safe birthday cake", "Interactive agility games", "Pet party favor bags", "Professional coordinator", "Digital invitations designer"] },
+      { name: "Emotional Support Dog", price: "₹1,999/Mo", duration: "60 Min/Session", rating: "4.9", img: P.dog2, shortDesc: "Training And Evaluation For Psychiatric Service And Emotional Support Tags.", desc: "We Help Train Your Dog To Support Mental Health Needs. Includes Calming Behaviors, Pressure Therapy, Deep-Pressure Simulation, And ESA Documentation Support.", includes: ["Psychiatric assistance training", "Deep pressure stimulation", "Calming cue conditioning", "Public transport exposure", "ESA evaluation report", "Official vest and tag"] },
+      { name: "Microchipping", price: "₹399", duration: "15 Mins", rating: "4.9", img: P.vet1, shortDesc: "Permanent ID Implant Registered On The National Database.", desc: "A Painless, Standard Injection Under The Shoulder Blades. Crucial To Reuniting Lost Pets And Standard For International Travels.", includes: ["ISO Standard Microchip", "National database registration", "Microchip ID card", "Lost Alert setup", "Vet verification"] },
+      { name: "Pet Relocation Services", price: "Varies", duration: "Full Journey", rating: "4.9", img: P.shop2, shortDesc: "IATA-Approved Crates, Flight Booking, Customs Clearance, And Road Transit.", desc: "Complete Domestic And International Pet Shipping. We Handle Health Certificates, IATA Crate Sizing, Flight Reservations, Airline Check-Ins, Customs Clearance, And Road Transfers.", includes: ["IATA-certified crate supply", "Import/Export customs paperwork", "Health certificates clearance", "AC pet transport vehicle", "Flight check-in assistance", "Real-time trip updates"] }
     ]
   },
   "svc-retail": {
-    cat: "Retail & Extras", icon: "🛍️", color: C.orange, heroImg: P.shop1, tagline: "Vet-Curated.\nNext-Day Delivered.",
-    about: "Premium pet foods, interactive puzzle toys, supplements, and designer collars reviewed by our veterinary panel.",
-    whyUs: { stats: [["1,000+", "Reviewed items"], ["Fast", "Next-day delivery"]], points: [{ icon: "🛍️", title: "100% Vetted", desc: "We only stock products free of harmful chemicals and low-quality fillers." }] },
-    faqItems: [{ q: "Do you offer free delivery?", a: "Yes, all orders above ₹499 qualify for free next-day delivery." }],
+    cat: "Retail & Extras", icon: "🛍️", color: C.orange, heroImg: P.shop1, tagline: "Vet-Curated.\NNext-Day Delivered.",
+    about: "Premium Pet Foods, Interactive Puzzle Toys, Supplements, And Designer Collars Reviewed By Our Veterinary Panel.",
+    whyUs: { stats: [["1,000+", "Reviewed items"], ["Fast", "Next-day delivery"]], points: [{ icon: "🛍️", title: "100% Vetted", desc: "We Only Stock Products Free Of Harmful Chemicals And Low-Quality Fillers." }] },
+    faqItems: [{ q: "Do You Offer Free Delivery?", a: "Yes, All Orders Above ₹499 Qualify For Free Next-Day Delivery." }],
     services: [
-      { name: "Dog Food", price: "from ₹499", duration: "Next-day", rating: "4.9", img: P.shop1, shortDesc: "Premium kibble and wet food selections for healthy digestion.", desc: "Top brands like Royal Canin, Hill's Science Diet, and organic fresh foods curated by our vets.", includes: ["Vet-approved brands", "Allergy-free formulas", "Next-day home delivery", "Dietary guide card"] },
-      { name: "Treats & Supplements", price: "from ₹249", duration: "Next-day", rating: "4.8", img: P.dog2, shortDesc: "Natural, single-ingredient training treats and joint/skin health supplements.", desc: "High-quality dental chews, dehydrated meat treats, and veterinary-approved multivitamins, calcium, and fish oils to support joint, skin, and immune health.", includes: ["Single-ingredient training treats", "Veterinary joint supplements", "Dental care chews selection", "Omega-3 fish oils", "Next-day home delivery", "Allergy info label guide"] },
-      { name: "Toys", price: "from ₹199", duration: "Next-day", rating: "4.9", img: P.dog4, shortDesc: "Indestructible rubber chew toys, fetch balls, and interactive puzzles.", desc: "Keep your dog active and smart. We stock extremely durable natural rubber toys, puzzle games from Outward Hound, fetch launchers, and squeaker toys.", includes: ["Natural rubber chew toys", "Interactive puzzle games", "High-bounce fetch balls", "Snuggle heartbeat toys", "Fast doorstep delivery", "Safety check verification"] },
-      { name: "Collars & Leashes", price: "from ₹349", duration: "Next-day", rating: "4.8", img: P.train, shortDesc: "Ergonomic no-pull harnesses, nylon leashes, and luxury leather collars.", desc: "Ensure comfortable, safe walks. We offer step-in mesh harnesses, padded anti-pull collars, training leashes, and luxury genuine leather gear in all sizes.", includes: ["No-pull harness selection", "Reflective nylon leashes", "Luxury leather collars", "Car safety belt clips", "Size exchanging support", "Lifetime buckle warranty"] },
-      { name: "Beds & Crates", price: "from ₹1,299", duration: "Next-day", rating: "4.9", img: P.boarding, shortDesc: "Orthopedic memory foam beds, travel crates, and warm blankets.", desc: "Premium sleep solutions for all breeds. Orthopedic foam beds for joint relief, travel-ready double-door metal crates, and ultra-soft washable dog blankets.", includes: ["Memory foam mattress beds", "Washable zip-off covers", "Double-door wire crates", "Ultra-soft dog blankets", "Next-day home delivery", "Sizing advice charts"] },
-      { name: "Grooming Products", price: "from ₹199", duration: "Next-day", rating: "4.7", img: P.groom, shortDesc: "Medicated shampoos, detangling sprays, nail clippers, and slicker brushes.", desc: "Maintain salon results at home. pH-balanced shampoos, detangling conditioners, professional undercoat grooming brushes, and quick-stop nail trimmers.", includes: ["pH-balanced shampoos", "Detangling coat sprays", "Undercoat rake brushes", "Nail clippers & quick care", "Free grooming guide card", "Medicated skin options"] },
-      { name: "Clothing & Extras", price: "from ₹299", duration: "Next-day", rating: "4.8", img: P.dog4, shortDesc: "Winter sweaters, monsoon raincoats, and stylish bandanas.", desc: "Dress your dog for any season. Soft winter jackets, waterproof hood raincoats, customizable cotton birthday bandanas, and booties for hot roads.", includes: ["Warm winter sweaters", "Waterproof raincoats", "Cotton print bandanas", "Road protection booties", "Size exchange service", "Pet-safe dye materials"] },
-      { name: "Training Tools", price: "from ₹149", duration: "Next-day", rating: "4.8", img: P.train, shortDesc: "Training clickers, treat pouches, whistle pipes, and long lines.", desc: "Professional tools to support positive reinforcement training. Ergonomic clickers, magnetic-closing treat bags, dual-tone whistles, and 30ft long lines.", includes: ["Ergonomic pet clickers", "Magnetic treat pouches", "Dual-frequency whistles", "30ft nylon long lines", "Treat-dispenser toys", "Quick-start guide books"] },
-      { name: "ID Tags", price: "from ₹99", duration: "2-3 Days", rating: "4.9", img: P.shop2, shortDesc: "Custom engraved metal name tags with phone numbers and QR codes.", desc: "Ensure they find their way home. Rust-resistant brass and stainless steel tags engraved with your pet's name, two phone numbers, and optional QR-code digital profile.", includes: ["Stainless steel name tags", "Deep laser engraving", "Rust-proof keyring", "QR-code profile activation", "Free shipping across India", "Silencing rubber bands"] },
-      { name: "Travel Accessories", price: "from ₹499", duration: "Next-day", rating: "4.8", img: P.shop2, shortDesc: "Car seat covers, portable water bottles, and travel food bowls.", desc: "Make journeys stress-free. Waterproof car hammock seat covers, one-click locking water squeeze bottles, and collapsible silicone bowls for hikes.", includes: ["Waterproof hammock seat covers", "One-click travel bottles", "Collapsible silicone bowls", "Travel first-aid kit", "Next-day home delivery", "Travel checklist printout"] }
+      { name: "Dog Food", price: "From ₹499", duration: "Next-Day", rating: "4.9", img: P.shop1, shortDesc: "Premium Kibble And Wet Food Selections For Healthy Digestion.", desc: "Top Brands Like Royal Canin, Hill's Science Diet, And Organic Fresh Foods Curated By Our Vets.", includes: ["Vet-approved brands", "Allergy-free formulas", "Next-day home delivery", "Dietary guide card"] },
+      { name: "Treats & Supplements", price: "From ₹249", duration: "Next-Day", rating: "4.8", img: P.dog2, shortDesc: "Natural, Single-Ingredient Training Treats And Joint/Skin Health Supplements.", desc: "High-Quality Dental Chews, Dehydrated Meat Treats, And Veterinary-Approved Multivitamins, Calcium, And Fish Oils To Support Joint, Skin, And Immune Health.", includes: ["Single-ingredient training treats", "Veterinary joint supplements", "Dental care chews selection", "Omega-3 fish oils", "Next-day home delivery", "Allergy info label guide"] },
+      { name: "Toys", price: "From ₹199", duration: "Next-Day", rating: "4.9", img: P.dog4, shortDesc: "Indestructible Rubber Chew Toys, Fetch Balls, And Interactive Puzzles.", desc: "Keep Your Dog Active And Smart. We Stock Extremely Durable Natural Rubber Toys, Puzzle Games From Outward Hound, Fetch Launchers, And Squeaker Toys.", includes: ["Natural rubber chew toys", "Interactive puzzle games", "High-bounce fetch balls", "Snuggle heartbeat toys", "Fast doorstep delivery", "Safety check verification"] },
+      { name: "Collars & Leashes", price: "From ₹349", duration: "Next-Day", rating: "4.8", img: P.train, shortDesc: "Ergonomic No-Pull Harnesses, Nylon Leashes, And Luxury Leather Collars.", desc: "Ensure Comfortable, Safe Walks. We Offer Step-In Mesh Harnesses, Padded Anti-Pull Collars, Training Leashes, And Luxury Genuine Leather Gear In All Sizes.", includes: ["No-pull harness selection", "Reflective nylon leashes", "Luxury leather collars", "Car safety belt clips", "Size exchanging support", "Lifetime buckle warranty"] },
+      { name: "Beds & Crates", price: "From ₹1,299", duration: "Next-Day", rating: "4.9", img: P.boarding, shortDesc: "Orthopedic Memory Foam Beds, Travel Crates, And Warm Blankets.", desc: "Premium Sleep Solutions For All Breeds. Orthopedic Foam Beds For Joint Relief, Travel-Ready Double-Door Metal Crates, And Ultra-Soft Washable Dog Blankets.", includes: ["Memory foam mattress beds", "Washable zip-off covers", "Double-door wire crates", "Ultra-soft dog blankets", "Next-day home delivery", "Sizing advice charts"] },
+      { name: "Grooming Products", price: "From ₹199", duration: "Next-Day", rating: "4.7", img: P.groom, shortDesc: "Medicated Shampoos, Detangling Sprays, Nail Clippers, And Slicker Brushes.", desc: "Maintain Salon Results At Home. PH-Balanced Shampoos, Detangling Conditioners, Professional Undercoat Grooming Brushes, And Quick-Stop Nail Trimmers.", includes: ["pH-balanced shampoos", "Detangling coat sprays", "Undercoat rake brushes", "Nail clippers & quick care", "Free grooming guide card", "Medicated skin options"] },
+      { name: "Clothing & Extras", price: "From ₹299", duration: "Next-Day", rating: "4.8", img: P.dog4, shortDesc: "Winter Sweaters, Monsoon Raincoats, And Stylish Bandanas.", desc: "Dress Your Dog For Any Season. Soft Winter Jackets, Waterproof Hood Raincoats, Customizable Cotton Birthday Bandanas, And Booties For Hot Roads.", includes: ["Warm winter sweaters", "Waterproof raincoats", "Cotton print bandanas", "Road protection booties", "Size exchange service", "Pet-safe dye materials"] },
+      { name: "Training Tools", price: "From ₹149", duration: "Next-Day", rating: "4.8", img: P.train, shortDesc: "Training Clickers, Treat Pouches, Whistle Pipes, And Long Lines.", desc: "Professional Tools To Support Positive Reinforcement Training. Ergonomic Clickers, Magnetic-Closing Treat Bags, Dual-Tone Whistles, And 30Ft Long Lines.", includes: ["Ergonomic pet clickers", "Magnetic treat pouches", "Dual-frequency whistles", "30ft nylon long lines", "Treat-dispenser toys", "Quick-start guide books"] },
+      { name: "ID Tags", price: "From ₹99", duration: "2-3 Days", rating: "4.9", img: P.shop2, shortDesc: "Custom Engraved Metal Name Tags With Phone Numbers And QR Codes.", desc: "Ensure They Find Their Way Home. Rust-Resistant Brass And Stainless Steel Tags Engraved With Your Pet's Name, Two Phone Numbers, And Optional QR-Code Digital Profile.", includes: ["Stainless steel name tags", "Deep laser engraving", "Rust-proof keyring", "QR-code profile activation", "Free shipping across India", "Silencing rubber bands"] },
+      { name: "Travel Accessories", price: "From ₹499", duration: "Next-Day", rating: "4.8", img: P.shop2, shortDesc: "Car Seat Covers, Portable Water Bottles, And Travel Food Bowls.", desc: "Make Journeys Stress-Free. Waterproof Car Hammock Seat Covers, One-Click Locking Water Squeeze Bottles, And Collapsible Silicone Bowls For Hikes.", includes: ["Waterproof hammock seat covers", "One-click travel bottles", "Collapsible silicone bowls", "Travel first-aid kit", "Next-day home delivery", "Travel checklist printout"] }
     ]
   }
 };
@@ -1623,17 +1623,17 @@ function renderServiceCategoryPage(pageId) {
           <h2 class="melody" style="font-size: clamp(36px,4vw,56px); color: var(--color-ink); margin-bottom: 48px; line-height: 1;">Everything you need,<br>in one place.</h2>
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
             ${data.services.map(s => `
-              <div class="card card-lift" style="cursor: pointer; border-top: 3px solid ${data.color};" onclick="openServiceSubPage('${s.name}')">
+              <div class="card card-lift" style="cursor: pointer; border-top: 3px solid ${data.color}; display: flex; flex-direction: column; height: 100%;" onclick="openServiceSubPage('${s.name}')">
                 <div style="height: 180px; overflow: hidden; position: relative;">
                   <img src="${s.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${s.name}">
                   <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,.55); border-radius: 100px; padding: 4px 12px;">
                     <span style="color: #fff; font-size: 12px; font-weight: 600;">${s.price}</span>
                   </div>
                 </div>
-                <div style="padding: 20px 22px;">
+                <div style="padding: 20px 22px; display: flex; flex-direction: column; flex: 1;">
                   <h3 class="melody" style="font-size: 22px; color: var(--color-ink); margin-bottom: 6px;">${s.name}</h3>
                   <p style="font-size: 13px; color: var(--color-ink-sft); line-height: 1.65; margin-bottom: 14px;">${s.shortDesc}</p>
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
                     <span style="font-size: 12px; color: var(--color-orange); font-weight: 600;">⭐ ${s.rating} · ${s.duration}</span>
                     <button class="btn btn-sm btn-primary" onclick="event.stopPropagation(); openServiceSubPage('${s.name}')">Book →</button>
                   </div>
@@ -1656,21 +1656,6 @@ function renderServiceCategoryPage(pageId) {
                 <p style="font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.7;">${p.desc}</p>
               </div>
             `).join('')}
-          </div>
-        </div>
-      </section>
-
-
-      <!-- Bottom Call To Action -->
-      <section style="padding: 60px 0; background: ${data.color};">
-        <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-          <div>
-            <h2 class="melody" style="font-size: 40px; color: #fff; line-height: 1; margin-bottom: 8px;">Ready to book ${data.cat}?</h2>
-            <p style="color: rgba(255,255,255,.7); font-size: 16px;">Certified professionals · Guaranteed satisfaction · Easy booking</p>
-          </div>
-          <div style="display: flex; gap: 12px;">
-            <button class="btn btn-lg" style="background: #fff; color: ${data.color}; font-weight: 700;" onclick="openServiceSubPage('${data.services[0].name}')">Book Now →</button>
-            <button class="btn btn-lg btn-ghost" style="color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.3);" onclick="nav('contact')">Contact Us</button>
           </div>
         </div>
       </section>
@@ -1875,7 +1860,7 @@ function submitAdoptionForm() {
   }
 
   const p = ALL_PETS.find(x => x.id === selectedAdoptPetId);
-  document.getElementById('adopt-success-pet-name').textContent = p ? p.name : 'your pet';
+  document.getElementById('adopt-success-pet-name').textContent = p ? p.name : 'Your Pet';
 
   document.getElementById('adopt-view-form').style.display = 'none';
   document.getElementById('adopt-view-success').style.display = 'block';
@@ -3973,4 +3958,530 @@ window.addEventListener('DOMContentLoaded', () => {
 
   initPage(pageId);
   setupHoverNavigation();
+});
+
+/* ================================================================
+   AI HEALTH CHECK POPUP (MODAL IMPLEMENTATION)
+   ================================================================ */
+window.aiHealthState = {
+  petName: 'Bruno',
+  petType: 'Dog',
+  petBreed: 'Labrador Retriever',
+  petAge: 'Adult',
+  petAgeValue: '3',
+  petAgeUnit: 'Years',
+  petWeight: '15',
+  vaccinated: 'Yes',
+  lastVaccinated: '',
+  symptoms: '',
+  selectedTags: []
+};
+
+function injectAIStyles() {
+  if (document.getElementById('ai-healthcheck-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'ai-healthcheck-styles';
+  style.textContent = `
+    @keyframes ai-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes ai-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.92); opacity: 0.7; }
+    }
+    @keyframes ai-fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes ai-scaleIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+function injectAIHealthCheckModal() {
+  if (document.getElementById('modal-ai-healthcheck')) return;
+  injectAIStyles();
+  const modal = document.createElement('div');
+  modal.id = 'modal-ai-healthcheck';
+  modal.style.cssText = `
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.65);
+    z-index: 1500;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  `;
+  
+  const container = document.createElement('div');
+  container.id = 'ai-healthcheck-container';
+  container.style.cssText = `
+    background: #ffffff;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+    position: relative;
+    animation: ai-scaleIn .28s cubic-bezier(.22,1,.36,1) both;
+    border: 1px solid #E4E4EB;
+  `;
+  
+  modal.appendChild(container);
+  document.body.appendChild(modal);
+}
+
+window.openAIHealthCheck = function() {
+  injectAIHealthCheckModal();
+  const modal = document.getElementById('modal-ai-healthcheck');
+  if (modal) {
+    modal.style.display = 'flex';
+    window.resetAIHealthCheck();
+  }
+};
+
+window.closeAIHealthCheck = function() {
+  const modal = document.getElementById('modal-ai-healthcheck');
+  if (modal) {
+    modal.style.display = 'none';
+    // Clear any active loading interval
+    const container = document.getElementById('ai-healthcheck-container');
+    if (container) {
+      const interval = container.getAttribute('data-loading-interval');
+      if (interval) clearInterval(parseInt(interval));
+    }
+  }
+};
+
+window.resetAIHealthCheck = function() {
+  window.aiHealthState = {
+    petName: 'Bruno',
+    petType: 'Dog',
+    petBreed: 'Labrador Retriever',
+    petAge: 'Adult',
+    petAgeValue: '3',
+    petAgeUnit: 'Years',
+    petWeight: '15',
+    vaccinated: 'Yes',
+    lastVaccinated: '',
+    symptoms: '',
+    selectedTags: []
+  };
+  window.renderAIHealthStep1();
+};
+
+window.selectAIPetType = function(type) {
+  window.aiHealthState.petType = type;
+  window.renderAIHealthStep1();
+};
+
+window.selectAIPetAge = function(age) {
+  window.aiHealthState.petAge = age;
+  window.renderAIHealthStep1();
+};
+
+window.handleAIVaccinatedChange = function(value) {
+  window.aiHealthState.vaccinated = value;
+  const container = document.getElementById('ai-last-vaccinated-container');
+  if (container) {
+    container.style.display = value === 'Yes' ? 'flex' : 'none';
+  }
+};
+
+window.goToAIHealthStep2 = function() {
+  // Save current input values
+  const nameEl = document.getElementById('ai-pet-name');
+  const breedEl = document.getElementById('ai-pet-breed');
+  const ageValEl = document.getElementById('ai-pet-age-value');
+  const ageUnitEl = document.getElementById('ai-pet-age-unit');
+  const weightEl = document.getElementById('ai-pet-weight');
+  const vaccinatedEl = document.getElementById('ai-pet-vaccinated');
+  const lastVaccinatedEl = document.getElementById('ai-pet-last-vaccinated');
+  
+  if (nameEl) window.aiHealthState.petName = nameEl.value.trim() || 'Your Pet';
+  if (breedEl) window.aiHealthState.petBreed = breedEl.value;
+  if (ageValEl) window.aiHealthState.petAgeValue = ageValEl.value;
+  if (ageUnitEl) window.aiHealthState.petAgeUnit = ageUnitEl.value;
+  if (weightEl) window.aiHealthState.petWeight = weightEl.value;
+  if (vaccinatedEl) window.aiHealthState.vaccinated = vaccinatedEl.value;
+  if (lastVaccinatedEl) window.aiHealthState.lastVaccinated = lastVaccinatedEl.value;
+  
+  window.renderAIHealthStep2();
+};
+
+window.toggleAIHealthSymptomTag = function(tag) {
+  const idx = window.aiHealthState.selectedTags.indexOf(tag);
+  if (idx > -1) {
+    window.aiHealthState.selectedTags.splice(idx, 1);
+  } else {
+    window.aiHealthState.selectedTags.push(tag);
+  }
+  window.renderAIHealthStep2();
+};
+
+window.runAIHealthCheckAnalysis = function() {
+  // Save custom symptoms text
+  const textEl = document.getElementById('ai-symptoms-text');
+  if (textEl) window.aiHealthState.symptoms = textEl.value.trim();
+  
+  if (window.aiHealthState.selectedTags.length === 0 && !window.aiHealthState.symptoms.trim()) {
+    alert("Please select at least one symptom or describe what's happening.");
+    return;
+  }
+  
+  window.renderAIHealthLoading();
+  
+  setTimeout(() => {
+    // Clear loading interval
+    const container = document.getElementById('ai-healthcheck-container');
+    if (container) {
+      const interval = container.getAttribute('data-loading-interval');
+      if (interval) clearInterval(parseInt(interval));
+    }
+    
+    // Generate and render report
+    const report = window.generateAIHealthReport();
+    window.renderAIHealthReport(report);
+  }, 2200);
+};
+
+window.renderAIHealthStep1 = function() {
+  const container = document.getElementById('ai-healthcheck-container');
+  if (!container) return;
+  
+  container.innerHTML = `
+    <button onclick="window.closeAIHealthCheck()" style="position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border-radius: 50%; background: #F3F3F5; border: none; font-size: 18px; cursor: pointer; color: #575768; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10;">✕</button>
+    <div style="padding: 36px;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+        <span style="font-size: 24px;">🤖</span>
+        <span style="background: rgba(29, 95, 196, 0.1); color: #1D5FC4; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 100px;">AI Diagnostics</span>
+      </div>
+      <h2 class="melody" style="font-size: 32px; color: #0F0F14; line-height: 1.1; margin-bottom: 8px;">AI Health Symptom Checker</h2>
+      <p style="font-size: 14px; color: #575768; line-height: 1.6; margin-bottom: 28px;">Identify potential issues and get rapid triage recommendations. This tool is for preliminary guidance only.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Pet's Name</label>
+          <input type="text" id="ai-pet-name" placeholder="e.g. Bruno" value="${window.aiHealthState.petName}" style="padding: 12px 16px; border-radius: 12px; border: 1.5px solid #E4E4EB; font-size: 14.5px; outline: none; width: 100%; transition: border-color 0.2s;" onchange="window.aiHealthState.petName = this.value">
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Pet Type</label>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+            ${['Dog'].map(type => {
+              const icons = { Dog: '🐶' };
+              const selected = window.aiHealthState.petType === type;
+              return `
+                <button type="button" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px; border-radius: 12px; border: 2px solid #E55D1A; background: rgba(229, 93, 26, 0.04); cursor: default; transition: all 0.2s;">
+                  <span style="font-size: 24px;">${icons[type]}</span>
+                  <span style="font-size: 13px; font-weight: 600; color: #E55D1A;">${type}</span>
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Life Stage</label>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            ${['Puppy/Kitten', 'Adult', 'Senior'].map(stage => {
+              const selected = window.aiHealthState.petAge === stage;
+              return `
+                <button type="button" onclick="window.selectAIPetAge('${stage}')" style="padding: 10px; border-radius: 12px; border: 2px solid ${selected ? '#E55D1A' : '#E4E4EB'}; background: ${selected ? 'rgba(229, 93, 26, 0.04)' : '#fff'}; cursor: pointer; font-size: 13px; font-weight: 600; color: ${selected ? '#E55D1A' : '#0F0F14'}; transition: all 0.2s;">
+                  ${stage}
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Breed (Optional)</label>
+          <input type="text" id="ai-pet-breed" placeholder="e.g. Labrador Retriever" value="${window.aiHealthState.petBreed}" style="padding: 12px 16px; border-radius: 12px; border: 1.5px solid #E4E4EB; font-size: 14.5px; outline: none; width: 100%;" onchange="window.aiHealthState.petBreed = this.value">
+        </div>
+      </div>
+      
+      <button type="button" onclick="window.goToAIHealthStep2()" style="width: 100%; justify-content: center; background: #E55D1A; color: #fff; font-weight: 700; border-radius: 100px; padding: 14px 28px; border: none; cursor: pointer; font-size: 15px; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">Next: Describe Symptoms →</button>
+    </div>
+  `;
+};
+
+window.renderAIHealthStep2 = function() {
+  const container = document.getElementById('ai-healthcheck-container');
+  if (!container) return;
+  
+  const commonSymptoms = [
+    { text: 'Loss of Appetite', icon: '🥣' },
+    { text: 'Lethargy / Weakness', icon: '💤' },
+    { text: 'Vomiting', icon: '🤮' },
+    { text: 'Diarrhea', icon: '💩' },
+    { text: 'Coughing / Wheezing', icon: '🤧' },
+    { text: 'Limping / Joint Pain', icon: '🐾' },
+    { text: 'Itchy Skin / Scratching', icon: '🦟' },
+    { text: 'Fever / Hot Ears', icon: '🤒' }
+  ];
+
+  container.innerHTML = `
+    <button onclick="window.closeAIHealthCheck()" style="position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border-radius: 50%; background: #F3F3F5; border: none; font-size: 18px; cursor: pointer; color: #575768; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10;">✕</button>
+    <div style="padding: 36px;">
+      <button type="button" onclick="window.renderAIHealthStep1()" style="background: none; border: none; color: #1D5FC4; font-size: 13.5px; font-weight: 700; cursor: pointer; padding: 0; margin-bottom: 20px; display: flex; align-items: center; gap: 4px;">← Back to Profile</button>
+      
+      <h2 class="melody" style="font-size: 30px; color: #0F0F14; line-height: 1.1; margin-bottom: 8px;">What symptoms is ${window.aiHealthState.petName || 'your pet'} showing?</h2>
+      <p style="font-size: 14px; color: #575768; line-height: 1.6; margin-bottom: 24px;">Select the signs below or describe what's happening in your own words.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px;">
+        <div>
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Select Common Symptoms</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            ${commonSymptoms.map(sym => {
+              const selected = window.aiHealthState.selectedTags.includes(sym.text);
+              return `
+                <button type="button" onclick="window.toggleAIHealthSymptomTag('${sym.text}')" style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 100px; border: 1.5px solid ${selected ? '#E55D1A' : '#E4E4EB'}; background: ${selected ? 'rgba(229, 93, 26, 0.06)' : '#fff'}; color: ${selected ? '#E55D1A' : '#575768'}; font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+                  <span>${sym.icon}</span> ${sym.text}
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Describe in Detail</label>
+          <textarea id="ai-symptoms-text" rows="4" placeholder="Describe how your pet behaves, when the symptoms started, or any other details..." style="padding: 14px; border-radius: 12px; border: 1.5px solid #E4E4EB; font-size: 14.5px; outline: none; width: 100%; resize: vertical; font-family: inherit;" onchange="window.aiHealthState.symptoms = this.value">${window.aiHealthState.symptoms}</textarea>
+        </div>
+      </div>
+      
+      <button type="button" onclick="window.runAIHealthCheckAnalysis()" style="width: 100%; justify-content: center; background: #E55D1A; color: #fff; font-weight: 700; border-radius: 100px; padding: 14px 28px; border: none; cursor: pointer; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">
+        Analyze Symptoms ✨
+      </button>
+    </div>
+  `;
+};
+
+window.renderAIHealthLoading = function() {
+  const container = document.getElementById('ai-healthcheck-container');
+  if (!container) return;
+  
+  container.innerHTML = `
+    <div style="padding: 60px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; animation: ai-fadeIn 0.2s;">
+      <div style="position: relative; margin-bottom: 24px; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+        <div style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 4px solid rgba(229, 93, 26, 0.1); border-top-color: #E55D1A; animation: ai-spin 1s linear infinite;"></div>
+        <span style="font-size: 32px; animation: ai-pulse 1.5s ease-in-out infinite;">🩺</span>
+      </div>
+      <h3 class="melody" style="font-size: 24px; color: #0F0F14; margin-bottom: 8px;">AI Analyzing Symptoms</h3>
+      <p id="ai-loading-message" style="font-size: 14.5px; color: #575768; max-width: 340px; line-height: 1.6; height: 44px;">Synthesizing pet health metrics...</p>
+    </div>
+  `;
+
+  // Rotate messages
+  const messages = [
+    "Synthesizing pet health metrics...",
+    "Querying Pawprint clinical database...",
+    "Cross-referencing breed genetic risks...",
+    "Calculating triage urgency level...",
+    "Formulating primary recommendations..."
+  ];
+  let msgIdx = 0;
+  const interval = setInterval(() => {
+    const el = document.getElementById('ai-loading-message');
+    if (el) {
+      msgIdx = (msgIdx + 1) % messages.length;
+      el.textContent = messages[msgIdx];
+    } else {
+      clearInterval(interval);
+    }
+  }, 600);
+
+  // Stop interval on cleanup or step transition
+  container.setAttribute('data-loading-interval', interval.toString());
+};
+
+window.generateAIHealthReport = function() {
+  const name = window.aiHealthState.petName || 'your pet';
+  const type = window.aiHealthState.petType.toLowerCase();
+  const age = window.aiHealthState.petAge.toLowerCase();
+  const breed = window.aiHealthState.petBreed || 'unknown breed';
+  const selectedSymptoms = [...window.aiHealthState.selectedTags];
+  
+  if (window.aiHealthState.symptoms.trim()) {
+    selectedSymptoms.push(window.aiHealthState.symptoms.trim());
+  }
+  
+  let urgency = 'low';
+  let title = '';
+  let color = '#10B981'; // green
+  let bgLight = 'rgba(16, 185, 129, 0.06)';
+  let triageClass = 'LOW RISK / HOME CARE';
+  let desc = '';
+  let causes = [];
+  let tips = [];
+  
+  const text = (window.aiHealthState.symptoms + ' ' + window.aiHealthState.selectedTags.join(' ')).toLowerCase();
+  
+  const emergencyKeywords = ['blood', 'breathing', 'breath', 'choke', 'choking', 'seizure', 'seizures', 'unconscious', 'pale', 'collapsed', 'poison', 'toxic', 'glass', 'hit by car', 'snake'];
+  const modKeywords = ['vomit', 'vomiting', 'diarrhea', 'diarrhoea', 'limp', 'limping', 'lethargy', 'lethargic', 'fever', 'warm ears', 'cough', 'coughing', 'wheeze', 'wheezing'];
+  
+  const hasEmergency = emergencyKeywords.some(kw => text.includes(kw));
+  const hasModerate = modKeywords.some(kw => text.includes(kw));
+  
+  if (hasEmergency || (window.aiHealthState.selectedTags.includes('Vomiting') && window.aiHealthState.selectedTags.includes('Lethargy / Weakness'))) {
+    urgency = 'high';
+    title = 'Urgent Veterinary Examination Recommended';
+    color = '#EF4444'; // red
+    bgLight = 'rgba(239, 68, 68, 0.05)';
+    triageClass = '🚨 HIGH URGENCY';
+    desc = `Based on the reported symptoms for ${name} (${age} ${breed} ${type}), we highly recommend consulting a veterinarian immediately. Signs like severe lethargy, breathing difficulties, or gastrointestinal distress combined with weakness indicate that ${name} requires direct medical triage.`;
+    causes = [
+      "Severe acute gastroenteritis or toxic ingestion",
+      "Systemic infection requiring immediate IV antibiotics",
+      "Hypoglycemia or critical dehydration from fluid loss"
+    ];
+    tips = [
+      "Do NOT administer any human medications (like paracetamol or ibuprofen) as they are highly toxic.",
+      "Remove all access to food for the next 12 hours. Offer small, frequent sips of water or electrolyte solution.",
+      "Keep the pet warm, quiet, and monitor breathing rate. Count breaths per minute while resting (normal is under 30)."
+    ];
+  } else if (hasModerate || selectedSymptoms.length > 1) {
+    urgency = 'moderate';
+    title = 'Veterinary Consultation Advised';
+    color = '#F59E0B'; // orange/yellow
+    bgLight = 'rgba(245, 158, 11, 0.05)';
+    triageClass = '⚠️ MODERATE URGENCY';
+    desc = `${name} is showing multiple symptoms, including ${window.aiHealthState.selectedTags.slice(0, 2).join(' and ') || ' digestive upset'}. For a ${age} ${type}, these signs can lead to moderate dehydration or discomfort. We recommend booking a professional consultation within the next 24-48 hours.`;
+    causes = [
+      "Mild dietary indiscretion or sudden food transition",
+      "Localized allergy or secondary skin/ear infection",
+      "Mild musculoskeletal strain or joint inflammation"
+    ];
+    tips = [
+      "Transition to a bland diet: boiled shredded chicken (without salt, oil, or bones) and white rice for 2-3 meals.",
+      "Monitor food and water intake. Take note of stool consistency and how many times they urinate.",
+      "Limit physical activity. Restrict jumping on sofas or beds, and take only short potty-break walks."
+    ];
+  } else {
+    urgency = 'low';
+    title = 'Home Care & Monitoring';
+    color = '#10B981'; // green
+    bgLight = 'rgba(16, 185, 129, 0.06)';
+    triageClass = '✅ LOW URGENCY';
+    desc = `The symptoms reported for ${name} appear to be low risk at this stage. We recommend monitoring ${name} at home and practicing supportive care. If symptoms persist for more than 48 hours or worsen, seek professional veterinary advice.`;
+    causes = [
+      "Minor environmental allergy or seasonal change irritation",
+      "Self-limiting mild digestive upset",
+      "Temporary fatigue or minor behavioral stress"
+    ];
+    tips = [
+      "Ensure fresh, clean water is accessible at all times.",
+      "Keep the skin/ears clean and dry if scratching is the primary concern.",
+      "Observe closely for any new signs: check if appetite returns, and verify energy levels tomorrow morning."
+    ];
+  }
+
+  return { urgency, title, color, bgLight, triageClass, desc, causes, tips };
+};
+
+window.renderAIHealthReport = function(report) {
+  const container = document.getElementById('ai-healthcheck-container');
+  if (!container) return;
+  
+  const name = window.aiHealthState.petName || 'your pet';
+  
+  container.innerHTML = `
+    <button onclick="window.closeAIHealthCheck()" style="position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border-radius: 50%; background: #F3F3F5; border: none; font-size: 18px; cursor: pointer; color: #575768; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10;">✕</button>
+    <div style="padding: 36px; animation: ai-fadeIn 0.2s;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+        <span style="font-size: 24px;">📋</span>
+        <span style="background: ${report.bgLight}; color: ${report.color}; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 100px; border: 1px solid ${report.color}30; display: inline-block;">${report.triageClass}</span>
+      </div>
+      
+      <h2 class="melody" style="font-size: 28px; color: #0F0F14; line-height: 1.15; margin-bottom: 12px;">${report.title}</h2>
+      <p style="font-size: 14.5px; color: #575768; line-height: 1.7; margin-bottom: 24px;">${report.desc}</p>
+      
+      <!-- Potential Causes -->
+      <div style="background: #F8F8FA; border-radius: 16px; padding: 20px; border: 1px solid #E4E4EB; margin-bottom: 20px;">
+        <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #0F0F14; letter-spacing: 0.05em; margin-bottom: 12px;">Potential Considerations (AI prediction)</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+          ${report.causes.map(c => `
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #575768; line-height: 1.5;">
+              <span style="color: ${report.color}; font-size: 14px; line-height: 1;">•</span>
+              <span>${c}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      
+      <!-- Care Tips -->
+      <div style="background: #F8F8FA; border-radius: 16px; padding: 20px; border: 1px solid #E4E4EB; margin-bottom: 28px;">
+        <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #0F0F14; letter-spacing: 0.05em; margin-bottom: 12px;">Supportive Care & Guidelines</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+          ${report.tips.map(t => `
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #575768; line-height: 1.55;">
+              <span style="width: 16px; height: 16px; border-radius: 50%; background: ${report.color}20; color: ${report.color}; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; flex-shrink: 0; margin-top: 2px;">!</span>
+              <span>${t}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" onclick="window.bookAIHealthVetConsult()" style="width: 100%; justify-content: center; background: #1D5FC4; color: #fff; font-weight: 700; border-radius: 100px; padding: 14px 28px; border: none; cursor: pointer; font-size: 15px; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">
+          📞 Book a Vet Consultation
+        </button>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <button type="button" onclick="window.talkToChatbotAboutSymptom()" style="justify-content: center; font-size: 13.5px; border-radius: 100px; border: 1.5px solid #E4E4EB; background: #fff; color: #575768; font-weight: 600; cursor: pointer; padding: 12px 18px; display: flex; align-items: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#F8F8FA'" onmouseout="this.style.background='#fff'">
+            💬 Talk to Paws AI
+          </button>
+          <button type="button" onclick="window.renderAIHealthStep1()" style="justify-content: center; font-size: 13.5px; font-weight: 600; cursor: pointer; padding: 12px 18px; background: transparent; border: none; color: #1D5FC4; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">
+            🔄 Run New Check
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+window.bookAIHealthVetConsult = function() {
+  window.closeAIHealthCheck();
+  nav('vet');
+};
+
+window.talkToChatbotAboutSymptom = function() {
+  window.closeAIHealthCheck();
+  
+  if (!chatbotOpen) {
+    toggleChatbot();
+  }
+  
+  openChatInput();
+  
+  const pName = window.aiHealthState.petName || 'my pet';
+  const symptomsList = [...window.aiHealthState.selectedTags];
+  if (window.aiHealthState.symptoms.trim()) {
+    symptomsList.push(window.aiHealthState.symptoms.trim());
+  }
+  const query = `Hello! I just ran an AI Health Check for my ${window.aiHealthState.petType.toLowerCase()} ${pName} (${window.aiHealthState.petAge} ${window.aiHealthState.petBreed}). Symptoms: ${symptomsList.join(', ')}. Can you help me?`;
+  
+  sendQuickQuery(query);
+};
+
+// Global DOM delegation to intercept clicks on any "Try AI Health Check" buttons
+document.addEventListener('click', (e) => {
+  let target = e.target;
+  while (target && target !== document.body) {
+    if (target.tagName === 'BUTTON' && target.textContent.includes('Try AI Health Check')) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.openAIHealthCheck();
+      break;
+    }
+    target = target.parentNode;
+  }
 });

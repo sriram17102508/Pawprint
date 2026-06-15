@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 
 /* ================================================================
    PAWPRINT  —  Complete Website  v3
@@ -355,7 +355,7 @@ function Img({ src, alt = "", style = {}, className = "" }) {
   if (err) return (
     <div style={{ background: C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", color: C.sand, fontSize: 32, ...style }}>🐾</div>
   );
-  return <img src={src} alt={alt} style={style} className={className} onError={() => setErr(true)} />;
+  Return <img src={src} alt={alt} style={style} className={className} onError={() => setErr(true)} />;
 }
 
 // ── Marquee ───────────────────────────────────────────────────────
@@ -423,7 +423,7 @@ function Navbar({ page, nav }) {
         { label: "Nail Clipping", page: "svc-grooming" },
         { label: "Ear Cleaning", page: "svc-grooming" },
         { label: "Teeth Brushing", page: "svc-grooming" },
-        { label: "De-shedding Treatment", page: "svc-grooming" },
+        { label: "De-Shedding Treatment", page: "svc-grooming" },
         { label: "Flea Bath", page: "svc-grooming" },
         { label: "Paw Care", page: "svc-grooming" },
         { label: "Skin & Coat Treatment", page: "svc-grooming" },
@@ -479,7 +479,7 @@ function Navbar({ page, nav }) {
         { label: "Breeding Consultation", page: "svc-specialty" },
         { label: "Pregnancy & Whelping Care", page: "svc-specialty" },
         { label: "Rehabilitation Therapy", page: "svc-specialty" },
-        { label: "Hospice & End-of-Life Care", page: "svc-specialty" },
+        { label: "Hospice & End-Of-Life Care", page: "svc-specialty" },
         { label: "Pet Photography", page: "svc-specialty" },
         { label: "Dog Events & Parties", page: "svc-specialty" },
         { label: "Emotional Support Dog Assistance", page: "svc-specialty" },
@@ -695,6 +695,7 @@ function Navbar({ page, nav }) {
 function HomePage({ nav }) {
   const [faq, setFaq] = useState(null);
   const [activeTesti, setActiveTesti] = useState(0);
+  const [showAIHealthCheck, setShowAIHealthCheck] = useState(false);
 
   const stats = [
     { to: 45000, suf: "+", label: "Happy Pets" },
@@ -704,9 +705,9 @@ function HomePage({ nav }) {
   ];
 
   const features = [
-    { icon: "🏥", title: "Veterinary Care", sub: "Book certified vets — home, clinic, or video.", color: C.blue, page: "vet", img: P.vet1 },
-    { icon: "✂️", title: "Grooming", sub: "Professional grooming with pickup & drop.", color: C.green, page: "services", img: P.groom },
-    { icon: "🎓", title: "Training", sub: "Certified trainers using positive methods.", color: C.orange, page: "services", img: P.train },
+    { icon: "🏥", title: "Veterinary Care", sub: "Book Certified Vets — Home, Clinic, Or Video.", color: C.blue, page: "vet", img: P.vet1 },
+    { icon: "✂️", title: "Grooming", sub: "Professional Grooming With Pickup & Drop.", color: C.green, page: "services", img: P.groom },
+    { icon: "🎓", title: "Training", sub: "Certified Trainers Using Positive Methods.", color: C.orange, page: "services", img: P.train },
   ];
 
   const adoptPets = [
@@ -723,11 +724,11 @@ function HomePage({ nav }) {
   ];
 
   const faqs = [
-    { q: "How does pet adoption work?", a: "Browse verified shelter listings, apply online, meet the pet, and complete adoption paperwork with our guidance — typically 3–5 business days." },
-    { q: "Can I consult a vet online?", a: "Yes. Our video consultation connects you with licensed vets 24/7. For emergencies we also offer rapid in-home vet dispatch." },
-    { q: "Is there a free plan?", a: "Yes — free tier includes one pet profile, community access, and basic vet listings. Premium unlocks AI tools, unlimited bookings, and shop discounts." },
-    { q: "Which cities is Pawprint in?", a: "Currently live in 85+ cities across India, including all metros and major Tier-2 cities." },
-    { q: "How does the AI health assistant work?", a: "Describe your pet's symptoms in plain language. Our AI provides an initial triage and recommends next steps — always encouraging a real vet for anything serious." },
+    { q: "How Does Pet Adoption Work?", a: "Browse Verified Shelter Listings, Apply Online, Meet The Pet, And Complete Adoption Paperwork With Our Guidance — Typically 3–5 Business Days." },
+    { q: "Can I Consult A Vet Online?", a: "Yes. Our Video Consultation Connects You With Licensed Vets 24/7. For Emergencies We Also Offer Rapid In-Home Vet Dispatch." },
+    { q: "Is There A Free Plan?", a: "Yes — Free Tier Includes One Pet Profile, Community Access, And Basic Vet Listings. Premium Unlocks AI Tools, Unlimited Bookings, And Shop Discounts." },
+    { q: "Which Cities Is Pawprint In?", a: "Currently Live In 85+ Cities Across India, Including All Metros And Major Tier-2 Cities." },
+    { q: "How Does The AI Health Assistant Work?", a: "Describe Your Pet's Symptoms In Plain Language. Our AI Provides An Initial Triage And Recommends Next Steps — Always Encouraging A Real Vet For Anything Serious." },
   ];
 
   const StatItem = ({ to, suf, label }) => {
@@ -809,7 +810,7 @@ function HomePage({ nav }) {
               maxWidth: 380,
               marginBottom: 40,
             }}>
-              Adoption, healthcare, grooming, training, and AI-powered pet management — all in one place for 45,000+ pet families across India.
+              Adoption, Healthcare, Grooming, Training, And AI-Powered Pet Management - All In One Place For 17,000+ Pet Families Across India.
             </p>
 
             {/* CTAs */}
@@ -938,7 +939,7 @@ function HomePage({ nav }) {
                 fontSize: 16, flexShrink: 0,
               }}>🐾</div>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: C.ink, lineHeight: 1 }}>New adoption</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: C.ink, lineHeight: 1 }}>New Adoption</div>
                 <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2 }}>Bruno · Labrador · Coimbatore</div>
               </div>
             </div>
@@ -962,7 +963,7 @@ function HomePage({ nav }) {
                 background: "#22C55E", flexShrink: 0,
               }} />
               <span style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,.9)" }}>
-                1,200+ vets online now
+                1,200+ Vets Online Now
               </span>
             </div>
 
@@ -1046,9 +1047,9 @@ function HomePage({ nav }) {
             <div style={{ position: "sticky", top: 88 }}>
               <div className="pill pill-dark" style={{ marginBottom: 20 }}>What We Offer</div>
               <h2 className="melody" style={{ fontSize: "clamp(34px,3.5vw,50px)", fontWeight: 700, lineHeight: 1.05, color: C.ink, marginBottom: 20 }}>
-                Every kind of care, one platform.
+                Every Kind Of Care, One Platform.
               </h2>
-              <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.8, marginBottom: 28 }}>From the day you bring your pet home to every vet visit and grooming session — Pawprint is there.</p>
+              <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.8, marginBottom: 28 }}>From The Day You Bring Your Pet Home To Every Vet Visit And Grooming Session — Pawprint Is There.</p>
               <button className="btn btn-md btn-primary" onClick={() => nav("services")}>All Services →</button>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -1080,8 +1081,8 @@ function HomePage({ nav }) {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56 }}>
             <div>
-              <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.65)", marginBottom: 20 }}>🐾 Open for Adoption</div>
-              <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,58px)", fontWeight: 700, color: "#fff", lineHeight: 1 }}>Find your<br />perfect match.</h2>
+              <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.65)", marginBottom: 20 }}>🐾 Open For Adoption</div>
+              <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,58px)", fontWeight: 700, color: "#fff", lineHeight: 1 }}>Find Your<br />Perfect Match.</h2>
             </div>
             <button className="btn btn-md btn-ghost" onClick={() => nav("adopt")} style={{ color: "rgba(255,255,255,.65)", borderColor: "rgba(255,255,255,.2)" }}>View All Pets →</button>
           </div>
@@ -1126,14 +1127,14 @@ function HomePage({ nav }) {
             </div>
             <div style={{ position: "absolute", bottom: "30%", left: "26%", background: C.white, borderRadius: 16, padding: "16px 20px", boxShadow: "0 16px 48px rgba(0,0,0,.13)", border: `1px solid ${C.border}`, minWidth: 180, animation: "float 5s ease-in-out infinite" }}>
               <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: C.blue, marginBottom: 6 }}>🤖 AI Analysis</div>
-              <div style={{ fontWeight: 700, fontSize: 14, color: C.ink }}>No anomalies detected</div>
-              <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2 }}>Health score: <strong style={{ color: "#22C55E" }}>96/100</strong></div>
+              <div style={{ fontWeight: 700, fontSize: 14, color: C.ink }}>No Anomalies Detected</div>
+              <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2 }}>Health Score: <strong style={{ color: "#22C55E" }}>96/100</strong></div>
             </div>
           </div>
           <div>
-            <div className="pill pill-blue" style={{ marginBottom: 24 }}>🤖 Powered by AI</div>
-            <h2 className="melody" style={{ fontSize: "clamp(32px,3.5vw,50px)", fontWeight: 700, lineHeight: 1.05, color: C.ink, marginBottom: 24 }}>Your pet's health,<br />intelligently watched.</h2>
-            <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.8, marginBottom: 36 }}>Our AI health assistant analyzes symptoms, predicts risks based on breed genetics, and sends smart reminders — so you're always one step ahead.</p>
+            <div className="pill pill-blue" style={{ marginBottom: 24 }}>🤖 Powered By AI</div>
+            <h2 className="melody" style={{ fontSize: "clamp(32px,3.5vw,50px)", fontWeight: 700, lineHeight: 1.05, color: C.ink, marginBottom: 24 }}>Your Pet's Health,<br />Intelligently Watched.</h2>
+            <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.8, marginBottom: 36 }}>Our AI Health Assistant Analyzes Symptoms, Predicts Risks Based On Breed Genetics, And Sends Smart Reminders — So You're Always One Step Ahead.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 36 }}>
               {[
                 { icon: "🔬", t: "AI Symptom Checker", d: "Describe symptoms in plain language, get instant triage." },
@@ -1150,7 +1151,7 @@ function HomePage({ nav }) {
                 </div>
               ))}
             </div>
-            <button className="btn btn-md btn-primary">Try AI Health Check →</button>
+            <button className="btn btn-md btn-primary" onClick={() => setShowAIHealthCheck(true)}>Try AI Health Check →</button>
           </div>
         </div>
       </section>
@@ -1161,7 +1162,7 @@ function HomePage({ nav }) {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56 }}>
             <div>
               <div className="pill pill-orange" style={{ marginBottom: 20 }}>Testimonials</div>
-              <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,54px)", fontWeight: 700, lineHeight: 1, color: C.ink }}>Loved by<br />pet parents.</h2>
+              <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,54px)", fontWeight: 700, lineHeight: 1, color: C.ink }}>Loved By<br />Pet Parents.</h2>
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               {testis.map((_, i) => (
@@ -1219,9 +1220,9 @@ function HomePage({ nav }) {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", position: "relative", zIndex: 2 }}>
           <div>
             <h2 className="melody-italic" style={{ fontSize: "clamp(40px,5vw,70px)", fontWeight: 700, color: "#fff", lineHeight: .93, marginBottom: 24 }}>
-              Your pet<br />deserves<br />the best.
+              Your Pet<br />Deserves<br />The Best.
             </h2>
-            <p style={{ fontSize: 17, color: "rgba(255,255,255,.5)", lineHeight: 1.75, marginBottom: 36 }}>Join 45,000 pet parents across India who trust Pawprint for everything their animals need.</p>
+            <p style={{ fontSize: 17, color: "rgba(255,255,255,.5)", lineHeight: 1.75, marginBottom: 36 }}>Join 45,000 Pet Parents Across India Who Trust Pawprint For Everything Their Animals Need.</p>
             <div style={{ display: "flex", gap: 14 }}>
               <button className="btn btn-lg btn-primary" onClick={() => nav("signup")}>Get Started Free →</button>
               <button className="btn btn-lg btn-ghost" style={{ color: "rgba(255,255,255,.55)", borderColor: "rgba(255,255,255,.18)" }}>Watch Demo</button>
@@ -1242,7 +1243,7 @@ function HomePage({ nav }) {
         <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <div className="pill pill-dark" style={{ marginBottom: 12 }}>FAQ</div>
-            <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 700, color: C.ink }}>Questions, answered.</h2>
+            <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 700, color: C.ink }}>Questions, Answered.</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             {faqs.slice(0, 5).map((f, i) => (
@@ -1274,18 +1275,18 @@ function AboutPage({ nav }) {
 
   /* ── Data ────────────────────────────────────────────────────── */
   const milestones = [
-    { year: "2023", title: "Born from Love (Idea)", desc: "Frustrated by disconnected records and hard-to-reach vet clinics, Dr. Sriram and Sharmila sketch a blueprint of Pawprint on a napkin." },
-    { year: "2024", title: "Execution & Launch", desc: "Making the dream a reality. Launched pet onboarding, verified vet directory, and custom shelters. Expanded to 100+ Indian cities." },
-    { year: "2025", title: "Expanding India-Wide", desc: "Scaling nationwide. Expanding verified veterinary consultation, emergency care, and custom adoption shelters to every tier-1 and tier-2 city in India." },
-    { year: "2026", title: "Shining Future", desc: "Leading with intelligence. Scaling our AI-driven disease predictors, smart feeding calculators, and predictive vet monitoring." },
+    { year: "2023", title: "Born From Love (Idea)", desc: "Frustrated By Disconnected Records And Hard-To-Reach Vet Clinics, Dr. Sriram And Sharmila Sketch A Blueprint Of Pawprint On A Napkin." },
+    { year: "2024", title: "Execution & Launch", desc: "Making The Dream A Reality. Launched Pet Onboarding, Verified Vet Directory, And Custom Shelters. Expanded To 100+ Indian Cities." },
+    { year: "2025", title: "Expanding India-Wide", desc: "Scaling Nationwide. Expanding Verified Veterinary Consultation, Emergency Care, And Custom Adoption Shelters To Every Tier-1 And Tier-2 City In India." },
+    { year: "2026", title: "Shining Future", desc: "Leading With Intelligence. Scaling Our AI-Driven Disease Predictors, Smart Feeding Calculators, And Predictive Vet Monitoring." },
   ];
 
   const values = [
-    { icon: "🐾❤️", title: "Compassion First", desc: "Every product decision, every hire, every partnership - animal welfare always comes first.", bg: "#FEF2F2", border: "#FCA5A5", accent: "#EF4444", shadowRgb: "239, 68, 68" },
-    { icon: "🦮🔬", title: "Science-Backed", desc: "We partner with leading veterinary institutions and never recommend what isn't evidence-based.", bg: "#EFF6FF", border: "#BFDBFE", accent: "#3B82F6", shadowRgb: "59, 130, 246" },
-    { icon: "🐕🔍", title: "Radical Transparency", desc: "Open pricing, honest advice, and no hidden fees - ever. What you see is exactly what you get.", bg: "#FFFBEB", border: "#FDE68A", accent: "#D97706", shadowRgb: "217, 119, 6" },
-    { icon: "🌱🐾", title: "Sustainability", desc: "Eco-conscious products, paperless records, and carbon-offset delivery on all shop orders.", bg: "#F0FDF4", border: "#BBF7D0", accent: "#22C55E", shadowRgb: "34, 197, 94" },
-    { icon: "🐩🐺", title: "Community", desc: "We're building a nation of confident, informed, and responsible pet parents - one family at a time.", bg: "#FAF5FF", border: "#E9D5FF", accent: "#8B5CF6", shadowRgb: "139, 92, 246" },
+    { icon: "🐾❤️", title: "Compassion First", desc: "Every Product Decision, Every Hire, Every Partnership - Animal Welfare Always Comes First.", bg: "#FEF2F2", border: "#FCA5A5", accent: "#EF4444", shadowRgb: "239, 68, 68" },
+    { icon: "🦮🔬", title: "Science-Backed", desc: "We Partner With Leading Veterinary Institutions And Never Recommend What Isn't Evidence-Based.", bg: "#EFF6FF", border: "#BFDBFE", accent: "#3B82F6", shadowRgb: "59, 130, 246" },
+    { icon: "🐕🔍", title: "Radical Transparency", desc: "Open Pricing, Honest Advice, And No Hidden Fees - Ever. What You See Is Exactly What You Get.", bg: "#FFFBEB", border: "#FDE68A", accent: "#D97706", shadowRgb: "217, 119, 6" },
+    { icon: "🌱🐾", title: "Sustainability", desc: "Eco-Conscious Products, Paperless Records, And Carbon-Offset Delivery On All Shop Orders.", bg: "#F0FDF4", border: "#BBF7D0", accent: "#22C55E", shadowRgb: "34, 197, 94" },
+    { icon: "🐩🐺", title: "Community", desc: "We're Building A Nation Of Confident, Informed, And Responsible Pet Parents - One Family At A Time.", bg: "#FAF5FF", border: "#E9D5FF", accent: "#8B5CF6", shadowRgb: "139, 92, 246" },
   ];
 
   const leadership = [
@@ -1343,12 +1344,12 @@ function AboutPage({ nav }) {
           </div>
 
           <h1 className="melody" style={{ fontSize: "clamp(58px,7.5vw,110px)", color: "#fff", lineHeight: .9, marginBottom: 28, maxWidth: 900 }}>
-            Born from love.<br />
-            <span style={{ color: C.orange }}>Built for pets.</span>
+            Born From Love.<br />
+            <span style={{ color: C.orange }}>Built For Pets.</span>
           </h1>
 
           <p style={{ fontSize: 19, color: "rgba(255,255,255,.7)", lineHeight: 1.75, maxWidth: 580, marginBottom: 44 }}>
-            Pawprint started when Dr. Kiran couldn't find a single trusted platform to manage his three rescue dogs. That frustration became a mission — and that mission became India's most loved pet care platform.
+            Pawprint Started When Dr. Kiran Couldn't Find A Single Trusted Platform To Manage His Three Rescue Dogs. That Frustration Became A Mission — And That Mission Became India's Most Loved Pet Care Platform.
           </p>
 
           {/* Inline stats */}
@@ -1374,16 +1375,16 @@ function AboutPage({ nav }) {
                 The Origin Story
               </div>
               <h2 className="melody" style={{ fontSize: "clamp(38px,4vw,58px)", color: C.ink, lineHeight: .95, marginBottom: 28 }}>
-                A vet, an engineer,<br />and a rescue dog<br />named Diesel.
+                A Vet, An Engineer,<br />And A Rescue Dog<br />Named Diesel.
               </h2>
               <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.85, marginBottom: 20 }}>
-                In 2019, Dr. Kiran Patel's rescue Labrador Diesel developed a kidney condition that went undetected for months — not because good vets didn't exist, but because there was no single, trusted platform to book them, track health records, or even get a timely reminder.
+                In 2019, Dr. Kiran Patel's Rescue Labrador Diesel Developed A Kidney Condition That Went Undetected For Months — Not Because Good Vets Didn't Exist, But Because There Was No Single, Trusted Platform To Book Them, Track Health Records, Or Even Get A Timely Reminder.
               </p>
               <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.85, marginBottom: 20 }}>
-                Dr. Kiran called his college friend Sneha Krishnamurthy, then a machine learning engineer at Google. They sketched Pawprint on a napkin that night. Six months later, they both quit their jobs. Arjun Mehta joined soon after, bringing operational scale from his years at Swiggy.
+                Dr. Kiran Called His College Friend Sneha Krishnamurthy, Then A Machine Learning Engineer At Google. They Sketched Pawprint On A Napkin That Night. Six Months Later, They Both Quit Their Jobs. Arjun Mehta Joined Soon After, Bringing Operational Scale From His Years At Swiggy.
               </p>
               <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.85 }}>
-                Today Pawprint serves 45,000+ pets across 85+ cities — but the mission hasn't changed. Every decision, every feature, every hire still comes back to the same question: <em style={{ color: C.ink, fontStyle: "italic" }}>does this make life better for pets and the people who love them?</em>
+                Today Pawprint Serves 45,000+ Pets Across 85+ Cities — But The Mission Hasn't Changed. Every Decision, Every Feature, Every Hire Still Comes Back To The Same Question: <em style={{ color: C.ink, fontStyle: "italic" }}>Does This Make Life Better For Pets And The People Who Love Them?</em>
               </p>
             </div>
 
@@ -1396,11 +1397,11 @@ function AboutPage({ nav }) {
                   <div style={{ width: 44, height: 44, borderRadius: 12, background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>🎯</div>
                   <div>
                     <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange, marginBottom: 4 }}>Our Mission</div>
-                    <div className="melody" style={{ fontSize: 15, color: C.inkSft, letterSpacing: ".03em" }}>Why we exist</div>
+                    <div className="melody" style={{ fontSize: 15, color: C.inkSft, letterSpacing: ".03em" }}>Why We Exist</div>
                   </div>
                 </div>
                 <p style={{ fontSize: 17, color: C.ink, lineHeight: 1.75, fontWeight: 500 }}>
-                  To make world-class pet care accessible, affordable, and joyful for every pet family in India — from the smallest hamlet to the largest city.
+                  To Make World-Class Pet Care Accessible, Affordable, And Joyful For Every Pet Family In India — From The Smallest Hamlet To The Largest City.
                 </p>
               </div>
 
@@ -1411,11 +1412,11 @@ function AboutPage({ nav }) {
                   <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(255,255,255,.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>🌟</div>
                   <div>
                     <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.blue, marginBottom: 4 }}>Our Vision</div>
-                    <div className="melody" style={{ fontSize: 15, color: "rgba(255,255,255,.45)", letterSpacing: ".03em" }}>Where we're going</div>
+                    <div className="melody" style={{ fontSize: 15, color: "rgba(255,255,255,.45)", letterSpacing: ".03em" }}>Where We're Going</div>
                   </div>
                 </div>
                 <p style={{ fontSize: 17, color: "rgba(255,255,255,.85)", lineHeight: 1.75, fontWeight: 500 }}>
-                  A world where no pet goes without proper healthcare, no animal waits too long for adoption, and every pet parent has the confidence to give their very best.
+                  A World Where No Pet Goes Without Proper Healthcare, No Animal Waits Too Long For Adoption, And Every Pet Parent Has The Confidence To Give Their Very Best.
                 </p>
               </div>
             </div>
@@ -1430,10 +1431,10 @@ function AboutPage({ nav }) {
             Our Values
           </div>
           <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,54px)", color: C.ink, lineHeight: .95, marginBottom: 20 }}>
-            What we stand for.
+            What We Stand For.
           </h2>
           <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.8, maxWidth: 600, margin: "0 auto 52px" }}>
-            These five principles aren't wall decor. They're the filter every decision at Pawprint passes through.
+            These Five Principles Aren't Wall Decor. They're The Filter Every Decision At Pawprint Passes Through.
           </p>
 
           <div className="values-grid">
@@ -1473,7 +1474,7 @@ function AboutPage({ nav }) {
             Our Journey
           </div>
           <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: "#fff", lineHeight: .95, marginBottom: 64 }}>
-            Four years.<br />One relentless mission.
+            Four Years.<br />One Relentless Mission.
           </h2>
 
           {/* Timeline — horizontal line with cards */}
@@ -1525,10 +1526,10 @@ function AboutPage({ nav }) {
                 Leadership
               </div>
               <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: C.ink, lineHeight: .95 }}>
-                The founders<br />behind Pawprint.
+                The Founders<br />Behind Pawprint.
               </h2>
             </div>
-            <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.8, maxWidth: 360 }}>Three people who left stable careers to build something they believed the world needed.</p>
+            <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.8, maxWidth: 360 }}>Three People Who Left Stable Careers To Build Something They Believed The World Needed.</p>
           </div>
 
           {/* Side-by-side founders cards grid */}
@@ -1567,7 +1568,7 @@ function AboutPage({ nav }) {
                     }}
                       onMouseEnter={e => e.currentTarget.style.borderColor = C.orange}
                       onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>
-                      <span style={{ fontWeight: 800, fontFamily: "sans-serif", marginRight: 4, fontSize: 13 }}>in</span> View LinkedIn Profile
+                      <span style={{ fontWeight: 800, fontFamily: "sans-serif", marginRight: 4, fontSize: 13 }}>In</span> View LinkedIn Profile
                     </button>
                   </div>
                 </div>
@@ -1585,10 +1586,10 @@ function AboutPage({ nav }) {
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48, flexWrap: "wrap", gap: 16 }}>
             <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", color: C.ink, lineHeight: .95 }}>
-              The people who make<br />it happen every day.
+              The People Who Make<br />It Happen Every Day.
             </h2>
             <p style={{ fontSize: 15, color: C.inkSft, maxWidth: 360, lineHeight: 1.75 }}>
-              A 120-person team of vets, engineers, designers, and dog lovers — united by one mission.
+              A 120-Person Team Of Vets, Engineers, Designers, And Dog Lovers — United By One Mission.
             </p>
           </div>
         </div>
@@ -1621,8 +1622,8 @@ function AboutPage({ nav }) {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ marginTop: 48, padding: "44px 48px", borderRadius: 24, background: C.ink, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
             <div>
-              <div className="melody" style={{ fontSize: 32, color: "#fff", lineHeight: 1, marginBottom: 8 }}>We're hiring.</div>
-              <p style={{ fontSize: 15, color: "rgba(255,255,255,.55)", lineHeight: 1.7 }}>Open roles in Engineering, Veterinary Ops, Design, and Growth. Remote-friendly.</p>
+              <div className="melody" style={{ fontSize: 32, color: "#fff", lineHeight: 1, marginBottom: 8 }}>We're Hiring.</div>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,.55)", lineHeight: 1.7 }}>Open Roles In Engineering, Veterinary Ops, Design, And Growth. Remote-Friendly.</p>
             </div>
             <div style={{ display: "flex", gap: 12 }}>
               <button className="btn btn-lg btn-primary" onClick={() => nav("contact")}>View Open Roles →</button>
@@ -1663,7 +1664,7 @@ function AboutPage({ nav }) {
               <svg width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <text x="0" y="18" fill="var(--color-sand)" fontFamily="Georgia, serif" fontWeight="bold" fontSize="20" fontStyle="italic" letterSpacing="-0.5">Forbes</text>
               </svg>
-              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Ones to Watch 2023</div>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Ones To Watch 2023</div>
             </div>
 
             {/* Economic Times */}
@@ -1671,7 +1672,7 @@ function AboutPage({ nav }) {
               <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <text x="0" y="18" fill="var(--color-sand)" fontFamily="sans-serif" fontWeight="900" fontSize="16" letterSpacing="1">THE ECONOMIC TIMES</text>
               </svg>
-              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Startup of the Year 2024</div>
+              <div style={{ fontSize: 11, fontWeight: 600, color: C.sand, textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.3 }}>Startup Of The Year 2024</div>
             </div>
 
             {/* NASSCOM */}
@@ -1696,57 +1697,57 @@ function ServicesPage({ nav }) {
   const cats = [
     {
       icon: "🏥", name: "Health & Care", page: "svc-health", color: C.blue, img: P.vet1,
-      price: "from ₹149",
-      tagline: "Expert medical care for every stage of life.",
-      desc: "From routine checkups and vaccinations to emergency surgeries and physiotherapy — our 1,200+ certified vets have every health need covered.",
+      price: "From ₹149",
+      tagline: "Expert Medical Care For Every Stage Of Life.",
+      desc: "From Routine Checkups And Vaccinations To Emergency Surgeries And Physiotherapy — Our 1,200+ Certified Vets Have Every Health Need Covered.",
       highlights: ["General Checkups", "Vaccinations", "Emergency Care", "Surgery", "Dental Care", "Puppy & Senior Care"],
       stats: [["1,200+", "Certified Vets"], ["24/7", "Emergency"], ["4.9★", "Rating"]],
     },
     {
       icon: "✂️", name: "Grooming & Hygiene", page: "svc-grooming", color: C.green, img: P.groom,
-      price: "from ₹149",
-      tagline: "Professional pampering, every time.",
-      desc: "Certified groomers, premium cruelty-free products, and free pickup & drop — so your pet always walks out looking (and smelling) incredible.",
+      price: "From ₹149",
+      tagline: "Professional Pampering, Every Time.",
+      desc: "Certified Groomers, Premium Cruelty-Free Products, And Free Pickup & Drop — So Your Pet Always Walks Out Looking (And Smelling) Incredible.",
       highlights: ["Full Grooming", "Bath & Blow Dry", "Nail Clipping", "De-shedding", "Flea Bath", "Skin & Coat Treatment"],
       stats: [["500+", "Groomers"], ["Pickup", "& Drop Free"], ["4.9★", "Rating"]],
     },
     {
       icon: "🎓", name: "Training & Behavior", page: "svc-training", color: C.orange, img: P.train,
-      price: "from ₹799/mo",
-      tagline: "Force-free training that actually works.",
-      desc: "CPDT-certified trainers using only positive reinforcement — from basic puppy commands to advanced obedience, behavioural correction, and therapy dog preparation.",
+      price: "From ₹799/Mo",
+      tagline: "Force-Free Training That Actually Works.",
+      desc: "CPDT-Certified Trainers Using Only Positive Reinforcement — From Basic Puppy Commands To Advanced Obedience, Behavioural Correction, And Therapy Dog Preparation.",
       highlights: ["Puppy Training", "Obedience Training", "Behavioral Correction", "Aggression Management", "Therapy Dog Training", "Leash Training"],
       stats: [["200+", "Trainers"], ["98%", "Success Rate"], ["Force-Free", "Methods"]],
     },
     {
       icon: "🏠", name: "Boarding & Sitting", page: "svc-boarding", color: "#7C3AED", img: P.boarding,
-      price: "from ₹299/visit",
-      tagline: "Safe, loving care when you can't be there.",
-      desc: "CCTV-monitored facilities, background-checked home sitters, cage-free options, and daily photo updates — your pet is always in the best hands.",
+      price: "From ₹299/Visit",
+      tagline: "Safe, Loving Care When You Can't Be There.",
+      desc: "CCTV-Monitored Facilities, Background-Checked Home Sitters, Cage-Free Options, And Daily Photo Updates — Your Pet Is Always In The Best Hands.",
       highlights: ["Dog Boarding", "Luxury Boarding", "Dog Daycare", "Pet Sitting", "Cage-Free Boarding", "Puppy Daycare"],
       stats: [["CCTV", "24/7"], ["Daily", "Updates"], ["4.9★", "Rating"]],
     },
     {
       icon: "🏃", name: "Activity & Lifestyle", page: "svc-activity", color: "#D97706", img: P.dog3,
-      price: "from ₹199/walk",
-      tagline: "Active pets are happy pets.",
-      desc: "GPS-tracked walks, canine fitness programmes, adventure hikes, swimming sessions, and outdoor socialisation — keeping your dog physically and mentally thriving.",
+      price: "From ₹199/Walk",
+      tagline: "Active Pets Are Happy Pets.",
+      desc: "GPS-Tracked Walks, Canine Fitness Programmes, Adventure Hikes, Swimming Sessions, And Outdoor Socialisation — Keeping Your Dog Physically And Mentally Thriving.",
       highlights: ["Dog Walking", "Exercise Sessions", "Adventure Walks", "Swimming Sessions", "Hiking Trips", "Dog Park Visits"],
       stats: [["GPS", "Every Walk"], ["Insured", "Walkers"], ["10K+", "Walks Done"]],
     },
     {
       icon: "⭐", name: "Specialty Services", page: "svc-specialty", color: C.red, img: P.about1,
       price: "Varies",
-      tagline: "Unique care for life's special moments.",
-      desc: "From pet photography and dog parties to hospice care, microchipping, pet relocation, and emotional support dog training — specialised services for when standard isn't enough.",
+      tagline: "Unique Care For Life's Special Moments.",
+      desc: "From Pet Photography And Dog Parties To Hospice Care, Microchipping, Pet Relocation, And Emotional Support Dog Training — Specialised Services For When Standard Isn't Enough.",
       highlights: ["Pet Photography", "Microchipping", "Pet Relocation", "Dog Events & Parties", "Hospice Care", "Rehabilitation Therapy"],
       stats: [["Specialist", "Team"], ["100%", "Compassionate"], ["5,000+", "Families Helped"]],
     },
     {
       icon: "🛍️", name: "Retail & Extras", page: "svc-retail", color: "#0EA5E9", img: P.shop1,
-      price: "from ₹99",
-      tagline: "Everything your pet needs, curated by vets.",
-      desc: "Premium food, toys, accessories, grooming products, training tools, and travel essentials — vet-reviewed and delivered fast.",
+      price: "From ₹99",
+      tagline: "Everything Your Pet Needs, Curated By Vets.",
+      desc: "Premium Food, Toys, Accessories, Grooming Products, Training Tools, And Travel Essentials — Vet-Reviewed And Delivered Fast.",
       highlights: ["Dog Food", "Toys", "Collars & Leashes", "Grooming Products", "Training Tools", "Travel Accessories"],
       stats: [["1,000+", "Products"], ["Vet", "Reviewed"], ["Next-Day", "Delivery"]],
     },
@@ -1760,9 +1761,9 @@ function ServicesPage({ nav }) {
         <div style={{ position: "absolute", bottom: -60, left: -60, width: 300, height: 300, borderRadius: "50%", background: `${C.blue}10`, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.65)", marginBottom: 24 }}>All Services</div>
-          <h1 className="melody" style={{ fontSize: "clamp(52px,7vw,100px)", color: "#fff", lineHeight: .93, marginBottom: 20 }}>Every care,<br />under one roof.</h1>
+          <h1 className="melody" style={{ fontSize: "clamp(52px,7vw,100px)", color: "#fff", lineHeight: .93, marginBottom: 20 }}>Every Care,<br />Under One Roof.</h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
-            7 comprehensive service categories, 70+ individual services, 1,200+ certified professionals — all bookable through Pawprint.
+            7 Comprehensive Service Categories, 70+ Individual Services, 1,200+ Certified Professionals — All Bookable Through Pawprint.
           </p>
           {/* Quick stats */}
           <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
@@ -1780,8 +1781,8 @@ function ServicesPage({ nav }) {
       <section style={{ padding: "80px 0 100px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 3, marginBottom: 60 }}>
-            <div className="pill pill-dark" style={{ alignSelf: "flex-start", marginBottom: 12 }}>Browse by Category</div>
-            <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,54px)", color: C.ink, lineHeight: 1 }}>What would you like<br />to book today?</h2>
+            <div className="pill pill-dark" style={{ alignSelf: "flex-start", marginBottom: 12 }}>Browse By Category</div>
+            <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,54px)", color: C.ink, lineHeight: 1 }}>What Would You Like<br />To Book Today?</h2>
           </div>
 
           <div className="services-bento-grid">
@@ -1830,8 +1831,8 @@ function ServicesPage({ nav }) {
       {/* Trust bar */}
       <section style={{ padding: "60px 0", background: C.white }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
-          <h2 className="melody" style={{ fontSize: "clamp(28px,3.5vw,46px)", color: C.ink, marginBottom: 16, lineHeight: 1 }}>Why 45,000+ pet parents choose Pawprint</h2>
-          <p style={{ fontSize: 16, color: C.inkSft, maxWidth: 580, margin: "0 auto 48px", lineHeight: 1.75 }}>Every professional is verified. Every booking is insured. Every experience is backed by our satisfaction guarantee.</p>
+          <h2 className="melody" style={{ fontSize: "clamp(28px,3.5vw,46px)", color: C.ink, marginBottom: 16, lineHeight: 1 }}>Why 45,000+ Pet Parents Choose Pawprint</h2>
+          <p style={{ fontSize: 16, color: C.inkSft, maxWidth: 580, margin: "0 auto 48px", lineHeight: 1.75 }}>Every Professional Is Verified. Every Booking Is Insured. Every Experience Is Backed By Our Satisfaction Guarantee.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 24 }}>
             {[
               { icon: "✅", t: "Verified Professionals", d: "Every vet, groomer, and trainer is credentialed, insured, and background-checked." },
@@ -1855,7 +1856,7 @@ function ServicesPage({ nav }) {
       <section style={{ padding: "80px 0", background: C.inkMd }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.65)", marginBottom: 20 }}>How It Works</div>
-          <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,52px)", color: "#fff", marginBottom: 52, lineHeight: 1 }}>Book a service in<br />under 2 minutes.</h2>
+          <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,52px)", color: "#fff", marginBottom: 52, lineHeight: 1 }}>Book A Service In<br />Under 2 Minutes.</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
             {[
               { step: "01", icon: "🔍", t: "Browse", d: "Choose from 70+ services across 7 categories. Filter by location, price, and availability." },
@@ -1880,10 +1881,10 @@ function ServicesPage({ nav }) {
       <section style={{ padding: "80px 0", background: C.orange }}>
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
           <h2 className="melody" style={{ fontSize: "clamp(36px,5vw,64px)", color: "#fff", lineHeight: .95, marginBottom: 20 }}>
-            Your pet deserves<br />the very best.
+            Your Pet Deserves<br />The Very Best.
           </h2>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,.75)", lineHeight: 1.75, marginBottom: 36 }}>
-            Browse all services, book instantly, and experience world-class pet care — guaranteed.
+            Browse All Services, Book Instantly, And Experience World-Class Pet Care — Guaranteed.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <button className="btn btn-lg" style={{ background: "#fff", color: C.orange, fontWeight: 700 }} onClick={() => nav("svc-health")}>Browse Health & Care</button>
@@ -1891,6 +1892,371 @@ function ServicesPage({ nav }) {
           </div>
         </div>
       </section>
+      {showAIHealthCheck && <AIHealthCheckModal onClose={() => setShowAIHealthCheck(false)} nav={nav} />}
+    </div>
+  );
+}
+
+function AIHealthCheckModal({ onClose, nav }) {
+  const [step, setStep] = useState(1);
+  const [form, setForm] = useState({
+    petName: "Bruno",
+    petType: "Dog",
+    petAge: "Adult",
+    petBreed: "",
+    symptoms: "",
+    selectedTags: []
+  });
+  const [loadingMsg, setLoadingMsg] = useState("Synthesizing pet health metrics...");
+
+  useEffect(() => {
+    if (step !== "loading") return;
+    const messages = [
+      "Synthesizing pet health metrics...",
+      "Querying Pawprint clinical database...",
+      "Cross-referencing breed genetic risks...",
+      "Calculating triage urgency level...",
+      "Formulating primary recommendations..."
+    ];
+    let idx = 0;
+    const timer = setInterval(() => {
+      idx = (idx + 1) % messages.length;
+      setLoadingMsg(messages[idx]);
+    }, 600);
+    
+    const navTimer = setTimeout(() => {
+      setStep(3);
+    }, 2200);
+
+    return () => {
+      clearInterval(timer);
+      clearTimeout(navTimer);
+    };
+  }, [step]);
+
+  const selectType = (type) => setForm(x => ({ ...x, petType: type }));
+  const selectAge = (age) => setForm(x => ({ ...x, petAge: age }));
+  const toggleTag = (tag) => {
+    setForm(x => {
+      const idx = x.selectedTags.indexOf(tag);
+      const copy = [...x.selectedTags];
+      if (idx > -1) copy.splice(idx, 1);
+      else copy.push(tag);
+      return { ...x, selectedTags: copy };
+    });
+  };
+
+  const getReport = () => {
+    const name = form.petName || 'your pet';
+    const type = form.petType.toLowerCase();
+    const age = form.petAge.toLowerCase();
+    const breed = form.petBreed || 'unknown breed';
+    const selectedSymptoms = [...form.selectedTags];
+    
+    if (form.symptoms.trim()) {
+      selectedSymptoms.push(form.symptoms.trim());
+    }
+    
+    let urgency = 'low';
+    let title = '';
+    let color = C.green;
+    let bgLight = C.greenLt;
+    let triageClass = 'LOW RISK / HOME CARE';
+    let desc = '';
+    let causes = [];
+    let tips = [];
+    
+    const text = (form.symptoms + ' ' + form.selectedTags.join(' ')).toLowerCase();
+    
+    const emergencyKeywords = ['blood', 'breathing', 'breath', 'choke', 'choking', 'seizure', 'seizures', 'unconscious', 'pale', 'collapsed', 'poison', 'toxic', 'glass', 'hit by car', 'snake'];
+    const modKeywords = ['vomit', 'vomiting', 'diarrhea', 'diarrhoea', 'limp', 'limping', 'lethargy', 'lethargic', 'fever', 'warm ears', 'cough', 'coughing', 'wheeze', 'wheezing'];
+    
+    const hasEmergency = emergencyKeywords.some(kw => text.includes(kw));
+    const hasModerate = modKeywords.some(kw => text.includes(kw));
+    
+    if (hasEmergency || (form.selectedTags.includes('Vomiting') && form.selectedTags.includes('Lethargy / Weakness'))) {
+      urgency = 'high';
+      title = 'Urgent Veterinary Examination Recommended';
+      color = C.red;
+      bgLight = C.redLt;
+      triageClass = '🚨 HIGH URGENCY';
+      desc = `Based on the reported symptoms for ${name} (${age} ${breed} ${type}), we highly recommend consulting a veterinarian immediately. Signs like severe lethargy, breathing difficulties, or gastrointestinal distress combined with weakness indicate that ${name} requires direct medical triage.`;
+      causes = [
+        "Severe acute gastroenteritis or toxic ingestion",
+        "Systemic infection requiring immediate IV antibiotics",
+        "Hypoglycemia or critical dehydration from fluid loss"
+      ];
+      tips = [
+        "Do NOT administer any human medications (like paracetamol or ibuprofen) as they are highly toxic.",
+        "Remove all access to food for the next 12 hours. Offer small, frequent sips of water or electrolyte solution.",
+        "Keep the pet warm, quiet, and monitor breathing rate. Count breaths per minute while resting (normal is under 30)."
+      ];
+    } else if (hasModerate || selectedSymptoms.length > 1) {
+      urgency = 'moderate';
+      title = 'Veterinary Consultation Advised';
+      color = C.orange;
+      bgLight = C.orangeLt;
+      triageClass = '⚠️ MODERATE URGENCY';
+      desc = `${name} is showing multiple symptoms, including ${form.selectedTags.slice(0, 2).join(' and ') || ' digestive upset'}. For a ${age} ${type}, these signs can lead to moderate dehydration or discomfort. We recommend booking a professional consultation within the next 24-48 hours.`;
+      causes = [
+        "Mild dietary indiscretion or sudden food transition",
+        "Localized allergy or secondary skin/ear infection",
+        "Mild musculoskeletal strain or joint inflammation"
+      ];
+      tips = [
+        "Transition to a bland diet: boiled shredded chicken (without salt, oil, or bones) and white rice for 2-3 meals.",
+        "Monitor food and water intake. Take note of stool consistency and how many times they urinate.",
+        "Limit physical activity. Restrict jumping on sofas or beds, and take only short potty-break walks."
+      ];
+    } else {
+      urgency = 'low';
+      title = 'Home Care & Monitoring';
+      color = C.green;
+      bgLight = C.greenLt;
+      triageClass = '✅ LOW URGENCY';
+      desc = `The symptoms reported for ${name} appear to be low risk at this stage. We recommend monitoring ${name} at home and practicing supportive care. If symptoms persist for more than 48 hours or worsen, seek professional veterinary advice.`;
+      causes = [
+        "Minor environmental allergy or seasonal change irritation",
+        "Self-limiting mild digestive upset",
+        "Temporary fatigue or minor behavioral stress"
+      ];
+      tips = [
+        "Ensure fresh, clean water is accessible at all times.",
+        "Keep the skin/ears clean and dry if scratching is the primary concern.",
+        "Observe closely for any new signs: check if appetite returns, and verify energy levels tomorrow morning."
+      ];
+    }
+
+    return { urgency, title, color, bgLight, triageClass, desc, causes, tips };
+  };
+
+  const report = step === 3 ? getReport() : null;
+
+  const commonSymptoms = [
+    { text: 'Loss of Appetite', icon: '🥣' },
+    { text: 'Lethargy / Weakness', icon: '💤' },
+    { text: 'Vomiting', icon: '🤮' },
+    { text: 'Diarrhea', icon: '💩' },
+    { text: 'Coughing / Wheezing', icon: '🤧' },
+    { text: 'Limping / Joint Pain', icon: '🐾' },
+    { text: 'Itchy Skin / Scratching', icon: '🦟' },
+    { text: 'Fever / Hot Ears', icon: '🤒' }
+  ];
+
+  return (
+    <div style={{
+      position: "fixed", inset: 0, background: "rgba(17, 17, 17, 0.65)", zIndex: 1500,
+      display: "flex", alignItems: "center", justifyContent: "center", padding: 24, backdropFilter: "blur(8px)",
+      fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    }}>
+      <style>{`
+        @keyframes ai-spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes ai-pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(0.92); opacity: 0.7; }
+        }
+      `}</style>
+      <div style={{
+        background: "#ffffff", borderRadius: 28, width: "100%", maxWidth: 600, maxHeight: "90vh",
+        overflowY: "auto", boxShadow: "0 40px 100px rgba(0,0,0,0.3)", position: "relative",
+        animation: "scaleIn .28s cubic-bezier(.22,1,.36,1) both", border: "1px solid #E4E4EB"
+      }}>
+        <button onClick={onClose} style={{ position: "absolute", top: 20, right: 20, width: 36, height: 36, borderRadius: "50%", background: "#F3F3F5", border: "none", fontSize: 18, cursor: "pointer", color: "#575768", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 10 }}>✕</button>
+
+        {step === 1 && (
+          <div style={{ padding: 36 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+              <span style={{ fontSize: 24 }}>🤖</span>
+              <span style={{ background: "rgba(29, 95, 196, 0.1)", color: "#1D5FC4", fontWeight: 700, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", padding: "4px 10px", borderRadius: 100 }}>AI Diagnostics</span>
+            </div>
+            <h2 className="melody" style={{ fontSize: 32, color: "#0F0F14", lineHeight: 1.1, marginBottom: 8 }}>AI Health Symptom Checker</h2>
+            <p style={{ fontSize: 14, color: "#575768", lineHeight: 1.6, marginBottom: 28 }}>Identify Potential Issues And Get Rapid Triage Recommendations. This Tool Is For Preliminary Guidance Only.</p>
+            
+            <div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 32 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Pet's Name</label>
+                <input type="text" placeholder="E.G. Bruno" value={form.petName} onChange={e => setForm(x => ({ ...x, petName: e.target.value }))} style={{ padding: "12px 16px", borderRadius: 12, border: "1.5px solid #E4E4EB", fontSize: 14.5, outline: "none", width: "100%" }} />
+              </div>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Pet Type</label>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 10 }}>
+                  {['Dog'].map(type => {
+                    const icons = { Dog: '🐶' };
+                    const selected = form.petType === type;
+                    return (
+                      <button key={type} type="button" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: 14, borderRadius: 12, border: `2px solid #E55D1A`, background: 'rgba(229, 93, 26, 0.04)', cursor: "default", transition: "all 0.2s" }}>
+                        <span style={{ fontSize: 24 }}>{icons[type]}</span>
+                        <span style={{ fontSize: 13, fontWeight: 600, color: '#E55D1A' }}>{type}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Life Stage</label>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+                  {['Puppy/Kitten', 'Adult', 'Senior'].map(stage => {
+                    const selected = form.petAge === stage;
+                    return (
+                      <button key={stage} type="button" onClick={() => selectAge(stage)} style={{ padding: 10, borderRadius: 12, border: `2px solid ${selected ? '#E55D1A' : '#E4E4EB'}`, background: selected ? 'rgba(229, 93, 26, 0.04)' : '#fff', cursor: "pointer", fontSize: 13, fontWeight: 600, color: selected ? '#E55D1A' : '#0F0F14', transition: "all 0.2s" }}>
+                        {stage}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Breed (Optional)</label>
+                <input type="text" placeholder="E.G. Labrador Retriever" value={form.petBreed} onChange={e => setForm(x => ({ ...x, petBreed: e.target.value }))} style={{ padding: "12px 16px", borderRadius: 12, border: "1.5px solid #E4E4EB", fontSize: 14.5, outline: "none", width: "100%" }} />
+              </div>
+            </div>
+            
+            <button type="button" onClick={() => setStep(2)} style={{ width: "100%", justifyContent: "center", background: "#E55D1A", color: "#fff", fontWeight: 700, borderRadius: 100, padding: "14px 28px", border: "none", cursor: "pointer", fontSize: 15, display: "flex", alignItems: "center", gap: 6 }}>Next: Describe Symptoms →</button>
+          </div>
+        )}
+
+        {step === 2 && (
+          <div style={{ padding: 36 }}>
+            <button type="button" onClick={() => setStep(1)} style={{ background: "none", border: "none", color: "#1D5FC4", fontSize: 13.5, fontWeight: 700, cursor: "pointer", padding: 0, marginBottom: 20, display: "flex", alignItems: "center", gap: 4 }}>← Back to Profile</button>
+            
+            <h2 className="melody" style={{ fontSize: 30, color: "#0F0F14", lineHeight: 1.1, margin: "0 0 8px 0" }}>What symptoms is {form.petName || 'your pet'} showing?</h2>
+            <p style={{ fontSize: 14, color: "#575768", lineHeight: 1.6, marginBottom: 24 }}>Select The Signs Below Or Describe What's Happening In Your Own Words.</p>
+            
+            <div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 32 }}>
+              <div>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em", display: "block", margin: "0 0 10px 0" }}>Select Common Symptoms</label>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {commonSymptoms.map(sym => {
+                    const selected = form.selectedTags.includes(sym.text);
+                    return (
+                      <button key={sym.text} type="button" onClick={() => toggleTag(sym.text)} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 100, border: `1.5px solid ${selected ? '#E55D1A' : '#E4E4EB'}`, background: selected ? 'rgba(229, 93, 26, 0.06)' : '#fff', color: selected ? '#E55D1A' : '#575768', fontWeight: 600, fontSize: 13, cursor: "pointer", transition: "all 0.2s" }}>
+                        <span>{sym.icon}</span> {sym.text}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Describe In Detail</label>
+                <textarea rows="4" placeholder="Describe How Your Pet Behaves, When The Symptoms Started, Or Any Other Details..." value={form.symptoms} onChange={e => setForm(x => ({ ...x, symptoms: e.target.value }))} style={{ padding: 14, borderRadius: 12, border: "1.5px solid #E4E4EB", fontSize: 14.5, outline: "none", width: "100%", resize: "vertical", fontFamily: "inherit" }} />
+              </div>
+            </div>
+            
+            <button type="button" onClick={() => {
+              if (form.selectedTags.length === 0 && !form.symptoms.trim()) {
+                alert("Please select at least one symptom or describe what's happening.");
+                return;
+              }
+              setStep("loading");
+            }} style={{ width: "100%", justifyContent: "center", background: "#E55D1A", color: "#fff", fontWeight: 700, borderRadius: 100, padding: "14px 28px", border: "none", cursor: "pointer", fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}>
+              Analyze Symptoms ✨
+            </button>
+          </div>
+        )}
+
+        {step === "loading" && (
+          <div style={{ padding: "60px 40px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: 400 }}>
+            <div style={{ position: "relative", marginBottom: 24, width: 80, height: 80, display: "flex", alignItems: "center", justify-content: "center" }}>
+              <div style={{ position: "absolute", width: "100%", height: "100%", borderRadius: "50%", border: "4px solid rgba(229, 93, 26, 0.1)", borderTopColor: "#E55D1A", animation: "ai-spin 1s linear infinite" }} />
+              <span style={{ fontSize: 32, animation: "ai-pulse 1.5s ease-in-out infinite" }}>🩺</span>
+            </div>
+            <h3 className="melody" style={{ fontSize: 24, color: "#0F0F14", marginBottom: 8 }}>AI Analyzing Symptoms</h3>
+            <p style={{ fontSize: 14.5, color: "#575768", maxWidth: 340, lineHeight: 1.6, height: 44 }}>{loadingMsg}</p>
+          </div>
+        )}
+
+        {step === 3 && report && (
+          <div style={{ padding: 36 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
+              <span style={{ fontSize: 24 }}>📋</span>
+              <span style={{ background: report.bgLight, color: report.color, fontWeight: 700, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", padding: "4px 12px", borderRadius: 100, border: `1px solid ${report.color}30`, display: "inline-block" }}>{report.triageClass}</span>
+            </div>
+            
+            <h2 className="melody" style={{ fontSize: 28, color: "#0F0F14", lineHeight: 1.15, marginBottom: 12 }}>{report.title}</h2>
+            <p style={{ fontSize: 14.5, color: "#575768", lineHeight: 1.7, marginBottom: 24 }}>{report.desc}</p>
+            
+            {/* Potential Causes */}
+            <div style={{ background: "#F8F8FA", borderRadius: 16, padding: 20, border: "1px solid #E4E4EB", marginBottom: 20 }}>
+              <div style={{ fontSize: 12, fontWeight: 800, textTransform: "uppercase", color: "#0F0F14", letterSpacing: "0.05em", marginBottom: 12 }}>Potential Considerations (AI Prediction)</div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
+                {report.causes.map((c, i) => (
+                  <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13.5, color: "#575768", lineHeight: 1.5 }}>
+                    <span style={{ color: report.color, fontSize: 14, lineHeight: 1 }}>•</span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Care Tips */}
+            <div style={{ background: "#F8F8FA", borderRadius: 16, padding: 20, border: "1px solid #E4E4EB", marginBottom: 28 }}>
+              <div style={{ fontSize: 12, fontWeight: 800, textTransform: "uppercase", color: "#0F0F14", letterSpacing: "0.05em", marginBottom: 12 }}>Supportive Care & Guidelines</div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+                {report.tips.map((t, i) => (
+                  <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13.5, color: "#575768", lineHeight: 1.55 }}>
+                    <span style={{ width: 16, height: 16, borderRadius: "50%", background: `${report.color}20`, color: report.color, display: "flex", alignItems: "center", justify-content: "center", fontSize: 9, fontWeight: 800, flexShrink: 0, marginTop: 2 }}>!</span>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Action Buttons */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <button type="button" onClick={() => { onClose(); nav('vet'); }} style={{ width: "100%", justifyContent: "center", background: "#1D5FC4", color: "#fff", fontWeight: 700, borderRadius: 100, padding: "14px 28px", border: "none", cursor: "pointer", fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}>
+                📞 Book a Vet Consultation
+              </button>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                <button type="button" onClick={() => {
+                  onClose();
+                  const chatbotFab = document.getElementById('chatbot-fab');
+                  if (chatbotFab) {
+                    const chatbotStateSetter = window.setChatbotOpen || window.toggleChatbot;
+                    if (typeof chatbotStateSetter === 'function') {
+                      chatbotStateSetter();
+                    } else {
+                      chatbotFab.click();
+                    }
+                    setTimeout(() => {
+                      const input = document.getElementById('chatbot-input');
+                      if (input) {
+                        const pName = form.petName || 'my pet';
+                        const symptomsList = [...form.selectedTags];
+                        if (form.symptoms.trim()) symptomsList.push(form.symptoms.trim());
+                        input.value = `Hello! I just ran an AI Health Check for my ${form.petType.toLowerCase()} ${pName} (${form.petAge} ${form.petBreed}). Symptoms: ${symptomsList.join(', ')}. Can you help me?`;
+                        const sendBtn = document.getElementById('chatbot-send-btn');
+                        if (sendBtn) sendBtn.click();
+                      }
+                    }, 500);
+                  }
+                }} style={{ justifyContent: "center", fontSize: 13.5, borderRadius: 100, border: "1.5px solid #E4E4EB", background: "#fff", color: "#575768", fontWeight: 600, cursor: "pointer", padding: "12px 18px", display: "flex", alignItems: "center", gap: 6 }}>
+                  💬 Talk to Paws AI
+                </button>
+                <button type="button" onClick={() => {
+                  setForm({
+                    petName: "Bruno",
+                    petType: "Dog",
+                    petAge: "Adult",
+                    petBreed: "",
+                    symptoms: "",
+                    selectedTags: []
+                  });
+                  setStep(1);
+                }} style={{ justifyContent: "center", fontSize: 13.5, fontWeight: 600, cursor: "pointer", padding: "12px 18px", background: "transparent", border: "none", color: "#1D5FC4" }}>
+                  🔄 Run New Check
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -1930,13 +2296,13 @@ function AdoptPage({ nav }) {
       <div style={{ textAlign: "center", padding: 60 }}>
         <div style={{ fontSize: 80, marginBottom: 24, animation: "float 2s ease-in-out infinite" }}>🎉</div>
         <h2 className="melody" style={{ fontSize: 52, fontWeight: 700, color: C.ink, marginBottom: 16 }}>Application Sent!</h2>
-        <p style={{ fontSize: 17, color: C.inkSft, lineHeight: 1.7, maxWidth: 400, margin: "0 auto 36px" }}>We've received your request for <strong>{pet?.name}</strong>. Our team will call you within 24 hours to arrange a meet & greet.</p>
+        <p style={{ fontSize: 17, color: C.inkSft, lineHeight: 1.7, maxWidth: 400, margin: "0 auto 36px" }}>We've Received Your Request For <strong>{pet?.name}</strong>. Our Team Will Call You Within 24 Hours To Arrange A Meet & Greet.</p>
         <button className="btn btn-lg btn-primary" onClick={() => { setStep("list"); setDetail(null); setAForm({ fname: "", lname: "", email: "", phone: "", address: "", city: "", pincode: "", housing: "", ownOrRent: "", petAllowed: "", hadPets: "", currentPets: "", workHours: "", reason: "", agree: false }); }}>← Browse More Pets</button>
       </div>
     </div>
   );
 
-  if (step === "form" && pet) return (
+  If (Step === "Form" && Pet) Return (
     <div style={{ paddingTop: 96, background: C.cream, minHeight: "100vh" }}>
       <div style={{ maxWidth: 860, margin: "0 auto", padding: "48px 32px 80px" }}>
         <button className="btn btn-md btn-ghost" onClick={() => setStep("detail")} style={{ marginBottom: 32 }}>← Back to {pet.name}'s Profile</button>
@@ -1946,7 +2312,7 @@ function AdoptPage({ nav }) {
             <h2 className="melody" style={{ fontSize: 24, fontWeight: 700, color: C.ink }}>Adopting {pet.name}</h2>
             <p style={{ color: C.inkSft, fontSize: 14, marginTop: 2 }}>{pet.breed} · {pet.age} · {pet.loc}</p>
           </div>
-          <div className="pill pill-green" style={{ marginLeft: "auto" }}>Step 1 of 1</div>
+          <div className="pill pill-green" style={{ marginLeft: "auto" }}>Step 1 Of 1</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
@@ -1956,7 +2322,7 @@ function AdoptPage({ nav }) {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               <div className="field"><label>First Name *</label><input placeholder="Geetha" value={aForm.fname} onChange={af("fname")} /></div>
               <div className="field"><label>Last Name *</label><input placeholder="Sharma" value={aForm.lname} onChange={af("lname")} /></div>
-              <div className="field"><label>Email Address *</label><input type="email" placeholder="geetha@example.com" value={aForm.email} onChange={af("email")} /></div>
+              <div className="field"><label>Email Address *</label><input type="email" placeholder="Geetha@Example.Com" value={aForm.email} onChange={af("email")} /></div>
               <div className="field"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" value={aForm.phone} onChange={af("phone")} /></div>
             </div>
           </div>
@@ -1982,24 +2348,24 @@ function AdoptPage({ nav }) {
                   </select>
                 </div>
                 <div className="field">
-                  <label>Own or Rent? *</label>
+                  <label>Own Or Rent? *</label>
                   <select value={aForm.ownOrRent} onChange={af("ownOrRent")}>
                     <option value="">Select…</option>
                     <option>Own</option>
                     <option>Rent</option>
-                    <option>Staying with Family</option>
+                    <option>Staying With Family</option>
                   </select>
                 </div>
               </div>
               {aForm.ownOrRent === "Rent" && (
                 <div className="field">
-                  <label>Is Pet Allowed in Your Rental? *</label>
+                  <label>Is Pet Allowed In Your Rental? *</label>
                   <select value={aForm.petAllowed} onChange={af("petAllowed")}>
                     <option value="">Select…</option>
-                    <option>Yes, confirmed by landlord</option>
-                    <option>Yes, verbally confirmed</option>
-                    <option>Not yet confirmed</option>
-                    <option>No (please reconsider adopting until resolved)</option>
+                    <option>Yes, Confirmed By Landlord</option>
+                    <option>Yes, Verbally Confirmed</option>
+                    <option>Not Yet Confirmed</option>
+                    <option>No (Please Reconsider Adopting Until Resolved)</option>
                   </select>
                 </div>
               )}
@@ -2012,27 +2378,27 @@ function AdoptPage({ nav }) {
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 <div className="field">
-                  <label>Have you owned a pet before? *</label>
+                  <label>Have You Owned A Pet Before? *</label>
                   <select value={aForm.hadPets} onChange={af("hadPets")}>
                     <option value="">Select…</option>
-                    <option>Yes, currently have pets</option>
-                    <option>Yes, in the past</option>
-                    <option>No, first time</option>
+                    <option>Yes, Currently Have Pets</option>
+                    <option>Yes, In The Past</option>
+                    <option>No, First Time</option>
                   </select>
                 </div>
                 <div className="field">
-                  <label>Current Pets at Home</label>
-                  <input placeholder="e.g. 1 cat, 2 dogs or None" value={aForm.currentPets} onChange={af("currentPets")} />
+                  <label>Current Pets At Home</label>
+                  <input placeholder="E.G. 1 Cat, 2 Dogs Or None" value={aForm.currentPets} onChange={af("currentPets")} />
                 </div>
               </div>
               <div className="field">
-                <label>Average Work Hours per Day *</label>
+                <label>Average Work Hours Per Day *</label>
                 <select value={aForm.workHours} onChange={af("workHours")}>
                   <option value="">Select…</option>
-                  <option>Work from home</option>
-                  <option>Less than 4 hours away</option>
-                  <option>4–8 hours away</option>
-                  <option>More than 8 hours away</option>
+                  <option>Work From Home</option>
+                  <option>Less Than 4 Hours Away</option>
+                  <option>4–8 Hours Away</option>
+                  <option>More Than 8 Hours Away</option>
                 </select>
               </div>
               <div className="field">
@@ -2046,7 +2412,7 @@ function AdoptPage({ nav }) {
           <div style={{ background: C.white, borderRadius: 20, padding: "28px 32px", border: `1px solid ${C.border}` }}>
             <label style={{ display: "flex", alignItems: "flex-start", gap: 14, cursor: "pointer" }}>
               <input type="checkbox" checked={aForm.agree} onChange={af("agree")} style={{ width: 18, height: 18, marginTop: 2, accentColor: C.orange, flexShrink: 0 }} />
-              <span style={{ fontSize: 14, color: C.inkSft, lineHeight: 1.7 }}>I confirm that all information provided is accurate. I understand that providing a safe, loving home is a lifelong commitment, and I agree to Pawprint's <a href="#" style={{ color: C.orange, fontWeight: 600 }}>Adoption Terms & Conditions</a>.</span>
+              <span style={{ fontSize: 14, color: C.inkSft, lineHeight: 1.7 }}>I Confirm That All Information Provided Is Accurate. I Understand That Providing A Safe, Loving Home Is A Lifelong Commitment, And I Agree To Pawprint's <a href="#" style={{ color: C.orange, fontWeight: 600 }}>Adoption Terms & Conditions</a>.</span>
             </label>
           </div>
 
@@ -2059,7 +2425,7 @@ function AdoptPage({ nav }) {
     </div>
   );
 
-  if (step === "detail" && pet) return (
+  If (Step === "Detail" && Pet) Return (
     <div style={{ paddingTop: 96, background: C.cream, minHeight: "100vh" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 32px" }}>
         <button className="btn btn-md btn-ghost" onClick={() => setStep("list")} style={{ marginBottom: 32 }}>← All Pets</button>
@@ -2098,13 +2464,13 @@ function AdoptPage({ nav }) {
   );
 
   // LIST
-  return (
+  Return (
     <div style={{ paddingTop: 96 }}>
       <section style={{ padding: "90px 0 60px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill pill-green" style={{ marginBottom: 24 }}>Adoption</div>
-          <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>Find your<br />forever friend.</h1>
-          <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 480 }}>Every pet here is verified, health-checked, and waiting for exactly the right person — maybe that's you.</p>
+          <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>Find Your<br />Forever Friend.</h1>
+          <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 480 }}>Every Pet Here Is Verified, Health-Checked, And Waiting For Exactly The Right Person — Maybe That's You.</p>
         </div>
       </section>
       <section style={{ padding: "40px 0 100px", background: C.cream }}>
@@ -2182,18 +2548,18 @@ function VetPage() {
     </div>
   );
 
-  return (
+  Return (
     <div style={{ paddingTop: 96 }}>
       <section style={{ padding: "90px 0 60px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill pill-blue" style={{ marginBottom: 24 }}>Veterinary</div>
-          <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>World-class<br />vet care.</h1>
-          <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 480, marginBottom: 36 }}>Book certified veterinarians for home visits, clinic appointments, or live video consultations — 24/7.</p>
+          <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>World-Class<br />Vet Care.</h1>
+          <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 480, marginBottom: 36 }}>Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
           <div style={{ display: "flex", alignItems: "center", gap: 20, padding: "18px 24px", background: C.blueLt, borderRadius: 16, border: `1px solid ${C.blue}22`, maxWidth: 580 }}>
             <span style={{ fontSize: 28 }}>🤖</span>
             <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 700, color: C.blue, fontSize: 15, marginBottom: 2 }}>Not sure if your pet needs a vet?</div>
-              <div style={{ fontSize: 13, color: C.inkSft }}>Use our AI Symptom Checker for instant triage guidance.</div>
+              <div style={{ fontWeight: 700, color: C.blue, fontSize: 15, marginBottom: 2 }}>Not Sure If Your Pet Needs A Vet?</div>
+              <div style={{ fontSize: 13, color: C.inkSft }}>Use Our AI Symptom Checker For Instant Triage Guidance.</div>
             </div>
             <button className="btn btn-sm btn-blue" style={{ flexShrink: 0 }}>Try AI →</button>
           </div>
@@ -2245,7 +2611,7 @@ function VetPage() {
                 <div style={{ padding: "36px 36px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", gap: 14, borderLeft: `1px solid ${C.border}`, minWidth: 200 }}>
                   <div style={{ textAlign: "right" }}>
                     <div className="melody" style={{ fontSize: 28, fontWeight: 700, color: C.ink }}>{v.price}</div>
-                    <div style={{ fontSize: 12, color: C.inkSft }}>per session</div>
+                    <div style={{ fontSize: 12, color: C.inkSft }}>Per Session</div>
                   </div>
                   <button className="btn btn-md btn-primary" style={{ width: "100%" }} onClick={() => { setBooking(v); setSlot(""); }}>Book Visit</button>
                   <button className="btn btn-md btn-outline" style={{ width: "100%" }} onClick={() => alert("Opening video consultation…")}>📹 Video Consult</button>
@@ -2270,7 +2636,7 @@ function ShopPage() {
 
   const cats = ["All", "Food", "Toys", "Accessories", "Medicines", "Grooming", "Tech"];
   const products = [
-    { id: 1, name: "Royal Canin Medium Adult 4kg", cat: "Food", price: 2499, old: 2999, img: P.shop1, rating: 4.8, rev: 1240, badge: "Best Seller", bc: C.orange },
+    { id: 1, name: "Royal Canin Medium Adult 4Kg", cat: "Food", price: 2499, old: 2999, img: P.shop1, rating: 4.8, rev: 1240, badge: "Best Seller", bc: C.orange },
     { id: 2, name: "Kong Extreme Chew Toy", cat: "Toys", price: 899, old: 1100, img: P.dog2, rating: 4.7, rev: 890, badge: "Popular", bc: C.blue },
     { id: 3, name: "GPS Pet Tracker Pro 2026", cat: "Tech", price: 3999, old: 4999, img: P.shop2, rating: 4.9, rev: 456, badge: "New", bc: C.green },
     { id: 4, name: "Himalaya PetCare Shampoo", cat: "Grooming", price: 349, old: 449, img: P.groom, rating: 4.6, rev: 2100, badge: "", bc: "" },
@@ -2304,7 +2670,7 @@ function ShopPage() {
             <button onClick={() => setCartOpen(false)} style={{ background: C.cream, border: "none", borderRadius: "50%", width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>✕</button>
           </div>
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 26px" }}>
-            {cart.length === 0 ? <p style={{ color: C.inkSft, textAlign: "center", marginTop: 60, fontSize: 15 }}>Your cart is empty 🛒</p> : cart.map((item, i) => (
+            {cart.length === 0 ? <p style={{ color: C.inkSft, textAlign: "center", marginTop: 60, fontSize: 15 }}>Your Cart Is Empty 🛒</p> : Cart.Map((Item, I) => (
               <div key={i} style={{ display: "flex", gap: 14, padding: "14px 0", borderBottom: `1px solid ${C.border}` }}>
                 <Img src={item.img} style={{ width: 56, height: 56, objectFit: "cover", borderRadius: 10 }} />
                 <div style={{ flex: 1 }}>
@@ -2391,7 +2757,7 @@ function LostImageUpload({ label, hint, accentColor }) {
 
       {/* Drop zone */}
       <div
-        onClick={() => previews.length < 5 && inputRef.current?.click()}
+        onClick={() => Previews.Length < 5 && inputRef.current?.click()}
         onDragOver={e => { e.preventDefault(); setDragging(true); }}
         onDragLeave={() => setDragging(false)}
         onDrop={e => { e.preventDefault(); setDragging(false); handleFiles(e.dataTransfer.files); }}
@@ -2408,7 +2774,7 @@ function LostImageUpload({ label, hint, accentColor }) {
         <div style={{ fontWeight: 600, color: C.ink, fontSize: 14, marginBottom: 4 }}>
           {previews.length >= 5 ? "Maximum 5 photos reached" : "Click to upload or drag & drop"}
         </div>
-        <div style={{ fontSize: 12, color: C.sand }}>JPG, PNG, WEBP · Max 10MB per photo · Up to 5 photos</div>
+        <div style={{ fontSize: 12, color: C.sand }}>JPG, PNG, WEBP · Max 10MB Per Photo · Up To 5 Photos</div>
         <input
           ref={inputRef}
           type="file"
@@ -2650,15 +3016,15 @@ function LostFoundPage() {
     </div>
   );
 
-  return (
+  Return (
     <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ padding: "90px 0 60px", background: C.inkMd, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -60, right: -60, width: 320, height: 320, borderRadius: "50%", background: `${C.orange}15`, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill pill-red" style={{ marginBottom: 24 }}>📍 Lost & Found</div>
-          <h1 className="melody-italic" style={{ fontSize: "clamp(48px,6vw,88px)", fontWeight: 700, lineHeight: .93, color: "#fff", marginBottom: 24 }}>Every second<br />counts.</h1>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.7, maxWidth: 480 }}>Report a missing pet, flag a found animal, or browse active cases in your area. Our community finds pets faster together.</p>
+          <h1 className="melody-italic" style={{ fontSize: "clamp(48px,6vw,88px)", fontWeight: 700, lineHeight: .93, color: "#fff", marginBottom: 24 }}>Every Second<br />Counts.</h1>
+          <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.7, maxWidth: 480 }}>Report A Missing Pet, Flag A Found Animal, Or Browse Active Cases In Your Area. Our Community Finds Pets Faster Together.</p>
         </div>
       </section>
 
@@ -2698,8 +3064,8 @@ function LostFoundPage() {
 
                 <div style={{ display: "flex", gap: 12, padding: "6px", background: C.white, borderRadius: 14, border: `1px solid ${C.border}`, width: "fit-content" }}>
                   {[
-                    { id: "lost", label: "🔴 Lost Pet — I lost my pet" },
-                    { id: "found", label: "🟢 Found Pet — I found someone's pet" },
+                    { id: "lost", label: "🔴 Lost Pet — I Lost My Pet" },
+                    { id: "found", label: "🟢 Found Pet — I Found Someone's Pet" },
                   ].map(t => (
                     <button key={t.id} onClick={() => setType(t.id)} style={{ padding: "10px 22px", borderRadius: 10, border: "none", background: type === t.id ? (t.id === "lost" ? C.red : C.green) : "transparent", color: type === t.id ? "#fff" : C.inkSft, fontWeight: type === t.id ? 700 : 500, cursor: "pointer", fontSize: 14, transition: "all .2s" }}>
                       {t.label}
@@ -2725,7 +3091,7 @@ function LostFoundPage() {
                               <option value="">Select…</option>
                               {k === "species" && <><option>Dog</option><option>Cat</option><option>Bird</option><option>Other</option></>}
                               {k === "gender" && <><option>Male</option><option>Female</option><option>Unknown</option></>}
-                              {k === "size" && <><option>Small (under 5kg)</option><option>Medium (5–15kg)</option><option>Large (15–30kg)</option><option>Extra Large (30kg+)</option></>}
+                              {k === "size" && <><option>Small (Under 5Kg)</option><option>Medium (5–15Kg)</option><option>Large (15–30Kg)</option><option>Extra Large (30Kg+)</option></>}
                             </select>
                             : <input type={t} placeholder={ph} value={lForm[k]} onChange={lf(k)} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                           }
@@ -2733,7 +3099,7 @@ function LostFoundPage() {
                       ))}
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Distinctive Marks / Features *</label>
-                        <textarea placeholder="Describe any unique markings, scars, spots, or features that would help identify your pet…" value={lForm.distinctiveMarks} onChange={lf("distinctiveMarks")} rows={3} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <textarea placeholder="Describe Any Unique Markings, Scars, Spots, Or Features That Would Help Identify Your Pet…" value={lForm.distinctiveMarks} onChange={lf("distinctiveMarks")} rows={3} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Wearing Collar?</label>
@@ -2744,7 +3110,7 @@ function LostFoundPage() {
                       {lForm.collar === "Yes" && (
                         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                           <label style={labelStyle}>Collar Description</label>
-                          <input placeholder="Color, tag text, material…" value={lForm.collarDescription} onChange={lf("collarDescription")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                          <input placeholder="Color, Tag Text, Material…" value={lForm.collarDescription} onChange={lf("collarDescription")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                         </div>
                       )}
 
@@ -2772,7 +3138,7 @@ function LostFoundPage() {
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Street / Address Last Seen *</label>
-                        <input placeholder="123 MG Road, near the park…" value={lForm.lastSeenAddress} onChange={lf("lastSeenAddress")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="123 MG Road, Near The Park…" value={lForm.lastSeenAddress} onChange={lf("lastSeenAddress")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>City *</label>
@@ -2784,7 +3150,7 @@ function LostFoundPage() {
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Nearby Landmark</label>
-                        <input placeholder="Near ABC School, opposite XYZ Temple…" value={lForm.lastSeenLandmark} onChange={lf("lastSeenLandmark")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="Near ABC School, Opposite XYZ Temple…" value={lForm.lastSeenLandmark} onChange={lf("lastSeenLandmark")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                     </div>,
                     "Last Seen Location", "📍"
@@ -2802,23 +3168,23 @@ function LostFoundPage() {
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Alternate Phone</label>
-                        <input type="tel" placeholder="Optional second number" value={lForm.ownerPhone2} onChange={lf("ownerPhone2")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input type="tel" placeholder="Optional Second Number" value={lForm.ownerPhone2} onChange={lf("ownerPhone2")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Email Address *</label>
-                        <input type="email" placeholder="you@email.com" value={lForm.ownerEmail} onChange={lf("ownerEmail")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input type="email" placeholder="You@Email.Com" value={lForm.ownerEmail} onChange={lf("ownerEmail")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
-                        <label style={labelStyle}>Your Address (for verification)</label>
-                        <input placeholder="Full address for shelter/finder reference" value={lForm.ownerAddress} onChange={lf("ownerAddress")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <label style={labelStyle}>Your Address (For Verification)</label>
+                        <input placeholder="Full Address For Shelter/Finder Reference" value={lForm.ownerAddress} onChange={lf("ownerAddress")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Additional Details / Behaviour Notes</label>
-                        <textarea placeholder="Is your pet friendly with strangers? Afraid of loud sounds? Any medical needs? The more detail the better…" value={lForm.description} onChange={lf("description")} rows={4} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <textarea placeholder="Is Your Pet Friendly With Strangers? Afraid Of Loud Sounds? Any Medical Needs? The More Detail The Better…" value={lForm.description} onChange={lf("description")} rows={4} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Reward Offered</label>
-                        <input placeholder="e.g. ₹5,000 or 'None'" value={lForm.reward} onChange={lf("reward")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="E.G. ₹5,000 Or 'None'" value={lForm.reward} onChange={lf("reward")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                     </div>,
                     "Owner & Contact Information", "👤"
@@ -2888,7 +3254,7 @@ function LostFoundPage() {
                       ))}
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Distinctive Marks / Features</label>
-                        <textarea placeholder="Any unique spots, scars, missing fur, limping, collar marks…" value={fForm.distinctiveMarks} onChange={ff("distinctiveMarks")} rows={3} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+                        <textarea placeholder="Any Unique Spots, Scars, Missing Fur, Limping, Collar Marks…" value={fForm.distinctiveMarks} onChange={ff("distinctiveMarks")} rows={3} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Has Collar?</label>
@@ -2898,12 +3264,12 @@ function LostFoundPage() {
                       </div>
                       {fForm.hasCollar === "Yes" && <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Collar Description</label>
-                        <input placeholder="Color, tag, text on tag…" value={fForm.collarDesc} onChange={ff("collarDesc")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="Color, Tag, Text On Tag…" value={fForm.collarDesc} onChange={ff("collarDesc")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>}
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Microchip Scanned?</label>
                         <select value={fForm.microchipScanned} onChange={ff("microchipScanned")} style={inputStyle}>
-                          <option value="">Select…</option><option>Yes — has chip</option><option>Yes — no chip found</option><option>Not yet scanned</option>
+                          <option value="">Select…</option><option>Yes — Has Chip</option><option>Yes — No Chip Found</option><option>Not Yet Scanned</option>
                         </select>
                       </div>
 
@@ -2931,7 +3297,7 @@ function LostFoundPage() {
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Street / Address Found *</label>
-                        <input placeholder="Where exactly did you find the pet?" value={fForm.foundAddress} onChange={ff("foundAddress")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="Where Exactly Did You Find The Pet?" value={fForm.foundAddress} onChange={ff("foundAddress")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>City *</label>
@@ -2943,7 +3309,7 @@ function LostFoundPage() {
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Nearby Landmark</label>
-                        <input placeholder="Near ABC School, opposite XYZ Temple…" value={fForm.foundLandmark} onChange={ff("foundLandmark")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input placeholder="Near ABC School, Opposite XYZ Temple…" value={fForm.foundLandmark} onChange={ff("foundLandmark")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                     </div>,
                     "Where was the Pet Found?", "📍"
@@ -2961,17 +3327,17 @@ function LostFoundPage() {
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Your Email</label>
-                        <input type="email" placeholder="rahul@email.com" value={fForm.finderEmail} onChange={ff("finderEmail")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+                        <input type="email" placeholder="Rahul@Email.Com" value={fForm.finderEmail} onChange={ff("finderEmail")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Pet Currently With</label>
                         <select value={fForm.currentlyWith} onChange={ff("currentlyWith")} style={inputStyle}>
-                          <option value="">Select…</option><option>Me (safe at home)</option><option>Neighbor / friend</option><option>Local shelter</option><option>Vet clinic</option><option>Still at found location</option>
+                          <option value="">Select…</option><option>Me (Safe At Home)</option><option>Neighbor / Friend</option><option>Local Shelter</option><option>Vet Clinic</option><option>Still At Found Location</option>
                         </select>
                       </div>
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Additional Notes</label>
-                        <textarea placeholder="Condition of the pet, behaviour, injuries, anything else the owner should know…" value={fForm.notes} onChange={ff("notes")} rows={3} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
+                        <textarea placeholder="Condition Of The Pet, Behaviour, Injuries, Anything Else The Owner Should Know…" value={fForm.notes} onChange={ff("notes")} rows={3} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.green} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                     </div>,
                     "Your Contact Information", "👤"
@@ -3030,7 +3396,7 @@ function LostFoundPage() {
               <div style={{ display: "flex", gap: 12, marginBottom: 28, padding: "14px 20px", background: C.white, borderRadius: 16, border: `1px solid ${C.border}`, alignItems: "center", flexWrap: "wrap" }}>
                 {/* Search — full width */}
                 <input
-                  placeholder="Search by breed, area, city…"
+                  placeholder="Search By Breed, Area, City…"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   style={{ ...inputStyle, flex: "1 1 200px" }}
@@ -3132,7 +3498,7 @@ function LostFoundPage() {
                   <span style={{ fontSize: 32 }}>🔴</span>
                   <div>
                     <h2 className="melody" style={{ fontSize: 32, color: C.ink, margin: 0, lineHeight: 1.1 }}>I Lost My Pet — Report Form</h2>
-                    <p style={{ fontSize: 13, color: C.inkSft, margin: "4px 0 0 0" }}>This form was submitted by the owner. Below are the registered details.</p>
+                    <p style={{ fontSize: 13, color: C.inkSft, margin: "4px 0 0 0" }}>This Form Was Submitted By The Owner. Below Are The Registered Details.</p>
                   </div>
                 </div>
 
@@ -3275,8 +3641,8 @@ function LostFoundPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28, borderBottom: `2px solid ${C.greenLt}`, paddingBottom: 16 }}>
                   <span style={{ fontSize: 32 }}>🟢</span>
                   <div>
-                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, margin: 0, lineHeight: 1.1 }}>I Found a Pet — Report Form</h2>
-                    <p style={{ fontSize: 13, color: C.inkSft, margin: "4px 0 0 0" }}>This form was submitted by the finder. Below are the registered details.</p>
+                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, margin: 0, lineHeight: 1.1 }}>I Found A Pet — Report Form</h2>
+                    <p style={{ fontSize: 13, color: C.inkSft, margin: "4px 0 0 0" }}>This Form Was Submitted By The Finder. Below Are The Registered Details.</p>
                   </div>
                 </div>
 
@@ -3298,7 +3664,7 @@ function LostFoundPage() {
                         <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.species || ''} disabled />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Breed (best guess)</label>
+                        <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft }}>Breed (Best Guess)</label>
                         <input style={{ padding: "10px 14px", borderRadius: 8, border: `1.5px solid ${C.border}`, background: "#fff", color: C.ink, width: "100%", fontSize: 14 }} value={detailListing.breed || ''} disabled />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -3339,7 +3705,7 @@ function LostFoundPage() {
                   {/* Section 2: Found Location */}
                   <div style={{ background: C.cream, borderRadius: 20, padding: 24, border: `1px solid ${C.border}` }}>
                     <h3 style={{ fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>
-                      <span>📍</span> Where was the Pet Found?
+                      <span>📍</span> Where Was The Pet Found?
                     </h3>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
                       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -3469,7 +3835,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
               <div className="glass-form" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", gap: 16, padding: "16px 20px", borderRadius: 18, boxShadow: "0 16px 40px rgba(0,0,0,0.2)", flex: 1, minWidth: 300, maxWidth: 680 }}>
                 <div className="pulsing-alert-icon" style={{ background: C.red, marginLeft: 2 }}></div>
                 <div style={{ color: "rgba(255,255,255,0.85)", fontSize: "13.5px", lineHeight: 1.5, flex: 1 }}>
-                  🛡️ <strong>{currentUser.name !== "Geetha" && pets.length > 2 ? pets[pets.length - 1].name : (pets.length > 0 ? pets[0].name : "Max")}'s</strong> booster shot is due in <strong>9 days</strong>. Book a certified clinic vet now to maintain immunity.
+                  🛡️ <strong>{currentUser.name !== "Geetha" && pets.length > 2 ? pets[pets.length - 1].name : (pets.length > 0 ? pets[0].name : "Max")}'s</strong> Booster Shot Is Due In <strong>9 Days</strong>. Book A Certified Clinic Vet Now To Maintain Immunity.
                 </div>
                 <button className="btn btn-sm btn-primary" onClick={() => nav("vet")} style={{ background: C.orange, border: "none", fontSize: 12, fontWeight: 700, padding: "8px 16px", boxShadow: "0 4px 12px rgba(229,93,26,0.3)", flexShrink: 0 }}>Book Vet</button>
               </div>
@@ -3516,8 +3882,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                 {/* Modal header */}
                 <div style={{ padding: "28px 32px 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
-                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, lineHeight: 1 }}>Add a New Pet</h2>
-                    <p style={{ fontSize: 14, color: C.inkSft, marginTop: 6 }}>Fill in your pet's details to start tracking their health and care.</p>
+                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, lineHeight: 1 }}>Add A New Pet</h2>
+                    <p style={{ fontSize: 14, color: C.inkSft, marginTop: 6 }}>Fill In Your Pet's Details To Start Tracking Their Health And Care.</p>
                   </div>
                   <button onClick={resetAddPet} style={{ width: 36, height: 36, borderRadius: "50%", background: C.cream, border: "none", fontSize: 18, cursor: "pointer", color: C.inkSft, flexShrink: 0 }}>✕</button>
                 </div>
@@ -3535,7 +3901,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                         cursor: "pointer",
                       }} onClick={() => petImgRef.current?.click()}>
                         {petImgPreview
-                          ? <img src={petImgPreview} alt="pet" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                          ? <img src={petImgPreview} alt="Pet" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                           : <span style={{ fontSize: 32 }}>🐾</span>
                         }
                       </div>
@@ -3546,8 +3912,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                       }} />
                     </div>
                     <div>
-                      <div style={{ fontWeight: 700, color: C.ink, fontSize: 15, marginBottom: 4 }}>Upload a Photo</div>
-                      <div style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.6 }}>A photo helps identify your pet quickly.<br />JPG or PNG, max 5MB.</div>
+                      <div style={{ fontWeight: 700, color: C.ink, fontSize: 15, marginBottom: 4 }}>Upload A Photo</div>
+                      <div style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.6 }}>A Photo Helps Identify Your Pet Quickly.<br />JPG Or PNG, Max 5MB.</div>
                     </div>
                   </div>
 
@@ -3606,15 +3972,15 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                       ))}
                       <div>
                         <label style={lS}>Known Allergies</label>
-                        <input placeholder="e.g. Dairy, Chicken, None" value={newPet.allergies} onChange={np("allergies")} style={iS} onFocus={focus} onBlur={blur} />
+                        <input placeholder="E.G. Dairy, Chicken, None" value={newPet.allergies} onChange={np("allergies")} style={iS} onFocus={focus} onBlur={blur} />
                       </div>
                       <div>
                         <label style={lS}>Medical Conditions</label>
-                        <input placeholder="e.g. Hip Dysplasia, None" value={newPet.conditions} onChange={np("conditions")} style={iS} onFocus={focus} onBlur={blur} />
+                        <input placeholder="E.G. Hip Dysplasia, None" value={newPet.conditions} onChange={np("conditions")} style={iS} onFocus={focus} onBlur={blur} />
                       </div>
                       <div style={{ gridColumn: "1/-1" }}>
                         <label style={lS}>Current Food / Diet</label>
-                        <input placeholder="e.g. Royal Canin Medium Adult, Raw diet" value={newPet.food} onChange={np("food")} style={iS} onFocus={focus} onBlur={blur} />
+                        <input placeholder="E.G. Royal Canin Medium Adult, Raw Diet" value={newPet.food} onChange={np("food")} style={iS} onFocus={focus} onBlur={blur} />
                       </div>
                     </div>
                   </div>
@@ -3641,7 +4007,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                       ))}
                       <div style={{ gridColumn: "1/-1" }}>
                         <label style={lS}>Additional Notes</label>
-                        <textarea placeholder="Personality traits, special care instructions, favourite treats, anything else…" value={newPet.notes} onChange={np("notes")} rows={3} style={{ ...iS, resize: "vertical" }} onFocus={focus} onBlur={blur} />
+                        <textarea placeholder="Personality Traits, Special Care Instructions, Favourite Treats, Anything Else…" value={newPet.notes} onChange={np("notes")} rows={3} style={{ ...iS, resize: "vertical" }} onFocus={focus} onBlur={blur} />
                       </div>
                     </div>
                   </div>
@@ -3714,7 +4080,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                     <div style={{ width: 34, height: 34, borderRadius: 9, background: a.urgent ? "#FEF2F2" : C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, flexShrink: 0 }}>{a.ic}</div>
                     <div>
                       <div style={{ fontWeight: 600, color: a.urgent ? C.red : C.ink, fontSize: 13 }}>{a.t}</div>
-                      <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2 }}>{a.d}{a.urgent && <span style={{ color: C.red, marginLeft: 8, fontWeight: 600 }}>⚠️ Due soon</span>}</div>
+                      <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2 }}>{a.d}{a.urgent && <span style={{ color: C.red, marginLeft: 8, fontWeight: 600 }}>⚠️ Due Soon</span>}</div>
                     </div>
                   </div>
                 ))}
@@ -3764,8 +4130,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
               transition: "all .25s ease"
             }}>
               <div style={{ width: 56, height: 56, borderRadius: "50%", background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, marginBottom: 14, color: C.orange }}>+</div>
-              <div className="melody" style={{ color: C.inkSft, fontSize: 20 }}>Add a New Pet</div>
-              <div style={{ fontSize: 13, color: C.sand, marginTop: 6, textAlign: "center" }}>Track health, vaccines, diet & more</div>
+              <div className="melody" style={{ color: C.inkSft, fontSize: 20 }}>Add A New Pet</div>
+              <div style={{ fontSize: 13, color: C.sand, marginTop: 6, textAlign: "center" }}>Track Health, Vaccines, Diet & More</div>
             </div>
           </div>
         )}
@@ -3960,8 +4326,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
         <Img src={P.about1} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.52)" }} />
         <div style={{ position: "absolute", bottom: 60, left: 48 }}>
-          <h2 className="melody-italic" style={{ fontSize: 52, fontWeight: 700, color: "#fff", lineHeight: .93, marginBottom: 16 }}>The best<br />for your<br />best friend.</h2>
-          <p style={{ color: "rgba(255,255,255,.55)", fontSize: 15, lineHeight: 1.7 }}>45,000+ pet parents trust Pawprint.</p>
+          <h2 className="melody-italic" style={{ fontSize: 52, fontWeight: 700, color: "#fff", lineHeight: .93, marginBottom: 16 }}>The Best<br />For Your<br />Best Friend.</h2>
+          <p style={{ color: "rgba(255,255,255,.55)", fontSize: 15, lineHeight: 1.7 }}>45,000+ Pet Parents Trust Pawprint.</p>
         </div>
       </div>
 
@@ -3984,12 +4350,12 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
           {/* Form Fields */}
           {type === "login" && (
             <div>
-              <h1 className="melody" style={{ fontSize: 36, fontWeight: 700, color: C.ink, marginBottom: 8 }}>Welcome back.</h1>
-              <p style={{ fontSize: 15, color: C.inkSft, marginBottom: 32 }}>Sign in to your Pawprint account.</p>
+              <h1 className="melody" style={{ fontSize: 36, fontWeight: 700, color: C.ink, marginBottom: 8 }}>Welcome Back.</h1>
+              <p style={{ fontSize: 15, color: C.inkSft, marginBottom: 32 }}>Sign In To Your Pawprint Account.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
                 <div className="field">
                   <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Email Address</label>
-                  <input type="email" placeholder="geetha@example.com" value={form.email} onChange={f("email")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  <input type="email" placeholder="Geetha@Example.Com" value={form.email} onChange={f("email")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                 </div>
                 <div className="field">
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -4004,16 +4370,16 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
 
           {type === "signup" && step === 1 && (
             <div>
-              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Create account.</h1>
-              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 24 }}>Join 45,000+ pet parents.</p>
+              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Create Account.</h1>
+              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 24 }}>Join 45,000+ Pet Parents.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 20 }}>
                 <div className="field">
                   <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Full Name</label>
-                  <input placeholder="e.g. Geetha Sharma" value={form.name} onChange={f("name")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  <input placeholder="E.G. Geetha Sharma" value={form.name} onChange={f("name")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                 </div>
                 <div className="field">
                   <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Email Address</label>
-                  <input type="email" placeholder="geetha@example.com" value={form.email} onChange={f("email")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                  <input type="email" placeholder="Geetha@Example.Com" value={form.email} onChange={f("email")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                 </div>
                 <div className="field">
                   <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Password</label>
@@ -4026,26 +4392,26 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
           {type === "signup" && step === 2 && (
             <div>
               <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Pet's Profile.</h1>
-              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 24 }}>Tell us about your dog to personalize care.</p>
+              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 24 }}>Tell Us About Your Dog To Personalize Care.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 24 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                   <div className="field">
                     <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Dog's Name *</label>
-                    <input placeholder="e.g. Rocky" value={form.petName} onChange={f("petName")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                    <input placeholder="E.G. Rocky" value={form.petName} onChange={f("petName")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                   </div>
                   <div className="field">
                     <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Breed *</label>
-                    <input placeholder="e.g. Labrador" value={form.breed} onChange={f("breed")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                    <input placeholder="E.G. Labrador" value={form.breed} onChange={f("breed")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                   </div>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                   <div className="field">
-                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Age (years/months) *</label>
-                    <input placeholder="e.g. 2" value={form.age} onChange={f("age")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Age (Years/Months) *</label>
+                    <input placeholder="E.G. 2" value={form.age} onChange={f("age")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                   </div>
                   <div className="field">
-                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Weight (kg) *</label>
-                    <input placeholder="e.g. 25" value={form.weight} onChange={f("weight")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
+                    <label style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Weight (Kg) *</label>
+                    <input placeholder="E.G. 25" value={form.weight} onChange={f("weight")} style={iStyle} onFocus={handleFocus} onBlur={handleBlur} />
                   </div>
                 </div>
                 <div className="field">
@@ -4061,8 +4427,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
 
           {type === "signup" && step === 3 && (
             <div>
-              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Verify email.</h1>
-              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 28 }}>Enter the 6-digit code sent to your email.</p>
+              <h1 className="melody" style={{ fontSize: 34, fontWeight: 700, color: C.ink, marginBottom: 6 }}>Verify Email.</h1>
+              <p style={{ fontSize: 14.5, color: C.inkSft, marginBottom: 28 }}>Enter The 6-Digit Code Sent To Your Email.</p>
               <div style={{ display: "flex", gap: 8, justifyContent: "center", marginBottom: 28 }}>
                 {[...Array(6)].map((_, i) => (
                   <input key={i} maxLength={1} style={{ width: 44, height: 52, textAlign: "center", fontSize: 20, fontWeight: 700, borderRadius: 12, border: `1.5px solid ${C.border}`, outline: "none", background: "#fff", color: C.ink }} onFocus={handleFocus} onBlur={handleBlur} onChange={(e) => {
@@ -4090,7 +4456,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
           </div>
 
           <div style={{ display: "flex", gap: 8, margin: "24px 0", alignItems: "center" }}>
-            <div style={{ flex: 1, height: 1, background: C.border }} /><span style={{ fontSize: 12, color: C.inkSft, fontWeight: 500 }}>or continue with</span><div style={{ flex: 1, height: 1, background: C.border }} />
+            <div style={{ flex: 1, height: 1, background: C.border }} /><span style={{ fontSize: 12, color: C.inkSft, fontWeight: 500 }}>Or Continue With</span><div style={{ flex: 1, height: 1, background: C.border }} />
           </div>
 
           <div style={{ display: "flex", gap: 12, marginBottom: 28 }}>
@@ -4125,8 +4491,8 @@ function ContactPage() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
           <div>
             <div className="pill pill-dark" style={{ marginBottom: 24 }}>Contact</div>
-            <h1 className="melody-italic" style={{ fontSize: "clamp(48px,6vw,80px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>Let's talk<br />about your<br />pet.</h1>
-            <p style={{ fontSize: 17, color: C.inkSft, lineHeight: 1.8, marginBottom: 48 }}>Whether it's a question about adoption, a partnership, or you just want to say hello — we're here.</p>
+            <h1 className="melody-italic" style={{ fontSize: "clamp(48px,6vw,80px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>Let's Talk<br />About Your<br />Pet.</h1>
+            <p style={{ fontSize: 17, color: C.inkSft, lineHeight: 1.8, marginBottom: 48 }}>Whether It's About Adoption, Partnerships, Or Simply Saying Hello, We'd Love To Hear From You</p>
             {[
               { icon: "📧", l: "Email", v: "hello@pawprint.in" },
               { icon: "📞", l: "Phone", v: "+91 98765 43210" },
@@ -4144,7 +4510,7 @@ function ContactPage() {
           </div>
 
           <div style={{ background: C.white, borderRadius: 28, padding: "48px 44px", border: `1px solid ${C.border}` }}>
-            <h2 className="melody" style={{ fontSize: 22, fontWeight: 700, color: C.ink, marginBottom: 28 }}>Send a message</h2>
+            <h2 className="melody" style={{ fontSize: 22, fontWeight: 700, color: C.ink, marginBottom: 28 }}>Send A Message</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[["Full Name", "name", "text", "Your name"], ["Email", "email", "email", "you@email.com"], ["Subject", "subject", "text", "How can we help?"]].map(([l, k, t, ph]) => (
                 <div key={k} className="field">
@@ -4154,7 +4520,7 @@ function ContactPage() {
               ))}
               <div className="field">
                 <label>Message</label>
-                <textarea placeholder="Tell us more…" rows={5} value={form.message} onChange={f("message")} style={{ ...iStyle, resize: "vertical", fontFamily: "inherit" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
+                <textarea placeholder="Tell Us More…" rows={5} value={form.message} onChange={f("message")} style={{ ...iStyle, resize: "vertical", fontFamily: "inherit" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
               </div>
             </div>
             <button className="btn btn-lg btn-primary" style={{ marginTop: 20, width: "100%" }} onClick={() => alert("Message sent! We'll reply within 24 hours 🐾")}>Send Message →</button>
@@ -4186,8 +4552,8 @@ function Footer({ nav }) {
           gap: 20, flexWrap: "wrap",
         }}>
           <div>
-            <div className="melody" style={{ fontSize: 24, color: "#fff", letterSpacing: ".02em" }}>Ready to give your pet the best life?</div>
-            <p style={{ color: "rgba(255,255,255,.75)", fontSize: 14, marginTop: 4 }}>Join 45,000+ pet parents. Free to start.</p>
+            <div className="melody" style={{ fontSize: 24, color: "#fff", letterSpacing: ".02em" }}>Ready To Give Your Pet The Best Life?</div>
+            <p style={{ color: "rgba(255,255,255,.75)", fontSize: 14, marginTop: 4 }}>Join 45,000+ Pet Parents. Free To Start.</p>
           </div>
           <div style={{ display: "flex", gap: 12 }}>
             <button onClick={() => nav("signup")} style={{
@@ -4216,7 +4582,7 @@ function Footer({ nav }) {
                 <span className="melody" style={{ fontSize: 22, color: "#fff", letterSpacing: ".03em" }}>Pawprint</span>
               </div>
               <p style={{ color: "rgba(255,255,255,.38)", fontSize: 13, lineHeight: 1.8, maxWidth: 220, marginBottom: 24 }}>
-                India's most loved pet care ecosystem — adoption, healthcare, grooming, and more.
+                India's Most Loved Pet Care Ecosystem — Adoption, Healthcare, Grooming, And More.
               </p>
               {/* Social */}
               <div style={{ display: "flex", gap: 8 }}>
@@ -4291,7 +4657,7 @@ function Footer({ nav }) {
         {/* ── Bottom bar ── */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
           <p style={{ color: "rgba(255,255,255,.22)", fontSize: 12 }}>
-            © 2026 Pawprint Technologies Pvt. Ltd. · Made with ❤️ in Coimbatore, India
+            © 2026 Pawprint Technologies Pvt. Ltd. · Made With ❤️ In Coimbatore, India
           </p>
           <div style={{ display: "flex", gap: 20 }}>
           </div>
@@ -4318,16 +4684,16 @@ function BookingForm({ serviceName, nav }) {
       <div style={{ fontSize: 48, marginBottom: 12 }}>✅</div>
       <div className="melody" style={{ fontSize: 28, color: C.ink, marginBottom: 8 }}>Booking Confirmed!</div>
       <p style={{ color: C.inkSft, fontSize: 14, lineHeight: 1.7 }}>
-        We've received your booking for <strong>{serviceName}</strong>.<br />
-        Our team will call <strong>{f.phone}</strong> within 2 hours to confirm your slot.
+        We've Received Your Booking For <strong>{serviceName}</strong>.<br />
+        Our Team Will Call <strong>{f.phone}</strong> Within 2 Hours To Confirm Your Slot.
       </p>
       <button className="btn btn-md btn-primary" style={{ marginTop: 20 }} onClick={() => setDone(false)}>Book Another →</button>
     </div>
   );
-  return (
+  Return (
     <div style={{ background: C.white, borderRadius: 20, border: `1px solid ${C.border}`, padding: "32px" }}>
       <div className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 6 }}>Book {serviceName}</div>
-      <p style={{ fontSize: 14, color: C.inkSft, marginBottom: 24 }}>Fill in your details and we'll confirm within 2 hours.</p>
+      <p style={{ fontSize: 14, color: C.inkSft, marginBottom: 24 }}>Fill In Your Details And We'll Confirm Within 2 Hours.</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         {[["Your Full Name", "name", "text", "Geetha Sharma"], ["Phone Number", "phone", "tel", "+91 98765 43210"],
         ["Email Address", "email", "email", "geetha@email.com"], ["Pet's Name", "pet", "text", "Bruno"],
@@ -4344,13 +4710,13 @@ function BookingForm({ serviceName, nav }) {
         <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
           <label style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Preferred Time</label>
           <select value={f.time} onChange={upd("time")} style={{ ...iS, cursor: "pointer" }}>
-            <option value="">Select slot…</option>
+            <option value="">Select Slot…</option>
             {["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"].map(s => <option key={s}>{s}</option>)}
           </select>
         </div>
         <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 5 }}>
           <label style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft }}>Additional Notes</label>
-          <textarea placeholder="Any specific requirements or concerns…" rows={3} value={f.notes} onChange={upd("notes")} style={{ ...iS, resize: "vertical" }} onFocus={focus} onBlur={blur} />
+          <textarea placeholder="Any Specific Requirements Or Concerns…" rows={3} value={f.notes} onChange={upd("notes")} style={{ ...iS, resize: "vertical" }} onFocus={focus} onBlur={blur} />
         </div>
       </div>
       <button className="btn btn-lg btn-primary" style={{ marginTop: 20, width: "100%" }}
@@ -4415,7 +4781,7 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
     </div>
   );
 
-  return (
+  Return (
     <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ position: "relative", height: 440, overflow: "hidden" }}>
@@ -4450,10 +4816,10 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
       <section style={{ padding: "80px 0", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
           <div className="pill" style={{ background: `${color}15`, color, marginBottom: 16 }}>{icon} All {cat} Services</div>
-          <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: C.ink, marginBottom: 48, lineHeight: 1 }}>Everything you need,<br />in one place.</h2>
+          <h2 className="melody" style={{ fontSize: "clamp(36px,4vw,56px)", color: C.ink, marginBottom: 48, lineHeight: 1 }}>Everything You Need,<br />In One Place.</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: 24 }}>
             {services.map((s, i) => (
-              <div key={i} className="card card-lift" style={{ cursor: "pointer", borderTop: `3px solid ${color}` }} onClick={() => setActiveSvc(s.name)}>
+              <div key={i} className="card card-lift" style={{ cursor: "pointer", borderTop: `3px solid ${color}`, display: "flex", flexDirection: "column", height: "100%" }} onClick={() => setActiveSvc(s.name)}>
                 <div style={{ height: 180, overflow: "hidden", position: "relative" }}>
                   <Img src={s.img} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .5s cubic-bezier(.22,1,.36,1)" }}
                     onMouseEnter={e => e.target.style.transform = "scale(1.07)"}
@@ -4462,10 +4828,10 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
                     <span style={{ color: "#fff", fontSize: 12, fontWeight: 600 }}>{s.price}</span>
                   </div>
                 </div>
-                <div style={{ padding: "20px 22px" }}>
+                <div style={{ padding: "20px 22px", display: "flex", flexDirection: "column", flex: 1 }}>
                   <h3 className="melody" style={{ fontSize: 22, color: C.ink, marginBottom: 6 }}>{s.name}</h3>
                   <p style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.65, marginBottom: 14 }}>{s.shortDesc}</p>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto" }}>
                     <span style={{ fontSize: 12, color: C.orange, fontWeight: 600 }}>⭐ {s.rating} · {s.duration}</span>
                     <button className="btn btn-sm btn-primary" onClick={e => { e.stopPropagation(); setActiveSvc(s.name); }}>Book →</button>
                   </div>
@@ -4479,7 +4845,7 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
       {/* Why choose us */}
       <section style={{ padding: "80px 0", background: C.inkMd }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,52px)", color: "#fff", marginBottom: 48, lineHeight: 1 }}>Why choose Pawprint<br />for {cat}?</h2>
+          <h2 className="melody" style={{ fontSize: "clamp(34px,4vw,52px)", color: "#fff", marginBottom: 48, lineHeight: 1 }}>Why Choose Pawprint<br />for {cat}?</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 20 }}>
             {whyUs.points.map((p, i) => (
               <div key={i} style={{ padding: "28px", borderRadius: 20, background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.08)" }}>
@@ -4491,20 +4857,6 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
           </div>
         </div>
       </section>
-
-      {/* Bottom CTA */}
-      <section style={{ padding: "60px 0", background: color }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
-          <div>
-            <h2 className="melody" style={{ fontSize: 40, color: "#fff", lineHeight: 1, marginBottom: 8 }}>Ready to book {cat}?</h2>
-            <p style={{ color: "rgba(255,255,255,.7)", fontSize: 16 }}>Certified professionals · Guaranteed satisfaction · Easy booking</p>
-          </div>
-          <div style={{ display: "flex", gap: 12 }}>
-            <button className="btn btn-lg" style={{ background: "#fff", color: color, fontWeight: 700 }} onClick={() => { if (services[0]) setActiveSvc(services[0].name); }}>Book Now →</button>
-            <button className="btn btn-lg btn-ghost" style={{ color: "rgba(255,255,255,.7)", borderColor: "rgba(255,255,255,.3)" }} onClick={() => nav("contact")}>Contact Us</button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
@@ -4512,118 +4864,118 @@ function SvcCatPage({ cat, icon, color, accent, heroImg, tagline, about, service
 // ── HEALTH & CARE PAGE ────────────────────────────────────────────
 function SvcHealthPage({ nav }) {
   const services = [
-    { name: "General Checkups", price: "₹299", duration: "30 min", rating: "4.9", img: P.vet1, shortDesc: "Full physical examination, vitals check, and health assessment by a certified vet.", desc: "Our general checkup includes a comprehensive nose-to-tail physical examination. The vet checks eyes, ears, teeth, skin, coat, weight, and all vital signs. You'll receive a written health report and recommendations.", includes: ["Full physical examination", "Vitals & weight check", "Parasite screening", "Dietary recommendations", "Written health report", "Follow-up advice"] },
-    { name: "Vaccinations", price: "₹199", duration: "20 min", rating: "4.9", img: P.vet2, shortDesc: "All core and lifestyle vaccines administered by certified veterinarians with digital records.", desc: "We offer complete vaccination drives covering all core vaccines (Distemper, Parvovirus, Rabies) and lifestyle vaccines. You receive a digital health passport with all records and smart reminders for upcoming doses.", includes: ["Core & lifestyle vaccines", "Digital health passport", "Vaccine certificate", "Smart reminder setup", "Post-vaccine guidance", "Free 24h helpline"] },
-    { name: "Deworming", price: "₹149", duration: "15 min", rating: "4.8", img: P.groom, shortDesc: "Safe, vet-prescribed deworming treatments for all ages and breeds.", desc: "Deworming is essential every 3–6 months. Our vets assess your pet's weight, age, and risk factors to prescribe the right treatment. Includes follow-up to ensure full efficacy.", includes: ["Weight-based dosing", "Broad-spectrum coverage", "Puppy-safe options", "Follow-up check", "Treatment record", "Preventive schedule"] },
-    { name: "Flea & Tick Treatment", price: "₹349", duration: "30 min", rating: "4.8", img: P.train, shortDesc: "Effective flea and tick prevention and treatment for a comfortable, healthy pet.", desc: "Our certified vets provide both topical and systemic flea & tick treatments, selecting the safest and most effective option for your pet's breed, age, and lifestyle.", includes: ["Vet-selected product", "Topical or oral option", "Environmental advice", "Collar options", "Safe for all ages", "Monthly plan available"] },
-    { name: "Dental Care", price: "₹599", duration: "45 min", rating: "4.7", img: P.vet1, shortDesc: "Professional dental cleaning and oral health assessment to prevent disease.", desc: "Periodontal disease affects 80% of dogs over 3. Our dental care service includes professional scaling, polishing, full oral exam, and a home care plan.", includes: ["Professional scaling", "Polishing", "Full oral examination", "X-ray if needed", "Home care kit", "Dietary guidance"] },
-    { name: "Spay & Neuter", price: "₹3,999", duration: "2–3 hrs", rating: "4.9", img: P.vet2, shortDesc: "Safe, medically supervised spay and neuter procedures by experienced surgeons.", desc: "Our spay/neuter surgeries are performed by experienced veterinary surgeons with full pre-op bloodwork, anesthesia monitoring, and post-op care included.", includes: ["Pre-op blood panel", "General anesthesia", "Expert surgery", "Post-op care kit", "Pain management", "Free follow-up visit"] },
-    { name: "Emergency Care", price: "₹999", duration: "As needed", rating: "4.9", img: P.vet1, shortDesc: "24/7 emergency veterinary dispatch — rapid response when every second matters.", desc: "When your pet faces a crisis, our emergency team dispatches a vet to your location within 60 minutes. Available 24/7, 365 days a year.", includes: ["24/7 availability", "60-min dispatch goal", "First aid on arrival", "Specialist referral", "Emergency medication", "Crisis helpline"] },
-    { name: "Surgery", price: "₹5,999", duration: "Varies", rating: "4.8", img: P.vet2, shortDesc: "Soft tissue and orthopaedic surgeries by board-certified veterinary surgeons.", desc: "Our surgical suite is equipped with modern anaesthesia and monitoring equipment. We perform a range of soft tissue and orthopaedic procedures with full pre- and post-op care.", includes: ["Pre-surgical assessment", "General anaesthesia", "Sterile surgical suite", "Intra-op monitoring", "Post-op nursing", "Pain management"] },
-    { name: "Nutrition Consultation", price: "₹399", duration: "40 min", rating: "4.8", img: P.shop1, shortDesc: "Personalised diet plans crafted by veterinary nutritionists for optimal health.", desc: "What your pet eats directly impacts longevity. Our veterinary nutritionists assess your pet's breed, weight, activity level, and medical history to craft a tailored diet plan.", includes: ["Full nutritional assessment", "Custom diet plan", "Brand recommendations", "Allergy identification", "Supplement advice", "Monthly check-in"] },
-    { name: "Senior Dog Care", price: "₹599", duration: "45 min", rating: "4.9", img: P.dog3, shortDesc: "Comprehensive health packages designed for the unique needs of senior pets (7+ years).", desc: "Senior pets need more frequent, targeted care. Our senior wellness package includes arthritis screening, cognitive assessment, bloodwork, and a tailored care plan.", includes: ["Geriatric health screening", "Arthritis assessment", "Cognitive evaluation", "Full bloodwork panel", "Pain management plan", "Nutritional guidance"] },
-    { name: "Puppy Care", price: "₹499", duration: "45 min", rating: "4.9", img: P.dog1, shortDesc: "Complete puppy wellness visits covering vaccinations, deworming, socialisation, and diet.", desc: "The first year is crucial. Our puppy care packages cover all age-appropriate vaccines, deworming schedules, microchipping, dental checks, and socialisation guidance.", includes: ["Age-appropriate vaccines", "Deworming schedule", "Microchipping", "Dental check", "Socialisation tips", "Nutrition plan"] },
-    { name: "Physiotherapy & Rehabilitation", price: "₹799", duration: "60 min", rating: "4.8", img: P.train, shortDesc: "Post-surgery and injury rehabilitation through certified animal physiotherapy.", desc: "Our certified animal physiotherapists use hydrotherapy, massage, laser therapy, and therapeutic exercises to restore mobility and reduce pain after surgery or injury.", includes: ["Initial assessment", "Custom rehab plan", "Hydrotherapy option", "Laser therapy", "Home exercise guide", "Weekly progress tracking"] },
+    { name: "General Checkups", price: "₹299", duration: "30 Min", rating: "4.9", img: P.vet1, shortDesc: "Full Physical Examination, Vitals Check, And Health Assessment By A Certified Vet.", desc: "Our General Checkup Includes A Comprehensive Nose-To-Tail Physical Examination. The Vet Checks Eyes, Ears, Teeth, Skin, Coat, Weight, And All Vital Signs. You'll Receive A Written Health Report And Recommendations.", includes: ["Full physical examination", "Vitals & weight check", "Parasite screening", "Dietary recommendations", "Written health report", "Follow-up advice"] },
+    { name: "Vaccinations", price: "₹199", duration: "20 Min", rating: "4.9", img: P.vet2, shortDesc: "All Core And Lifestyle Vaccines Administered By Certified Veterinarians With Digital Records.", desc: "We Offer Complete Vaccination Drives Covering All Core Vaccines (Distemper, Parvovirus, Rabies) And Lifestyle Vaccines. You Receive A Digital Health Passport With All Records And Smart Reminders For Upcoming Doses.", includes: ["Core & lifestyle vaccines", "Digital health passport", "Vaccine certificate", "Smart reminder setup", "Post-vaccine guidance", "Free 24h helpline"] },
+    { name: "Deworming", price: "₹149", duration: "15 Min", rating: "4.8", img: P.groom, shortDesc: "Safe, Vet-Prescribed Deworming Treatments For All Ages And Breeds.", desc: "Deworming Is Essential Every 3–6 Months. Our Vets Assess Your Pet's Weight, Age, And Risk Factors To Prescribe The Right Treatment. Includes Follow-Up To Ensure Full Efficacy.", includes: ["Weight-based dosing", "Broad-spectrum coverage", "Puppy-safe options", "Follow-up check", "Treatment record", "Preventive schedule"] },
+    { name: "Flea & Tick Treatment", price: "₹349", duration: "30 Min", rating: "4.8", img: P.train, shortDesc: "Effective Flea And Tick Prevention And Treatment For A Comfortable, Healthy Pet.", desc: "Our Certified Vets Provide Both Topical And Systemic Flea & Tick Treatments, Selecting The Safest And Most Effective Option For Your Pet's Breed, Age, And Lifestyle.", includes: ["Vet-selected product", "Topical or oral option", "Environmental advice", "Collar options", "Safe for all ages", "Monthly plan available"] },
+    { name: "Dental Care", price: "₹599", duration: "45 Min", rating: "4.7", img: P.vet1, shortDesc: "Professional Dental Cleaning And Oral Health Assessment To Prevent Disease.", desc: "Periodontal Disease Affects 80% Of Dogs Over 3. Our Dental Care Service Includes Professional Scaling, Polishing, Full Oral Exam, And A Home Care Plan.", includes: ["Professional scaling", "Polishing", "Full oral examination", "X-ray if needed", "Home care kit", "Dietary guidance"] },
+    { name: "Spay & Neuter", price: "₹3,999", duration: "2–3 Hrs", rating: "4.9", img: P.vet2, shortDesc: "Safe, Medically Supervised Spay And Neuter Procedures By Experienced Surgeons.", desc: "Our Spay/Neuter Surgeries Are Performed By Experienced Veterinary Surgeons With Full Pre-Op Bloodwork, Anesthesia Monitoring, And Post-Op Care Included.", includes: ["Pre-op blood panel", "General anesthesia", "Expert surgery", "Post-op care kit", "Pain management", "Free follow-up visit"] },
+    { name: "Emergency Care", price: "₹999", duration: "As Needed", rating: "4.9", img: P.vet1, shortDesc: "24/7 Emergency Veterinary Dispatch — Rapid Response When Every Second Matters.", desc: "When Your Pet Faces A Crisis, Our Emergency Team Dispatches A Vet To Your Location Within 60 Minutes. Available 24/7, 365 Days A Year.", includes: ["24/7 availability", "60-min dispatch goal", "First aid on arrival", "Specialist referral", "Emergency medication", "Crisis helpline"] },
+    { name: "Surgery", price: "₹5,999", duration: "Varies", rating: "4.8", img: P.vet2, shortDesc: "Soft Tissue And Orthopaedic Surgeries By Board-Certified Veterinary Surgeons.", desc: "Our Surgical Suite Is Equipped With Modern Anaesthesia And Monitoring Equipment. We Perform A Range Of Soft Tissue And Orthopaedic Procedures With Full Pre- And Post-Op Care.", includes: ["Pre-surgical assessment", "General anaesthesia", "Sterile surgical suite", "Intra-op monitoring", "Post-op nursing", "Pain management"] },
+    { name: "Nutrition Consultation", price: "₹399", duration: "40 Min", rating: "4.8", img: P.shop1, shortDesc: "Personalised Diet Plans Crafted By Veterinary Nutritionists For Optimal Health.", desc: "What Your Pet Eats Directly Impacts Longevity. Our Veterinary Nutritionists Assess Your Pet's Breed, Weight, Activity Level, And Medical History To Craft A Tailored Diet Plan.", includes: ["Full nutritional assessment", "Custom diet plan", "Brand recommendations", "Allergy identification", "Supplement advice", "Monthly check-in"] },
+    { name: "Senior Dog Care", price: "₹599", duration: "45 Min", rating: "4.9", img: P.dog3, shortDesc: "Comprehensive Health Packages Designed For The Unique Needs Of Senior Pets (7+ Years).", desc: "Senior Pets Need More Frequent, Targeted Care. Our Senior Wellness Package Includes Arthritis Screening, Cognitive Assessment, Bloodwork, And A Tailored Care Plan.", includes: ["Geriatric health screening", "Arthritis assessment", "Cognitive evaluation", "Full bloodwork panel", "Pain management plan", "Nutritional guidance"] },
+    { name: "Puppy Care", price: "₹499", duration: "45 Min", rating: "4.9", img: P.dog1, shortDesc: "Complete Puppy Wellness Visits Covering Vaccinations, Deworming, Socialisation, And Diet.", desc: "The First Year Is Crucial. Our Puppy Care Packages Cover All Age-Appropriate Vaccines, Deworming Schedules, Microchipping, Dental Checks, And Socialisation Guidance.", includes: ["Age-appropriate vaccines", "Deworming schedule", "Microchipping", "Dental check", "Socialisation tips", "Nutrition plan"] },
+    { name: "Physiotherapy & Rehabilitation", price: "₹799", duration: "60 Min", rating: "4.8", img: P.train, shortDesc: "Post-Surgery And Injury Rehabilitation Through Certified Animal Physiotherapy.", desc: "Our Certified Animal Physiotherapists Use Hydrotherapy, Massage, Laser Therapy, And Therapeutic Exercises To Restore Mobility And Reduce Pain After Surgery Or Injury.", includes: ["Initial assessment", "Custom rehab plan", "Hydrotherapy option", "Laser therapy", "Home exercise guide", "Weekly progress tracking"] },
   ];
-  return <SvcCatPage cat="Health & Care" icon="🏥" color={C.blue} heroImg={P.vet1} tagline={"Expert Care,\nHealthier Lives."} about="Certified veterinarians, advanced diagnostics, and compassionate care — for every stage of your pet's life." services={services} whyUs={{ stats: [["1,200+", "Certified Vets"], ["24/7", "Emergency Care"], ["4.9★", "Average Rating"], ["50K+", "Consultations"]], points: [{ icon: "🏥", title: "Certified Vets Only", desc: "Every vet on Pawprint is VCPN-verified with minimum 3 years of clinical experience." }, { icon: "🔬", title: "Evidence-Based Medicine", desc: "We follow the latest veterinary clinical guidelines — no guesswork, only science." }, { icon: "📋", title: "Digital Health Records", desc: "Every visit, prescription, and report is stored securely and accessible anytime." }, { icon: "🚑", title: "24/7 Emergency", desc: "Our emergency line and rapid-response vets are available round the clock." }] }} faqItems={[{ q: "How often should I take my dog for a checkup?", a: "Healthy adult dogs benefit from bi-annual checkups. Puppies and senior dogs (7+) should visit every 3–4 months." }, { q: "Are your vets qualified?", a: "All Pawprint vets hold a BVSc or MVSc degree and are registered with the Veterinary Council of India." }, { q: "Can I consult online first?", a: "Absolutely. Our video consultation service connects you with a vet in minutes — available 24/7." }, { q: "What vaccines does my puppy need?", a: "Core vaccines include Distemper, Parvovirus, Hepatitis, and Rabies. Our vets will create a tailored schedule at your first visit." }, { q: "Do you offer home visits?", a: "Yes. All services, including checkups, vaccinations, and deworming, are available as home visits at a small additional charge." }]} nav={nav} />;
+  return <SvcCatPage cat="Health & Care" icon="🏥" color={C.blue} heroImg={P.vet1} tagline={"Expert Care,\nHealthier Lives."} about="Certified veterinarians, advanced diagnostics, and compassionate care — for every stage of your pet's life." services={services} whyUs={{ stats: [["1,200+", "Certified Vets"], ["24/7", "Emergency Care"], ["4.9★", "Average Rating"], ["50K+", "Consultations"]], points: [{ icon: "🏥", title: "Certified Vets Only", desc: "Every Vet On Pawprint Is VCPN-Verified With Minimum 3 Years Of Clinical Experience." }, { icon: "🔬", title: "Evidence-Based Medicine", desc: "We Follow The Latest Veterinary Clinical Guidelines — No Guesswork, Only Science." }, { icon: "📋", title: "Digital Health Records", desc: "Every Visit, Prescription, And Report Is Stored Securely And Accessible Anytime." }, { icon: "🚑", title: "24/7 Emergency", desc: "Our Emergency Line And Rapid-Response Vets Are Available Round The Clock." }] }} faqItems={[{ q: "How Often Should I Take My Dog For A Checkup?", a: "Healthy Adult Dogs Benefit From Bi-Annual Checkups. Puppies And Senior Dogs (7+) Should Visit Every 3–4 Months." }, { q: "Are Your Vets Qualified?", a: "All Pawprint Vets Hold A BVSc Or MVSc Degree And Are Registered With The Veterinary Council Of India." }, { q: "Can I Consult Online First?", a: "Absolutely. Our Video Consultation Service Connects You With A Vet In Minutes — Available 24/7." }, { q: "What Vaccines Does My Puppy Need?", a: "Core Vaccines Include Distemper, Parvovirus, Hepatitis, And Rabies. Our Vets Will Create A Tailored Schedule At Your First Visit." }, { q: "Do You Offer Home Visits?", a: "Yes. All Services, Including Checkups, Vaccinations, And Deworming, Are Available As Home Visits At A Small Additional Charge." }]} nav={nav} />;
 }
 
 // ── GROOMING & HYGIENE PAGE ───────────────────────────────────────
 function SvcGroomingPage({ nav }) {
   const services = [
-    { name: "Full Grooming", price: "₹799", duration: "90 min", rating: "4.9", img: P.groom, shortDesc: "Complete bath, haircut, nail trim, ear clean, and finishing — the full spa experience.", desc: "Our full grooming session covers everything your pet needs: breed-specific shampoo bath, blow dry, haircut, nail clipping, ear cleaning, and a final fragrance spritz. Walk in, walk out pampered.", includes: ["Breed-specific bath", "Professional blow dry", "Custom haircut", "Nail clipping", "Ear cleaning", "Fragrance & bow"] },
-    { name: "Bath & Blow Dry", price: "₹399", duration: "45 min", rating: "4.8", img: P.groom, shortDesc: "Thorough medicated or regular bath followed by professional blow dry and brush-out.", desc: "A deep cleanse with premium, pet-safe shampoo followed by a professional blow dry and thorough brush-out to leave your pet's coat clean, tangle-free, and glossy.", includes: ["Medicated or regular shampoo", "Conditioning treatment", "Professional blow dry", "Brush-out", "Coat check", "Basic hygiene check"] },
-    { name: "Hair Trimming & Styling", price: "₹499", duration: "60 min", rating: "4.8", img: P.groom, shortDesc: "Expert breed-standard and custom styling by certified groomers.", desc: "Our groomers are trained in breed standards as well as custom cuts. Whether it's a precise Poodle clip or a practical trim, we deliver clean, consistent results.", includes: ["Breed-standard or custom cut", "Scissor & clipper finishing", "Fringe & face trim", "Paw & sanitary trim", "Final inspection", "Style photo"] },
-    { name: "Nail Clipping", price: "₹149", duration: "15 min", rating: "4.9", img: P.groom, shortDesc: "Safe, stress-free nail trimming with grinding option for perfectly smooth edges.", desc: "Overgrown nails can cause pain and postural issues. Our groomers use sharp, proper-sized clippers with an optional grinder finish to ensure smooth, safe nails.", includes: ["All four paws", "Quick detection & care", "Grinder finish option", "Paw massage", "Paw pad check", "Moisturiser application"] },
-    { name: "Ear Cleaning", price: "₹199", duration: "20 min", rating: "4.8", img: P.groom, shortDesc: "Gentle, thorough ear cleaning to prevent infection and remove wax build-up.", desc: "Ear infections are one of the most common vet visits. Our safe ear cleaning service removes debris, wax, and checks for signs of infection or mites.", includes: ["Both ears cleaned", "Vet-approved solution", "Wax removal", "Infection check", "Mite inspection", "Aftercare advice"] },
-    { name: "Teeth Brushing", price: "₹249", duration: "20 min", rating: "4.7", img: P.groom, shortDesc: "Pet-safe dental brushing to prevent plaque, tartar, and bad breath.", desc: "Regular teeth brushing significantly reduces the risk of periodontal disease. We use pet-safe enzymatic toothpaste and soft brushes for a gentle, effective clean.", includes: ["Pet-safe toothpaste", "Full brush session", "Tartar check", "Bad breath assessment", "Home brushing guide", "Dental treat recommendation"] },
-    { name: "De-shedding Treatment", price: "₹599", duration: "60 min", rating: "4.9", img: P.groom, shortDesc: "Professional de-shedding to dramatically reduce loose fur and keep your home cleaner.", desc: "Our de-shedding treatment combines a specialised shampoo, high-velocity blow dry, and deshedding brush to remove up to 90% of loose undercoat — leaving your home fur-free.", includes: ["Deshedding shampoo", "Conditioning mask", "High-velocity dry", "Furminator brush", "Coat health check", "Shedding reduction guarantee"] },
-    { name: "Flea Bath", price: "₹449", duration: "45 min", rating: "4.8", img: P.groom, shortDesc: "Medicated flea bath using vet-approved products to eliminate fleas safely.", desc: "Our flea bath uses medicated, vet-approved shampoo to kill fleas on contact. We check the entire coat and recommend a follow-up treatment schedule to prevent reinfestation.", includes: ["Medicated flea shampoo", "Full coat inspection", "Flea comb treatment", "Environmental advice", "Aftercare plan", "Product recommendations"] },
-    { name: "Paw Care", price: "₹299", duration: "30 min", rating: "4.8", img: P.groom, shortDesc: "Complete paw treatment including nail trim, pad massage, moisturising, and cracked pad treatment.", desc: "Paws carry your pet everywhere. Our paw care service addresses cracked pads, overgrown nails, interdigital fur, and dryness with a moisturising soak and treatment.", includes: ["Nail clip & file", "Pad inspection & treatment", "Moisturiser soak", "Interdigital fur trim", "Cracked pad repair", "Protective balm"] },
-    { name: "Skin & Coat Treatment", price: "₹699", duration: "60 min", rating: "4.9", img: P.groom, shortDesc: "Targeted treatments for dry skin, dandruff, dull coat, or medically recommended skin issues.", desc: "Our skin and coat treatments use medically formulated shampoos, conditioning masks, and ozone therapy to restore coat lustre, treat dandruff, and soothe irritated skin.", includes: ["Skin condition assessment", "Medicated or nourishing shampoo", "Deep conditioning mask", "Ozone therapy option", "Coat serum finish", "Home care routine"] },
+    { name: "Full Grooming", price: "₹799", duration: "90 Min", rating: "4.9", img: P.groom, shortDesc: "Complete Bath, Haircut, Nail Trim, Ear Clean, And Finishing — The Full Spa Experience.", desc: "Our Full Grooming Session Covers Everything Your Pet Needs: Breed-Specific Shampoo Bath, Blow Dry, Haircut, Nail Clipping, Ear Cleaning, And A Final Fragrance Spritz. Walk In, Walk Out Pampered.", includes: ["Breed-specific bath", "Professional blow dry", "Custom haircut", "Nail clipping", "Ear cleaning", "Fragrance & bow"] },
+    { name: "Bath & Blow Dry", price: "₹399", duration: "45 Min", rating: "4.8", img: P.groom, shortDesc: "Thorough Medicated Or Regular Bath Followed By Professional Blow Dry And Brush-Out.", desc: "A Deep Cleanse With Premium, Pet-Safe Shampoo Followed By A Professional Blow Dry And Thorough Brush-Out To Leave Your Pet's Coat Clean, Tangle-Free, And Glossy.", includes: ["Medicated or regular shampoo", "Conditioning treatment", "Professional blow dry", "Brush-out", "Coat check", "Basic hygiene check"] },
+    { name: "Hair Trimming & Styling", price: "₹499", duration: "60 Min", rating: "4.8", img: P.groom, shortDesc: "Expert Breed-Standard And Custom Styling By Certified Groomers.", desc: "Our Groomers Are Trained In Breed Standards As Well As Custom Cuts. Whether It's A Precise Poodle Clip Or A Practical Trim, We Deliver Clean, Consistent Results.", includes: ["Breed-standard or custom cut", "Scissor & clipper finishing", "Fringe & face trim", "Paw & sanitary trim", "Final inspection", "Style photo"] },
+    { name: "Nail Clipping", price: "₹149", duration: "15 Min", rating: "4.9", img: P.groom, shortDesc: "Safe, Stress-Free Nail Trimming With Grinding Option For Perfectly Smooth Edges.", desc: "Overgrown Nails Can Cause Pain And Postural Issues. Our Groomers Use Sharp, Proper-Sized Clippers With An Optional Grinder Finish To Ensure Smooth, Safe Nails.", includes: ["All four paws", "Quick detection & care", "Grinder finish option", "Paw massage", "Paw pad check", "Moisturiser application"] },
+    { name: "Ear Cleaning", price: "₹199", duration: "20 Min", rating: "4.8", img: P.groom, shortDesc: "Gentle, Thorough Ear Cleaning To Prevent Infection And Remove Wax Build-Up.", desc: "Ear Infections Are One Of The Most Common Vet Visits. Our Safe Ear Cleaning Service Removes Debris, Wax, And Checks For Signs Of Infection Or Mites.", includes: ["Both ears cleaned", "Vet-approved solution", "Wax removal", "Infection check", "Mite inspection", "Aftercare advice"] },
+    { name: "Teeth Brushing", price: "₹249", duration: "20 Min", rating: "4.7", img: P.groom, shortDesc: "Pet-Safe Dental Brushing To Prevent Plaque, Tartar, And Bad Breath.", desc: "Regular Teeth Brushing Significantly Reduces The Risk Of Periodontal Disease. We Use Pet-Safe Enzymatic Toothpaste And Soft Brushes For A Gentle, Effective Clean.", includes: ["Pet-safe toothpaste", "Full brush session", "Tartar check", "Bad breath assessment", "Home brushing guide", "Dental treat recommendation"] },
+    { name: "De-Shedding Treatment", price: "₹599", duration: "60 Min", rating: "4.9", img: P.groom, shortDesc: "Professional De-Shedding To Dramatically Reduce Loose Fur And Keep Your Home Cleaner.", desc: "Our De-Shedding Treatment Combines A Specialised Shampoo, High-Velocity Blow Dry, And Deshedding Brush To Remove Up To 90% Of Loose Undercoat — Leaving Your Home Fur-Free.", includes: ["Deshedding shampoo", "Conditioning mask", "High-velocity dry", "Furminator brush", "Coat health check", "Shedding reduction guarantee"] },
+    { name: "Flea Bath", price: "₹449", duration: "45 Min", rating: "4.8", img: P.groom, shortDesc: "Medicated Flea Bath Using Vet-Approved Products To Eliminate Fleas Safely.", desc: "Our Flea Bath Uses Medicated, Vet-Approved Shampoo To Kill Fleas On Contact. We Check The Entire Coat And Recommend A Follow-Up Treatment Schedule To Prevent Reinfestation.", includes: ["Medicated flea shampoo", "Full coat inspection", "Flea comb treatment", "Environmental advice", "Aftercare plan", "Product recommendations"] },
+    { name: "Paw Care", price: "₹299", duration: "30 Min", rating: "4.8", img: P.groom, shortDesc: "Complete Paw Treatment Including Nail Trim, Pad Massage, Moisturising, And Cracked Pad Treatment.", desc: "Paws Carry Your Pet Everywhere. Our Paw Care Service Addresses Cracked Pads, Overgrown Nails, Interdigital Fur, And Dryness With A Moisturising Soak And Treatment.", includes: ["Nail clip & file", "Pad inspection & treatment", "Moisturiser soak", "Interdigital fur trim", "Cracked pad repair", "Protective balm"] },
+    { name: "Skin & Coat Treatment", price: "₹699", duration: "60 Min", rating: "4.9", img: P.groom, shortDesc: "Targeted Treatments For Dry Skin, Dandruff, Dull Coat, Or Medically Recommended Skin Issues.", desc: "Our Skin And Coat Treatments Use Medically Formulated Shampoos, Conditioning Masks, And Ozone Therapy To Restore Coat Lustre, Treat Dandruff, And Soothe Irritated Skin.", includes: ["Skin condition assessment", "Medicated or nourishing shampoo", "Deep conditioning mask", "Ozone therapy option", "Coat serum finish", "Home care routine"] },
   ];
-  return <SvcCatPage cat="Grooming & Hygiene" icon="✂️" color={C.green} heroImg={P.groom} tagline={"Looking Good,\nFeeling Great."} about="Certified groomers, premium products, and stress-free sessions — because your pet deserves to look and feel their very best." services={services} whyUs={{ stats: [["500+", "Certified Groomers"], ["4.9★", "Client Rating"], ["Pickup", "& Drop Available"], ["All", "Breeds Welcome"]], points: [{ icon: "✂️", title: "Breed-Certified Groomers", desc: "All groomers complete a 120-hour breed-specific certification programme." }, { icon: "🌿", title: "Premium Products", desc: "We use only pet-safe, cruelty-free, dermatologically tested grooming products." }, { icon: "🚗", title: "Free Pickup & Drop", desc: "Available in all major cities — we come to you, saving you time and stress." }, { icon: "📸", title: "Before & After Photos", desc: "We capture the transformation so you can share your pet's glow-up." }] }} faqItems={[{ q: "How often should I groom my dog?", a: "Most dogs benefit from professional grooming every 4–8 weeks depending on breed and coat type. Double-coated breeds may need more frequent de-shedding." }, { q: "Is your grooming salon safe for anxious pets?", a: "Yes. We use calm, force-free handling techniques. For very anxious pets, we offer one-on-one sessions with extra patience and breaks." }, { q: "Do you offer mobile grooming?", a: "We offer pickup and drop at no extra charge. Full mobile grooming vans are available in select cities." }, { q: "What shampoo do you use?", a: "We use pH-balanced, breed-appropriate shampoos — medicated options are available for skin conditions on vet recommendation." }, { q: "Can I request a specific grooming style?", a: "Absolutely. Bring reference photos and our groomers will do their best to achieve your desired look." }]} nav={nav} />;
+  return <SvcCatPage cat="Grooming & Hygiene" icon="✂️" color={C.green} heroImg={P.groom} tagline={"Looking Good,\nFeeling Great."} about="Certified groomers, premium products, and stress-free sessions — because your pet deserves to look and feel their very best." services={services} whyUs={{ stats: [["500+", "Certified Groomers"], ["4.9★", "Client Rating"], ["Pickup", "& Drop Available"], ["All", "Breeds Welcome"]], points: [{ icon: "✂️", title: "Breed-Certified Groomers", desc: "All Groomers Complete A 120-Hour Breed-Specific Certification Programme." }, { icon: "🌿", title: "Premium Products", desc: "We Use Only Pet-Safe, Cruelty-Free, Dermatologically Tested Grooming Products." }, { icon: "🚗", title: "Free Pickup & Drop", desc: "Available In All Major Cities — We Come To You, Saving You Time And Stress." }, { icon: "📸", title: "Before & After Photos", desc: "We Capture The Transformation So You Can Share Your Pet's Glow-Up." }] }} faqItems={[{ q: "How Often Should I Groom My Dog?", a: "Most Dogs Benefit From Professional Grooming Every 4–8 Weeks Depending On Breed And Coat Type. Double-Coated Breeds May Need More Frequent De-Shedding." }, { q: "Is Your Grooming Salon Safe For Anxious Pets?", a: "Yes. We Use Calm, Force-Free Handling Techniques. For Very Anxious Pets, We Offer One-On-One Sessions With Extra Patience And Breaks." }, { q: "Do You Offer Mobile Grooming?", a: "We Offer Pickup And Drop At No Extra Charge. Full Mobile Grooming Vans Are Available In Select Cities." }, { q: "What Shampoo Do You Use?", a: "We Use PH-Balanced, Breed-Appropriate Shampoos — Medicated Options Are Available For Skin Conditions On Vet Recommendation." }, { q: "Can I Request A Specific Grooming Style?", a: "Absolutely. Bring Reference Photos And Our Groomers Will Do Their Best To Achieve Your Desired Look." }]} nav={nav} />;
 }
 
 // ── TRAINING & BEHAVIOR PAGE ──────────────────────────────────────
 function SvcTrainingPage({ nav }) {
   const services = [
-    { name: "Puppy Training", price: "₹1,499/mo", duration: "60 min/session", rating: "4.9", img: P.train, shortDesc: "Foundation skills for puppies 8–16 weeks: sit, stay, come, socialisation, and bite inhibition.", desc: "The first weeks are the most important. Our puppy training programme establishes a positive foundation through socialisation, basic commands, and confidence building — all using reward-based methods.", includes: ["Basic commands (sit, stay, come)", "Bite inhibition", "Socialisation exercises", "Leash introduction", "Crate training", "Parent coaching"] },
-    { name: "Obedience Training", price: "₹1,999/mo", duration: "60 min/session", rating: "4.9", img: P.train, shortDesc: "Comprehensive obedience for dogs of all ages: heel, down, recall, stay, and off-leash control.", desc: "Our obedience curriculum covers all foundational and advanced commands. Dogs graduate with reliable on- and off-leash responses in a variety of environments.", includes: ["14 core commands", "On & off-leash control", "Distraction training", "Group & solo sessions", "Progress tracking", "Certificate on completion"] },
-    { name: "Leash Training", price: "₹999/mo", duration: "45 min/session", rating: "4.8", img: P.dog3, shortDesc: "Stop pulling, reactive barking, and lunging — walk your dog calmly and confidently.", desc: "Loose-leash walking is one of the most requested skills. Our trainers use positive reinforcement and structured exercises to teach dogs to walk calmly beside their owners.", includes: ["Loose-leash fundamentals", "Anti-pull techniques", "Reactive dog protocols", "Equipment guidance", "Real-world practice", "Owner coaching"] },
-    { name: "Potty Training", price: "₹799/mo", duration: "30 min/session", rating: "4.8", img: P.dog1, shortDesc: "Reliable house-training using positive, consistent methods for puppies and adult dogs.", desc: "Accidents happen, but they don't have to be a regular occurrence. Our potty training protocol establishes a clear schedule, reward system, and environmental management strategy.", includes: ["Custom schedule plan", "Reward-based method", "Indoor & outdoor options", "Parent instruction", "Accident prevention tips", "Ongoing support"] },
-    { name: "Behavioral Correction", price: "₹2,499/mo", duration: "75 min/session", rating: "4.8", img: P.train, shortDesc: "Identify and correct unwanted behaviors: jumping, barking, chewing, separation anxiety.", desc: "Our certified behaviourists identify the root cause of problem behaviours and develop a tailored modification plan — no punishment, just science-backed positive techniques.", includes: ["Full behaviour assessment", "Custom modification plan", "Root cause analysis", "Weekly sessions", "Progress reports", "Emergency support line"] },
-    { name: "Aggression Management", price: "₹3,499/mo", duration: "90 min/session", rating: "4.9", img: P.train, shortDesc: "Safe, certified protocols for dog-to-dog and dog-to-human aggression using desensitisation.", desc: "Aggression requires specialised handling. Our certified behaviourists use systematic desensitisation and counter-conditioning — never aversive tools — to manage and reduce aggressive responses safely.", includes: ["Full aggression assessment", "Certified behaviourist only", "Desensitisation programme", "Counter-conditioning", "Management strategies", "Family coaching"] },
-    { name: "Socialization Training", price: "₹1,299/mo", duration: "60 min/session", rating: "4.9", img: P.community, shortDesc: "Structured socialisation for fearful, under-socialised, or reactive dogs in safe, controlled environments.", desc: "Proper socialisation prevents fear and reactivity. Our group and individual socialisation sessions expose dogs to new people, animals, sounds, and environments at a safe, comfortable pace.", includes: ["Controlled exposure", "Positive associations", "Group dog interaction", "New environment visits", "Fear reduction techniques", "Owner guidance"] },
-    { name: "Guard Dog Training", price: "₹4,999/mo", duration: "90 min/session", rating: "4.8", img: P.dog3, shortDesc: "Professional protection and guarding training for working breeds.", desc: "For owners who need a reliable protection dog, our certified trainers teach alert barking, controlled guarding, off-switch commands, and discrimination between threats and non-threats.", includes: ["Breed suitability assessment", "Alert & bark-on-command", "Controlled guarding", "Off-command training", "Discrimination training", "Monthly evaluation"] },
-    { name: "Advanced Training", price: "₹2,999/mo", duration: "75 min/session", rating: "4.9", img: P.train, shortDesc: "Beyond basic obedience: distance commands, hand signals, tricks, and agility foundations.", desc: "For dogs who've mastered the basics, our advanced curriculum introduces hand signals, distance commands, trick training, and agility foundation work.", includes: ["Hand signal commands", "Distance & distraction work", "Trick training package", "Agility introduction", "Competitive preparation", "AKC-equivalent standards"] },
-    { name: "Therapy Dog Training", price: "₹3,999/mo", duration: "75 min/session", rating: "4.9", img: P.dog4, shortDesc: "Prepare your dog for official therapy dog certification to visit hospitals, schools, and care homes.", desc: "Therapy dogs bring immense comfort to those in need. Our programme prepares dogs (and their handlers) for official therapy dog certification, covering temperament, exposure, and handler skills.", includes: ["Temperament evaluation", "Public access training", "Handler skills coaching", "Hospital/school prep", "Certification prep", "Official test assistance"] },
+    { name: "Puppy Training", price: "₹1,499/Mo", duration: "60 Min/Session", rating: "4.9", img: P.train, shortDesc: "Foundation Skills For Puppies 8–16 Weeks: Sit, Stay, Come, Socialisation, And Bite Inhibition.", desc: "The First Weeks Are The Most Important. Our Puppy Training Programme Establishes A Positive Foundation Through Socialisation, Basic Commands, And Confidence Building — All Using Reward-Based Methods.", includes: ["Basic commands (sit, stay, come)", "Bite inhibition", "Socialisation exercises", "Leash introduction", "Crate training", "Parent coaching"] },
+    { name: "Obedience Training", price: "₹1,999/Mo", duration: "60 Min/Session", rating: "4.9", img: P.train, shortDesc: "Comprehensive Obedience For Dogs Of All Ages: Heel, Down, Recall, Stay, And Off-Leash Control.", desc: "Our Obedience Curriculum Covers All Foundational And Advanced Commands. Dogs Graduate With Reliable On- And Off-Leash Responses In A Variety Of Environments.", includes: ["14 core commands", "On & off-leash control", "Distraction training", "Group & solo sessions", "Progress tracking", "Certificate on completion"] },
+    { name: "Leash Training", price: "₹999/Mo", duration: "45 Min/Session", rating: "4.8", img: P.dog3, shortDesc: "Stop Pulling, Reactive Barking, And Lunging — Walk Your Dog Calmly And Confidently.", desc: "Loose-Leash Walking Is One Of The Most Requested Skills. Our Trainers Use Positive Reinforcement And Structured Exercises To Teach Dogs To Walk Calmly Beside Their Owners.", includes: ["Loose-leash fundamentals", "Anti-pull techniques", "Reactive dog protocols", "Equipment guidance", "Real-world practice", "Owner coaching"] },
+    { name: "Potty Training", price: "₹799/Mo", duration: "30 Min/Session", rating: "4.8", img: P.dog1, shortDesc: "Reliable House-Training Using Positive, Consistent Methods For Puppies And Adult Dogs.", desc: "Accidents Happen, But They Don't Have To Be A Regular Occurrence. Our Potty Training Protocol Establishes A Clear Schedule, Reward System, And Environmental Management Strategy.", includes: ["Custom schedule plan", "Reward-based method", "Indoor & outdoor options", "Parent instruction", "Accident prevention tips", "Ongoing support"] },
+    { name: "Behavioral Correction", price: "₹2,499/Mo", duration: "75 Min/Session", rating: "4.8", img: P.train, shortDesc: "Identify And Correct Unwanted Behaviors: Jumping, Barking, Chewing, Separation Anxiety.", desc: "Our Certified Behaviourists Identify The Root Cause Of Problem Behaviours And Develop A Tailored Modification Plan — No Punishment, Just Science-Backed Positive Techniques.", includes: ["Full behaviour assessment", "Custom modification plan", "Root cause analysis", "Weekly sessions", "Progress reports", "Emergency support line"] },
+    { name: "Aggression Management", price: "₹3,499/Mo", duration: "90 Min/Session", rating: "4.9", img: P.train, shortDesc: "Safe, Certified Protocols For Dog-To-Dog And Dog-To-Human Aggression Using Desensitisation.", desc: "Aggression Requires Specialised Handling. Our Certified Behaviourists Use Systematic Desensitisation And Counter-Conditioning — Never Aversive Tools — To Manage And Reduce Aggressive Responses Safely.", includes: ["Full aggression assessment", "Certified behaviourist only", "Desensitisation programme", "Counter-conditioning", "Management strategies", "Family coaching"] },
+    { name: "Socialization Training", price: "₹1,299/Mo", duration: "60 Min/Session", rating: "4.9", img: P.community, shortDesc: "Structured Socialisation For Fearful, Under-Socialised, Or Reactive Dogs In Safe, Controlled Environments.", desc: "Proper Socialisation Prevents Fear And Reactivity. Our Group And Individual Socialisation Sessions Expose Dogs To New People, Animals, Sounds, And Environments At A Safe, Comfortable Pace.", includes: ["Controlled exposure", "Positive associations", "Group dog interaction", "New environment visits", "Fear reduction techniques", "Owner guidance"] },
+    { name: "Guard Dog Training", price: "₹4,999/Mo", duration: "90 Min/Session", rating: "4.8", img: P.dog3, shortDesc: "Professional Protection And Guarding Training For Working Breeds.", desc: "For Owners Who Need A Reliable Protection Dog, Our Certified Trainers Teach Alert Barking, Controlled Guarding, Off-Switch Commands, And Discrimination Between Threats And Non-Threats.", includes: ["Breed suitability assessment", "Alert & bark-on-command", "Controlled guarding", "Off-command training", "Discrimination training", "Monthly evaluation"] },
+    { name: "Advanced Training", price: "₹2,999/Mo", duration: "75 Min/Session", rating: "4.9", img: P.train, shortDesc: "Beyond Basic Obedience: Distance Commands, Hand Signals, Tricks, And Agility Foundations.", desc: "For Dogs Who've Mastered The Basics, Our Advanced Curriculum Introduces Hand Signals, Distance Commands, Trick Training, And Agility Foundation Work.", includes: ["Hand signal commands", "Distance & distraction work", "Trick training package", "Agility introduction", "Competitive preparation", "AKC-equivalent standards"] },
+    { name: "Therapy Dog Training", price: "₹3,999/Mo", duration: "75 Min/Session", rating: "4.9", img: P.dog4, shortDesc: "Prepare Your Dog For Official Therapy Dog Certification To Visit Hospitals, Schools, And Care Homes.", desc: "Therapy Dogs Bring Immense Comfort To Those In Need. Our Programme Prepares Dogs (And Their Handlers) For Official Therapy Dog Certification, Covering Temperament, Exposure, And Handler Skills.", includes: ["Temperament evaluation", "Public access training", "Handler skills coaching", "Hospital/school prep", "Certification prep", "Official test assistance"] },
   ];
-  return <SvcCatPage cat="Training & Behavior" icon="🎓" color={C.orange} heroImg={P.train} tagline={"Well-Trained,\nWell-Loved."} about="Certified, force-free trainers using reward-based science to build obedient, confident, and happy dogs." services={services} whyUs={{ stats: [["200+", "Certified Trainers"], ["98%", "Success Rate"], ["10,000+", "Dogs Trained"], ["Force-Free", "Methods Only"]], points: [{ icon: "🎓", title: "CPDT-Certified Trainers", desc: "All trainers hold international certifications and follow force-free, science-backed methods." }, { icon: "❤️", title: "No Aversive Tools", desc: "We never use choke chains, prong collars, or shock collars. Positive reinforcement only." }, { icon: "📊", title: "Progress Tracking", desc: "Weekly session reports and a training app to practice between sessions." }, { icon: "🏠", title: "Home & Group Options", desc: "In-home sessions, group classes, and board & train packages available." }] }} faqItems={[{ q: "What age can I start training my puppy?", a: "Training can begin as early as 8 weeks old. Early socialisation and basic commands at this stage have the most lasting impact." }, { q: "Do you use punishment-based methods?", a: "Never. All Pawprint trainers are force-free certified. We use positive reinforcement exclusively." }, { q: "How many sessions will my dog need?", a: "This varies by the dog and goal. Basic obedience typically takes 6–8 sessions. Behaviour modification may require 3–6 months." }, { q: "Can older dogs be trained?", a: "Absolutely. The saying 'you can't teach an old dog new tricks' is a myth. Dogs of any age respond well to reward-based training." }, { q: "Do you offer group classes?", a: "Yes — our group classes run weekly in all major cities and are a great way to practise around distractions." }]} nav={nav} />;
+  return <SvcCatPage cat="Training & Behavior" icon="🎓" color={C.orange} heroImg={P.train} tagline={"Well-Trained,\nWell-Loved."} about="Certified, force-free trainers using reward-based science to build obedient, confident, and happy dogs." services={services} whyUs={{ stats: [["200+", "Certified Trainers"], ["98%", "Success Rate"], ["10,000+", "Dogs Trained"], ["Force-Free", "Methods Only"]], points: [{ icon: "🎓", title: "CPDT-Certified Trainers", desc: "All Trainers Hold International Certifications And Follow Force-Free, Science-Backed Methods." }, { icon: "❤️", title: "No Aversive Tools", desc: "We Never Use Choke Chains, Prong Collars, Or Shock Collars. Positive Reinforcement Only." }, { icon: "📊", title: "Progress Tracking", desc: "Weekly Session Reports And A Training App To Practice Between Sessions." }, { icon: "🏠", title: "Home & Group Options", desc: "In-Home Sessions, Group Classes, And Board & Train Packages Available." }] }} faqItems={[{ q: "What Age Can I Start Training My Puppy?", a: "Training Can Begin As Early As 8 Weeks Old. Early Socialisation And Basic Commands At This Stage Have The Most Lasting Impact." }, { q: "Do You Use Punishment-Based Methods?", a: "Never. All Pawprint Trainers Are Force-Free Certified. We Use Positive Reinforcement Exclusively." }, { q: "How Many Sessions Will My Dog Need?", a: "This Varies By The Dog And Goal. Basic Obedience Typically Takes 6–8 Sessions. Behaviour Modification May Require 3–6 Months." }, { q: "Can Older Dogs Be Trained?", a: "Absolutely. The Saying 'You Can't Teach An Old Dog New Tricks' Is A Myth. Dogs Of Any Age Respond Well To Reward-Based Training." }, { q: "Do You Offer Group Classes?", a: "Yes — Our Group Classes Run Weekly In All Major Cities And Are A Great Way To Practise Around Distractions." }]} nav={nav} />;
 }
 
 // ── BOARDING & SITTING PAGE ───────────────────────────────────────
 function SvcBoardingPage({ nav }) {
   const services = [
-    { name: "Dog Boarding", price: "₹599/night", duration: "Per night", rating: "4.9", img: P.boarding, shortDesc: "Safe, supervised overnight boarding in clean, comfortable facilities.", desc: "Our boarding facilities provide a home-away-from-home experience. Each dog gets their own cozy space, regular feeding, two exercise walks, and playtime.", includes: ["Private sleeping area", "3 meals/day", "2 exercise walks", "Supervised playtime", "Daily health check", "Photo updates to owner"] },
-    { name: "Luxury Boarding", price: "₹1,499/night", duration: "Per night", rating: "4.9", img: P.boarding, shortDesc: "Premium suites with AC, plush bedding, TV, and dedicated one-on-one attention.", desc: "Our luxury suites feature air conditioning, orthopedic bedding, calming music, individual playtime, and real-time camera access for owners.", includes: ["AC premium suite", "Orthopedic bedding", "Live camera access", "1-on-1 attention", "Gourmet meals", "Bedtime story (seriously!)"] },
-    { name: "Overnight Stay", price: "₹799/night", duration: "Per night", rating: "4.8", img: P.boarding, shortDesc: "Comfortable overnight care with evening and morning routines maintained.", desc: "Maintains your pet's normal evening and morning routine in a caring environment. Perfect for one or two nights away.", includes: ["Evening & morning walks", "Consistent routine", "Comfort items welcome", "Evening check-in call", "Morning departure report", "Medication management"] },
-    { name: "Dog Daycare", price: "₹399/day", duration: "8 hrs", rating: "4.9", img: P.boarding, shortDesc: "Full-day supervised play, socialisation, and rest while you're at work.", desc: "Drop off in the morning, pick up in the evening. Your dog enjoys a full day of supervised play, rest, feeding, and socialisation with other friendly dogs.", includes: ["Supervised group play", "Rest periods", "2 meals provided", "Socialisation sessions", "Real-time photo updates", "Behaviour report"] },
-    { name: "Pet Sitting", price: "₹499/visit", duration: "2 hrs/visit", rating: "4.9", img: P.about2, shortDesc: "A trusted sitter visits your home to care for your pet in their own environment.", desc: "Sometimes home is best. Our background-checked pet sitters visit your home to feed, play, walk, and care for your pet in the comfort of their own environment.", includes: ["In-home visit", "Feeding & fresh water", "30-min play/walk", "Litter/potty care", "Home security check", "Post-visit report"] },
-    { name: "Home Visit Care", price: "₹299/visit", duration: "45 min", rating: "4.8", img: P.about2, shortDesc: "Shorter wellness check visits for pets who just need a midday check-in.", desc: "Perfect for pets who need a midday check. Our carers visit, check food and water, give a quick play session, and ensure your pet is happy and comfortable.", includes: ["Food & water check", "Quick play session", "Potty/litter care", "Medication if needed", "Visit report", "Emergency contact"] },
-    { name: "Long-Term Boarding", price: "₹499/night", duration: "7+ nights", rating: "4.8", img: P.boarding, shortDesc: "Extended boarding packages for holidays or travel, with weekly vet check-ins.", desc: "Heading on a long trip? Our long-term boarding includes weekly vet check-ins, regular grooming, and a detailed daily log sent to you throughout your absence.", includes: ["Weekly vet check-in", "Daily log & photos", "Grooming included", "Discounted rates", "Medication management", "Owner video calls"] },
-    { name: "Cage-Free Boarding", price: "₹899/night", duration: "Per night", rating: "4.9", img: P.boarding, shortDesc: "Free-roam boarding in a home environment for dogs who don't do well in kennels.", desc: "Some dogs thrive in a home setting. Our cage-free boarding partners are thoroughly vetted pet lovers who host small groups of dogs in their homes for a truly family experience.", includes: ["Home environment", "No kennels or cages", "Limited dog group", "Regular outdoor time", "Owner video calls", "Personalised care"] },
-    { name: "Puppy Daycare", price: "₹449/day", duration: "8 hrs", rating: "4.9", img: P.dog1, shortDesc: "Specialised daycare for puppies under 1 year with puppy-safe play and puppy training included.", desc: "Puppies have special needs. Our puppy daycare groups are age-appropriate, with separate play areas, gentle handling, nap schedules, and basic training reinforcement woven into the day.", includes: ["Age-appropriate grouping", "Basic training reinforcement", "Nap schedule", "3 puppy-safe meals", "Socialisation programme", "Daily development report"] },
+    { name: "Dog Boarding", price: "₹599/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Safe, Supervised Overnight Boarding In Clean, Comfortable Facilities.", desc: "Our Boarding Facilities Provide A Home-Away-From-Home Experience. Each Dog Gets Their Own Cozy Space, Regular Feeding, Two Exercise Walks, And Playtime.", includes: ["Private sleeping area", "3 meals/day", "2 exercise walks", "Supervised playtime", "Daily health check", "Photo updates to owner"] },
+    { name: "Luxury Boarding", price: "₹1,499/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Premium Suites With AC, Plush Bedding, TV, And Dedicated One-On-One Attention.", desc: "Our Luxury Suites Feature Air Conditioning, Orthopedic Bedding, Calming Music, Individual Playtime, And Real-Time Camera Access For Owners.", includes: ["AC premium suite", "Orthopedic bedding", "Live camera access", "1-on-1 attention", "Gourmet meals", "Bedtime story (seriously!)"] },
+    { name: "Overnight Stay", price: "₹799/Night", duration: "Per Night", rating: "4.8", img: P.boarding, shortDesc: "Comfortable Overnight Care With Evening And Morning Routines Maintained.", desc: "Maintains Your Pet's Normal Evening And Morning Routine In A Caring Environment. Perfect For One Or Two Nights Away.", includes: ["Evening & morning walks", "Consistent routine", "Comfort items welcome", "Evening check-in call", "Morning departure report", "Medication management"] },
+    { name: "Dog Daycare", price: "₹399/Day", duration: "8 Hrs", rating: "4.9", img: P.boarding, shortDesc: "Full-Day Supervised Play, Socialisation, And Rest While You're At Work.", desc: "Drop Off In The Morning, Pick Up In The Evening. Your Dog Enjoys A Full Day Of Supervised Play, Rest, Feeding, And Socialisation With Other Friendly Dogs.", includes: ["Supervised group play", "Rest periods", "2 meals provided", "Socialisation sessions", "Real-time photo updates", "Behaviour report"] },
+    { name: "Pet Sitting", price: "₹499/Visit", duration: "2 Hrs/Visit", rating: "4.9", img: P.about2, shortDesc: "A Trusted Sitter Visits Your Home To Care For Your Pet In Their Own Environment.", desc: "Sometimes Home Is Best. Our Background-Checked Pet Sitters Visit Your Home To Feed, Play, Walk, And Care For Your Pet In The Comfort Of Their Own Environment.", includes: ["In-home visit", "Feeding & fresh water", "30-min play/walk", "Litter/potty care", "Home security check", "Post-visit report"] },
+    { name: "Home Visit Care", price: "₹299/Visit", duration: "45 Min", rating: "4.8", img: P.about2, shortDesc: "Shorter Wellness Check Visits For Pets Who Just Need A Midday Check-In.", desc: "Perfect For Pets Who Need A Midday Check. Our Carers Visit, Check Food And Water, Give A Quick Play Session, And Ensure Your Pet Is Happy And Comfortable.", includes: ["Food & water check", "Quick play session", "Potty/litter care", "Medication if needed", "Visit report", "Emergency contact"] },
+    { name: "Long-Term Boarding", price: "₹499/Night", duration: "7+ Nights", rating: "4.8", img: P.boarding, shortDesc: "Extended Boarding Packages For Holidays Or Travel, With Weekly Vet Check-Ins.", desc: "Heading On A Long Trip? Our Long-Term Boarding Includes Weekly Vet Check-Ins, Regular Grooming, And A Detailed Daily Log Sent To You Throughout Your Absence.", includes: ["Weekly vet check-in", "Daily log & photos", "Grooming included", "Discounted rates", "Medication management", "Owner video calls"] },
+    { name: "Cage-Free Boarding", price: "₹899/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Free-Roam Boarding In A Home Environment For Dogs Who Don't Do Well In Kennels.", desc: "Some Dogs Thrive In A Home Setting. Our Cage-Free Boarding Partners Are Thoroughly Vetted Pet Lovers Who Host Small Groups Of Dogs In Their Homes For A Truly Family Experience.", includes: ["Home environment", "No kennels or cages", "Limited dog group", "Regular outdoor time", "Owner video calls", "Personalised care"] },
+    { name: "Puppy Daycare", price: "₹449/Day", duration: "8 Hrs", rating: "4.9", img: P.dog1, shortDesc: "Specialised Daycare For Puppies Under 1 Year With Puppy-Safe Play And Puppy Training Included.", desc: "Puppies Have Special Needs. Our Puppy Daycare Groups Are Age-Appropriate, With Separate Play Areas, Gentle Handling, Nap Schedules, And Basic Training Reinforcement Woven Into The Day.", includes: ["Age-appropriate grouping", "Basic training reinforcement", "Nap schedule", "3 puppy-safe meals", "Socialisation programme", "Daily development report"] },
   ];
-  return <SvcCatPage cat="Boarding & Sitting" icon="🏠" color="#7C3AED" heroImg={P.boarding} tagline={"Safe, Loved,\nWell Cared For."} about="CCTV-monitored facilities, background-checked sitters, and daily updates — so you can relax knowing your pet is in the best hands." services={services} whyUs={{ stats: [["CCTV", "Monitored 24/7"], ["Background", "Checked Staff"], ["Daily", "Owner Updates"], ["4.9★", "Trust Rating"]], points: [{ icon: "🏠", title: "Home-Like Environment", desc: "Our facilities are designed to feel comfortable and calming, not institutional." }, { icon: "📹", title: "24/7 CCTV", desc: "Cameras throughout facilities with live access available for select premium packages." }, { icon: "🩺", title: "Vet On Call", desc: "A vet is always on call for our boarding facilities — your pet's health is never left to chance." }, { icon: "📱", title: "Daily Updates", desc: "Photo and video updates sent each morning so you can see your pet thriving." }] }} faqItems={[{ q: "What vaccinations are required for boarding?", a: "We require up-to-date Distemper, Parvovirus, and Rabies vaccines. Kennel Cough vaccination is highly recommended." }, { q: "Can I visit the facility before booking?", a: "Absolutely. We encourage facility tours before your first booking. Contact us to schedule a visit." }, { q: "What happens if my pet gets sick while boarding?", a: "We have a vet on call 24/7. If your pet requires treatment, we will contact you immediately and arrange veterinary care." }, { q: "Can I bring my pet's food and bedding?", a: "Yes — in fact, we encourage it. Familiar smells and food help pets feel at home." }, { q: "Is there a minimum stay for boarding?", a: "Our minimum boarding stay is one night. Long-term discounts start from 7 nights." }]} nav={nav} />;
+  return <SvcCatPage cat="Boarding & Sitting" icon="🏠" color="#7C3AED" heroImg={P.boarding} tagline={"Safe, Loved,\nWell Cared For."} about="CCTV-monitored facilities, background-checked sitters, and daily updates — so you can relax knowing your pet is in the best hands." services={services} whyUs={{ stats: [["CCTV", "Monitored 24/7"], ["Background", "Checked Staff"], ["Daily", "Owner Updates"], ["4.9★", "Trust Rating"]], points: [{ icon: "🏠", title: "Home-Like Environment", desc: "Our Facilities Are Designed To Feel Comfortable And Calming, Not Institutional." }, { icon: "📹", title: "24/7 CCTV", desc: "Cameras Throughout Facilities With Live Access Available For Select Premium Packages." }, { icon: "🩺", title: "Vet On Call", desc: "A Vet Is Always On Call For Our Boarding Facilities — Your Pet's Health Is Never Left To Chance." }, { icon: "📱", title: "Daily Updates", desc: "Photo And Video Updates Sent Each Morning So You Can See Your Pet Thriving." }] }} faqItems={[{ q: "What Vaccinations Are Required For Boarding?", a: "We Require Up-To-Date Distemper, Parvovirus, And Rabies Vaccines. Kennel Cough Vaccination Is Highly Recommended." }, { q: "Can I Visit The Facility Before Booking?", a: "Absolutely. We Encourage Facility Tours Before Your First Booking. Contact Us To Schedule A Visit." }, { q: "What Happens If My Pet Gets Sick While Boarding?", a: "We Have A Vet On Call 24/7. If Your Pet Requires Treatment, We Will Contact You Immediately And Arrange Veterinary Care." }, { q: "Can I Bring My Pet's Food And Bedding?", a: "Yes — In Fact, We Encourage It. Familiar Smells And Food Help Pets Feel At Home." }, { q: "Is There A Minimum Stay For Boarding?", a: "Our Minimum Boarding Stay Is One Night. Long-Term Discounts Start From 7 Nights." }]} nav={nav} />;
 }
 
 // ── ACTIVITY & LIFESTYLE PAGE ─────────────────────────────────────
 function SvcActivityPage({ nav }) {
   const services = [
-    { name: "Dog Walking", price: "₹199/walk", duration: "30 min", rating: "4.9", img: P.dog3, shortDesc: "GPS-tracked, insured, background-checked walkers for safe daily walks.", desc: "Our walkers are fully background-checked, insured, and trained in animal behaviour. Every walk is GPS-tracked and you receive a post-walk report with a map of the route.", includes: ["GPS-tracked route", "Real-time tracking", "Insured walker", "Post-walk report", "Fresh water provided", "Emergency protocol"] },
-    { name: "Exercise Sessions", price: "₹349/session", duration: "45 min", rating: "4.8", img: P.train, shortDesc: "Structured physical exercise sessions tailored to your dog's breed and energy level.", desc: "More than a walk — our exercise sessions are designed by canine fitness specialists and tailored to your dog's breed, age, and health status.", includes: ["Fitness assessment", "Breed-specific plan", "Varied exercises", "Heart rate monitoring", "Hydration check", "Progress report"] },
-    { name: "Playtime Activities", price: "₹249/session", duration: "45 min", rating: "4.9", img: P.community, shortDesc: "Supervised play sessions with enrichment toys, puzzles, and social interaction.", desc: "Mental stimulation is as important as physical exercise. Our enrichment play sessions include puzzle feeders, scent games, fetch, and tug in a safe, supervised environment.", includes: ["Mental enrichment", "Puzzle feeders", "Scent games", "Social play", "Safe equipment", "Energy release report"] },
-    { name: "Adventure Walks", price: "₹499/walk", duration: "90 min", rating: "4.9", img: P.dog3, shortDesc: "Extended trail and nature walks for high-energy dogs — off the beaten path.", desc: "For dogs that need more than a city stroll, our adventure walks take dogs to parks, trails, and open spaces for a 90-minute exploration experience.", includes: ["90-min trail walk", "Nature environments", "Off-leash option (assessed)", "Trail safety kit", "Photo journal", "Hydration stops"] },
-    { name: "Swimming Sessions", price: "₹599/session", duration: "60 min", rating: "4.9", img: P.boarding, shortDesc: "Hydrotherapy pool sessions for fitness, recovery, and pure fun.", desc: "Swimming is a full-body, low-impact exercise perfect for all dogs, especially those recovering from injury or with joint issues. Sessions are supervised by trained hydrotherapy staff.", includes: ["Hydrotherapy pool", "Trained supervisor", "Life jacket (if needed)", "Pre/post warm-up", "Health check", "Session report"] },
-    { name: "Fitness Training", price: "₹799/mo", duration: "60 min/session", rating: "4.8", img: P.train, shortDesc: "Canine fitness programmes designed by certified specialists for athletic dogs.", desc: "For working dogs, sporting breeds, or owners who want their dog at peak physical condition, our canine fitness trainers design periodised programmes with measurable outcomes.", includes: ["Fitness assessment", "Periodised programme", "Strength & conditioning", "Flexibility work", "Performance tracking", "Monthly review"] },
-    { name: "Outdoor Socialization", price: "₹349/session", duration: "60 min", rating: "4.9", img: P.dog1, shortDesc: "Structured outdoor social sessions with other dogs in parks and open spaces.", desc: "Group outdoor sessions where dogs learn to interact politely in real-world settings — parks, open fields, and public spaces — under trainer supervision.", includes: ["Trainer-supervised", "4–8 dog groups", "Park or open space", "Positive interaction", "Behaviour coaching", "Owner included"] },
-    { name: "Hiking Trips", price: "₹799/trip", duration: "Half day", rating: "4.8", img: P.dog3, shortDesc: "Guided half-day hiking adventures for active dogs and their owners.", desc: "Join one of our guided dog-friendly hikes in nature. Our experienced guides know dog-friendly trails and carry a full pet first aid kit.", includes: ["Guided trail", "Pet first aid kit", "Group 6–10 dogs", "Rest and hydration stops", "Trail photography", "Post-hike report"] },
-    { name: "Dog Park Visits", price: "₹199/session", duration: "45 min", rating: "4.9", img: P.community, shortDesc: "Supervised, facilitated dog park visits with behaviour coaching included.", desc: "We take your dog to vetted, safe dog parks and supervise their interaction — ideal for dogs who need controlled socialisation experience before going independently.", includes: ["Transport to park", "Supervisor present", "Socialisation coaching", "Behaviour monitoring", "Exit if needed", "Report to owner"] },
+    { name: "Dog Walking", price: "₹199/Walk", duration: "30 Min", rating: "4.9", img: P.dog3, shortDesc: "GPS-Tracked, Insured, Background-Checked Walkers For Safe Daily Walks.", desc: "Our Walkers Are Fully Background-Checked, Insured, And Trained In Animal Behaviour. Every Walk Is GPS-Tracked And You Receive A Post-Walk Report With A Map Of The Route.", includes: ["GPS-tracked route", "Real-time tracking", "Insured walker", "Post-walk report", "Fresh water provided", "Emergency protocol"] },
+    { name: "Exercise Sessions", price: "₹349/Session", duration: "45 Min", rating: "4.8", img: P.train, shortDesc: "Structured Physical Exercise Sessions Tailored To Your Dog's Breed And Energy Level.", desc: "More Than A Walk — Our Exercise Sessions Are Designed By Canine Fitness Specialists And Tailored To Your Dog's Breed, Age, And Health Status.", includes: ["Fitness assessment", "Breed-specific plan", "Varied exercises", "Heart rate monitoring", "Hydration check", "Progress report"] },
+    { name: "Playtime Activities", price: "₹249/Session", duration: "45 Min", rating: "4.9", img: P.community, shortDesc: "Supervised Play Sessions With Enrichment Toys, Puzzles, And Social Interaction.", desc: "Mental Stimulation Is As Important As Physical Exercise. Our Enrichment Play Sessions Include Puzzle Feeders, Scent Games, Fetch, And Tug In A Safe, Supervised Environment.", includes: ["Mental enrichment", "Puzzle feeders", "Scent games", "Social play", "Safe equipment", "Energy release report"] },
+    { name: "Adventure Walks", price: "₹499/Walk", duration: "90 Min", rating: "4.9", img: P.dog3, shortDesc: "Extended Trail And Nature Walks For High-Energy Dogs — Off The Beaten Path.", desc: "For Dogs That Need More Than A City Stroll, Our Adventure Walks Take Dogs To Parks, Trails, And Open Spaces For A 90-Minute Exploration Experience.", includes: ["90-min trail walk", "Nature environments", "Off-leash option (assessed)", "Trail safety kit", "Photo journal", "Hydration stops"] },
+    { name: "Swimming Sessions", price: "₹599/Session", duration: "60 Min", rating: "4.9", img: P.boarding, shortDesc: "Hydrotherapy Pool Sessions For Fitness, Recovery, And Pure Fun.", desc: "Swimming Is A Full-Body, Low-Impact Exercise Perfect For All Dogs, Especially Those Recovering From Injury Or With Joint Issues. Sessions Are Supervised By Trained Hydrotherapy Staff.", includes: ["Hydrotherapy pool", "Trained supervisor", "Life jacket (if needed)", "Pre/post warm-up", "Health check", "Session report"] },
+    { name: "Fitness Training", price: "₹799/Mo", duration: "60 Min/Session", rating: "4.8", img: P.train, shortDesc: "Canine Fitness Programmes Designed By Certified Specialists For Athletic Dogs.", desc: "For Working Dogs, Sporting Breeds, Or Owners Who Want Their Dog At Peak Physical Condition, Our Canine Fitness Trainers Design Periodised Programmes With Measurable Outcomes.", includes: ["Fitness assessment", "Periodised programme", "Strength & conditioning", "Flexibility work", "Performance tracking", "Monthly review"] },
+    { name: "Outdoor Socialization", price: "₹349/Session", duration: "60 Min", rating: "4.9", img: P.dog1, shortDesc: "Structured Outdoor Social Sessions With Other Dogs In Parks And Open Spaces.", desc: "Group Outdoor Sessions Where Dogs Learn To Interact Politely In Real-World Settings — Parks, Open Fields, And Public Spaces — Under Trainer Supervision.", includes: ["Trainer-supervised", "4–8 dog groups", "Park or open space", "Positive interaction", "Behaviour coaching", "Owner included"] },
+    { name: "Hiking Trips", price: "₹799/Trip", duration: "Half Day", rating: "4.8", img: P.dog3, shortDesc: "Guided Half-Day Hiking Adventures For Active Dogs And Their Owners.", desc: "Join One Of Our Guided Dog-Friendly Hikes In Nature. Our Experienced Guides Know Dog-Friendly Trails And Carry A Full Pet First Aid Kit.", includes: ["Guided trail", "Pet first aid kit", "Group 6–10 dogs", "Rest and hydration stops", "Trail photography", "Post-hike report"] },
+    { name: "Dog Park Visits", price: "₹199/Session", duration: "45 Min", rating: "4.9", img: P.community, shortDesc: "Supervised, Facilitated Dog Park Visits With Behaviour Coaching Included.", desc: "We Take Your Dog To Vetted, Safe Dog Parks And Supervise Their Interaction — Ideal For Dogs Who Need Controlled Socialisation Experience Before Going Independently.", includes: ["Transport to park", "Supervisor present", "Socialisation coaching", "Behaviour monitoring", "Exit if needed", "Report to owner"] },
   ];
-  return <SvcCatPage cat="Activity & Lifestyle" icon="🏃" color={C.orange} heroImg={P.dog3} tagline={"Active Dogs,\nHappy Lives."} about="GPS-tracked walkers, certified fitness trainers, and adventure guides — keeping your pet physically and mentally thriving every day." services={services} whyUs={{ stats: [["GPS", "Every Walk"], ["Insured", "All Walkers"], ["4.9★", "Pet Rating"], ["10K+", "Walks Done"]], points: [{ icon: "📍", title: "GPS Every Walk", desc: "Every walk is GPS-tracked and shared with you in real-time via the Pawprint app." }, { icon: "🛡️", title: "Insured & Background Checked", desc: "All walkers and activity specialists carry insurance and are fully vetted." }, { icon: "🎯", title: "Breed-Appropriate Activity", desc: "We match exercise intensity and type to your dog's breed, age, and health." }, { icon: "📸", title: "Activity Journal", desc: "Photo and video updates from every session keep you connected." }] }} faqItems={[{ q: "How do I know my dog is safe during walks?", a: "All walks are GPS-tracked. You can follow the route live in the Pawprint app. Walkers carry a pet first aid kit and emergency protocols." }, { q: "What if my dog doesn't like other dogs?", a: "Solo walks and private sessions are always available. We assess every dog before placing them in group activities." }, { q: "Are your walkers experienced with large breeds?", a: "Yes. All walkers are matched to dogs based on size, strength, and temperament. We never mismatch." }, { q: "Can I join the hiking trips?", a: "Absolutely! Most hiking trips are owner-inclusive. Check the Pawprint app for upcoming group hikes near you." }, { q: "Do you offer daily walking subscriptions?", a: "Yes — monthly packages offer significant discounts. Set up recurring walks through the app." }]} nav={nav} />;
+  return <SvcCatPage cat="Activity & Lifestyle" icon="🏃" color={C.orange} heroImg={P.dog3} tagline={"Active Dogs,\nHappy Lives."} about="GPS-tracked walkers, certified fitness trainers, and adventure guides — keeping your pet physically and mentally thriving every day." services={services} whyUs={{ stats: [["GPS", "Every Walk"], ["Insured", "All Walkers"], ["4.9★", "Pet Rating"], ["10K+", "Walks Done"]], points: [{ icon: "📍", title: "GPS Every Walk", desc: "Every Walk Is GPS-Tracked And Shared With You In Real-Time Via The Pawprint App." }, { icon: "🛡️", title: "Insured & Background Checked", desc: "All Walkers And Activity Specialists Carry Insurance And Are Fully Vetted." }, { icon: "🎯", title: "Breed-Appropriate Activity", desc: "We Match Exercise Intensity And Type To Your Dog's Breed, Age, And Health." }, { icon: "📸", title: "Activity Journal", desc: "Photo And Video Updates From Every Session Keep You Connected." }] }} faqItems={[{ q: "How Do I Know My Dog Is Safe During Walks?", a: "All Walks Are GPS-Tracked. You Can Follow The Route Live In The Pawprint App. Walkers Carry A Pet First Aid Kit And Emergency Protocols." }, { q: "What If My Dog Doesn't Like Other Dogs?", a: "Solo Walks And Private Sessions Are Always Available. We Assess Every Dog Before Placing Them In Group Activities." }, { q: "Are Your Walkers Experienced With Large Breeds?", a: "Yes. All Walkers Are Matched To Dogs Based On Size, Strength, And Temperament. We Never Mismatch." }, { q: "Can I Join The Hiking Trips?", a: "Absolutely! Most Hiking Trips Are Owner-Inclusive. Check The Pawprint App For Upcoming Group Hikes Near You." }, { q: "Do You Offer Daily Walking Subscriptions?", a: "Yes — Monthly Packages Offer Significant Discounts. Set Up Recurring Walks Through The App." }]} nav={nav} />;
 }
 
 // ── SPECIALTY SERVICES PAGE ───────────────────────────────────────
 function SvcSpecialtyPage({ nav }) {
   const services = [
-    { name: "Adoption Assistance", price: "Free", duration: "Ongoing", rating: "4.9", img: P.dog1, shortDesc: "Expert guidance through the entire adoption process — paperwork, matching, and follow-up.", desc: "Our adoption advisors help you find the right pet, navigate paperwork, coordinate shelter visits, and provide post-adoption coaching to ensure a smooth transition.", includes: ["Pet matching consultation", "Shelter visit coordination", "Paperwork guidance", "Post-adoption coaching", "30-day support", "Behaviour orientation"] },
-    { name: "Breeding Consultation", price: "₹1,999", duration: "60 min", rating: "4.8", img: P.dog3, shortDesc: "Responsible breeding guidance from certified veterinary specialists.", desc: "For responsible breeders, our specialist consultations cover health testing, genetic screening, whelping preparation, and ethical breeding practices.", includes: ["Health testing guidance", "Genetic screening advice", "Whelping preparation", "Stud selection", "Breeding schedule", "Legal compliance guidance"] },
-    { name: "Pregnancy & Whelping Care", price: "₹2,999", duration: "Full care", rating: "4.9", img: P.vet1, shortDesc: "Comprehensive prenatal and whelping support from conception to healthy puppies.", desc: "Our veterinary team provides full prenatal monitoring, nutritional guidance, whelping preparation, and emergency support throughout your dog's pregnancy and delivery.", includes: ["Prenatal check-ups", "Nutritional plan", "Whelping kit", "24/7 whelping support", "Puppy health checks", "Post-natal care"] },
-    { name: "Rehabilitation Therapy", price: "₹799/session", duration: "60 min", rating: "4.9", img: P.train, shortDesc: "Post-surgery and injury recovery through certified animal physiotherapy.", desc: "Certified animal physiotherapists use hydrotherapy, laser therapy, therapeutic massage, and structured exercises to restore your pet's mobility and quality of life.", includes: ["Initial assessment", "Custom rehab plan", "Hydrotherapy sessions", "Laser therapy", "Home exercise guide", "Weekly progress tracking"] },
-    { name: "Hospice & End-of-Life Care", price: "Compassionate", duration: "As needed", rating: "5.0", img: P.vet2, shortDesc: "Dignified, compassionate care for terminally ill pets and support for their families.", desc: "When a pet reaches the end of their journey, our compassionate hospice team provides pain management, comfort care, and emotional support for both pet and family.", includes: ["In-home visits", "Pain management", "Comfort & palliative care", "Family support", "Peaceful euthanasia option", "Memorial support"] },
-    { name: "Pet Photography", price: "₹2,499", duration: "2 hrs", rating: "4.9", img: P.dog4, shortDesc: "Professional pet photography sessions to capture your companion at their best.", desc: "Our certified pet photographers know how to get the best out of animal subjects. Choose from studio, outdoor, or in-home sessions for portraits, family photos, or action shots.", includes: ["2-hr session", "20+ edited images", "Studio or outdoor", "Digital & print options", "Instagram-ready edits", "Rush delivery available"] },
-    { name: "Dog Events & Parties", price: "₹4,999", duration: "3 hrs", rating: "4.9", img: P.community, shortDesc: "Fully planned dog birthday parties and pet events with catering, decor, and activities.", desc: "Celebrate your dog's birthday or milestone in style! We plan and execute themed dog parties with pet-safe treats, decorations, games, and professional photography.", includes: ["Custom theme", "Pet-safe catering", "Decorations", "Party games", "Photographer", "10 dog invites"] },
-    { name: "Emotional Support Dog Assistance", price: "₹3,999", duration: "Assessment+", rating: "4.9", img: P.dog1, shortDesc: "Training and documentation support for emotional support and therapy dog certification.", desc: "We help identify suitable dogs for ESA roles, provide targeted training, and assist with the official documentation required for emotional support animal status.", includes: ["Temperament evaluation", "ESA training programme", "Handler coaching", "Documentation support", "Certification preparation", "Ongoing support"] },
-    { name: "Microchipping", price: "₹399", duration: "15 min", rating: "4.9", img: P.vet2, shortDesc: "ISO-standard microchip implantation with national database registration.", desc: "Microchipping is the most reliable form of permanent pet identification. Our vets implant an ISO-standard chip and register it with the national pet recovery database.", includes: ["ISO 15-digit chip", "Painless implantation", "National DB registration", "ID card issued", "Lifetime registration", "Lost pet alert setup"] },
-    { name: "Pet Relocation Services", price: "₹9,999", duration: "Full service", rating: "4.8", img: P.boarding, shortDesc: "Stress-free domestic and international pet relocation with all documentation handled.", desc: "Relocating? Our pet relocation specialists handle everything: health certificates, import/export permits, airline-approved crating, flight arrangements, and destination vet check.", includes: ["Route planning", "Health certificate", "Import/export permits", "Airline crate", "Flight booking assistance", "Destination check"] },
+    { name: "Adoption Assistance", price: "Free", duration: "Ongoing", rating: "4.9", img: P.dog1, shortDesc: "Expert Guidance Through The Entire Adoption Process — Paperwork, Matching, And Follow-Up.", desc: "Our Adoption Advisors Help You Find The Right Pet, Navigate Paperwork, Coordinate Shelter Visits, And Provide Post-Adoption Coaching To Ensure A Smooth Transition.", includes: ["Pet matching consultation", "Shelter visit coordination", "Paperwork guidance", "Post-adoption coaching", "30-day support", "Behaviour orientation"] },
+    { name: "Breeding Consultation", price: "₹1,999", duration: "60 Min", rating: "4.8", img: P.dog3, shortDesc: "Responsible Breeding Guidance From Certified Veterinary Specialists.", desc: "For Responsible Breeders, Our Specialist Consultations Cover Health Testing, Genetic Screening, Whelping Preparation, And Ethical Breeding Practices.", includes: ["Health testing guidance", "Genetic screening advice", "Whelping preparation", "Stud selection", "Breeding schedule", "Legal compliance guidance"] },
+    { name: "Pregnancy & Whelping Care", price: "₹2,999", duration: "Full Care", rating: "4.9", img: P.vet1, shortDesc: "Comprehensive Prenatal And Whelping Support From Conception To Healthy Puppies.", desc: "Our Veterinary Team Provides Full Prenatal Monitoring, Nutritional Guidance, Whelping Preparation, And Emergency Support Throughout Your Dog's Pregnancy And Delivery.", includes: ["Prenatal check-ups", "Nutritional plan", "Whelping kit", "24/7 whelping support", "Puppy health checks", "Post-natal care"] },
+    { name: "Rehabilitation Therapy", price: "₹799/Session", duration: "60 Min", rating: "4.9", img: P.train, shortDesc: "Post-Surgery And Injury Recovery Through Certified Animal Physiotherapy.", desc: "Certified Animal Physiotherapists Use Hydrotherapy, Laser Therapy, Therapeutic Massage, And Structured Exercises To Restore Your Pet's Mobility And Quality Of Life.", includes: ["Initial assessment", "Custom rehab plan", "Hydrotherapy sessions", "Laser therapy", "Home exercise guide", "Weekly progress tracking"] },
+    { name: "Hospice & End-Of-Life Care", price: "Compassionate", duration: "As Needed", rating: "5.0", img: P.vet2, shortDesc: "Dignified, Compassionate Care For Terminally Ill Pets And Support For Their Families.", desc: "When A Pet Reaches The End Of Their Journey, Our Compassionate Hospice Team Provides Pain Management, Comfort Care, And Emotional Support For Both Pet And Family.", includes: ["In-home visits", "Pain management", "Comfort & palliative care", "Family support", "Peaceful euthanasia option", "Memorial support"] },
+    { name: "Pet Photography", price: "₹2,499", duration: "2 Hrs", rating: "4.9", img: P.dog4, shortDesc: "Professional Pet Photography Sessions To Capture Your Companion At Their Best.", desc: "Our Certified Pet Photographers Know How To Get The Best Out Of Animal Subjects. Choose From Studio, Outdoor, Or In-Home Sessions For Portraits, Family Photos, Or Action Shots.", includes: ["2-hr session", "20+ edited images", "Studio or outdoor", "Digital & print options", "Instagram-ready edits", "Rush delivery available"] },
+    { name: "Dog Events & Parties", price: "₹4,999", duration: "3 Hrs", rating: "4.9", img: P.community, shortDesc: "Fully Planned Dog Birthday Parties And Pet Events With Catering, Decor, And Activities.", desc: "Celebrate Your Dog's Birthday Or Milestone In Style! We Plan And Execute Themed Dog Parties With Pet-Safe Treats, Decorations, Games, And Professional Photography.", includes: ["Custom theme", "Pet-safe catering", "Decorations", "Party games", "Photographer", "10 dog invites"] },
+    { name: "Emotional Support Dog Assistance", price: "₹3,999", duration: "Assessment+", rating: "4.9", img: P.dog1, shortDesc: "Training And Documentation Support For Emotional Support And Therapy Dog Certification.", desc: "We Help Identify Suitable Dogs For ESA Roles, Provide Targeted Training, And Assist With The Official Documentation Required For Emotional Support Animal Status.", includes: ["Temperament evaluation", "ESA training programme", "Handler coaching", "Documentation support", "Certification preparation", "Ongoing support"] },
+    { name: "Microchipping", price: "₹399", duration: "15 Min", rating: "4.9", img: P.vet2, shortDesc: "ISO-Standard Microchip Implantation With National Database Registration.", desc: "Microchipping Is The Most Reliable Form Of Permanent Pet Identification. Our Vets Implant An ISO-Standard Chip And Register It With The National Pet Recovery Database.", includes: ["ISO 15-digit chip", "Painless implantation", "National DB registration", "ID card issued", "Lifetime registration", "Lost pet alert setup"] },
+    { name: "Pet Relocation Services", price: "₹9,999", duration: "Full Service", rating: "4.8", img: P.boarding, shortDesc: "Stress-Free Domestic And International Pet Relocation With All Documentation Handled.", desc: "Relocating? Our Pet Relocation Specialists Handle Everything: Health Certificates, Import/Export Permits, Airline-Approved Crating, Flight Arrangements, And Destination Vet Check.", includes: ["Route planning", "Health certificate", "Import/export permits", "Airline crate", "Flight booking assistance", "Destination check"] },
   ];
-  return <SvcCatPage cat="Specialty Services" icon="⭐" color="#B45309" heroImg={P.about1} tagline={"Beyond the\nOrdinary."} about="Unique, specialist services designed for moments that matter most — from life's milestones to its most difficult transitions." services={services} whyUs={{ stats: [["Specialist", "Team",], ["100%", "Compassionate"], ["Award", "Winning"], ["5,000+", "Families Helped"]], points: [{ icon: "⭐", title: "Specialist Experts", desc: "Each specialty service is delivered by a domain expert — not a generalist." }, { icon: "❤️", title: "Compassion First", desc: "Especially in difficult moments, our team leads with empathy and care." }, { icon: "📋", title: "Full Documentation", desc: "We handle all paperwork, certificates, and compliance so you don't have to." }, { icon: "🤝", title: "End-to-End Support", desc: "We're with you from first enquiry to final follow-up, whatever the service." }] }} faqItems={[{ q: "How does pet relocation work?", a: "Our specialists assess your route, advise on quarantine requirements, prepare all health certificates, book airline-approved transport, and coordinate the full journey." }, { q: "Can any dog become an emotional support animal?", a: "Any well-tempered, trained dog can be an ESA. We assess suitability and guide the training and documentation process." }, { q: "Is microchipping painful?", a: "The procedure is quick and similar to a standard vaccination. Most dogs show no discomfort." }, { q: "How do I plan a dog birthday party?", a: "Book a consultation through the Pawprint app. We'll discuss theme, guest list, venue, and catering to design the perfect event." }, { q: "What hospice care options do you provide?", a: "In-home comfort visits, palliative pain management, and, when the time comes, peaceful in-home euthanasia with full family support." }]} nav={nav} />;
+  return <SvcCatPage cat="Specialty Services" icon="⭐" color="#B45309" heroImg={P.about1} tagline={"Beyond the\nOrdinary."} about="Unique, specialist services designed for moments that matter most — from life's milestones to its most difficult transitions." services={services} whyUs={{ stats: [["Specialist", "Team",], ["100%", "Compassionate"], ["Award", "Winning"], ["5,000+", "Families Helped"]], points: [{ icon: "⭐", title: "Specialist Experts", desc: "Each Specialty Service Is Delivered By A Domain Expert — Not A Generalist." }, { icon: "❤️", title: "Compassion First", desc: "Especially In Difficult Moments, Our Team Leads With Empathy And Care." }, { icon: "📋", title: "Full Documentation", desc: "We Handle All Paperwork, Certificates, And Compliance So You Don't Have To." }, { icon: "🤝", title: "End-To-End Support", desc: "We're With You From First Enquiry To Final Follow-Up, Whatever The Service." }] }} faqItems={[{ q: "How Does Pet Relocation Work?", a: "Our Specialists Assess Your Route, Advise On Quarantine Requirements, Prepare All Health Certificates, Book Airline-Approved Transport, And Coordinate The Full Journey." }, { q: "Can Any Dog Become An Emotional Support Animal?", a: "Any Well-Tempered, Trained Dog Can Be An ESA. We Assess Suitability And Guide The Training And Documentation Process." }, { q: "Is Microchipping Painful?", a: "The Procedure Is Quick And Similar To A Standard Vaccination. Most Dogs Show No Discomfort." }, { q: "How Do I Plan A Dog Birthday Party?", a: "Book A Consultation Through The Pawprint App. We'll Discuss Theme, Guest List, Venue, And Catering To Design The Perfect Event." }, { q: "What Hospice Care Options Do You Provide?", a: "In-Home Comfort Visits, Palliative Pain Management, And, When The Time Comes, Peaceful In-Home Euthanasia With Full Family Support." }]} nav={nav} />;
 }
 
 // ── RETAIL & EXTRAS PAGE ─────────────────────────────────────────
 function SvcRetailPage({ nav }) {
   const products = [
-    { name: "Dog Food", price: "₹499 onwards", img: P.shop1, shortDesc: "Premium dry, wet, raw, and prescription diets for all breeds and life stages.", desc: "From breed-specific kibble to raw and prescription diets, our food range covers every nutritional need. All products are FSSAI-compliant and vet-reviewed.", includes: ["All life stages", "Breed-specific options", "Prescription diets", "Grain-free options", "Sample packs", "Subscribe & save"] },
-    { name: "Treats & Supplements", price: "₹199 onwards", img: P.shop1, shortDesc: "Training treats, dental chews, joint supplements, and health boosters.", desc: "Our treats are made from natural ingredients with no artificial preservatives. Supplements cover joints, skin, coat, digestion, and immunity — all vet-formulated.", includes: ["Natural ingredients", "Joint health", "Skin & coat", "Digestive health", "Dental chews", "Training treats"] },
-    { name: "Toys", price: "₹149 onwards", img: P.dog2, shortDesc: "Durable chew toys, puzzle feeders, fetch toys, and interactive games.", desc: "Enrichment toys reduce boredom, anxiety, and destructive behaviour. We stock everything from indestructible chew toys to advanced puzzle feeders.", includes: ["Chew toys", "Puzzle feeders", "Fetch & tug toys", "Interactive games", "Safe materials", "Size-appropriate options"] },
-    { name: "Collars & Leashes", price: "₹249 onwards", img: P.train, shortDesc: "Adjustable collars, harnesses, retractable and fixed leashes for every size.", desc: "Safety and comfort in every walk. Our range covers flat collars, martingale collars, step-in harnesses, no-pull harnesses, and fixed and retractable leads.", includes: ["All sizes", "No-pull harnesses", "Martingale options", "Reflective options", "Custom engraved tags", "Waterproof materials"] },
-    { name: "Beds & Crates", price: "₹999 onwards", img: P.boarding, shortDesc: "Orthopedic beds, travel crates, and soft carriers for comfort at home and on the go.", desc: "From orthopedic memory foam beds for senior dogs to IATA-compliant airline crates and soft carriers for everyday use — comfort and safety wherever you go.", includes: ["Orthopedic options", "Memory foam beds", "Airline-approved crates", "Soft carriers", "Washable covers", "Anti-anxiety designs"] },
-    { name: "Grooming Products", price: "₹199 onwards", img: P.groom, shortDesc: "Professional-grade shampoos, conditioners, brushes, and grooming tools.", desc: "The same products our professional groomers use — available for home use. pH-balanced, breed-specific, and cruelty-free. Includes tools for every coat type.", includes: ["pH-balanced shampoos", "Conditioning masks", "Deshedding brushes", "Nail clippers", "Dental kits", "Grooming wipes"] },
-    { name: "Clothing & Accessories", price: "₹299 onwards", img: P.dog4, shortDesc: "Stylish and functional dog clothing, raincoats, boots, and bandanas.", desc: "Keep your pet stylish and protected. Our clothing range includes monsoon raincoats, winter sweaters, cooling vests, protective boots, and festive outfits.", includes: ["Monsoon raincoats", "Winter sweaters", "Cooling vests", "Protective boots", "Festive outfits", "Size exchange policy"] },
-    { name: "Training Tools", price: "₹349 onwards", img: P.train, shortDesc: "Clickers, treat pouches, long lines, and target sticks for effective training.", desc: "Quality training tools make all the difference. Our range includes professional-grade clickers, treat pouches, long training lines, and target sticks — all recommended by our trainers.", includes: ["Training clickers", "Treat pouches", "Long lines (5m, 10m)", "Target sticks", "Slip leads", "Training flags"] },
-    { name: "ID Tags", price: "₹99 onwards", img: P.shop2, shortDesc: "Custom engraved pet ID tags in stainless steel, brass, and silicone.", desc: "An ID tag is the fastest way to reunite a lost pet with its owner. We offer custom engraved tags in stainless steel, brass, and silicone — with QR code options.", includes: ["Custom engraving", "Stainless steel", "Brass & silicone options", "QR code option", "24hr turnaround", "Bulk discounts"] },
-    { name: "Travel Accessories", price: "₹499 onwards", img: P.boarding, shortDesc: "Portable water bottles, collapsible bowls, car seat covers, and travel bags.", desc: "For pet parents on the move, our travel range covers everything: spill-proof travel bottles, collapsible silicone bowls, car seat covers, and organised travel bags.", includes: ["Spill-proof bottles", "Collapsible bowls", "Car seat covers", "Travel bags", "First aid kits", "Airline pouches"] },
+    { name: "Dog Food", price: "₹499 Onwards", img: P.shop1, shortDesc: "Premium Dry, Wet, Raw, And Prescription Diets For All Breeds And Life Stages.", desc: "From Breed-Specific Kibble To Raw And Prescription Diets, Our Food Range Covers Every Nutritional Need. All Products Are FSSAI-Compliant And Vet-Reviewed.", includes: ["All life stages", "Breed-specific options", "Prescription diets", "Grain-free options", "Sample packs", "Subscribe & save"] },
+    { name: "Treats & Supplements", price: "₹199 Onwards", img: P.shop1, shortDesc: "Training Treats, Dental Chews, Joint Supplements, And Health Boosters.", desc: "Our Treats Are Made From Natural Ingredients With No Artificial Preservatives. Supplements Cover Joints, Skin, Coat, Digestion, And Immunity — All Vet-Formulated.", includes: ["Natural ingredients", "Joint health", "Skin & coat", "Digestive health", "Dental chews", "Training treats"] },
+    { name: "Toys", price: "₹149 Onwards", img: P.dog2, shortDesc: "Durable Chew Toys, Puzzle Feeders, Fetch Toys, And Interactive Games.", desc: "Enrichment Toys Reduce Boredom, Anxiety, And Destructive Behaviour. We Stock Everything From Indestructible Chew Toys To Advanced Puzzle Feeders.", includes: ["Chew toys", "Puzzle feeders", "Fetch & tug toys", "Interactive games", "Safe materials", "Size-appropriate options"] },
+    { name: "Collars & Leashes", price: "₹249 Onwards", img: P.train, shortDesc: "Adjustable Collars, Harnesses, Retractable And Fixed Leashes For Every Size.", desc: "Safety And Comfort In Every Walk. Our Range Covers Flat Collars, Martingale Collars, Step-In Harnesses, No-Pull Harnesses, And Fixed And Retractable Leads.", includes: ["All sizes", "No-pull harnesses", "Martingale options", "Reflective options", "Custom engraved tags", "Waterproof materials"] },
+    { name: "Beds & Crates", price: "₹999 Onwards", img: P.boarding, shortDesc: "Orthopedic Beds, Travel Crates, And Soft Carriers For Comfort At Home And On The Go.", desc: "From Orthopedic Memory Foam Beds For Senior Dogs To IATA-Compliant Airline Crates And Soft Carriers For Everyday Use — Comfort And Safety Wherever You Go.", includes: ["Orthopedic options", "Memory foam beds", "Airline-approved crates", "Soft carriers", "Washable covers", "Anti-anxiety designs"] },
+    { name: "Grooming Products", price: "₹199 Onwards", img: P.groom, shortDesc: "Professional-Grade Shampoos, Conditioners, Brushes, And Grooming Tools.", desc: "The Same Products Our Professional Groomers Use — Available For Home Use. PH-Balanced, Breed-Specific, And Cruelty-Free. Includes Tools For Every Coat Type.", includes: ["pH-balanced shampoos", "Conditioning masks", "Deshedding brushes", "Nail clippers", "Dental kits", "Grooming wipes"] },
+    { name: "Clothing & Accessories", price: "₹299 Onwards", img: P.dog4, shortDesc: "Stylish And Functional Dog Clothing, Raincoats, Boots, And Bandanas.", desc: "Keep Your Pet Stylish And Protected. Our Clothing Range Includes Monsoon Raincoats, Winter Sweaters, Cooling Vests, Protective Boots, And Festive Outfits.", includes: ["Monsoon raincoats", "Winter sweaters", "Cooling vests", "Protective boots", "Festive outfits", "Size exchange policy"] },
+    { name: "Training Tools", price: "₹349 Onwards", img: P.train, shortDesc: "Clickers, Treat Pouches, Long Lines, And Target Sticks For Effective Training.", desc: "Quality Training Tools Make All The Difference. Our Range Includes Professional-Grade Clickers, Treat Pouches, Long Training Lines, And Target Sticks — All Recommended By Our Trainers.", includes: ["Training clickers", "Treat pouches", "Long lines (5m, 10m)", "Target sticks", "Slip leads", "Training flags"] },
+    { name: "ID Tags", price: "₹99 Onwards", img: P.shop2, shortDesc: "Custom Engraved Pet ID Tags In Stainless Steel, Brass, And Silicone.", desc: "An ID Tag Is The Fastest Way To Reunite A Lost Pet With Its Owner. We Offer Custom Engraved Tags In Stainless Steel, Brass, And Silicone — With QR Code Options.", includes: ["Custom engraving", "Stainless steel", "Brass & silicone options", "QR code option", "24hr turnaround", "Bulk discounts"] },
+    { name: "Travel Accessories", price: "₹499 Onwards", img: P.boarding, shortDesc: "Portable Water Bottles, Collapsible Bowls, Car Seat Covers, And Travel Bags.", desc: "For Pet Parents On The Move, Our Travel Range Covers Everything: Spill-Proof Travel Bottles, Collapsible Silicone Bowls, Car Seat Covers, And Organised Travel Bags.", includes: ["Spill-proof bottles", "Collapsible bowls", "Car seat covers", "Travel bags", "First aid kits", "Airline pouches"] },
   ];
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
@@ -4640,7 +4992,7 @@ function SvcRetailPage({ nav }) {
             <div>
               <div className="pill pill-orange" style={{ marginBottom: 16 }}>🛍️ Retail & Extras</div>
               <h1 className="melody" style={{ fontSize: "clamp(48px,5vw,76px)", color: "#fff", lineHeight: 1, marginBottom: 12 }}>Everything Your<br />Pet Needs.</h1>
-              <p style={{ fontSize: 17, color: "rgba(255,255,255,.7)", lineHeight: 1.7, maxWidth: 400 }}>Premium food, toys, accessories, and more — curated by vets, loved by pets.</p>
+              <p style={{ fontSize: 17, color: "rgba(255,255,255,.7)", lineHeight: 1.7, maxWidth: 400 }}>Premium Food, Toys, Accessories, And More — Curated By Vets, Loved By Pets.</p>
             </div>
             <button className="btn btn-lg btn-outline" style={{ color: "rgba(255,255,255,.7)", borderColor: "rgba(255,255,255,.3)", position: "relative" }} onClick={() => setCartOpen(o => !o)}>
               🛒 Cart
@@ -4658,7 +5010,7 @@ function SvcRetailPage({ nav }) {
             <button onClick={() => setCartOpen(false)} style={{ background: C.cream, border: "none", borderRadius: "50%", width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>✕</button>
           </div>
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 26px" }}>
-            {cart.length === 0 ? <p style={{ color: C.inkSft, textAlign: "center", marginTop: 60, fontSize: 15 }}>Your cart is empty 🛒</p> : cart.map((item, i) => (
+            {cart.length === 0 ? <p style={{ color: C.inkSft, textAlign: "center", marginTop: 60, fontSize: 15 }}>Your Cart Is Empty 🛒</p> : Cart.Map((Item, I) => (
               <div key={i} style={{ display: "flex", gap: 14, padding: "14px 0", borderBottom: `1px solid ${C.border}` }}>
                 <Img src={item.img} style={{ width: 56, height: 56, objectFit: "cover", borderRadius: 10 }} />
                 <div style={{ flex: 1 }}>
@@ -4870,8 +5222,8 @@ function ChatBot({ nav }) {
   ];
 
   const QUICK_TOPICS = [
-    { label: "🐾 Adopt a Pet", query: "I want to adopt a pet" },
-    { label: "🏥 Book a Vet", query: "How do I book a vet?" },
+    { label: "🐾 Adopt A Pet", query: "I want to adopt a pet" },
+    { label: "🏥 Book A Vet", query: "How do I book a vet?" },
     { label: "✂️ Grooming", query: "Tell me about grooming services" },
     { label: "🎓 Pet Training", query: "What training options do you have?" },
     { label: "🐕 Dog Breeds", query: "Tell me about dog breeds" },
@@ -4952,7 +5304,7 @@ function ChatBot({ nav }) {
                 <div style={{ color: "#fff", fontWeight: 700, fontSize: 15, letterSpacing: ".01em" }}>Paws AI</div>
                 <div style={{ display: "flex", gap: 5, alignItems: "center", marginTop: 2 }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E" }} />
-                  <span style={{ color: "rgba(255,255,255,.45)", fontSize: 11 }}>Online · Instant replies</span>
+                  <span style={{ color: "rgba(255,255,255,.45)", fontSize: 11 }}>Online · Instant Replies</span>
                 </div>
               </div>
             </div>
@@ -4979,13 +5331,13 @@ function ChatBot({ nav }) {
                 <div style={{ fontSize: 24, marginBottom: 8 }}>👋</div>
                 <div style={{ fontWeight: 700, color: "#fff", fontSize: 15, marginBottom: 4 }}>Hi! I'm Paws</div>
                 <p style={{ fontSize: 13, color: "rgba(255,255,255,.55)", lineHeight: 1.65 }}>
-                  I know everything about Pawprint — ask me about adoption, vets, grooming, training, dog breeds, or anything else!
+                  I Know Everything About Pawprint — Ask Me About Adoption, Vets, Grooming, Training, Dog Breeds, Or Anything Else!
                 </p>
               </div>
 
               {/* Quick type */}
               <div style={{ marginBottom: 16 }}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.3)", marginBottom: 10 }}>Quick questions</div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.3)", marginBottom: 10 }}>Quick Questions</div>
                 <div style={{
                   display: "flex", gap: 8,
                   padding: "10px 14px",
@@ -4995,12 +5347,12 @@ function ChatBot({ nav }) {
                   cursor: "text",
                 }} onClick={() => { setScreen("chat"); setTimeout(() => inputRef.current?.focus(), 100); }}>
                   <span style={{ fontSize: 14, color: "rgba(255,255,255,.2)" }}>💬</span>
-                  <span style={{ fontSize: 13, color: "rgba(255,255,255,.3)" }}>Ask anything about Pawprint…</span>
+                  <span style={{ fontSize: 13, color: "rgba(255,255,255,.3)" }}>Ask Anything About Pawprint…</span>
                 </div>
               </div>
 
               {/* Topic grid */}
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.3)", marginBottom: 10 }}>Browse topics</div>
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.3)", marginBottom: 10 }}>Browse Topics</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                 {QUICK_TOPICS.map((t, i) => (
                   <button key={i} onClick={() => handleQuickTopic(t)}
@@ -5028,7 +5380,7 @@ function ChatBot({ nav }) {
                 {msgs.length === 0 && (
                   <div style={{ textAlign: "center", padding: "24px 12px" }}>
                     <div style={{ fontSize: 32, marginBottom: 10 }}>🐾</div>
-                    <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", lineHeight: 1.65 }}>Ask me anything about Pawprint — I know every service, price, breed, and more.</p>
+                    <p style={{ fontSize: 13, color: "rgba(255,255,255,.35)", lineHeight: 1.65 }}>Ask Me Anything About Pawprint — I Know Every Service, Price, Breed, And More.</p>
                   </div>
                 )}
 
@@ -5181,7 +5533,7 @@ function PetVideosPage({ nav }) {
       title: "Puppy's First Week Home — Complete Training Guide",
       instructor: "Dr. Kiran Patel", role: "CEO & Head Vet",
       thumb: P.dog1,
-      desc: "Everything you need to know for the first 7 days with your new puppy — sleeping, feeding, crate training, and first commands.",
+      desc: "Everything You Need To Know For The First 7 Days With Your New Puppy — Sleeping, Feeding, Crate Training, And First Commands.",
       chapters: ["0:00 Welcome home", "1:30 Setting up the sleep space", "3:10 First commands: Sit & Stay", "5:45 Crate training basics", "7:00 Q&A tips"],
       tags: ["Puppy", "Beginners", "Crate Training", "Commands"],
     },
@@ -5190,52 +5542,52 @@ function PetVideosPage({ nav }) {
       title: "5 Essential Commands Every Dog Must Know",
       instructor: "Rahul Sharma", role: "CPDT-Certified Trainer",
       thumb: P.dog2,
-      desc: "Sit, Down, Stay, Come, and Leave It — the five commands that form the backbone of a safe, well-behaved dog. Step-by-step with real dogs.",
+      desc: "Sit, Down, Stay, Come, And Leave It — The Five Commands That Form The Backbone Of A Safe, Well-Behaved Dog. Step-By-Step With Real Dogs.",
       chapters: ["0:00 Introduction", "1:00 Sit", "3:15 Down", "5:30 Stay", "8:00 Come (Recall)", "10:20 Leave It"],
       tags: ["Obedience", "Commands", "Positive Reinforcement"],
     },
     {
       id: 3, cat: "Obedience", duration: "9:55", level: "Intermediate", views: "67K",
-      title: "Stop Leash Pulling in 10 Minutes — Proven Method",
+      title: "Stop Leash Pulling In 10 Minutes — Proven Method",
       instructor: "Priya Venkatesh", role: "Behavioral Specialist",
       thumb: P.dog3,
-      desc: "The most requested skill. This video shows the exact loose-leash walking technique that works for all breeds, sizes, and ages.",
+      desc: "The Most Requested Skill. This Video Shows The Exact Loose-Leash Walking Technique That Works For All Breeds, Sizes, And Ages.",
       chapters: ["0:00 Why dogs pull", "1:40 Equipment guide", "3:00 The anchor technique", "6:00 Real-time demo", "8:30 Common mistakes"],
       tags: ["Leash Training", "Walking", "Reactive Dogs"],
     },
     {
       id: 4, cat: "Grooming Tips", duration: "14:30", level: "Beginner", views: "156K",
-      title: "At-Home Grooming for Beginners — Full Walkthrough",
+      title: "At-Home Grooming For Beginners — Full Walkthrough",
       instructor: "Meenakshi Iyer", role: "Master Groomer",
       thumb: P.groom,
-      desc: "Learn to bathe, brush, clip nails, clean ears, and brush teeth at home with tools you already own. Covers all coat types.",
+      desc: "Learn To Bathe, Brush, Clip Nails, Clean Ears, And Brush Teeth At Home With Tools You Already Own. Covers All Coat Types.",
       chapters: ["0:00 Tools you need", "2:00 Bathing step-by-step", "5:30 Brushing technique", "8:00 Nail clipping safely", "11:00 Ear & teeth care"],
       tags: ["Grooming", "At-Home", "All Breeds", "Beginners"],
     },
     {
       id: 5, cat: "Grooming Tips", duration: "7:45", level: "Beginner", views: "43K",
-      title: "How to Clip Dog Nails Without Fear — Step by Step",
+      title: "How To Clip Dog Nails Without Fear — Step By Step",
       instructor: "Meenakshi Iyer", role: "Master Groomer",
       thumb: P.groom,
-      desc: "Nail clipping anxiety affects both dogs and owners. This calm, positive method makes it stress-free every time.",
+      desc: "Nail Clipping Anxiety Affects Both Dogs And Owners. This Calm, Positive Method Makes It Stress-Free Every Time.",
       chapters: ["0:00 Why nail care matters", "1:30 Reading the quick", "3:00 The clip technique", "5:00 If you hit the quick", "6:30 Desensitisation tips"],
       tags: ["Nail Care", "Grooming", "Anxiety-Free"],
     },
     {
       id: 6, cat: "Health & Care", duration: "11:00", level: "All Levels", views: "201K",
-      title: "10 Early Warning Signs Your Dog Needs a Vet",
+      title: "10 Early Warning Signs Your Dog Needs A Vet",
       instructor: "Dr. Kiran Patel", role: "CEO & Head Vet",
       thumb: P.vet1,
-      desc: "Changes in appetite, energy, breathing, and behaviour that every pet parent must recognise immediately. Could save your dog's life.",
+      desc: "Changes In Appetite, Energy, Breathing, And Behaviour That Every Pet Parent Must Recognise Immediately. Could Save Your Dog's Life.",
       chapters: ["0:00 Introduction", "1:00 Lethargy & energy changes", "2:30 Appetite changes", "4:00 Breathing issues", "6:00 Skin & coat signals", "8:30 Behavioural red flags"],
       tags: ["Health", "Emergency Signs", "Vet Tips", "Must Watch"],
     },
     {
       id: 7, cat: "Health & Care", duration: "6:20", level: "All Levels", views: "88K",
-      title: "Vaccination Schedule Explained — From 8 Weeks to Adult",
+      title: "Vaccination Schedule Explained — From 8 Weeks To Adult",
       instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
       thumb: P.vet2,
-      desc: "A clear, no-jargon guide to exactly which vaccines your dog or cat needs, when, and why. Includes a downloadable schedule.",
+      desc: "A Clear, No-Jargon Guide To Exactly Which Vaccines Your Dog Or Cat Needs, When, And Why. Includes A Downloadable Schedule.",
       chapters: ["0:00 Why vaccines matter", "1:30 Core vaccines list", "3:00 Puppy schedule", "4:30 Adult boosters", "5:30 Cat vaccine guide"],
       tags: ["Vaccination", "Puppy Care", "Adult Dogs", "Cats"],
     },
@@ -5244,43 +5596,43 @@ function PetVideosPage({ nav }) {
       title: "What Should You Feed Your Dog? — Complete Nutrition Guide",
       instructor: "Dr. Kiran Patel", role: "CEO & Head Vet",
       thumb: P.shop1,
-      desc: "Kibble vs wet vs raw vs home-cooked — the real science behind dog nutrition. Learn how to read labels and choose the right food.",
+      desc: "Kibble Vs Wet Vs Raw Vs Home-Cooked — The Real Science Behind Dog Nutrition. Learn How To Read Labels And Choose The Right Food.",
       chapters: ["0:00 Introduction to dog nutrition", "2:00 Reading food labels", "4:30 Kibble pros & cons", "7:00 Raw feeding basics", "9:30 Foods to avoid", "11:30 Portion guide"],
       tags: ["Nutrition", "Dog Food", "Kibble", "Raw Diet"],
     },
     {
       id: 9, cat: "Nutrition", duration: "5:40", level: "All Levels", views: "56K",
-      title: "Human Foods Safe (and Dangerous) for Dogs",
+      title: "Human Foods Safe (And Dangerous) For Dogs",
       instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
       thumb: P.shop2,
-      desc: "Which fruits, vegetables, and kitchen staples are safe for dogs — and which ones can be fatal. A must-watch for every pet parent.",
+      desc: "Which Fruits, Vegetables, And Kitchen Staples Are Safe For Dogs — And Which Ones Can Be Fatal. A Must-Watch For Every Pet Parent.",
       chapters: ["0:00 Safe fruits", "1:30 Safe vegetables", "2:45 Dangerous foods", "4:00 Toxic plants", "5:00 Emergency what to do"],
       tags: ["Nutrition", "Food Safety", "Toxic Foods", "Emergency"],
     },
     {
       id: 10, cat: "Behavior", duration: "10:30", level: "Intermediate", views: "78K",
-      title: "Why Your Dog is Aggressive — And How to Fix It",
+      title: "Why Your Dog Is Aggressive — And How To Fix It",
       instructor: "Priya Venkatesh", role: "Behavioral Specialist",
       thumb: P.train,
-      desc: "Aggression is almost always fear or pain. Understanding the root cause is the only way to fix it safely. No punishment methods.",
+      desc: "Aggression Is Almost Always Fear Or Pain. Understanding The Root Cause Is The Only Way To Fix It Safely. No Punishment Methods.",
       chapters: ["0:00 Types of aggression", "2:00 Fear-based aggression", "4:30 Resource guarding", "6:30 Desensitisation protocol", "9:00 When to get professional help"],
       tags: ["Aggression", "Behavior", "Fear", "Training"],
     },
     {
       id: 11, cat: "Behavior", duration: "8:50", level: "Beginner", views: "93K",
-      title: "Separation Anxiety — Complete Guide to Calm Departures",
+      title: "Separation Anxiety — Complete Guide To Calm Departures",
       instructor: "Priya Venkatesh", role: "Behavioral Specialist",
       thumb: P.dog4,
-      desc: "Howling, destruction, accidents — separation anxiety is stressful for dogs and owners. This step-by-step protocol rebuilds confidence.",
+      desc: "Howling, Destruction, Accidents — Separation Anxiety Is Stressful For Dogs And Owners. This Step-By-Step Protocol Rebuilds Confidence.",
       chapters: ["0:00 Signs of separation anxiety", "2:00 Graduated departure training", "4:30 Enrichment while alone", "6:30 What not to do", "8:00 Severe cases — getting help"],
       tags: ["Separation Anxiety", "Behavior", "Alone Time", "Calm Dog"],
     },
     {
       id: 12, cat: "Fun & Tricks", duration: "9:00", level: "All Levels", views: "185K",
-      title: "Teach Your Dog 5 Impressive Tricks in One Weekend",
+      title: "Teach Your Dog 5 Impressive Tricks In One Weekend",
       instructor: "Rahul Sharma", role: "CPDT-Certified Trainer",
       thumb: P.dog1,
-      desc: "Spin, Roll Over, Play Dead, High Five, and Wave — five crowd-pleasing tricks taught with positive reinforcement in easy steps.",
+      desc: "Spin, Roll Over, Play Dead, High Five, And Wave — Five Crowd-Pleasing Tricks Taught With Positive Reinforcement In Easy Steps.",
       chapters: ["0:00 Getting started", "1:30 Spin", "3:00 Roll Over", "4:30 Play Dead", "6:00 High Five", "7:30 Wave"],
       tags: ["Tricks", "Fun", "Positive Reinforcement", "All Dogs"],
     },
@@ -5305,7 +5657,7 @@ function PetVideosPage({ nav }) {
             <div style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,.15)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 36, cursor: "pointer", border: "2px solid rgba(255,255,255,.3)" }}>▶</div>
           </div>
           <div style={{ position: "absolute", bottom: 16, left: 20, right: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ color: "#fff", fontSize: 13, fontWeight: 600, background: "rgba(0,0,0,.6)", padding: "4px 10px", borderRadius: 6 }}>🎬 Full video in Pawprint app</span>
+            <span style={{ color: "#fff", fontSize: 13, fontWeight: 600, background: "rgba(0,0,0,.6)", padding: "4px 10px", borderRadius: 6 }}>🎬 Full Video In Pawprint App</span>
             <span style={{ color: "#fff", fontSize: 13, background: "rgba(0,0,0,.6)", padding: "4px 10px", borderRadius: 6 }}>{v.duration}</span>
           </div>
           <button onClick={() => setPlaying(null)} style={{ position: "absolute", top: 16, right: 16, width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,.15)", border: "none", color: "#fff", fontSize: 18, cursor: "pointer" }}>✕</button>
@@ -5353,7 +5705,7 @@ function PetVideosPage({ nav }) {
     </div>
   );
 
-  return (
+  Return (
     <div style={{ paddingTop: 96 }}>
       {playing && <VideoModal v={videos.find(v => v.id === playing)} />}
 
@@ -5367,7 +5719,7 @@ function PetVideosPage({ nav }) {
             Learn. Train.<br /><span style={{ color: C.orange }}>Love Smarter.</span>
           </h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
-            Free training videos, health guides, grooming tutorials, and behavior tips — taught by Pawprint's certified vets and trainers.
+            Free Training Videos, Health Guides, Grooming Tutorials, And Behavior Tips — Taught By Pawprint's Certified Vets And Trainers.
           </p>
           <div style={{ display: "flex", gap: 36 }}>
             {[["12+", "Free Videos"], ["6", "Expert Instructors"], ["8", "Topic Categories"], ["4.9★", "Avg. Rating"]].map(([v, l]) => (
@@ -5482,10 +5834,10 @@ function PetVideosPage({ nav }) {
       <section style={{ padding: "70px 0", background: C.orange }}>
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
           <h2 className="melody" style={{ fontSize: "clamp(36px,5vw,60px)", color: "#fff", lineHeight: .95, marginBottom: 16 }}>
-            Want personalised training?
+            Want Personalised Training?
           </h2>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,.8)", lineHeight: 1.75, marginBottom: 32 }}>
-            Our certified trainers offer 1-on-1 sessions tailored to your dog's breed, age, and specific challenges.
+            Our Certified Trainers Offer 1-On-1 Sessions Tailored To Your Dog's Breed, Age, And Specific Challenges.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center" }}>
             <button className="btn btn-lg" style={{ background: "#fff", color: C.orange, fontWeight: 700 }} onClick={() => nav("svc-training")}>Book a Training Session →</button>
@@ -5727,10 +6079,10 @@ function DogBreedsPage({ nav }) {
           <div>
             <div className="pill" style={{ background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.85)", marginBottom: 24, display: "inline-block" }}>🐕 Encyclopedia</div>
             <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: "#fff", margin: "0 0 20px" }}>
-              Dog Breeds<br />A to Z.
+              Dog Breeds<br />A To Z.
             </h1>
             <p style={{ fontSize: 18, color: "rgba(255,255,255,.75)", lineHeight: 1.7, maxWidth: 560, marginBottom: 40 }}>
-              An A–Z encyclopedia of recognized dog breeds in the world — with origin, temperament, care guides, and Indian breeds celebrated separately.
+              An A–Z Encyclopedia Of Recognized Dog Breeds In The World — With Origin, Temperament, Care Guides, And Indian Breeds Celebrated Separately.
             </p>
             {/* Quick counts */}
             <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
@@ -5815,7 +6167,7 @@ function DogBreedsPage({ nav }) {
               <div style={{ fontSize: 52 }}>🇮🇳</div>
               <div>
                 <h2 className="melody" style={{ fontSize: 32, color: "#FF6B35", lineHeight: 1, marginBottom: 6 }}>Indian Dog Breeds</h2>
-                <p style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.65, margin: 0 }}>Ancient, hardy, and perfectly adapted to the Indian subcontinent — these indigenous breeds are intelligent, low-maintenance, and deeply loyal. Many are endangered today and deserve your love.</p>
+                <p style={{ fontSize: 13, color: C.inkSft, lineHeight: 1.65, margin: 0 }}>Ancient, Hardy, And Perfectly Adapted To The Indian Subcontinent — These Indigenous Breeds Are Intelligent, Low-Maintenance, And Deeply Loyal. Many Are Endangered Today And Deserve Your Love.</p>
               </div>
             </div>
           )}
@@ -5824,19 +6176,19 @@ function DogBreedsPage({ nav }) {
           {activeFilter === "Most Popular" && (
             <div style={{ background: `linear-gradient(135deg, rgba(229, 93, 26, 0.08), rgba(201, 78, 18, 0.08))`, border: `1px solid ${C.orange}33`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
               <h2 className="melody" style={{ fontSize: 28, color: C.orange, marginBottom: 6 }}>⭐ Most Popular Breeds</h2>
-              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>The world's most beloved and widely recognized dog breeds — chosen for temperament, adaptability, and all-round family compatibility.</p>
+              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>The World's Most Beloved And Widely Recognized Dog Breeds — Chosen For Temperament, Adaptability, And All-Round Family Compatibility.</p>
             </div>
           )}
           {activeFilter === "Guard Dogs" && (
             <div style={{ background: `linear-gradient(135deg, rgba(192, 57, 43, 0.08), rgba(160, 32, 32, 0.08))`, border: `1px solid ${C.red}33`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
               <h2 className="melody" style={{ fontSize: 28, color: C.red, marginBottom: 6 }}>🛡 Guard Dog Breeds</h2>
-              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>Naturally protective, loyal, and alert — these breeds are ideal for home protection when paired with proper training and socialisation.</p>
+              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>Naturally Protective, Loyal, And Alert — These Breeds Are Ideal For Home Protection When Paired With Proper Training And Socialisation.</p>
             </div>
           )}
           {activeFilter === "Friendly Family Dogs" && (
             <div style={{ background: `linear-gradient(135deg, rgba(30, 107, 69, 0.08), rgba(21, 92, 56, 0.08))`, border: `1px solid ${C.green}33`, borderRadius: 20, padding: "28px 32px", marginBottom: 32 }}>
               <h2 className="melody" style={{ fontSize: 28, color: C.green, marginBottom: 6 }}>🏡 Friendly Family Dog Breeds</h2>
-              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>Gentle, patient, and great with children — these breeds thrive in family environments and are perfect companions for all ages.</p>
+              <p style={{ color: C.inkSft, fontSize: 13, lineHeight: 1.65, margin: 0 }}>Gentle, Patient, And Great With Children — These Breeds Thrive In Family Environments And Are Perfect Companions For All Ages.</p>
             </div>
           )}
 
@@ -5844,8 +6196,8 @@ function DogBreedsPage({ nav }) {
           {filtered.length === 0 ? (
             <div style={{ textAlign: "center", padding: "80px 0" }}>
               <div style={{ fontSize: 56, marginBottom: 16 }}>🔍</div>
-              <h3 className="melody" style={{ fontSize: 28, color: C.ink, marginBottom: 8 }}>No breeds found</h3>
-              <p style={{ color: C.inkSft }}>Try a different search term or clear the filters.</p>
+              <h3 className="melody" style={{ fontSize: 28, color: C.ink, marginBottom: 8 }}>No Breeds Found</h3>
+              <p style={{ color: C.inkSft }}>Try A Different Search Term Or Clear The Filters.</p>
               <button className="btn btn-md btn-primary" style={{ marginTop: 20 }} onClick={() => { setSearch(""); setActiveLetter("All"); setSizeFilter("All"); setOriginFilter("All"); }}>Clear Filters</button>
             </div>
           ) : (
@@ -5911,26 +6263,26 @@ export default function App() {
 
   const PAGE_MAP = {
     home: <HomePage nav={nav} />,
-    about: <AboutPage nav={nav} />,
-    services: <ServicesPage nav={nav} />,
-    adopt: <AdoptPage nav={nav} />,
-    vet: <VetPage nav={nav} />,
-    shop: <ShopPage nav={nav} />,
-    lost: <LostFoundPage nav={nav} />,
-    dashboard: <DashboardPage nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} />,
-    login: <AuthPage type="login" nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} setCurrentUser={setCurrentUser} />,
-    signup: <AuthPage type="signup" nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} setCurrentUser={setCurrentUser} />,
-    contact: <ContactPage nav={nav} />,
-    "pet-videos": <PetVideosPage nav={nav} />,
-    "dog-breeds": <DogBreedsPage nav={nav} />,
-    /* ── Service category pages ── */
-    "svc-health": <SvcHealthPage nav={nav} />,
-    "svc-grooming": <SvcGroomingPage nav={nav} />,
-    "svc-training": <SvcTrainingPage nav={nav} />,
-    "svc-boarding": <SvcBoardingPage nav={nav} />,
-    "svc-activity": <SvcActivityPage nav={nav} />,
-    "svc-specialty": <SvcSpecialtyPage nav={nav} />,
-    "svc-retail": <SvcRetailPage nav={nav} />,
+    About: <AboutPage nav={nav} />,
+    Services: <ServicesPage nav={nav} />,
+    Adopt: <AdoptPage nav={nav} />,
+    Vet: <VetPage nav={nav} />,
+    Shop: <ShopPage nav={nav} />,
+    Lost: <LostFoundPage nav={nav} />,
+    Dashboard: <DashboardPage nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} />,
+    Login: <AuthPage type="login" nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} setCurrentUser={setCurrentUser} />,
+    Signup: <AuthPage type="signup" nav={nav} pets={pets} setPets={setPets} currentUser={currentUser} setCurrentUser={setCurrentUser} />,
+    Contact: <ContactPage nav={nav} />,
+    "Pet-Videos": <PetVideosPage nav={nav} />,
+    "Dog-Breeds": <DogBreedsPage nav={nav} />,
+    /* ── Service Category Pages ── */
+    "Svc-Health": <SvcHealthPage nav={nav} />,
+    "Svc-Grooming": <SvcGroomingPage nav={nav} />,
+    "Svc-Training": <SvcTrainingPage nav={nav} />,
+    "Svc-Boarding": <SvcBoardingPage nav={nav} />,
+    "Svc-Activity": <SvcActivityPage nav={nav} />,
+    "Svc-Specialty": <SvcSpecialtyPage nav={nav} />,
+    "Svc-Retail": <SvcRetailPage nav={nav} />,
   };
 
   return (
