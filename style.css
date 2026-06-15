@@ -556,9 +556,6 @@ a {
   transition: transform .6s cubic-bezier(.22, 1, .36, 1) !important;
 }
 
-.card:hover img {
-  transform: scale(1.06) !important;
-}
 
 /* Glassmorphism badges inside cards */
 .glass-badge {
@@ -2394,6 +2391,287 @@ a {
   background-size: 12px !important;
   padding-right: 36px !important;
 }
+
+/* ==========================================
+   Founder Card Redesign
+   ========================================== */
+.founder-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px !important;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-md) !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.founder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(229, 93, 26, 0.25) !important;
+}
+
+.founder-img-container {
+  padding: 16px 16px 0 16px;
+}
+
+.founder-img-wrapper {
+  height: 240px;
+  overflow: hidden;
+  border-radius: 18px;
+  position: relative;
+}
+
+.founder-card .founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.founder-quote-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(229, 93, 26, 0.95), rgba(29, 95, 196, 0.95));
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.founder-quote-text {
+  color: #fff;
+  font-size: 13.5px;
+  font-style: italic;
+  line-height: 1.6;
+  font-weight: 500;
+  margin: auto 0;
+}
+
+/* ==========================================
+   Innovative Auth (Login & Signup) Redesign
+   ========================================== */
+.auth-ambient-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auth-ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  animation: authBlobFloat 18s ease-in-out infinite alternate;
+}
+
+.auth-ambient-blob-1 {
+  background: var(--color-orange);
+  width: 450px;
+  height: 450px;
+  top: -100px;
+  left: -100px;
+}
+
+.auth-ambient-blob-2 {
+  background: var(--color-blue);
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -6s;
+}
+
+@keyframes authBlobFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.15); }
+  100% { transform: translate(-30px, 80px) scale(0.9); }
+}
+
+.auth-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--color-ink-sft);
+  font-size: 16px;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px 18px 14px 44px !important;
+  border-radius: 16px !important;
+  border: 1.5px solid var(--color-border) !important;
+  font-size: 15px !important;
+  outline: none !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: var(--color-ink) !important;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.auth-input:focus {
+  border-color: var(--color-orange) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(229, 93, 26, 0.12), 0 10px 20px rgba(229, 93, 26, 0.05) !important;
+}
+
+.auth-input:focus + .auth-input-icon {
+  color: var(--color-orange);
+}
+
+.auth-password-toggle {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--color-ink-sft);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.auth-password-toggle:hover {
+  color: var(--color-orange);
+}
+
+/* Auth Left Showcase Design */
+.auth-showcase-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 48px;
+  background: linear-gradient(135deg, #0F0F14 0%, #15151F 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-showcase-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(229,93,26,0.15) 0%, transparent 70%);
+  top: 10%;
+  left: -10%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.auth-showcase-glow-2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(29,95,196,0.12) 0%, transparent 70%);
+  bottom: -10%;
+  right: -10%;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Interactive Floating Cards */
+.auth-pet-card-stack {
+  position: relative;
+  height: 260px;
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 16px 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.auth-floating-card:hover {
+  transform: translateY(-8px) scale(1.05) rotate(1deg) !important;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(229, 93, 26, 0.3);
+  box-shadow: 0 30px 60px rgba(229, 93, 26, 0.15);
+}
+
+.auth-floating-card-1 {
+  top: 10px;
+  left: 10%;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+
+.auth-floating-card-2 {
+  bottom: 20px;
+  right: 12%;
+  transform: rotate(4deg);
+  z-index: 2;
+}
+
+.auth-floating-card-3 {
+  top: 45%;
+  left: 25%;
+  transform: rotate(-1deg);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* Verification digits inputs */
+.verify-digit-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.verify-digit-input {
+  width: 46px;
+  height: 54px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 14px;
+  border: 1.5px solid var(--color-border);
+  outline: none;
+  background: #fff;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.verify-digit-input:focus {
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 4px rgba(229, 93, 26, 0.12);
+  transform: scale(1.05);
+}
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /* ================================================================
    PAWPRINT  —  Complete Website  v3
@@ -1538,10 +1538,6 @@ function AboutPage({ nav }) {
               <div key={i} className="card card-lift founder-card" style={{ position: "relative", overflow: "hidden", borderRadius: 24, background: C.white, border: `1px solid ${C.border}`, display: "flex", flexDirection: "column", height: "100%" }}>
                 <div style={{ height: 330, overflow: "hidden", position: "relative" }}>
                   <Img src={l.img} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)" }} />
-                  {/* Quote overlay on hover */}
-                  <div className="founder-overlay" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(229, 93, 26, 0.96), rgba(29, 95, 196, 0.96))", padding: 28, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", opacity: 0, transition: "opacity 0.35s ease", pointerEvents: "none", zIndex: 5 }}>
-                    <p style={{ color: "#fff", fontSize: 14, fontStyle: "italic", lineHeight: 1.7, fontWeight: 500, textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>{l.quote}</p>
-                  </div>
                 </div>
                 <div style={{ padding: 24, display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between" }}>
                   <div style={{ marginBottom: 20 }}>
@@ -1550,15 +1546,6 @@ function AboutPage({ nav }) {
                     <p style={{ fontSize: 13.5, color: C.inkSft, lineHeight: 1.7, marginBottom: 0 }}>{l.bio.split(". ").slice(0, 2).join(". ")}.</p>
                   </div>
                   <div>
-                    <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: C.sand, marginBottom: 8 }}>Key Background</div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 20 }}>
-                      {l.credentials.slice(0, 2).map((c, ci) => (
-                        <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 12.5, color: C.ink, lineHeight: 1.4 }}>
-                          <span style={{ color: C.orange, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
-                          <span>{c}</span>
-                        </div>
-                      ))}
-                    </div>
                     <button onClick={() => window.open(l.linkedin, "_blank")} style={{
                       width: "100%", padding: "8px", borderRadius: 12,
                       border: `1.5px solid ${C.border}`, background: "#fff",
@@ -2531,9 +2518,9 @@ function VetPage() {
   const [confirmed, setConfirmed] = useState(false);
 
   const vets = [
-    { name: "Dr. Meera Iyer", spec: "Small Animal Medicine", exp: "15 yrs", rating: 4.9, reviews: 1240, img: P.vet2, price: "₹499", slots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"], avail: "Today", langs: ["Tamil", "English", "Hindi"] },
-    { name: "Dr. Rajan Pillai", spec: "Exotic Pets & Birds", exp: "12 yrs", rating: 4.8, reviews: 870, img: P.team2, price: "₹599", slots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM"], avail: "Today", langs: ["Malayalam", "English"] },
-    { name: "Dr. Anita Desai", spec: "Veterinary Surgery", exp: "20 yrs", rating: 4.9, reviews: 2100, img: P.team3, price: "₹799", slots: ["8:00 AM", "1:00 PM", "4:30 PM", "7:00 PM"], avail: "Tomorrow", langs: ["Hindi", "English", "Marathi"] },
+    { name: "Dr. Emma Watson", spec: "Small Animal Medicine", exp: "15 yrs", rating: 4.9, reviews: 1240, img: P.vet2, price: "₹499", slots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"], avail: "Today", langs: ["Tamil", "English", "Hindi"] },
+    { name: "Dr. Abinaya", spec: "Exotic Pets & Birds", exp: "12 yrs", rating: 4.8, reviews: 870, img: P.team2, price: "₹599", slots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM"], avail: "Today", langs: ["Malayalam", "English"] },
+    { name: "Dr. Abimanyu", spec: "Veterinary Surgery", exp: "20 yrs", rating: 4.9, reviews: 2100, img: P.team3, price: "₹799", slots: ["8:00 AM", "1:00 PM", "4:30 PM", "7:00 PM"], avail: "Tomorrow", langs: ["Hindi", "English", "Marathi"] },
   ];
 
   if (confirmed) return (
@@ -2550,18 +2537,27 @@ function VetPage() {
 
   Return (
     <div style={{ paddingTop: 96 }}>
-      <section style={{ padding: "90px 0 60px", background: C.cream }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          <div className="pill pill-blue" style={{ marginBottom: 24 }}>Veterinary</div>
-          <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 24 }}>World-Class<br />Vet Care.</h1>
-          <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 480, marginBottom: 36 }}>Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
-          <div style={{ display: "flex", alignItems: "center", gap: 20, padding: "18px 24px", background: C.blueLt, borderRadius: 16, border: `1px solid ${C.blue}22`, maxWidth: 580 }}>
-            <span style={{ fontSize: 28 }}>🤖</span>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 700, color: C.blue, fontSize: 15, marginBottom: 2 }}>Not Sure If Your Pet Needs A Vet?</div>
-              <div style={{ fontSize: 13, color: C.inkSft }}>Use Our AI Symptom Checker For Instant Triage Guidance.</div>
+      <section style={{ position: "relative", minHeight: 480, overflow: "hidden", display: "flex", alignItems: "center", padding: "100px 0 80px" }}>
+        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1400&q=80&fit=crop"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}
+          alt="Veterinary Care Background" />
+        <div
+          style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%)" }} />
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 32px", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 40 }}>
+          <div style={{ flex: 1, minWidth: 320 }}>
+            <div className="pill pill-blue" style={{ marginBottom: 24 }}>Veterinary</div>
+            <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: "#fff", marginBottom: 24 }}>World-Class<br />Vet Care.</h1>
+            <p style={{ fontSize: 18, color: "rgba(255, 255, 255, 0.75)", lineHeight: 1.7, maxWidth: 480 }}>Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
+          </div>
+          <div style={{ flex: 1, minWidth: 320, display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 20, padding: 24, background: "rgba(255, 255, 255, 0.1)", backdropFilter: "blur(12px)", borderRadius: 20, border: "1px solid rgba(255, 255, 255, 0.18)", maxWidth: 500, boxShadow: "0 20px 48px rgba(0, 0, 0, 0.25)" }}>
+              <span style={{ fontSize: 32 }}>🤖</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 700, color: "#fff", fontSize: 16, marginBottom: 4 }}>Not Sure If Your Pet Needs A Vet?</div>
+                <div style={{ fontSize: 13, color: "rgba(255, 255, 255, 0.8)", lineHeight: 1.4 }}>Use Our AI Symptom Checker For Instant Triage Guidance.</div>
+              </div>
+              <button className="btn btn-sm btn-blue" style={{ flexShrink: 0 }} onClick={() => window.openChatWithQuery ? window.openChatWithQuery('Tell me about AI health assistant') : alert("AI Symptom Checker is active in live mode.")}>Try AI →</button>
             </div>
-            <button className="btn btn-sm btn-blue" style={{ flexShrink: 0 }}>Try AI →</button>
           </div>
         </div>
       </section>
@@ -2608,7 +2604,7 @@ function VetPage() {
                     )}
                   </div>
                 </div>
-                <div style={{ padding: "36px 36px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", gap: 14, borderLeft: `1px solid ${C.border}`, minWidth: 200 }}>
+                <div style={{ padding: "36px 36px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "stretch", gap: 14, borderLeft: `1px solid ${C.border}`, minWidth: 200 }}>
                   <div style={{ textAlign: "right" }}>
                     <div className="melody" style={{ fontSize: 28, fontWeight: 700, color: C.ink }}>{v.price}</div>
                     <div style={{ fontSize: 12, color: C.inkSft }}>Per Session</div>
@@ -3995,7 +3991,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                       {[
-                        ["Primary Vet Name", "vetName", "text", "Dr. Meera Iyer"],
+                        ["Primary Vet Name", "vetName", "text", "Dr. Emma Watson"],
                         ["Vet Phone", "vetPhone", "tel", "+91 98765 43210"],
                         ["Emergency Contact Name", "emergencyContact", "text", "Family member name"],
                         ["Emergency Contact Phone", "emergencyPhone", "tel", "+91 87654 32109"],
@@ -4927,7 +4923,12 @@ function SvcBoardingPage({ nav }) {
     { name: "Cage-Free Boarding", price: "₹899/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Free-Roam Boarding In A Home Environment For Dogs Who Don't Do Well In Kennels.", desc: "Some Dogs Thrive In A Home Setting. Our Cage-Free Boarding Partners Are Thoroughly Vetted Pet Lovers Who Host Small Groups Of Dogs In Their Homes For A Truly Family Experience.", includes: ["Home environment", "No kennels or cages", "Limited dog group", "Regular outdoor time", "Owner video calls", "Personalised care"] },
     { name: "Puppy Daycare", price: "₹449/Day", duration: "8 Hrs", rating: "4.9", img: P.dog1, shortDesc: "Specialised Daycare For Puppies Under 1 Year With Puppy-Safe Play And Puppy Training Included.", desc: "Puppies Have Special Needs. Our Puppy Daycare Groups Are Age-Appropriate, With Separate Play Areas, Gentle Handling, Nap Schedules, And Basic Training Reinforcement Woven Into The Day.", includes: ["Age-appropriate grouping", "Basic training reinforcement", "Nap schedule", "3 puppy-safe meals", "Socialisation programme", "Daily development report"] },
   ];
-  return <SvcCatPage cat="Boarding & Sitting" icon="🏠" color="#7C3AED" heroImg={P.boarding} tagline={"Safe, Loved,\nWell Cared For."} about="CCTV-monitored facilities, background-checked sitters, and daily updates — so you can relax knowing your pet is in the best hands." services={services} whyUs={{ stats: [["CCTV", "Monitored 24/7"], ["Background", "Checked Staff"], ["Daily", "Owner Updates"], ["4.9★", "Trust Rating"]], points: [{ icon: "🏠", title: "Home-Like Environment", desc: "Our Facilities Are Designed To Feel Comfortable And Calming, Not Institutional." }, { icon: "📹", title: "24/7 CCTV", desc: "Cameras Throughout Facilities With Live Access Available For Select Premium Packages." }, { icon: "🩺", title: "Vet On Call", desc: "A Vet Is Always On Call For Our Boarding Facilities — Your Pet's Health Is Never Left To Chance." }, { icon: "📱", title: "Daily Updates", desc: "Photo And Video Updates Sent Each Morning So You Can See Your Pet Thriving." }] }} faqItems={[{ q: "What Vaccinations Are Required For Boarding?", a: "We Require Up-To-Date Distemper, Parvovirus, And Rabies Vaccines. Kennel Cough Vaccination Is Highly Recommended." }, { q: "Can I Visit The Facility Before Booking?", a: "Absolutely. We Encourage Facility Tours Before Your First Booking. Contact Us To Schedule A Visit." }, { q: "What Happens If My Pet Gets Sick While Boarding?", a: "We Have A Vet On Call 24/7. If Your Pet Requires Treatment, We Will Contact You Immediately And Arrange Veterinary Care." }, { q: "Can I Bring My Pet's Food And Bedding?", a: "Yes — In Fact, We Encourage It. Familiar Smells And Food Help Pets Feel At Home." }, { q: "Is There A Minimum Stay For Boarding?", a: "Our Minimum Boarding Stay Is One Night. Long-Term Discounts Start From 7 Nights." }]} nav={nav} />;
+  return <SvcCatPage cat="Boarding & Sitting" icon="🏠" color="#7C3AED" heroImg={P.boarding} tagline={"Safe, Loved,\nWell Cared For."} about="CCTV-monitored facilities, background-checked sitters, and daily updates — so you can relax knowing your pet is in the best hands." services={services} whyUs={{ stats: [["CCTV", "Monitored 24/7"], ["Background", "Checked Staff"], ["Daily", "Owner Updates"], ["4.9★", "Trust Rating"]], points: [
+    { icon: "🛡️", title: "100% Insured", desc: "Every Pet Boarded Is Fully Covered By Our Veterinary Insurance Program." },
+    { icon: "📹", title: "Live CCTV Access", desc: "Luxury Suites Feature Direct Live Video Feeds Accessible Via The Pawprint Dashboard." },
+    { icon: "🩺", title: "Vet On Call", desc: "A Vet Is Always On Call For Our Boarding Facilities — Your Pet's Health Is Never Left To Chance." },
+    { icon: "📱", title: "Daily Updates", desc: "Photo And Video Updates Sent Each Morning So You Can See Your Pet Thriving." }
+  ] }} faqItems={[{ q: "What Vaccinations Are Required For Boarding?", a: "We Require Up-To-Date Distemper, Parvovirus, And Rabies Vaccines. Kennel Cough Vaccination Is Highly Recommended." }, { q: "Can I Visit The Facility Before Booking?", a: "Absolutely. We Encourage Facility Tours Before Your First Booking. Contact Us To Schedule A Visit." }, { q: "What Happens If My Pet Gets Sick While Boarding?", a: "We Have A Vet On Call 24/7. If Your Pet Requires Treatment, We Will Contact You Immediately And Arrange Veterinary Care." }, { q: "Can I Bring My Pet's Food And Bedding?", a: "Yes — In Fact, We Encourage It. Familiar Smells And Food Help Pets Feel At Home." }, { q: "Is There A Minimum Stay For Boarding?", a: "Our Minimum Boarding Stay Is One Night. Long-Term Discounts Start From 7 Nights." }]} nav={nav} />;
 }
 
 // ── ACTIVITY & LIFESTYLE PAGE ─────────────────────────────────────
@@ -4943,7 +4944,12 @@ function SvcActivityPage({ nav }) {
     { name: "Hiking Trips", price: "₹799/Trip", duration: "Half Day", rating: "4.8", img: P.dog3, shortDesc: "Guided Half-Day Hiking Adventures For Active Dogs And Their Owners.", desc: "Join One Of Our Guided Dog-Friendly Hikes In Nature. Our Experienced Guides Know Dog-Friendly Trails And Carry A Full Pet First Aid Kit.", includes: ["Guided trail", "Pet first aid kit", "Group 6–10 dogs", "Rest and hydration stops", "Trail photography", "Post-hike report"] },
     { name: "Dog Park Visits", price: "₹199/Session", duration: "45 Min", rating: "4.9", img: P.community, shortDesc: "Supervised, Facilitated Dog Park Visits With Behaviour Coaching Included.", desc: "We Take Your Dog To Vetted, Safe Dog Parks And Supervise Their Interaction — Ideal For Dogs Who Need Controlled Socialisation Experience Before Going Independently.", includes: ["Transport to park", "Supervisor present", "Socialisation coaching", "Behaviour monitoring", "Exit if needed", "Report to owner"] },
   ];
-  return <SvcCatPage cat="Activity & Lifestyle" icon="🏃" color={C.orange} heroImg={P.dog3} tagline={"Active Dogs,\nHappy Lives."} about="GPS-tracked walkers, certified fitness trainers, and adventure guides — keeping your pet physically and mentally thriving every day." services={services} whyUs={{ stats: [["GPS", "Every Walk"], ["Insured", "All Walkers"], ["4.9★", "Pet Rating"], ["10K+", "Walks Done"]], points: [{ icon: "📍", title: "GPS Every Walk", desc: "Every Walk Is GPS-Tracked And Shared With You In Real-Time Via The Pawprint App." }, { icon: "🛡️", title: "Insured & Background Checked", desc: "All Walkers And Activity Specialists Carry Insurance And Are Fully Vetted." }, { icon: "🎯", title: "Breed-Appropriate Activity", desc: "We Match Exercise Intensity And Type To Your Dog's Breed, Age, And Health." }, { icon: "📸", title: "Activity Journal", desc: "Photo And Video Updates From Every Session Keep You Connected." }] }} faqItems={[{ q: "How Do I Know My Dog Is Safe During Walks?", a: "All Walks Are GPS-Tracked. You Can Follow The Route Live In The Pawprint App. Walkers Carry A Pet First Aid Kit And Emergency Protocols." }, { q: "What If My Dog Doesn't Like Other Dogs?", a: "Solo Walks And Private Sessions Are Always Available. We Assess Every Dog Before Placing Them In Group Activities." }, { q: "Are Your Walkers Experienced With Large Breeds?", a: "Yes. All Walkers Are Matched To Dogs Based On Size, Strength, And Temperament. We Never Mismatch." }, { q: "Can I Join The Hiking Trips?", a: "Absolutely! Most Hiking Trips Are Owner-Inclusive. Check The Pawprint App For Upcoming Group Hikes Near You." }, { q: "Do You Offer Daily Walking Subscriptions?", a: "Yes — Monthly Packages Offer Significant Discounts. Set Up Recurring Walks Through The App." }]} nav={nav} />;
+  return <SvcCatPage cat="Activity & Lifestyle" icon="🏃" color={C.orange} heroImg={P.dog3} tagline={"Active Dogs,\nHappy Lives."} about="GPS-tracked walkers, certified fitness trainers, and adventure guides — keeping your pet physically and mentally thriving every day." services={services} whyUs={{ stats: [["GPS", "Every Walk"], ["Insured", "All Walkers"], ["4.9★", "Pet Rating"], ["10K+", "Walks Done"]], points: [
+    { icon: "📍", title: "GPS Live Tracking", desc: "Follow Their Walking Route In Real Time On Our Interactive Map." },
+    { icon: "🛡️", title: "Insured & Vetted", desc: "All Walkers And Activity Specialists Carry Insurance And Are Fully Vetted." },
+    { icon: "🎯", title: "Breed-Appropriate Activity", desc: "We Match Exercise Intensity And Type To Your Dog's Breed, Age, And Health." },
+    { icon: "📊", title: "Activity Report Cards", desc: "Get Detailed Updates With Photos, Route Logs, And Behavior Notes After Every Session." }
+  ] }} faqItems={[{ q: "How Do I Know My Dog Is Safe During Walks?", a: "All Walks Are GPS-Tracked. You Can Follow The Route Live In The Pawprint App. Walkers Carry A Pet First Aid Kit And Emergency Protocols." }, { q: "What If My Dog Doesn't Like Other Dogs?", a: "Solo Walks And Private Sessions Are Always Available. We Assess Every Dog Before Placing Them In Group Activities." }, { q: "Are Your Walkers Experienced With Large Breeds?", a: "Yes. All Walkers Are Matched To Dogs Based On Size, Strength, And Temperament. We Never Mismatch." }, { q: "Can I Join The Hiking Trips?", a: "Absolutely! Most Hiking Trips Are Owner-Inclusive. Check The Pawprint App For Upcoming Group Hikes Near You." }, { q: "Do You Offer Daily Walking Subscriptions?", a: "Yes — Monthly Packages Offer Significant Discounts. Set Up Recurring Walks Through The App." }]} nav={nav} />;
 }
 
 // ── SPECIALTY SERVICES PAGE ───────────────────────────────────────
@@ -4960,7 +4966,12 @@ function SvcSpecialtyPage({ nav }) {
     { name: "Microchipping", price: "₹399", duration: "15 Min", rating: "4.9", img: P.vet2, shortDesc: "ISO-Standard Microchip Implantation With National Database Registration.", desc: "Microchipping Is The Most Reliable Form Of Permanent Pet Identification. Our Vets Implant An ISO-Standard Chip And Register It With The National Pet Recovery Database.", includes: ["ISO 15-digit chip", "Painless implantation", "National DB registration", "ID card issued", "Lifetime registration", "Lost pet alert setup"] },
     { name: "Pet Relocation Services", price: "₹9,999", duration: "Full Service", rating: "4.8", img: P.boarding, shortDesc: "Stress-Free Domestic And International Pet Relocation With All Documentation Handled.", desc: "Relocating? Our Pet Relocation Specialists Handle Everything: Health Certificates, Import/Export Permits, Airline-Approved Crating, Flight Arrangements, And Destination Vet Check.", includes: ["Route planning", "Health certificate", "Import/export permits", "Airline crate", "Flight booking assistance", "Destination check"] },
   ];
-  return <SvcCatPage cat="Specialty Services" icon="⭐" color="#B45309" heroImg={P.about1} tagline={"Beyond the\nOrdinary."} about="Unique, specialist services designed for moments that matter most — from life's milestones to its most difficult transitions." services={services} whyUs={{ stats: [["Specialist", "Team",], ["100%", "Compassionate"], ["Award", "Winning"], ["5,000+", "Families Helped"]], points: [{ icon: "⭐", title: "Specialist Experts", desc: "Each Specialty Service Is Delivered By A Domain Expert — Not A Generalist." }, { icon: "❤️", title: "Compassion First", desc: "Especially In Difficult Moments, Our Team Leads With Empathy And Care." }, { icon: "📋", title: "Full Documentation", desc: "We Handle All Paperwork, Certificates, And Compliance So You Don't Have To." }, { icon: "🤝", title: "End-To-End Support", desc: "We're With You From First Enquiry To Final Follow-Up, Whatever The Service." }] }} faqItems={[{ q: "How Does Pet Relocation Work?", a: "Our Specialists Assess Your Route, Advise On Quarantine Requirements, Prepare All Health Certificates, Book Airline-Approved Transport, And Coordinate The Full Journey." }, { q: "Can Any Dog Become An Emotional Support Animal?", a: "Any Well-Tempered, Trained Dog Can Be An ESA. We Assess Suitability And Guide The Training And Documentation Process." }, { q: "Is Microchipping Painful?", a: "The Procedure Is Quick And Similar To A Standard Vaccination. Most Dogs Show No Discomfort." }, { q: "How Do I Plan A Dog Birthday Party?", a: "Book A Consultation Through The Pawprint App. We'll Discuss Theme, Guest List, Venue, And Catering To Design The Perfect Event." }, { q: "What Hospice Care Options Do You Provide?", a: "In-Home Comfort Visits, Palliative Pain Management, And, When The Time Comes, Peaceful In-Home Euthanasia With Full Family Support." }]} nav={nav} />;
+  return <SvcCatPage cat="Specialty Services" icon="⭐" color="#B45309" heroImg={P.about1} tagline={"Beyond the\nOrdinary."} about="Unique, specialist services designed for moments that matter most — from life's milestones to its most difficult transitions." services={services} whyUs={{ stats: [["Specialist", "Team",], ["100%", "Compassionate"], ["Award", "Winning"], ["5,000+", "Families Helped"]], points: [
+    { icon: "⭐", title: "Certified Specialists", desc: "Relocations And Surgeries Are Managed By Verified Veterinarians And Professionals." },
+    { icon: "❤️", title: "Compassion First", desc: "Especially In Difficult Moments, Our Team Leads With Empathy And Care." },
+    { icon: "📋", title: "Full Documentation", desc: "We Handle All Paperwork, Certificates, And Compliance So You Don't Have To." },
+    { icon: "🤝", title: "End-To-End Support", desc: "We're With You From First Enquiry To Final Follow-Up, Whatever The Service." }
+  ] }} faqItems={[{ q: "How Does Pet Relocation Work?", a: "Our Specialists Assess Your Route, Advise On Quarantine Requirements, Prepare All Health Certificates, Book Airline-Approved Transport, And Coordinate The Full Journey." }, { q: "Can Any Dog Become An Emotional Support Animal?", a: "Any Well-Tempered, Trained Dog Can Be An ESA. We Assess Suitability And Guide The Training And Documentation Process." }, { q: "Is Microchipping Painful?", a: "The Procedure Is Quick And Similar To A Standard Vaccination. Most Dogs Show No Discomfort." }, { q: "How Do I Plan A Dog Birthday Party?", a: "Book A Consultation Through The Pawprint App. We'll Discuss Theme, Guest List, Venue, And Catering To Design The Perfect Event." }, { q: "What Hospice Care Options Do You Provide?", a: "In-Home Comfort Visits, Palliative Pain Management, And, When The Time Comes, Peaceful In-Home Euthanasia With Full Family Support." }]} nav={nav} />;
 }
 
 // ── RETAIL & EXTRAS PAGE ─────────────────────────────────────────
@@ -5099,7 +5110,7 @@ function ChatBot({ nav }) {
     // Veterinary
     {
       keys: ["vet", "veterinary", "doctor", "animal doctor", "book vet", "vet appointment", "consultation", "checkup"],
-      answer: "We have 1,200+ certified vets across 85 cities. You can book:\n• Clinic visit (from ₹299)\n• Home visit (small additional charge)\n• Video consultation — available 24/7\n\nTop vets include Dr. Meera Iyer (Small Animal Medicine, ⭐4.9), Dr. Rajan Pillai (Exotic Pets, ⭐4.8), and Dr. Anita Desai (Surgery, ⭐4.9). Want to book an appointment?", page: "vet", cta: "Book a Vet"
+      answer: "We have 1,200+ certified vets across 85 cities. You can book:\n• Clinic visit (from ₹299)\n• Home visit (small additional charge)\n• Video consultation — available 24/7\n\nTop vets include Dr. Emma Watson (Small Animal Medicine, ⭐4.9), Dr. Abinaya (Exotic Pets, ⭐4.8), and Dr. Abimanyu (Surgery, ⭐4.9). Want to book an appointment?", page: "vet", cta: "Book a Vet"
     },
     {
       keys: ["emergency", "urgent", "emergency vet", "24/7 vet", "vet emergency", "critical", "sick dog", "sick cat"],
@@ -5585,7 +5596,7 @@ function PetVideosPage({ nav }) {
     {
       id: 7, cat: "Health & Care", duration: "6:20", level: "All Levels", views: "88K",
       title: "Vaccination Schedule Explained — From 8 Weeks To Adult",
-      instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
+      instructor: "Dr. Abimanyu", role: "Veterinary Specialist",
       thumb: P.vet2,
       desc: "A Clear, No-Jargon Guide To Exactly Which Vaccines Your Dog Or Cat Needs, When, And Why. Includes A Downloadable Schedule.",
       chapters: ["0:00 Why vaccines matter", "1:30 Core vaccines list", "3:00 Puppy schedule", "4:30 Adult boosters", "5:30 Cat vaccine guide"],
@@ -5603,7 +5614,7 @@ function PetVideosPage({ nav }) {
     {
       id: 9, cat: "Nutrition", duration: "5:40", level: "All Levels", views: "56K",
       title: "Human Foods Safe (And Dangerous) For Dogs",
-      instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
+      instructor: "Dr. Abimanyu", role: "Veterinary Specialist",
       thumb: P.shop2,
       desc: "Which Fruits, Vegetables, And Kitchen Staples Are Safe For Dogs — And Which Ones Can Be Fatal. A Must-Watch For Every Pet Parent.",
       chapters: ["0:00 Safe fruits", "1:30 Safe vegetables", "2:45 Dangerous foods", "4:00 Toxic plants", "5:00 Emergency what to do"],
@@ -5830,21 +5841,7 @@ function PetVideosPage({ nav }) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: "70px 0", background: C.orange }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
-          <h2 className="melody" style={{ fontSize: "clamp(36px,5vw,60px)", color: "#fff", lineHeight: .95, marginBottom: 16 }}>
-            Want Personalised Training?
-          </h2>
-          <p style={{ fontSize: 17, color: "rgba(255,255,255,.8)", lineHeight: 1.75, marginBottom: 32 }}>
-            Our Certified Trainers Offer 1-On-1 Sessions Tailored To Your Dog's Breed, Age, And Specific Challenges.
-          </p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center" }}>
-            <button className="btn btn-lg" style={{ background: "#fff", color: C.orange, fontWeight: 700 }} onClick={() => nav("svc-training")}>Book a Training Session →</button>
-            <button className="btn btn-lg" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,.5)", fontWeight: 600 }} onClick={() => nav("contact")}>Talk to a Trainer</button>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

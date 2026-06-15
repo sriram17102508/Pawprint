@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -129,26 +129,36 @@
     <section id="page-vet" class="page-section">
       <!-- Vet List View -->
       <div id="vet-view-list">
-        <section style="padding: 90px 0 60px; background: var(--color-cream);">
-          <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-            <div class="pill pill-blue" style="margin-bottom: 24px;">Veterinary</div>
-            <h1 class="melody-italic"
-              style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: var(--color-ink); margin-bottom: 24px;">
-              World-Class<br>Vet Care.</h1>
-            <p
-              style="font-size: 18px; color: var(--color-ink-sft); line-height: 1.7; max-width: 480px; margin-bottom: 36px;">
-              Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
-            <div
-              style="display: flex; align-items: center; gap: 20px; padding: 18px 24px; background: var(--color-blue-lt); border-radius: 16px; border: 1px solid rgba(29, 95, 196, 0.13); max-width: 580px;">
-              <span style="font-size: 28px;">🤖</span>
-              <div style="flex: 1;">
-                <div style="font-weight: 700; color: var(--color-blue); font-size: 15px; margin-bottom: 2px;">Not Sure
-                  If Your Pet Needs A Vet?</div>
-                <div style="font-size: 13px; color: var(--color-ink-sft);">Use Our AI Symptom Checker For Instant Triage
-                  Guidance.</div>
+        <section
+          style="position: relative; min-height: 480px; overflow: hidden; display: flex; align-items: center; padding: 100px 0 80px;">
+          <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1400&q=80&fit=crop"
+            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
+            alt="Veterinary Care Background">
+          <div
+            style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%);">
+          </div>
+          <div
+            style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 32px; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px;">
+            <div style="flex: 1; min-width: 320px;">
+              <div class="pill pill-blue" style="margin-bottom: 24px;">Veterinary</div>
+              <h1 class="melody-italic"
+                style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: #fff; margin-bottom: 24px;">
+                World-Class<br>Vet Care.</h1>
+              <p
+                style="font-size: 18px; color: rgba(255, 255, 255, 0.75); line-height: 1.7; max-width: 480px;">
+                Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
+            </div>
+            <div style="flex: 1; min-width: 320px; display: flex; justify-content: md-end; justify-content: flex-start;">
+              <div
+                style="display: flex; align-items: center; gap: 20px; padding: 24px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.18); max-width: 500px; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);">
+                <span style="font-size: 32px;">🤖</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: #fff; font-size: 16px; margin-bottom: 4px;">Not Sure If Your Pet Needs A Vet?</div>
+                  <div style="font-size: 13px; color: rgba(255, 255, 255, 0.8); line-height: 1.4;">Use Our AI Symptom Checker For Instant Triage Guidance.</div>
+                </div>
+                <button class="btn btn-sm btn-blue" style="flex-shrink: 0;"
+                  onclick="openChatWithQuery('Tell me about AI health assistant')">Try AI →</button>
               </div>
-              <button class="btn btn-sm btn-blue" style="flex-shrink: 0;"
-                onclick="openChatWithQuery('Tell me about AI health assistant')">Try AI →</button>
             </div>
           </div>
         </section>
@@ -171,7 +181,7 @@
             <h2 class="melody" style="font-size: 48px; font-weight: 700; color: var(--color-ink); margin-bottom: 12px;">
               Appointment Confirmed!</h2>
             <p id="vet-success-name"
-              style="font-size: 16px; color: var(--color-ink-sft); margin-bottom: 6px; font-weight: 600;">Dr. Meera Iyer
+              style="font-size: 16px; color: var(--color-ink-sft); margin-bottom: 6px; font-weight: 600;">Dr. Emma Watson
             </p>
             <p id="vet-success-details" style="font-size: 15px; color: var(--color-ink-sft); margin-bottom: 36px;">June
               15 At 11:00 AM · Confirmation SMS Sent.</p>
@@ -530,7 +540,7 @@
               <span style="font-weight: 700; font-size: 15px; color: var(--color-ink);">Vet & Emergency Contacts</span>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-              <div class="field"><label>Primary Vet Name</label><input id="addpet-vetname" placeholder="Dr. Meera Iyer">
+              <div class="field"><label>Primary Vet Name</label><input id="addpet-vetname" placeholder="Dr. Emma Watson">
               </div>
               <div class="field"><label>Vet Phone</label><input id="addpet-vetphone" type="tel"
                   placeholder="+91 98765 43210"></div>

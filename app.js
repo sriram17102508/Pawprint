@@ -176,9 +176,9 @@ const ALL_PETS = [
 ];
 
 const vets = [
-  { name: "Dr. Meera Iyer", spec: "Small Animal Medicine", exp: "15 yrs", rating: 4.9, reviews: 1240, img: P.vet2, price: "₹499", slots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"], avail: "Today", langs: ["Tamil", "English", "Hindi"] },
-  { name: "Dr. Rajan Pillai", spec: "Exotic Pets & Birds", exp: "12 yrs", rating: 4.8, reviews: 870, img: P.team2, price: "₹599", slots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM"], avail: "Today", langs: ["Malayalam", "English"] },
-  { name: "Dr. Anita Desai", spec: "Veterinary Surgery", exp: "20 yrs", rating: 4.9, reviews: 2100, img: P.team3, price: "₹799", slots: ["8:00 AM", "1:00 PM", "4:30 PM", "7:00 PM"], avail: "Tomorrow", langs: ["Hindi", "English", "Marathi"] },
+  { name: "Dr. Emma Watson", spec: "Small Animal Medicine", exp: "15 yrs", rating: 4.9, reviews: 1240, img: P.vet2, price: "₹499", slots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"], avail: "Today", langs: ["Tamil", "English", "Hindi"] },
+  { name: "Dr. Abinaya", spec: "Exotic Pets & Birds", exp: "12 yrs", rating: 4.8, reviews: 870, img: P.team2, price: "₹599", slots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM"], avail: "Today", langs: ["Malayalam", "English"] },
+  { name: "Dr. Abimanyu", spec: "Veterinary Surgery", exp: "20 yrs", rating: 4.9, reviews: 2100, img: P.team3, price: "₹799", slots: ["8:00 AM", "1:00 PM", "4:30 PM", "7:00 PM"], avail: "Tomorrow", langs: ["Hindi", "English", "Marathi"] },
 ];
 
 const products = [
@@ -315,7 +315,7 @@ const videos = [
   {
     id: 7, cat: "Health & Care", duration: "6:20", level: "All Levels", views: "88K",
     title: "Vaccination Schedule Explained — From 8 Weeks To Adult",
-    instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
+    instructor: "Dr. Abimanyu", role: "Veterinary Specialist",
     thumb: P.vet2,
     desc: "A Clear, No-Jargon Guide To Exactly Which Vaccines Your Dog Or Cat Needs, When, And Why. Includes A Downloadable Schedule.",
     chapters: ["0:00 Why vaccines matter", "1:30 Core vaccines list", "3:00 Puppy schedule", "4:30 Adult boosters", "5:30 Cat vaccine guide"],
@@ -333,7 +333,7 @@ const videos = [
   {
     id: 9, cat: "Nutrition", duration: "5:40", level: "All Levels", views: "56K",
     title: "Human Foods Safe (And Dangerous) For Dogs",
-    instructor: "Dr. Anita Desai", role: "Veterinary Specialist",
+    instructor: "Dr. Abimanyu", role: "Veterinary Specialist",
     thumb: P.shop2,
     desc: "Which Fruits, Vegetables, And Kitchen Staples Are Safe For Dogs — And Which Ones Can Be Fatal. A Must-Watch For Every Pet Parent.",
     chapters: ["0:00 Safe fruits", "1:30 Safe vegetables", "2:45 Dangerous foods", "4:00 Toxic plants", "5:00 Emergency what to do"],
@@ -454,7 +454,7 @@ const KB = [
   },
   {
     keys: ["vet", "veterinary", "doctor", "animal doctor", "book vet", "vet appointment", "consultation", "checkup"],
-    answer: "We have 1,200+ certified vets across 85 cities. You can book:\n• Clinic visit (from ₹299)\n• Home visit (small additional charge)\n• Video consultation — available 24/7\n\nTop vets include Dr. Meera Iyer (Small Animal Medicine, ⭐4.9), Dr. Rajan Pillai (Exotic Pets, ⭐4.8), and Dr. Anita Desai (Surgery, ⭐4.9). Want to book an appointment?", page: "vet", cta: "Book a Vet"
+    answer: "We have 1,200+ certified vets across 85 cities. You can book:\n• Clinic visit (from ₹299)\n• Home visit (small additional charge)\n• Video consultation — available 24/7\n\nTop vets include Dr. Emma Watson (Small Animal Medicine, ⭐4.9), Dr. Abinaya (Exotic Pets, ⭐4.8), and Dr. Abimanyu (Surgery, ⭐4.9). Want to book an appointment?", page: "vet", cta: "Book a Vet"
   },
   {
     keys: ["emergency", "urgent", "emergency vet", "24/7 vet", "vet emergency", "critical", "sick dog", "sick cat"],
@@ -1293,18 +1293,22 @@ function renderAboutTabContent() {
   const leaderGrid = document.getElementById('leadership-grid');
   if (leaderGrid) {
     leaderGrid.innerHTML = leadership.map(l => `
-      <div class="card card-lift founder-card" style="position: relative; overflow: hidden; border-radius: 20px; background: var(--color-white); border: 1px solid var(--color-border-md); display: flex; flex-direction: column; height: 100%;">
-        <div style="height: 180px; overflow: hidden; position: relative;">
-          <img src="${l.img}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);" alt="${l.name}">
-        </div>
-        <div style="padding: 16px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
-          <div style="margin-bottom: 14px;">
-            <div class="pill pill-orange" style="font-size: 9px; padding: 3px 8px; margin-bottom: 10px; width: fit-content; text-transform: uppercase;">${l.role}</div>
-            <h3 class="melody" style="font-size: 18px; color: var(--color-ink); margin-bottom: 4px; line-height: 1.1;">${l.name}</h3>
+      <div class="founder-card card-lift">
+        <div class="founder-img-container">
+          <div class="founder-img-wrapper">
+            <img src="${l.img}" class="founder-img" alt="${l.name}">
           </div>
+        </div>
+        <div style="padding: 24px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
           <div>
-            <a href="${l.linkedin}" target="_blank" class="btn btn-sm btn-outline" style="width: 100%; border-radius: 10px; border: 1.5px solid var(--color-border-md); font-size: 11px; padding: 7px; justify-content: center;">
-              <span style="font-weight: 800; font-family: sans-serif; margin-right: 4px; font-size: 12px;">in</span> LinkedIn Profile
+            <div class="pill pill-orange" style="font-size: 10px; padding: 4px 10px; margin-bottom: 12px; width: fit-content; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">${l.role}</div>
+            <h3 class="melody" style="font-size: 24px; color: var(--color-ink); margin-bottom: 8px; line-height: 1.1;">${l.name}</h3>
+            <p style="font-size: 13.5px; color: var(--color-ink-sft); line-height: 1.6; margin-bottom: 18px;">${l.bio}</p>
+          </div>
+          
+          <div>
+            <a href="${l.linkedin}" target="_blank" class="btn btn-sm btn-outline" style="width: 100%; border-radius: 12px; border: 1.5px solid var(--color-border-md); font-size: 12px; padding: 10px; justify-content: center; gap: 6px; display: flex; align-items: center; transition: all 0.2s;">
+              <span style="font-weight: 900; font-family: system-ui, sans-serif; font-size: 13px; color: var(--color-blue);">in</span> LinkedIn Profile
             </a>
           </div>
         </div>
@@ -1451,7 +1455,12 @@ const servicePagesData = {
   "svc-boarding": {
     cat: "Boarding & Sitting", icon: "🏠", color: "#7C3AED", heroImg: P.boarding, tagline: "Home Away\NFrom Home.",
     about: "Secure, CCTV-Monitored, Comfortable Temporary Homes For Your Pets — Supervised 24/7.",
-    whyUs: { stats: [["CCTV", "24/7"], ["Daily", "Photo updates"], ["Vet", "On call 24/7"], ["All", "Pets insured"]], points: [{ icon: "🛡️", title: "100% Insured", desc: "Every Pet Boarded Is Fully Covered By Our Veterinary Insurance Program." }, { icon: "📹", title: "Live CCTV Access", desc: "Luxury Suites Feature Direct Live Video Feeds Accessible Via The Pawprint Dashboard." }] },
+    whyUs: { stats: [["CCTV", "24/7"], ["Daily", "Photo updates"], ["Vet", "On call 24/7"], ["All", "Pets insured"]], points: [
+      { icon: "🛡️", title: "100% Insured", desc: "Every Pet Boarded Is Fully Covered By Our Veterinary Insurance Program." },
+      { icon: "📹", title: "Live CCTV Access", desc: "Luxury Suites Feature Direct Live Video Feeds Accessible Via The Pawprint Dashboard." },
+      { icon: "🩺", title: "Vet On Call", desc: "A Vet Is Always On Call For Our Boarding Facilities — Your Pet's Health Is Never Left To Chance." },
+      { icon: "📱", title: "Daily Updates", desc: "Photo And Video Updates Sent Each Morning So You Can See Your Pet Thriving." }
+    ] },
     faqItems: [{ q: "What Should I Pack For My Pet?", a: "We Recommend Bringing Their Current Food And A Familiar Smelling Blanket/Toy. We Supply Bedding, Bowls, And Pure Drinking Water." }],
     services: [
       { name: "Dog Boarding", price: "₹599/Night", duration: "Per Night", rating: "4.9", img: P.boarding, shortDesc: "Safe, Supervised Overnight Boarding In Clean, Comfortable Facilities.", desc: "Our Boarding Facilities Provide A Home-Away-From-Home Experience. Each Dog Gets Their Own Cozy Space, Regular Feeding, Exercise W/ Other Dogs, And 24/7 Supervisor Care.", includes: ["Own private cabin", "2 exercise walk sessions/day", "Medication support", "Daily video/photo reports", "Vet checkup on arrival"] },
@@ -1468,7 +1477,12 @@ const servicePagesData = {
   "svc-activity": {
     cat: "Activity & Lifestyle", icon: "🏃", color: "#D97706", heroImg: P.dog3, tagline: "Active. Fit.\NHappy.",
     about: "Enriching Physical Activities, Hiking Trips, Swimming Exercises, And Walks For High Energy Dogs.",
-    whyUs: { stats: [["GPS", "Insured walks"], ["Insured", "Walkers"], ["10K+", "Walks completed"], ["Safety", "First"]], points: [{ icon: "📍", title: "GPS Live Tracking", desc: "Follow Their Walking Route In Real Time On Our Interactive Map." }] },
+    whyUs: { stats: [["GPS", "Insured walks"], ["Insured", "Walkers"], ["10K+", "Walks completed"], ["Safety", "First"]], points: [
+      { icon: "📍", title: "GPS Live Tracking", desc: "Follow Their Walking Route In Real Time On Our Interactive Map." },
+      { icon: "🛡️", title: "Insured & Vetted", desc: "All Walkers And Activity Specialists Carry Insurance And Are Fully Vetted." },
+      { icon: "🎯", title: "Breed-Appropriate Activity", desc: "We Match Exercise Intensity And Type To Your Dog's Breed, Age, And Health." },
+      { icon: "📊", title: "Activity Report Cards", desc: "Get Detailed Updates With Photos, Route Logs, And Behavior Notes After Every Session." }
+    ] },
     faqItems: [{ q: "Can I Choose The Walking Route?", a: "Yes, We Have Pre-Approved Safe Walking Paths And You Can Indicate Custom Preferences." }],
     services: [
       { name: "Dog Walking", price: "₹199/Walk", duration: "30 Mins", rating: "4.9", img: P.dog3, shortDesc: "Professional, GPS-Tracked Walks For Physical And Mental Enrichment.", desc: "Background-Checked Walkers Take Your Pet On An Active, Controlled Walk. View Live GPS Map Tracking, Pooping Updates, And Photos.", includes: ["GPS live map walk tracking", "Poop and pee reports", "Water bowl replenishment", "Photo updates", "Leash check", "Feet wipe on return"] },
@@ -1485,7 +1499,12 @@ const servicePagesData = {
   "svc-specialty": {
     cat: "Specialty Services", icon: "⭐", color: "#B45309", heroImg: P.about1, tagline: "Unique Care.\NSpecial Moments.",
     about: "For When Normal Isn't Enough: Microchipping, Relocation, Events, Hydrotherapy Rehabilitation.",
-    whyUs: { stats: [["Specialist", "Experts"], ["5,000+", "Families helped"]], points: [{ icon: "⭐", title: "Certified Specialists", desc: "Relocations And Surgeries Are Managed By Verified Veterinarians And Professionals." }] },
+    whyUs: { stats: [["Specialist", "Experts"], ["5,000+", "Families helped"]], points: [
+      { icon: "⭐", title: "Certified Specialists", desc: "Relocations And Surgeries Are Managed By Verified Veterinarians And Professionals." },
+      { icon: "❤️", title: "Compassion First", desc: "Especially In Difficult Moments, Our Team Leads With Empathy And Care." },
+      { icon: "📋", title: "Full Documentation", desc: "We Handle All Paperwork, Certificates, And Compliance So You Don't Have To." },
+      { icon: "🤝", title: "End-To-End Support", desc: "We're With You From First Enquiry To Final Follow-Up, Whatever The Service." }
+    ] },
     faqItems: [{ q: "Is Microchipping Safe?", a: "Yes, Microchipping Is A Quick, Safe, Standard Injection That Lasts A Lifetime." }],
     services: [
       { name: "Adoption Assistance", price: "₹499", duration: "60 Min", rating: "4.9", img: P.cat1, shortDesc: "Expert Guidance To Find, Match, And Onboard Your Perfect Rescue Pet.", desc: "We Evaluate Your Home Environment And Lifestyle To Match You With Compatible Shelter Animals. We Assist With Applications, Meet-And-Greets, And Veterinary Onboarding.", includes: ["Lifestyle matching assessment", "Shelter list compilation", "Adoption interview practice", "Home check preparation", "Veterinary transition guide", "Onboarding supply list"] },
@@ -1925,7 +1944,7 @@ function renderVets() {
               ` : ''}
             </div>
           </div>
-          <div style="padding: 36px 36px; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 14px; border-left: 1px solid var(--color-border); min-width: 200px;">
+          <div style="padding: 36px 36px; display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 14px; border-left: 1px solid var(--color-border); min-width: 200px;">
             <div style="text-align: right;">
               <div class="melody" style="font-size: 28px; font-weight: 700; color: var(--color-ink);">${v.price}</div>
               <div style="font-size: 12px; color: var(--color-ink-sft);">per session</div>

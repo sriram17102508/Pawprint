@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -765,26 +765,36 @@
     <section id="page-vet" class="page-section">
       <!-- Vet List View -->
       <div id="vet-view-list">
-        <section style="padding: 90px 0 60px; background: var(--color-cream);">
-          <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-            <div class="pill pill-blue" style="margin-bottom: 24px;">Veterinary</div>
-            <h1 class="melody-italic"
-              style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: var(--color-ink); margin-bottom: 24px;">
-              World-Class<br>Vet Care.</h1>
-            <p
-              style="font-size: 18px; color: var(--color-ink-sft); line-height: 1.7; max-width: 480px; margin-bottom: 36px;">
-              Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
-            <div
-              style="display: flex; align-items: center; gap: 20px; padding: 18px 24px; background: var(--color-blue-lt); border-radius: 16px; border: 1px solid rgba(29, 95, 196, 0.13); max-width: 580px;">
-              <span style="font-size: 28px;">🤖</span>
-              <div style="flex: 1;">
-                <div style="font-weight: 700; color: var(--color-blue); font-size: 15px; margin-bottom: 2px;">Not Sure
-                  If Your Pet Needs A Vet?</div>
-                <div style="font-size: 13px; color: var(--color-ink-sft);">Use Our AI Symptom Checker For Instant Triage
-                  Guidance.</div>
+        <section
+          style="position: relative; min-height: 480px; overflow: hidden; display: flex; align-items: center; padding: 100px 0 80px;">
+          <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1400&q=80&fit=crop"
+            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
+            alt="Veterinary Care Background">
+          <div
+            style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%);">
+          </div>
+          <div
+            style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 32px; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px;">
+            <div style="flex: 1; min-width: 320px;">
+              <div class="pill pill-blue" style="margin-bottom: 24px;">Veterinary</div>
+              <h1 class="melody-italic"
+                style="font-size: clamp(52px,7vw,94px); font-weight: 700; line-height: .92; color: #fff; margin-bottom: 24px;">
+                World-Class<br>Vet Care.</h1>
+              <p
+                style="font-size: 18px; color: rgba(255, 255, 255, 0.75); line-height: 1.7; max-width: 480px;">
+                Book Certified Veterinarians For Home Visits, Clinic Appointments, Or Live Video Consultations — 24/7.</p>
+            </div>
+            <div style="flex: 1; min-width: 320px; display: flex; justify-content: md-end; justify-content: flex-start;">
+              <div
+                style="display: flex; align-items: center; gap: 20px; padding: 24px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.18); max-width: 500px; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);">
+                <span style="font-size: 32px;">🤖</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: #fff; font-size: 16px; margin-bottom: 4px;">Not Sure If Your Pet Needs A Vet?</div>
+                  <div style="font-size: 13px; color: rgba(255, 255, 255, 0.8); line-height: 1.4;">Use Our AI Symptom Checker For Instant Triage Guidance.</div>
+                </div>
+                <button class="btn btn-sm btn-blue" style="flex-shrink: 0;"
+                  onclick="openChatWithQuery('Tell me about AI health assistant')">Try AI →</button>
               </div>
-              <button class="btn btn-sm btn-blue" style="flex-shrink: 0;"
-                onclick="openChatWithQuery('Tell me about AI health assistant')">Try AI →</button>
             </div>
           </div>
         </section>
@@ -807,7 +817,7 @@
             <h2 class="melody" style="font-size: 48px; font-weight: 700; color: var(--color-ink); margin-bottom: 12px;">
               Appointment Confirmed!</h2>
             <p id="vet-success-name"
-              style="font-size: 16px; color: var(--color-ink-sft); margin-bottom: 6px; font-weight: 600;">Dr. Meera Iyer
+              style="font-size: 16px; color: var(--color-ink-sft); margin-bottom: 6px; font-weight: 600;">Dr. Emma Watson
             </p>
             <p id="vet-success-details" style="font-size: 15px; color: var(--color-ink-sft); margin-bottom: 36px;">June
               15 At 11:00 AM · Confirmation SMS Sent.</p>
@@ -1281,61 +1291,138 @@
     <!-- ── AUTH PAGE ── -->
     <section id="page-login" class="page-section">
       <div style="min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;">
-        <!-- Left collage panel -->
-        <div style="position: relative; overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=80&fit=crop"
-            style="width: 100%; height: 100%; object-fit: cover;" alt="Dog">
-          <div style="position: absolute; inset: 0; background: rgba(17,17,17,.52);"></div>
-          <div style="position: absolute; bottom: 60px; left: 48px;">
-            <h2 class="melody-italic"
-              style="font-size: 52px; font-weight: 700; color: #fff; line-height: .93; margin-bottom: 16px;">The
-              Best<br>For Your<br>Best Friend.</h2>
-            <p style="color: rgba(255,255,255,.55); font-size: 15px; line-height: 1.7;">45,000+ Pet Parents Trust
-              Pawprint.</p>
+        <!-- Left collage panel (Showcase) -->
+        <div class="auth-showcase-container">
+          <div class="auth-showcase-glow"></div>
+          <div class="auth-showcase-glow-2"></div>
+          
+          <!-- Top logo/brand -->
+          <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; z-index: 10;" onclick="nav('home')">
+            <div style="width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--color-orange), #C94E12); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; box-shadow: 0 4px 16px rgba(229,93,26,0.3);">🐾</div>
+            <span class="melody" style="font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
+          </div>
+
+          <!-- Central showcase -->
+          <div style="margin: auto 0; z-index: 5;">
+            <div class="pill pill-orange" style="margin-bottom: 24px; border: none; background: rgba(229, 93, 26, 0.2); color: var(--color-orange); padding: 6px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; border-radius: 100px;">Loved by 45k+ Pets</div>
+            <h2 class="melody-italic" style="font-size: clamp(40px, 4.5vw, 64px); font-weight: 700; color: #fff; line-height: 0.95; margin-bottom: 20px;">
+              The Next-Gen<br>Dog Care Platform.
+            </h2>
+            <p style="color: rgba(255, 255, 255, 0.6); font-size: 15px; line-height: 1.65; max-width: 420px; margin-bottom: 32px;">
+              Manage veterinary visits, track daily walks via GPS, order premium foods, and book professional grooming — all in one unified dashboard.
+            </p>
+
+            <!-- Floating high-fidelity card stack -->
+            <div class="auth-pet-card-stack">
+              <!-- Rocky profile -->
+              <div class="auth-floating-card auth-floating-card-1" style="left: 5%;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; border: 2.5px solid var(--color-orange);">🦮</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 13.5px; color: #fff;">Rocky</div>
+                  <div style="font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px;">Golden Retriever · 2 yrs</div>
+                </div>
+                <div style="margin-left: 20px; padding: 4px 10px; border-radius: 100px; background: rgba(30,107,69,0.2); color: #2ecc71; font-size: 10px; font-weight: 700; border: 1px solid rgba(46,204,113,0.3);">HEALTHY</div>
+              </div>
+
+              <!-- Grooming booking -->
+              <div class="auth-floating-card auth-floating-card-2" style="right: 5%;">
+                <div style="width: 44px; height: 44px; border-radius: 14px; background: rgba(29, 95, 196, 0.15); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--color-blue); border: 1.5px solid rgba(29, 95, 196, 0.3);">✂️</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 13.5px; color: #fff;">Spade &amp; Trim</div>
+                  <div style="font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px;">11:00 AM · Today</div>
+                </div>
+                <div style="margin-left: 16px; font-size: 12px;">✅</div>
+              </div>
+
+              <!-- GPS tracking -->
+              <div class="auth-floating-card auth-floating-card-3" style="top: 40%; left: 22%;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e74c3c; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; box-shadow: 0 0 15px rgba(231,76,60,0.4);">📍</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 12px; color: #fff;">Live Walking</div>
+                  <div style="font-size: 10px; color: rgba(255,255,255,0.5);">Active GPS Route</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer elements inside showcase -->
+          <div style="z-index: 5; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+            <p style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45);">© 2026 Pawprint Technologies</p>
+            <div style="display: flex; gap: 16px;">
+              <a href="#" onclick="nav('privacy')" style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45); transition: color 0.2s;">Privacy</a>
+              <a href="#" onclick="nav('terms')" style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45); transition: color 0.2s;">Terms</a>
+            </div>
           </div>
         </div>
+
         <!-- Right Form panel -->
-        <div
-          style="display: flex; align-items: center; justify-content: center; background: var(--color-cream); padding: 48px;">
-          <div style="width: 100%; max-width: 400px;">
-            <button onclick="nav('home')"
-              style="margin-bottom: 36px; display: flex; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; padding: 0;">
-              <div
-                style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff;">
-                🐾</div>
-              <span class="melody" style="font-size: 20px; font-weight: 700; color: var(--color-ink);">Pawprint</span>
+        <div style="position: relative; display: flex; align-items: center; justify-content: center; background: #0B0B0F; padding: 48px; overflow: hidden;">
+          <div class="auth-ambient-container">
+            <div class="auth-ambient-blob auth-ambient-blob-1"></div>
+            <div class="auth-ambient-blob auth-ambient-blob-2"></div>
+          </div>
+
+          <div class="glass-form fade-up" style="width: 100%; max-width: 440px; padding: 44px 40px; background: rgba(255, 255, 255, 0.03) !important; backdrop-filter: blur(24px) !important; border: 1px solid rgba(255, 255, 255, 0.07) !important; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5) !important; z-index: 5;">
+            <!-- Back to Home -->
+            <button onclick="nav('home')" style="margin-bottom: 32px; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; padding: 0; color: rgba(255,255,255,0.7); transition: color 0.2s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.7)'">
+              <span style="font-size: 14px;">←</span>
+              <span style="font-size: 13.5px; font-weight: 600;">Back to home</span>
             </button>
-            <h1 class="melody" style="font-size: 36px; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">
-              Welcome Back.</h1>
-            <p style="font-size: 15px; color: var(--color-ink-sft); margin-bottom: 32px;">Sign In To Your Pawprint
-              Account.</p>
 
-            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
-              <input id="login-email" type="email" placeholder="Email Address"
-                style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
-              <input id="login-password" type="password" placeholder="Password"
-                style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
+            <h1 class="melody" style="font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 8px; letter-spacing: 0.02em;">Welcome Back.</h1>
+            <p style="font-size: 14.5px; color: rgba(255, 255, 255, 0.5); margin-bottom: 32px;">Sign in to your Pawprint account to manage your pets.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 28px;">
+              <!-- Email Input -->
+              <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Email Address</label>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon">✉️</span>
+                  <input id="login-email" class="auth-input" type="email" placeholder="geetha@example.com">
+                </div>
+              </div>
+
+              <!-- Password Input -->
+              <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <label style="font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Password</label>
+                  <button style="background: none; border: none; color: var(--color-orange); font-size: 11px; font-weight: 700; cursor: pointer; transition: opacity 0.2s;" onmouseenter="this.style.opacity=0.8" onmouseleave="this.style.opacity=1">Forgot Password?</button>
+                </div>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon">🔒</span>
+                  <input id="login-password" class="auth-input" type="password" placeholder="••••••••" style="padding-right: 48px !important;">
+                  <button type="button" class="auth-password-toggle" onclick="togglePasswordVisibility('login-password', this)">🙈</button>
+                </div>
+              </div>
             </div>
 
-            <button class="btn btn-lg btn-primary" style="width: 100%;" onclick="handleAuthSubmit('login')">Sign In
-              →</button>
+            <!-- Sign In button -->
+            <button class="btn btn-lg btn-primary" style="width: 100%; height: 50px; background: var(--color-orange); border: none; border-radius: 16px; font-weight: 700; font-size: 15px; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 10px 25px rgba(229, 93, 26, 0.3); transition: all 0.3s;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 30px rgba(229, 93, 26, 0.45)';" onmouseleave="this.style.transform='none'; this.style.boxShadow='0 10px 25px rgba(229, 93, 26, 0.3)';" onclick="handleAuthSubmit('login')">
+              Sign In 🐾
+            </button>
 
-            <div style="display: flex; gap: 8px; margin: 20px 0; align-items: center;">
-              <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
-              <span style="font-size: 13px; color: var(--color-ink-sft);">Or Continue With</span>
-              <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
+            <!-- Divider -->
+            <div style="display: flex; gap: 12px; margin: 28px 0; align-items: center;">
+              <div style="flex: 1; height: 1px; background: rgba(255, 255, 255, 0.08);"></div>
+              <span style="font-size: 11px; color: rgba(255, 255, 255, 0.35); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Or Continue With</span>
+              <div style="flex: 1; height: 1px; background: rgba(255, 255, 255, 0.08);"></div>
             </div>
-            <div style="display: flex; gap: 10px; margin-bottom: 24px;">
-              <button class="btn"
-                style="flex: 1; padding: 11px; border: 1.5px solid var(--color-border); border-radius: 12px; background: #fff; font-size: 13px;"
-                onclick="handleAuthSubmit('login')">🍎 Apple</button>
-              <button class="btn"
-                style="flex: 1; padding: 11px; border: 1.5px solid var(--color-border); border-radius: 12px; background: #fff; font-size: 13px;"
-                onclick="handleAuthSubmit('login')">G Google</button>
+
+            <!-- Socials -->
+            <div style="display: flex; gap: 12px; margin-bottom: 32px;">
+              <button class="btn" style="flex: 1; height: 48px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.02); color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.background='rgba(255,255,255,0.05)';" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(255,255,255,0.02)';" onclick="handleAuthSubmit('login')">
+                <span style="font-size: 16px;">🍎</span> Apple
+              </button>
+              <button class="btn" style="flex: 1; height: 48px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.02); color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.background='rgba(255,255,255,0.05)';" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(255,255,255,0.02)';" onclick="handleAuthSubmit('login')">
+                <span style="font-size: 16px;">🌐</span> Google
+              </button>
             </div>
-            <p style="text-align: center; font-size: 14px; color: var(--color-ink-sft);">Don't Have An Account? <button
-                style="background: none; border: none; color: var(--color-orange); font-weight: 700; cursor: pointer; font-size: 14px;"
-                onclick="nav('signup')">Sign Up Free</button></p>
+
+            <!-- Toggle Auth state link -->
+            <p style="text-align: center; font-size: 14.5px; color: rgba(255, 255, 255, 0.45);">
+              Don't have an account? 
+              <button style="background: none; border: none; color: var(--color-orange); font-weight: 700; cursor: pointer; font-size: 14.5px; padding: 0; margin-left: 4px; transition: opacity 0.2s;" onmouseenter="this.style.opacity=0.8" onmouseleave="this.style.opacity=1" onclick="nav('signup')">Sign Up Free</button>
+            </p>
           </div>
         </div>
       </div>
@@ -1343,90 +1430,225 @@
 
     <section id="page-signup" class="page-section">
       <div style="min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;">
-        <!-- Left collage panel -->
-        <div style="position: relative; overflow: hidden;">
-          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=80&fit=crop"
-            style="width: 100%; height: 100%; object-fit: cover;" alt="Dog">
-          <div style="position: absolute; inset: 0; background: rgba(17,17,17,.52);"></div>
-          <div style="position: absolute; bottom: 60px; left: 48px;">
-            <h2 class="melody-italic"
-              style="font-size: 52px; font-weight: 700; color: #fff; line-height: .93; margin-bottom: 16px;">The
-              Best<br>For Your<br>Best Friend.</h2>
-            <p style="color: rgba(255,255,255,.55); font-size: 15px; line-height: 1.7;">45,000+ Pet Parents Trust
-              Pawprint.</p>
+        <!-- Left collage panel (Showcase) -->
+        <div class="auth-showcase-container">
+          <div class="auth-showcase-glow"></div>
+          <div class="auth-showcase-glow-2"></div>
+          
+          <!-- Top logo/brand -->
+          <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; z-index: 10;" onclick="nav('home')">
+            <div style="width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--color-orange), #C94E12); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; box-shadow: 0 4px 16px rgba(229,93,26,0.3);">🐾</div>
+            <span class="melody" style="font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
+          </div>
+
+          <!-- Central showcase -->
+          <div style="margin: auto 0; z-index: 5;">
+            <div class="pill pill-orange" style="margin-bottom: 24px; border: none; background: rgba(229, 93, 26, 0.2); color: var(--color-orange); padding: 6px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; border-radius: 100px;">Loved by 45k+ Pets</div>
+            <h2 class="melody-italic" style="font-size: clamp(40px, 4.5vw, 64px); font-weight: 700; color: #fff; line-height: 0.95; margin-bottom: 20px;">
+              The Next-Gen<br>Dog Care Platform.
+            </h2>
+            <p style="color: rgba(255, 255, 255, 0.6); font-size: 15px; line-height: 1.65; max-width: 420px; margin-bottom: 32px;">
+              Manage veterinary visits, track daily walks via GPS, order premium foods, and book professional grooming — all in one unified dashboard.
+            </p>
+
+            <!-- Floating high-fidelity card stack -->
+            <div class="auth-pet-card-stack">
+              <!-- Rocky profile -->
+              <div class="auth-floating-card auth-floating-card-1" style="left: 5%;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; border: 2.5px solid var(--color-orange);">🦮</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 13.5px; color: #fff;">Rocky</div>
+                  <div style="font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px;">Golden Retriever · 2 yrs</div>
+                </div>
+                <div style="margin-left: 20px; padding: 4px 10px; border-radius: 100px; background: rgba(30,107,69,0.2); color: #2ecc71; font-size: 10px; font-weight: 700; border: 1px solid rgba(46,204,113,0.3);">HEALTHY</div>
+              </div>
+
+              <!-- Grooming booking -->
+              <div class="auth-floating-card auth-floating-card-2" style="right: 5%;">
+                <div style="width: 44px; height: 44px; border-radius: 14px; background: rgba(29, 95, 196, 0.15); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--color-blue); border: 1.5px solid rgba(29, 95, 196, 0.3);">✂️</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 13.5px; color: #fff;">Spade &amp; Trim</div>
+                  <div style="font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px;">11:00 AM · Today</div>
+                </div>
+                <div style="margin-left: 16px; font-size: 12px;">✅</div>
+              </div>
+
+              <!-- GPS tracking -->
+              <div class="auth-floating-card auth-floating-card-3" style="top: 40%; left: 22%;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e74c3c; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; box-shadow: 0 0 15px rgba(231,76,60,0.47);">📍</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 12px; color: #fff;">Live Walking</div>
+                  <div style="font-size: 10px; color: rgba(255,255,255,0.5);">Active GPS Route</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer elements inside showcase -->
+          <div style="z-index: 5; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+            <p style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45);">© 2026 Pawprint Technologies</p>
+            <div style="display: flex; gap: 16px;">
+              <a href="#" onclick="nav('privacy')" style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45); transition: color 0.2s;">Privacy</a>
+              <a href="#" onclick="nav('terms')" style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45); transition: color 0.2s;">Terms</a>
+            </div>
           </div>
         </div>
+
         <!-- Right Form panel -->
-        <div
-          style="display: flex; align-items: center; justify-content: center; background: var(--color-cream); padding: 48px;">
-          <div style="width: 100%; max-width: 400px;">
-            <button onclick="nav('home')"
-              style="margin-bottom: 36px; display: flex; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; padding: 0;">
-              <div
-                style="width: 36px; height: 36px; border-radius: 10px; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 17px; color: #fff;">
-                🐾</div>
-              <span class="melody" style="font-size: 20px; font-weight: 700; color: var(--color-ink);">Pawprint</span>
+        <div style="position: relative; display: flex; align-items: center; justify-content: center; background: #0B0B0F; padding: 48px; overflow: hidden;">
+          <div class="auth-ambient-container">
+            <div class="auth-ambient-blob auth-ambient-blob-1"></div>
+            <div class="auth-ambient-blob auth-ambient-blob-2"></div>
+          </div>
+
+          <div class="glass-form fade-up" style="width: 100%; max-width: 460px; padding: 44px 38px; background: rgba(255, 255, 255, 0.03) !important; backdrop-filter: blur(24px) !important; border: 1px solid rgba(255, 255, 255, 0.07) !important; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5) !important; z-index: 5;">
+            <!-- Back to Home -->
+            <button onclick="nav('home')" style="margin-bottom: 24px; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; padding: 0; color: rgba(255,255,255,0.7); transition: color 0.2s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.7)'">
+              <span style="font-size: 14px;">←</span>
+              <span style="font-size: 13.5px; font-weight: 600;">Back to home</span>
             </button>
 
+            <!-- Wizard Progress Bar -->
+            <div class="wizard-progress" style="margin-bottom: 28px;">
+              <div class="wizard-progress-bar" id="signup-progress-bar" style="width: 0%;"></div>
+              <div class="wizard-progress-step active" id="signup-step-indicator-1" title="Account Setup">1</div>
+              <div class="wizard-progress-step" id="signup-step-indicator-2" title="Pet Profile">2</div>
+              <div class="wizard-progress-step" id="signup-step-indicator-3" title="Verify Email">3</div>
+            </div>
+
+            <!-- Step 1: Account Setup -->
             <div id="signup-step-1">
-              <h1 class="melody"
-                style="font-size: 36px; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">Create Account.
-              </h1>
-              <p style="font-size: 15px; color: var(--color-ink-sft); margin-bottom: 32px;">Join 45,000+ Pet Parents.
-              </p>
-              <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
-                <input id="signup-name" type="text" placeholder="Full Name"
-                  style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
-                <input id="signup-email" type="email" placeholder="Email Address"
-                  style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
-                <input id="signup-password" type="password" placeholder="Password"
-                  style="padding: 14px 18px; border-radius: 14px; border: 1.5px solid var(--color-border); font-size: 15px; outline: none;">
+              <h1 class="melody" style="font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 6px; letter-spacing: 0.02em;">Create Account.</h1>
+              <p style="font-size: 14.5px; color: rgba(255, 255, 255, 0.5); margin-bottom: 24px;">Join 45,000+ Pet Parents.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+                <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                  <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Full Name</label>
+                  <div class="auth-input-wrapper">
+                    <span class="auth-input-icon">👤</span>
+                    <input id="signup-name" class="auth-input" type="text" placeholder="Geetha Sharma">
+                  </div>
+                </div>
+                
+                <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                  <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Email Address</label>
+                  <div class="auth-input-wrapper">
+                    <span class="auth-input-icon">✉️</span>
+                    <input id="signup-email" class="auth-input" type="email" placeholder="geetha@example.com">
+                  </div>
+                </div>
+                
+                <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                  <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Password</label>
+                  <div class="auth-input-wrapper">
+                    <span class="auth-input-icon">🔒</span>
+                    <input id="signup-password" class="auth-input" type="password" placeholder="••••••••" style="padding-right: 48px !important;">
+                    <button type="button" class="auth-password-toggle" onclick="togglePasswordVisibility('signup-password', this)">🙈</button>
+                  </div>
+                </div>
               </div>
-              <button class="btn btn-lg btn-primary" style="width: 100%;" onclick="proceedToVerify()">Continue
-                →</button>
+              
+              <button class="btn btn-lg btn-primary" style="width: 100%; height: 50px; background: var(--color-orange); border: none; border-radius: 16px; font-weight: 700; font-size: 15px; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 10px 25px rgba(229, 93, 26, 0.3); transition: all 0.3s;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 30px rgba(229, 93, 26, 0.45)';" onmouseleave="this.style.transform='none'; this.style.boxShadow='0 10px 25px rgba(229, 93, 26, 0.3)';" onclick="proceedToPetDetails()">
+                Continue To Pet Profile →
+              </button>
             </div>
 
+            <!-- Step 2: Dog Profile Details -->
             <div id="signup-step-2" style="display: none;">
-              <h1 class="melody"
-                style="font-size: 36px; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">Verify Email.
-              </h1>
-              <p style="font-size: 15px; color: var(--color-ink-sft); margin-bottom: 32px;">A Verification Code Was Sent
-                To Your Email.</p>
-              <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 28px;">
-                <input class="verify-code-input" maxlength="1"
-                  style="width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none;">
-                <input class="verify-code-input" maxlength="1"
-                  style="width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none;">
-                <input class="verify-code-input" maxlength="1"
-                  style="width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none;">
-                <input class="verify-code-input" maxlength="1"
-                  style="width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none;">
-                <input class="verify-code-input" maxlength="1"
-                  style="width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none;">
-                <input class="verify-code-input" maxlength="1"
-                  style="width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--color-border); outline: none;">
+              <h1 class="melody" style="font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 6px; letter-spacing: 0.02em;">Pet's Profile.</h1>
+              <p style="font-size: 14.5px; color: rgba(255, 255, 255, 0.5); margin-bottom: 24px;">Tell us about your dog to personalize care.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                    <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Dog's Name *</label>
+                    <div class="auth-input-wrapper">
+                      <span class="auth-input-icon">🏷️</span>
+                      <input id="signup-pet-name" class="auth-input" placeholder="Rocky">
+                    </div>
+                  </div>
+                  <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                    <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Breed *</label>
+                    <div class="auth-input-wrapper">
+                      <span class="auth-input-icon">🐩</span>
+                      <input id="signup-pet-breed" class="auth-input" placeholder="Labrador">
+                    </div>
+                  </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                    <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Age (Years) *</label>
+                    <div class="auth-input-wrapper">
+                      <span class="auth-input-icon">📅</span>
+                      <input id="signup-pet-age" class="auth-input" placeholder="2">
+                    </div>
+                  </div>
+                  <div class="field" style="display: flex; flex-direction: column; gap: 6px;">
+                    <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Weight (Kg) *</label>
+                    <div class="auth-input-wrapper">
+                      <span class="auth-input-icon">⚖️</span>
+                      <input id="signup-pet-weight" class="auth-input" placeholder="25">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                  <label style="font-size: 10.5px; font-weight: 700; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.08em;">Gender *</label>
+                  <div style="display: flex; gap: 12px;">
+                    <button type="button" class="gender-select-btn active" id="gender-male" onclick="setSignupGender('Male')">♂ Male</button>
+                    <button type="button" class="gender-select-btn" id="gender-female" onclick="setSignupGender('Female')">♀ Female</button>
+                  </div>
+                </div>
               </div>
-              <button class="btn btn-lg btn-primary" style="width: 100%;" onclick="handleAuthSubmit('signup')">Verify &
-                Create Account →</button>
+              
+              <div style="display: flex; gap: 12px;">
+                <button class="btn btn-lg btn-outline" style="flex: 1; height: 50px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.15); color: #fff; background: transparent;" onclick="backToStep(1)">Back</button>
+                <button class="btn btn-lg btn-primary" style="flex: 2; height: 50px; border-radius: 16px; background: var(--color-orange); border: none; color: #fff; font-weight: 700;" onclick="proceedToVerify()">Verify Account →</button>
+              </div>
             </div>
 
-            <div style="display: flex; gap: 8px; margin: 20px 0; align-items: center;">
-              <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
-              <span style="font-size: 13px; color: var(--color-ink-sft);">Or Continue With</span>
-              <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
+            <!-- Step 3: Verification Code -->
+            <div id="signup-step-3" style="display: none;">
+              <h1 class="melody" style="font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 6px; letter-spacing: 0.02em;">Verify Email.</h1>
+              <p style="font-size: 14.5px; color: rgba(255, 255, 255, 0.5); margin-bottom: 28px;">Enter the 6-digit verification code sent to your email.</p>
+              
+              <div class="verify-digit-container">
+                <input class="verify-code-input verify-digit-input" maxlength="1" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input class="verify-code-input verify-digit-input" maxlength="1" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input class="verify-code-input verify-digit-input" maxlength="1" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input class="verify-code-input verify-digit-input" maxlength="1" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input class="verify-code-input verify-digit-input" maxlength="1" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input class="verify-code-input verify-digit-input" maxlength="1" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+              
+              <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+                <button class="btn btn-lg btn-outline" style="flex: 1; height: 50px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.15); color: #fff; background: transparent;" onclick="backToStep(2)">Back</button>
+                <button class="btn btn-lg btn-primary" style="flex: 2; height: 50px; border-radius: 16px; background: var(--color-orange); border: none; color: #fff; font-weight: 700;" onclick="handleAuthSubmit('signup')">Create Account →</button>
+              </div>
             </div>
-            <div style="display: flex; gap: 10px; margin-bottom: 24px;">
-              <button class="btn"
-                style="flex: 1; padding: 11px; border: 1.5px solid var(--color-border); border-radius: 12px; background: #fff; font-size: 13px;"
-                onclick="handleAuthSubmit('signup')">🍎 Apple</button>
-              <button class="btn"
-                style="flex: 1; padding: 11px; border: 1.5px solid var(--color-border); border-radius: 12px; background: #fff; font-size: 13px;"
-                onclick="handleAuthSubmit('signup')">G Google</button>
+
+            <!-- Divider -->
+            <div style="display: flex; gap: 12px; margin: 24px 0; align-items: center;">
+              <div style="flex: 1; height: 1px; background: rgba(255, 255, 255, 0.08);"></div>
+              <span style="font-size: 11px; color: rgba(255, 255, 255, 0.35); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Or Continue With</span>
+              <div style="flex: 1; height: 1px; background: rgba(255, 255, 255, 0.08);"></div>
             </div>
-            <p style="text-align: center; font-size: 14px; color: var(--color-ink-sft);">Already Have An Account?
-              <button
-                style="background: none; border: none; color: var(--color-orange); font-weight: 700; cursor: pointer; font-size: 14px;"
-                onclick="nav('login')">Sign In</button>
+
+            <!-- Socials -->
+            <div style="display: flex; gap: 12px; margin-bottom: 28px;">
+              <button class="btn" style="flex: 1; height: 48px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.02); color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.background='rgba(255,255,255,0.05)';" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(255,255,255,0.02)';" onclick="handleAuthSubmit('signup')">
+                <span style="font-size: 16px;">🍎</span> Apple
+              </button>
+              <button class="btn" style="flex: 1; height: 48px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.02); color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.background='rgba(255,255,255,0.05)';" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(255,255,255,0.02)';" onclick="handleAuthSubmit('signup')">
+                <span style="font-size: 16px;">🌐</span> Google
+              </button>
+            </div>
+
+            <!-- Switch to login -->
+            <p style="text-align: center; font-size: 14.5px; color: rgba(255, 255, 255, 0.45);">
+              Already have an account? 
+              <button style="background: none; border: none; color: var(--color-orange); font-weight: 700; cursor: pointer; font-size: 14.5px; padding: 0; margin-left: 4px; transition: opacity 0.2s;" onmouseenter="this.style.opacity=0.8" onmouseleave="this.style.opacity=1" onclick="nav('login')">Sign In</button>
             </p>
           </div>
         </div>
@@ -1621,25 +1843,8 @@
           </div>
         </div>
       </section>
-
-      <!-- Training CTA -->
-      <section style="padding: 70px 0; background: var(--color-orange);">
-        <div style="max-width: 900px; margin: 0 auto; padding: 0 32px; text-align: center;">
-          <h2 class="melody"
-            style="font-size: clamp(36px,5vw,60px); color: #fff; line-height: .95; margin-bottom: 16px;">Want
-            Personalised Training?</h2>
-          <p style="font-size: 17px; color: rgba(255,255,255,.8); line-height: 1.75; margin-bottom: 32px;">Our Certified
-            Trainers Offer 1-On-1 Sessions Tailored To Your Dog's Breed, Age, And Specific Challenges.</p>
-          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-            <button class="btn btn-lg" style="background: #fff; color: var(--color-orange); font-weight: 700;"
-              onclick="nav('svc-training')">Book A Training Session →</button>
-            <button class="btn btn-lg"
-              style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); font-weight: 600;"
-              onclick="nav('contact')">Talk To A Trainer</button>
-          </div>
-        </div>
-      </section>
     </section>
+
 
     <!-- ── DOG BREEDS PAGE ── -->
     <section id="page-dog-breeds" class="page-section">
@@ -2089,7 +2294,7 @@
               <span style="font-weight: 700; font-size: 15px; color: var(--color-ink);">Vet & Emergency Contacts</span>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-              <div class="field"><label>Primary Vet Name</label><input id="addpet-vetname" placeholder="Dr. Meera Iyer">
+              <div class="field"><label>Primary Vet Name</label><input id="addpet-vetname" placeholder="Dr. Emma Watson">
               </div>
               <div class="field"><label>Vet Phone</label><input id="addpet-vetphone" type="tel"
                   placeholder="+91 98765 43210"></div>
