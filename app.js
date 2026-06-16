@@ -176,9 +176,9 @@ const ALL_PETS = [
 ];
 
 const vets = [
-  { name: "Dr. Emma Watson", spec: "Small Animal Medicine", exp: "15 yrs", rating: 4.9, reviews: 1240, img: P.vet2, price: "₹499", slots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"], avail: "Today", langs: ["Tamil", "English", "Hindi"] },
-  { name: "Dr. Abinaya", spec: "Exotic Pets & Birds", exp: "12 yrs", rating: 4.8, reviews: 870, img: P.team2, price: "₹599", slots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM"], avail: "Today", langs: ["Malayalam", "English"] },
-  { name: "Dr. Abimanyu", spec: "Veterinary Surgery", exp: "20 yrs", rating: 4.9, reviews: 2100, img: P.team3, price: "₹799", slots: ["8:00 AM", "1:00 PM", "4:30 PM", "7:00 PM"], avail: "Tomorrow", langs: ["Hindi", "English", "Marathi"] },
+  { name: "Dr. Emma Watson", spec: "Small Animal Medicine", exp: "15 yrs", rating: 4.9, reviews: 1240, img: P.vet2, price: "₹499", slots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"], avail: "Today", langs: ["Tamil", "English", "Hindi"], loc: "Coimbatore" },
+  { name: "Dr. Abinaya", spec: "Exotic Pets & Birds", exp: "12 yrs", rating: 4.8, reviews: 870, img: P.team2, price: "₹599", slots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM"], avail: "Today", langs: ["Malayalam", "English"], loc: "Chennai" },
+  { name: "Dr. Abimanyu", spec: "Veterinary Surgery", exp: "20 yrs", rating: 4.9, reviews: 2100, img: P.team3, price: "₹799", slots: ["8:00 AM", "1:00 PM", "4:30 PM", "7:00 PM"], avail: "Tomorrow", langs: ["Hindi", "English", "Marathi"], loc: "Bangalore" },
 ];
 
 const products = [
@@ -732,6 +732,7 @@ const faqs = [
    ROUTING & CORE NAVIGATION ENGINE
    ================================================================ */
 function nav(pageId, subSvc = null) {
+  if (pageId) pageId = pageId.toLowerCase();
   const pageUrlMap = {
     'home': 'index.html',
     'about': 'about.html',
@@ -745,7 +746,9 @@ function nav(pageId, subSvc = null) {
     'login': 'login.html',
     'signup': 'signup.html',
     'contact': 'contact.html',
-    'vet': 'vet.html'
+    'vet': 'vet.html',
+    'volunteer': 'volunteer.html',
+    'faq-reviews': 'faq-reviews.html'
   };
 
   // If the target pageId starts with 'svc-', redirect to its physical page
@@ -1898,7 +1901,52 @@ function renderVets() {
   const list = document.getElementById('vets-list');
   if (!list) return;
 
-  list.innerHTML = vets.map((v, i) => {
+  const searchInput = document.getElementById('vet-search-input');
+  const locationFilter = document.getElementById('vet-filter-location');
+  const availabilityFilter = document.getElementById('vet-filter-availability');
+
+  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const locVal = locationFilter ? locationFilter.value : '';
+  const availVal = availabilityFilter ? availabilityFilter.value : '';
+
+  const filteredVets = vets.filter(v => {
+    const matchesSearch = !query || 
+      v.name.toLowerCase().includes(query) || 
+      v.spec.toLowerCase().includes(query) ||
+      v.langs.some(lang => lang.toLowerCase().includes(query)) ||
+      (v.loc && v.loc.toLowerCase().includes(query));
+
+    const matchesLocation = !locVal || v.loc === locVal;
+    const matchesAvailability = !availVal || v.slots.some(slot => {
+      const parts = slot.split(' ');
+      const time = parts[0];
+      const ampm = parts[1];
+      const hour = parseInt(time.split(':')[0], 10);
+      if (availVal === 'morning') {
+        return ampm === 'AM';
+      } else if (availVal === 'afternoon') {
+        return ampm === 'PM' && (hour === 12 || hour < 4);
+      } else if (availVal === 'evening') {
+        return ampm === 'PM' && hour >= 4 && hour < 12;
+      }
+      return false;
+    });
+
+    return matchesSearch && matchesLocation && matchesAvailability;
+  });
+
+  if (filteredVets.length === 0) {
+    list.innerHTML = `
+      <div style="text-align: center; padding: 60px 40px; background: var(--color-white); border-radius: 24px; border: 1.5px solid var(--color-border); box-shadow: 0 12px 32px rgba(0,0,0,0.02); max-width: 100%;">
+        <span style="font-size: 48px; display: block; margin-bottom: 16px; animation: float 2.5s ease-in-out infinite;">🔍</span>
+        <h3 class="melody" style="font-size: 24px; color: var(--color-ink); margin-bottom: 8px;">No Veterinarians Found</h3>
+        <p style="color: var(--color-ink-sft); font-size: 15px;">We couldn't find any veterinarians matching your search or filters. Try adjusting them!</p>
+      </div>
+    `;
+    return;
+  }
+
+  list.innerHTML = filteredVets.map((v, i) => {
     const isBookingThis = activeVet === v.name;
     return `
       <div class="card card-lift" style="overflow: visible;">
@@ -1913,10 +1961,11 @@ function renderVets() {
                   <span style="background: var(--color-green-lt); color: var(--color-green); padding: 3px 12px; border-radius: 100px; font-size: 11px; font-weight: 700;">🟢 ${v.avail}</span>
                 </div>
                 <p style="font-size: 14px; color: var(--color-ink-sft); margin-bottom: 6px;">${v.spec} · ${v.exp} experience</p>
-                <div style="display: flex; gap: 14px; font-size: 13px; color: var(--color-ink-sft);">
+                <div style="display: flex; gap: 14px; font-size: 13px; color: var(--color-ink-sft); flex-wrap: wrap;">
                   <span style="color: var(--color-orange); font-weight: 600;">⭐ ${v.rating}</span>
                   <span>(${v.reviews.toLocaleString()} reviews)</span>
                   <span>🗣 ${v.langs.join(", ")}</span>
+                  <span>📍 ${v.loc || ''}</span>
                 </div>
               </div>
             </div>
@@ -1955,7 +2004,11 @@ function renderVets() {
         </div>
       </div>
     `;
-  });
+  }).join('');
+}
+
+function filterVets() {
+  renderVets();
 }
 
 function selectVetSlot(vetName, slotTime) {
