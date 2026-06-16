@@ -1148,12 +1148,14 @@ function renderHomeTestimonials() {
     `).join('');
   }
 
-  container.innerHTML = testis.map((t, i) => {
-    const active = i === activeTesti;
+  const doubleTestis = [...testis, ...testis];
+  container.innerHTML = doubleTestis.map((t, i) => {
+    const originalIndex = i % testis.length;
+    const active = originalIndex === activeTesti;
     const themes = ['theme-warm', 'theme-blue', 'theme-green', 'theme-pink', 'theme-orange'];
-    const theme = themes[i % themes.length];
+    const theme = themes[originalIndex % themes.length];
     return `
-      <div onclick="setActiveTestimonial(${i})" class="dog-card ${theme}" style="
+      <div onclick="setActiveTestimonial(${originalIndex})" class="dog-card ${theme}" style="
         transform: ${active ? 'translateY(-6px) scale(1.02)' : 'translateY(0)'};
         box-shadow: ${active ? '0 20px 40px rgba(0,0,0,0.12)' : 'none'};">
         <div class="ear-left"></div>
