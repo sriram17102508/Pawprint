@@ -692,28 +692,6 @@ function saveUserPets() {
   localStorage.setItem('userPets', JSON.stringify(userPets));
 }
 
-let dashboardBookings = JSON.parse(localStorage.getItem('dashboardBookings'));
-if (!dashboardBookings) {
-  dashboardBookings = [
-    { id: "BK-1082", petName: "Max", service: "Veterinary Consultation", date: "Jun 15, 2026", time: "10:30 AM", provider: "Dr. Kiran Patel", status: "Upcoming", price: "₹650", icon: "🏥" },
-    { id: "BK-1054", petName: "Bella", service: "Full Grooming Session", date: "Jun 25, 2026", time: "02:00 PM", provider: "Pawprint Grooming Studio", status: "Upcoming", price: "₹1,499", icon: "✂️" },
-    { id: "BK-0982", petName: "Max", service: "Behavioral Puppy Training", date: "Jun 20, 2026", time: "09:00 AM", provider: "Priya Venkatesh", status: "Upcoming", price: "₹1,200", icon: "🎓" },
-    { id: "BK-0841", petName: "Bella", service: "Deworming Clinic Visit", date: "May 28, 2026", time: "11:00 AM", provider: "Dr. Kiran Patel", status: "Completed", price: "₹450", icon: "💉" }
-  ];
-  localStorage.setItem('dashboardBookings', JSON.stringify(dashboardBookings));
-}
-
-let dashboardOrders = JSON.parse(localStorage.getItem('dashboardOrders'));
-if (!dashboardOrders) {
-  dashboardOrders = [
-    { id: "PW-9951", date: "Jun 13, 2026", item: "Reflective Safe-Grip Leash", category: "Accessories", price: "₹1,199", status: "Processing", icon: "🦮" },
-    { id: "PW-9904", date: "Jun 12, 2026", item: "Organic Chicken & Oats Treats (Pack of 2)", category: "Food & Treats", price: "₹799", status: "In Transit", icon: "🦴" },
-    { id: "PW-9823", date: "Jun 10, 2026", item: "Premium Orthopedic Dog Bed", category: "Bedding", price: "₹2,499", status: "Delivered", icon: "🛏️" }
-  ];
-  localStorage.setItem('dashboardOrders', JSON.stringify(dashboardOrders));
-}
-
-
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 if (!currentUser || currentUser.name === "Priya") {
   currentUser = { name: "Geetha", email: "geetha@example.com" };
@@ -790,9 +768,6 @@ function nav(pageId, subSvc = null) {
 function initPage(pageId) {
   currentPage = pageId;
 
-  // Set page-specific class on body
-  document.body.className = pageId ? 'page-' + pageId : '';
-
   // Toggle header (navbar) and chatbot visibility for login/signup pages
   const isAuthPage = ['login', 'signup'].includes(pageId);
 
@@ -810,15 +785,6 @@ function initPage(pageId) {
   const footer = document.getElementById('main-footer');
   if (footer) {
     footer.style.display = isAuthPage ? 'none' : 'block';
-  }
-
-  // Lock body scroll on auth pages
-  if (isAuthPage) {
-    document.body.style.overflow = 'hidden';
-    document.body.style.height = '100vh';
-  } else {
-    document.body.style.overflow = '';
-    document.body.style.height = '';
   }
 
   // Handle page-section routing active toggles (for backwards compatibility)
@@ -859,7 +825,6 @@ function initPage(pageId) {
   } else if (pageId === 'lost') {
     setLostTab('browse');
   } else if (pageId === 'dashboard') {
-    injectDashboardModals();
     setDashboardTab(dashboardTab);
     
     // Dynamic greeting & vaccine alert widget updating
@@ -1562,12 +1527,7 @@ const servicePagesData = {
   "svc-retail": {
     cat: "Retail & Extras", icon: "🛍️", color: C.orange, heroImg: P.shop1, tagline: "Vet-Curated.\NNext-Day Delivered.",
     about: "Premium Pet Foods, Interactive Puzzle Toys, Supplements, And Designer Collars Reviewed By Our Veterinary Panel.",
-    whyUs: { stats: [["1,000+", "Reviewed items"], ["Fast", "Next-day delivery"]], points: [
-      { icon: "🛍️", title: "100% Vetted", desc: "We Only Stock Products Free Of Harmful Chemicals And Low-Quality Fillers." },
-      { icon: "🚚", title: "Next-Day Delivery", desc: "Get all your pet essentials delivered straight to your doorstep within 24 hours." },
-      { icon: "🌿", title: "Eco-Safe & Non-Toxic", desc: "Our toys, beds, and bowls are made from natural, biodegradable, and non-toxic materials." },
-      { icon: "🩺", title: "Vet-Approved Selection", desc: "Every single food brand, supplement, and training tool is vetted by our veterinary panel." }
-    ] },
+    whyUs: { stats: [["1,000+", "Reviewed items"], ["Fast", "Next-day delivery"]], points: [{ icon: "🛍️", title: "100% Vetted", desc: "We Only Stock Products Free Of Harmful Chemicals And Low-Quality Fillers." }] },
     faqItems: [{ q: "Do You Offer Free Delivery?", a: "Yes, All Orders Above ₹499 Qualify For Free Next-Day Delivery." }],
     services: [
       { name: "Dog Food", price: "From ₹499", duration: "Next-Day", rating: "4.9", img: P.shop1, shortDesc: "Premium Kibble And Wet Food Selections For Healthy Digestion.", desc: "Top Brands Like Royal Canin, Hill's Science Diet, And Organic Fresh Foods Curated By Our Vets.", includes: ["Vet-approved brands", "Allergy-free formulas", "Next-day home delivery", "Dietary guide card"] },
@@ -2127,8 +2087,8 @@ function renderShopProducts(category) {
   grid.innerHTML = shown.map(p => {
     const isWished = wishlist.includes(p.id);
     return `
-    <div class="card card-lift" style="display: flex; flex-direction: column; height: 100%;">
-      <div style="position: relative; height: 240px; overflow: hidden; flex-shrink: 0;">
+    <div class="card card-lift">
+      <div style="position: relative; height: 240px; overflow: hidden;">
         <img src="${p.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${p.name}">
         ${p.badge ? `<div style="position: absolute; top: 14px; left: 14px; background: ${p.bc}; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: .05em;">${p.badge}</div>` : ''}
         <button onclick="event.stopPropagation(); toggleWishlistInline(${p.id})"
@@ -2136,18 +2096,16 @@ function renderShopProducts(category) {
           ${isWished ? '❤️' : '🤍'}
         </button>
       </div>
-      <div style="padding: 20px 22px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
-        <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin: 0 0 12px; line-height: 1.3;">${p.name}</h3>
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-            <div style="display: flex; gap: 8px; align-items: baseline;">
-              <span class="melody" style="font-size: 20px; font-weight: 500; color: var(--color-ink);">₹${p.price.toLocaleString()}</span>
-              <span style="font-size: 13px; color: var(--color-sand); text-decoration: line-through;">₹${p.old.toLocaleString()}</span>
-            </div>
-            <span style="font-size: 12px; color: var(--color-orange); font-weight: 600;">⭐ ${p.rating}</span>
+      <div style="padding: 20px 22px;">
+        <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin: 0 0 8px; line-height: 1.3;">${p.name}</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <div style="display: flex; gap: 8px; align-items: baseline;">
+            <span class="melody" style="font-size: 20px; font-weight: 500; color: var(--color-ink);">₹${p.price.toLocaleString()}</span>
+            <span style="font-size: 13px; color: var(--color-sand); text-decoration: line-through;">₹${p.old.toLocaleString()}</span>
           </div>
-          <button class="btn btn-md btn-primary" style="width: 100%;" onclick="addToCart(${p.id})">Add to Cart →</button>
+          <span style="font-size: 12px; color: var(--color-orange); font-weight: 600;">⭐ ${p.rating}</span>
         </div>
+        <button class="btn btn-md btn-primary" style="width: 100%;" onclick="addToCart(${p.id})">Add to Cart →</button>
       </div>
     </div>
   `;
@@ -3009,56 +2967,7 @@ function renderDashboardPets() {
   const grid = document.getElementById('dash-pets-grid');
   if (!grid) return;
 
-  const rockyLiveCard = `
-    <div class="card" style="border-radius: 28px; padding: 24px; background: #0c0c12; border: 1px solid rgba(255, 255, 255, 0.07); display: flex; flex-direction: column; justify-content: space-between; min-height: 360px; box-sizing: border-box; color: #fff; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4); position: relative;">
-      <!-- Monitor Header -->
-      <div class="monitor-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 16px; margin-bottom: 20px;">
-        <div class="monitor-pet-profile" style="display: flex; align-items: center; gap: 12px;">
-          <div class="monitor-pet-avatar" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--color-orange); background: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px;">🦮</div>
-          <div>
-            <div class="monitor-pet-name" style="font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14.5px; color: #fff;">Rocky</div>
-            <div style="font-size: 11px; color: rgba(255, 255, 255, 0.5);">Golden Retriever</div>
-          </div>
-        </div>
-        <div class="monitor-pet-status" style="font-size: 11px; color: #2ecc71; font-weight: 700; display: flex; align-items: center; gap: 5px;">
-          <div class="monitor-status-dot"></div>
-          <span>LIVE TRACKING</span>
-        </div>
-      </div>
-
-      <!-- Monitor Grid (Vitals & GPS) -->
-      <div class="monitor-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; height: calc(100% - 80px);">
-        <!-- Vitals Card -->
-        <div class="monitor-vitals-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box;">
-          <div>
-            <span class="vital-label" style="font-size: 10px; color: rgba(255, 255, 255, 0.4); text-transform: uppercase; font-weight: 800; letter-spacing: 0.06em;">Heart Rate</span>
-            <div class="vital-value-row" style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
-              <span class="vital-number" style="font-size: 34px; font-weight: 800; color: #fff; font-family: monospace;">84</span>
-              <span class="vital-unit" style="font-size: 11px; color: #e74c3c; font-weight: 700;">BPM</span>
-            </div>
-          </div>
-          <!-- Animated ECG path -->
-          <svg class="ecg-svg" viewBox="0 0 200 60" style="width: 100%; height: 60px; margin-top: 10px;">
-            <path class="ecg-path" d="M 0 30 L 40 30 L 50 15 L 60 45 L 70 30 L 100 30 L 110 5 L 120 55 L 130 30 L 170 30 L 180 20 L 190 40 L 200 30" />
-          </svg>
-        </div>
-
-        <!-- GPS Card -->
-        <div class="monitor-gps-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; box-sizing: border-box;">
-          <div>
-            <span class="vital-label" style="font-size: 10px; color: rgba(255, 255, 255, 0.4); text-transform: uppercase; font-weight: 800; letter-spacing: 0.06em;">Daily Walk</span>
-            <div style="font-size: 13px; color: #fff; font-weight: 700; margin-top: 4px;">2.4 / 4.0 Km</div>
-          </div>
-          <div class="gps-map-preview" style="height: 90px; border-radius: 12px; background: rgba(255, 255, 255, 0.02); margin-top: 10px; position: relative; border: 1px solid rgba(255, 255, 255, 0.05);">
-            <div class="gps-route-line" style="position: absolute; top: 50%; left: 10%; right: 10%; height: 2px; background: rgba(255, 255, 255, 0.1); transform: translateY(-50%); border-top: 1px dashed var(--color-orange); border-bottom: none; opacity: 0.8;"></div>
-            <div class="gps-pointer" style="position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--color-orange); top: 50%; left: 60%; transform: translate(-50%, -50%); box-shadow: 0 0 12px var(--color-orange); animation: pulse-ring 1.8s infinite; animation: move-gps-pointer 8s ease-in-out infinite;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  grid.innerHTML = rockyLiveCard + userPets.map((p, index) => `
+  grid.innerHTML = userPets.map(p => `
     <div class="card" style="border-radius: 24px;">
       <div style="height: 180px; overflow: hidden; position: relative;">
         <img src="${p.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${p.name}">
@@ -3077,11 +2986,11 @@ function renderDashboardPets() {
             <div style="font-weight: 700; color: var(--color-ink); font-size: 14px; margin-top: 2px;">${p.nextVacc}</div>
           </div>
         </div>
-        \${p.food ? `<p style="font-size: 12px; color: var(--color-ink-sft); margin-bottom: 12px;">🍽 \${p.food}</p>` : ''}
-        \${p.allergies && p.allergies !== 'None' ? `<p style="font-size: 12px; color: var(--color-red); margin-bottom: 12px;">⚠️ Allergies: \${p.allergies}</p>` : ''}
+        ${p.food ? `<p style="font-size: 12px; color: var(--color-ink-sft); margin-bottom: 12px;">🍽 ${p.food}</p>` : ''}
+        ${p.allergies && p.allergies !== 'None' ? `<p style="font-size: 12px; color: var(--color-red); margin-bottom: 12px;">⚠️ Allergies: ${p.allergies}</p>` : ''}
         <div style="display: flex; gap: 10px; margin-top: auto;">
-          <button class="btn btn-md btn-ghost" style="flex: 1;" onclick="openEditPetModal(\${index})">Edit</button>
-          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="showHealthRecords('\${p.name}')">Health Records</button>
+          <button class="btn btn-md btn-ghost" style="flex: 1;" onclick="alert('Profile details edit is mock-only.')">Edit</button>
+          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="alert('Loading full health reports charts...')">Health Records</button>
         </div>
       </div>
     </div>
@@ -3099,7 +3008,14 @@ function renderDashboardBookings() {
   const list = document.getElementById('dash-bookings-list');
   if (!list) return;
 
-  list.innerHTML = dashboardBookings.map(b => `
+  const mockBookings = [
+    { id: "BK-1082", petName: "Max", service: "Veterinary Consultation", date: "Jun 15, 2026", time: "10:30 AM", provider: "Dr. Kiran Patel", status: "Upcoming", price: "₹650", icon: "🏥" },
+    { id: "BK-1054", petName: "Bella", service: "Full Grooming Session", date: "Jun 25, 2026", time: "02:00 PM", provider: "Pawprint Grooming Studio", status: "Upcoming", price: "₹1,499", icon: "✂️" },
+    { id: "BK-0982", petName: "Max", service: "Behavioral Puppy Training", date: "Jun 20, 2026", time: "09:00 AM", provider: "Priya Venkatesh", status: "Upcoming", price: "₹1,200", icon: "🎓" },
+    { id: "BK-0841", petName: "Bella", service: "Deworming Clinic Visit", date: "May 28, 2026", time: "11:00 AM", provider: "Dr. Kiran Patel", status: "Completed", price: "₹450", icon: "💉" }
+  ];
+
+  list.innerHTML = mockBookings.map(b => `
     <div class="card" style="padding: 24px; flex-direction: row; align-items: center; gap: 20px; flex-wrap: wrap;">
       <div style="width: 50px; height: 50px; border-radius: 12px; background: var(--color-cream); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
         ${b.icon}
@@ -3117,20 +3033,17 @@ function renderDashboardBookings() {
       </div>
       <div style="text-align: right; flex-shrink: 0; margin-left: auto;">
         <div style="font-weight: 800; font-size: 16px; color: var(--color-ink);">${b.price}</div>
-        <span class="pill" style="margin-top: 6px; display: inline-block; background: ${b.status === 'Upcoming' ? 'var(--color-blue-lt)' : b.status === 'Cancelled' ? 'var(--color-red-lt)' : 'var(--color-green-lt)'}; color: ${b.status === 'Upcoming' ? 'var(--color-blue)' : b.status === 'Cancelled' ? 'var(--color-red)' : 'var(--color-green)'}; font-weight: 700;">
+        <span class="pill" style="margin-top: 6px; display: inline-block; background: ${b.status === 'Upcoming' ? 'var(--color-blue-lt)' : 'var(--color-green-lt)'}; color: ${b.status === 'Upcoming' ? 'var(--color-blue)' : 'var(--color-green)'}; font-weight: 700;">
           ${b.status}
         </span>
       </div>
       <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; width: 100%; border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
         ${b.status === 'Upcoming' ? `
-          <button class="btn btn-sm btn-ghost" onclick="openRescheduleModal('${b.id}')">Reschedule</button>
-          <button class="btn btn-sm btn-primary" style="background: var(--color-red); border-color: var(--color-red); color: white;" onclick="openCancelModal('${b.id}')">Cancel</button>
-        ` : b.status === 'Cancelled' ? `
-          <span style="font-size: 12px; color: var(--color-ink-sft); font-style: italic; align-self: center; margin-left: 8px;">Appointment Cancelled</span>
-          <button class="btn btn-sm btn-primary" style="margin-left: auto;" onclick="bookAgain()">Book Again</button>
+          <button class="btn btn-sm btn-ghost" onclick="alert('Rescheduling booking ${b.id}...')">Reschedule</button>
+          <button class="btn btn-sm btn-primary" style="background: var(--color-red); border-color: var(--color-red); color: white;" onclick="alert('Cancelling booking ${b.id}...')">Cancel</button>
         ` : `
-          <button class="btn btn-sm btn-ghost" onclick="showInvoice('${b.id}')">View Invoice</button>
-          <button class="btn btn-sm btn-primary" onclick="bookAgain()">Book Again</button>
+          <button class="btn btn-sm btn-ghost" onclick="alert('Downloading invoice for ${b.id}...')">View Invoice</button>
+          <button class="btn btn-sm btn-primary" onclick="alert('Rebooking service...')">Book Again</button>
         `}
       </div>
     </div>
@@ -3141,7 +3054,13 @@ function renderDashboardOrders() {
   const list = document.getElementById('dash-orders-list');
   if (!list) return;
 
-  list.innerHTML = dashboardOrders.map(o => `
+  const mockOrders = [
+    { id: "PW-9951", date: "Jun 13, 2026", item: "Reflective Safe-Grip Leash", category: "Accessories", price: "₹1,199", status: "Processing", icon: "🦮" },
+    { id: "PW-9904", date: "Jun 12, 2026", item: "Organic Chicken & Oats Treats (Pack of 2)", category: "Food & Treats", price: "₹799", status: "In Transit", icon: "🦴" },
+    { id: "PW-9823", date: "Jun 10, 2026", item: "Premium Orthopedic Dog Bed", category: "Bedding", price: "₹2,499", status: "Delivered", icon: "🛏️" }
+  ];
+
+  list.innerHTML = mockOrders.map(o => `
     <div class="card" style="padding: 24px; flex-direction: row; align-items: center; gap: 20px; flex-wrap: wrap;">
       <div style="width: 50px; height: 50px; border-radius: 12px; background: var(--color-cream); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
         ${o.icon}
@@ -3158,20 +3077,17 @@ function renderDashboardOrders() {
       </div>
       <div style="text-align: right; flex-shrink: 0; margin-left: auto;">
         <div style="font-weight: 800; font-size: 16px; color: var(--color-ink);">${o.price}</div>
-        <span class="pill" style="margin-top: 6px; display: inline-block; background: ${o.status === 'Processing' ? 'var(--color-orange-lt)' : o.status === 'In Transit' ? 'var(--color-blue-lt)' : o.status === 'Return Requested' ? 'var(--color-red-lt)' : 'var(--color-green-lt)'}; color: ${o.status === 'Processing' ? 'var(--color-orange)' : o.status === 'In Transit' ? 'var(--color-blue)' : o.status === 'Return Requested' ? 'var(--color-red)' : 'var(--color-green)'}; font-weight: 700;">
+        <span class="pill" style="margin-top: 6px; display: inline-block; background: ${o.status === 'Processing' ? 'var(--color-orange-lt)' : o.status === 'In Transit' ? 'var(--color-blue-lt)' : 'var(--color-green-lt)'}; color: ${o.status === 'Processing' ? 'var(--color-orange)' : o.status === 'In Transit' ? 'var(--color-blue)' : 'var(--color-green)'}; font-weight: 700;">
           ${o.status}
         </span>
       </div>
       <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; width: 100%; border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
-        ${o.status === 'Processing' || o.status === 'In Transit' ? `
-          <button class="btn btn-sm btn-ghost" onclick="trackOrder('${o.id}')">Track Order</button>
-          <button class="btn btn-sm btn-primary" onclick="orderSupport('${o.id}')">Support</button>
-        ` : o.status === 'Return Requested' ? `
-          <span style="font-size: 12px; color: var(--color-ink-sft); font-style: italic; align-self: center; margin-left: 8px;">Return Pending Pick-up</span>
-          <button class="btn btn-sm btn-primary" style="margin-left: auto;" onclick="orderSupport('${o.id}')">Support</button>
+        ${o.status !== 'Delivered' ? `
+          <button class="btn btn-sm btn-ghost" onclick="alert('Tracking order ${o.id}...')">Track Order</button>
+          <button class="btn btn-sm btn-primary" onclick="alert('Opening customer support for order ${o.id}...')">Support</button>
         ` : `
-          <button class="btn btn-sm btn-ghost" onclick="returnReplaceOrder('${o.id}')">Return/Replace</button>
-          <button class="btn btn-sm btn-primary" onclick="buyAgain('${o.id}')">Buy Again</button>
+          <button class="btn btn-sm btn-ghost" onclick="alert('Opening return policy...')">Return/Replace</button>
+          <button class="btn btn-sm btn-primary" onclick="alert('Item added to cart for reorder.')">Buy Again</button>
         `}
       </div>
     </div>
@@ -3387,8 +3303,8 @@ function filterBreeds() {
   } else {
     grid.style.display = 'grid';
     grid.innerHTML = matched.map(b => `
-      <div class="card card-lift" style="cursor: pointer; display: flex; flex-direction: column; height: 100%;" onclick="viewBreedDetail('${b.name}')">
-        <div style="position: relative; height: 190px; overflow: hidden; flex-shrink: 0;">
+      <div class="card card-lift" style="cursor: pointer;" onclick="viewBreedDetail('${b.name}')">
+        <div style="position: relative; height: 190px; overflow: hidden;">
           <img src="${b.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${b.name}">
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,.6) 0%, transparent 50%);"></div>
           
@@ -3397,20 +3313,18 @@ function filterBreeds() {
             <p style="color: rgba(255,255,255,.75); font-size: 11px;">🌍 ${b.origin}</p>
           </div>
         </div>
-        <div style="display: flex; flex-direction: column; flex-grow: 1;">
-          <div style="padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
-            <div style="flex: 1; min-width: 0;">
-              <div style="font-size: 11px; color: var(--color-ink-sft); line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${b.temperament}</div>
-            </div>
-            <div style="display: flex; gap: 6px; flex-shrink: 0;">
-              <div style="font-size: 10px; font-weight: 600; color: var(--color-ink-sft); background: var(--color-cream); border-radius: 6px; padding: 3px 8px; white-space: nowrap;">⏳ ${b.lifespan}</div>
-            </div>
+        <div style="padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 11px; color: var(--color-ink-sft); line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${b.temperament}</div>
           </div>
-          <div style="padding: 0 16px 14px; margin-top: auto;">
-            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--color-border);">
-              <span style="font-size: 12px; color: var(--color-ink-sft);">Weight: ${b.weight}</span>
-              <span style="font-size: 12px; font-weight: 700; color: var(--color-orange);">View Details →</span>
-            </div>
+          <div style="display: flex; gap: 6px; flex-shrink: 0;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--color-ink-sft); background: var(--color-cream); border-radius: 6px; padding: 3px 8px; white-space: nowrap;">⏳ ${b.lifespan}</div>
+          </div>
+        </div>
+        <div style="padding: 0 16px 14px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--color-border);">
+            <span style="font-size: 12px; color: var(--color-ink-sft);">Weight: ${b.weight}</span>
+            <span style="font-size: 12px; font-weight: 700; color: var(--color-orange);">View Details →</span>
           </div>
         </div>
       </div>
@@ -3524,7 +3438,9 @@ function viewBreedDetail(name) {
         </div>
       </div>
 
-
+      <div style="display: flex; gap: 12px;">
+        <button class="btn btn-lg btn-outline" style="width: 100%; border-radius: 14px; font-weight: 700;" onclick="closeBreedModal()">Close</button>
+      </div>
     </div>
   `;
   modal.style.display = 'flex';
@@ -3572,8 +3488,8 @@ function renderVideos() {
   const levelColor = { Beginner: 'var(--color-green)', Intermediate: 'var(--color-orange)', "All Levels": 'var(--color-blue)' };
 
   grid.innerHTML = filtered.map(v => `
-    <div class="card card-lift" style="cursor: pointer; display: flex; flex-direction: column; height: 100%;" onclick="openVideoPlayer(${v.id})">
-      <div style="position: relative; height: 190px; overflow: hidden; flex-shrink: 0;">
+    <div class="card card-lift" style="cursor: pointer;" onclick="openVideoPlayer(${v.id})">
+      <div style="position: relative; height: 190px; overflow: hidden;">
         <img src="${v.thumb}" style="width: 100%; height: 100%; object-fit: cover;" alt="${v.title}">
         <div style="position: absolute; inset: 0; background: rgba(17,17,17,.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .25s;"
           onmouseenter="this.style.opacity='1'"
@@ -3585,14 +3501,14 @@ function renderVideos() {
         </div>
         <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,.7); border-radius: 6px; padding: 3px 8px; color: #fff; font-size: 12px; font-weight: 600;">${v.duration}</div>
       </div>
-      <div style="padding: 18px 20px; flex-grow: 1; display: flex; flex-direction: column;">
+      <div style="padding: 18px 20px;">
         <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
           <span style="font-size: 11px; font-weight: 600; color: var(--color-orange);">${v.cat}</span>
           <span style="font-size: 11px; color: var(--color-sand);">·</span>
           <span style="font-size: 11px; color: var(--color-ink-sft);">👁 ${v.views}</span>
         </div>
         <h3 style="font-size: 15px; font-weight: 700; color: var(--color-ink); line-height: 1.35; margin-bottom: 10px;">${v.title}</h3>
-        <div style="display: flex; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px solid var(--color-border); margin-top: auto;">
+        <div style="display: flex; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px solid var(--color-border);">
           <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-cream-dk); display: flex; align-items: center; justify-content: center; font-size: 12px;">👤</div>
           <div>
             <div style="font-size: 12px; font-weight: 600; color: var(--color-ink);">${v.instructor}</div>
@@ -4643,490 +4559,3 @@ document.addEventListener('click', (e) => {
     target = target.parentNode;
   }
 });
-
-/* ================================================================
-   DYNAMIC PREMIUM DASHBOARD MODALS & LOGIC
-   ================================================================ */
-
-window.injectDashboardModals = function() {
-  if (document.getElementById('modal-editpet')) return;
-  const container = document.createElement('div');
-  container.innerHTML = `
-    <!-- Edit Pet Modal -->
-    <div id="modal-editpet" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-          <div>
-            <h2 class="melody" style="font-size: 30px; color: var(--color-ink); line-height: 1;">Edit Pet Profile</h2>
-            <p style="font-size: 13.5px; color: var(--color-ink-sft); margin-top: 6px;">Modify details for your furry friend.</p>
-          </div>
-          <button onclick="window.closeEditPetModal()" style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft);">✕</button>
-        </div>
-        <input type="hidden" id="editpet-index">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;">
-          <div class="field"><label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Pet Name</label><input id="editpet-name" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;"></div>
-          <div class="field"><label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Breed</label><input id="editpet-breed" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;"></div>
-          <div class="field"><label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Age</label><input id="editpet-age" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;"></div>
-          <div class="field"><label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Weight</label><input id="editpet-weight" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;"></div>
-          <div class="field">
-            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Gender</label>
-            <select id="editpet-gender" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;">
-              <option>Male</option>
-              <option>Female</option>
-            </select>
-          </div>
-          <div class="field"><label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Allergies</label><input id="editpet-allergies" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;"></div>
-          <div class="field" style="grid-column: 1 / -1;"><label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Food / Diet</label><input id="editpet-food" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;"></div>
-        </div>
-        <div style="display: flex; gap: 12px;">
-          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="window.submitEditPet()">Save Changes 🐾</button>
-          <button class="btn btn-md btn-ghost" onclick="window.closeEditPetModal()">Cancel</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Health Records Modal -->
-    <div id="modal-healthrecords" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-          <div>
-            <h2 class="melody" id="healthrecords-pet-name" style="font-size: 32px; color: var(--color-ink); line-height: 1;">Max's Health Records</h2>
-            <p style="font-size: 13.5px; color: var(--color-ink-sft); margin-top: 6px;">Official medical, vaccine, and wellness logs.</p>
-          </div>
-          <button onclick="document.getElementById('modal-healthrecords').style.display='none'" style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft);">✕</button>
-        </div>
-        
-        <div style="background: linear-gradient(135deg, var(--color-blue), #1D5FC4); color: white; padding: 20px; border-radius: 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; box-shadow: 0 8px 24px rgba(29, 95, 196, 0.2);">
-          <div>
-            <div style="font-size: 13px; opacity: 0.8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Wellness Score</div>
-            <div class="melody" style="font-size: 40px; font-weight: 800; margin-top: 4px;" id="healthrecords-score">95%</div>
-          </div>
-          <div style="text-align: right;">
-            <span class="pill" style="background: rgba(255,255,255,0.2); color: white; font-weight: 700;">Status: Excellent</span>
-            <div style="font-size: 12px; opacity: 0.8; margin-top: 6px;">All key parameters tracked</div>
-          </div>
-        </div>
-        
-        <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">🛡️ Vaccination Log</h3>
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;" id="healthrecords-vaccines"></div>
-        
-        <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">📋 Medical Log</h3>
-        <div style="display: flex; flex-direction: column; gap: 10px;" id="healthrecords-medical"></div>
-        
-        <button class="btn btn-lg btn-outline" style="width: 100%; margin-top: 28px;" onclick="document.getElementById('modal-healthrecords').style.display='none'">Close Records</button>
-      </div>
-    </div>
-
-    <!-- Reschedule Modal -->
-    <div id="modal-reschedule" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 480px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <h2 class="melody" style="font-size: 28px; color: var(--color-ink);">Reschedule Slot</h2>
-          <button onclick="document.getElementById('modal-reschedule').style.display='none'" style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft);">✕</button>
-        </div>
-        <input type="hidden" id="reschedule-id">
-        <div style="display: flex; flex-direction: column; gap: 16px;">
-          <div class="field">
-            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Select New Date</label>
-            <input type="date" id="reschedule-date" style="padding: 10px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;">
-          </div>
-          <div class="field">
-            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Select Time Slot</label>
-            <select id="reschedule-time" style="padding: 10px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;">
-              <option>09:00 AM</option>
-              <option>10:00 AM</option>
-              <option>11:00 AM</option>
-              <option>12:00 PM</option>
-              <option>02:00 PM</option>
-              <option>03:00 PM</option>
-              <option>04:00 PM</option>
-              <option>05:00 PM</option>
-              <option>06:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div style="display: flex; gap: 12px; margin-top: 24px;">
-          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="window.submitReschedule()">Confirm Reschedule</button>
-          <button class="btn btn-md btn-ghost" onclick="document.getElementById('modal-reschedule').style.display='none'">Cancel</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cancel Confirmation Modal -->
-    <div id="modal-cancel-confirm" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 420px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px; text-align: center;">
-        <div style="font-size: 54px; margin-bottom: 16px;">⚠️</div>
-        <h2 class="melody" style="font-size: 26px; color: var(--color-ink); margin-bottom: 8px;">Cancel Booking?</h2>
-        <p style="font-size: 14px; color: var(--color-ink-sft); line-height: 1.5; margin-bottom: 24px;">Are you sure you want to cancel this booking? This action cannot be undone.</p>
-        <input type="hidden" id="cancel-booking-id">
-        <div style="display: flex; gap: 12px; justify-content: center;">
-          <button class="btn btn-md btn-primary" style="background: var(--color-red); border-color: var(--color-red); color: white;" onclick="window.confirmCancel()">Yes, Cancel</button>
-          <button class="btn btn-md btn-ghost" onclick="document.getElementById('modal-cancel-confirm').style.display='none'">No, Keep It</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Invoice Modal -->
-    <div id="modal-invoice" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 520px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; border-bottom: 1.5px dashed var(--color-border); padding-bottom: 16px;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-              <img src="Logo.png" alt="Pawprint Logo" style="width: 32px; height: 32px; object-fit: contain;">
-              <span style="font-weight: 800; font-size: 16px; color: var(--color-ink); letter-spacing: 0.05em; text-transform: uppercase;">Pawprint</span>
-            </div>
-            <p style="font-size: 11px; color: var(--color-ink-sft);">Avinashi Road, Coimbatore – 641018</p>
-          </div>
-          <div style="text-align: right;">
-            <h2 class="melody" style="font-size: 24px; color: var(--color-ink); margin: 0;">INVOICE</h2>
-            <p style="font-size: 11px; color: var(--color-ink-sft); margin-top: 4px;" id="invoice-id-lbl">#BK-0841</p>
-          </div>
-        </div>
-        
-        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 13.5px; color: var(--color-ink-md); margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">Customer</span><strong id="invoice-cust">Geetha</strong></div>
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">Pet Name</span><strong id="invoice-pet">Bella</strong></div>
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">Service</span><strong id="invoice-service">Deworming Clinic Visit</strong></div>
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">Provider</span><strong id="invoice-provider">Dr. Kiran Patel</strong></div>
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">Date & Time</span><strong id="invoice-datetime">May 28, 2026 · 11:00 AM</strong></div>
-        </div>
-        
-        <div style="border-top: 1px solid var(--color-border); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; margin-bottom: 20px;">
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">Subtotal</span><span id="invoice-subtotal">₹381.36</span></div>
-          <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-ink-sft);">GST (18%)</span><span id="invoice-tax">₹68.64</span></div>
-          <div style="display: flex; justify-content: space-between; border-top: 1.5px dashed var(--color-border); padding-top: 12px; font-size: 16px;"><strong style="color: var(--color-ink);">Total Paid</strong><strong style="color: var(--color-orange);" id="invoice-total">₹450.00</strong></div>
-        </div>
-        
-        <div style="background: var(--color-green-lt); border-radius: 12px; padding: 12px; text-align: center; color: var(--color-green); font-size: 13px; font-weight: 700; margin-bottom: 24px;">
-          ✓ Payment Received via Pawprint Pay
-        </div>
-        
-        <div style="display: flex; gap: 12px;">
-          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="window.print()">Print Invoice</button>
-          <button class="btn btn-md btn-ghost" onclick="document.getElementById('modal-invoice').style.display='none'">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Track Order Modal -->
-    <div id="modal-track-order" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 480px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-          <div>
-            <h2 class="melody" style="font-size: 28px; color: var(--color-ink); line-height: 1;">Track Shipment</h2>
-            <p style="font-size: 13px; color: var(--color-ink-sft); margin-top: 4px;" id="track-order-id-lbl">Order: #PW-9904</p>
-          </div>
-          <button onclick="document.getElementById('modal-track-order').style.display='none'" style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft);">✕</button>
-        </div>
-        
-        <div style="display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 36px; margin-bottom: 24px;" id="track-order-timeline"></div>
-        
-        <button class="btn btn-lg btn-outline" style="width: 100%;" onclick="document.getElementById('modal-track-order').style.display='none'">Close Tracker</button>
-      </div>
-    </div>
-
-    <!-- Return/Replace Modal -->
-    <div id="modal-return" style="display: none; position: fixed; inset: 0; background: rgba(17,17,17,.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px);">
-      <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 480px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; padding: 32px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <h2 class="melody" style="font-size: 28px; color: var(--color-ink);">Return / Replace Item</h2>
-          <button onclick="document.getElementById('modal-return').style.display='none'" style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft);">✕</button>
-        </div>
-        <input type="hidden" id="return-order-id">
-        <div style="display: flex; flex-direction: column; gap: 16px;">
-          <div class="field">
-            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Reason for Return *</label>
-            <select id="return-reason" style="padding: 10px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;">
-              <option>Damaged or Defective product</option>
-              <option>Incorrect size or item received</option>
-              <option>Product doesn't fit my pet</option>
-              <option>Quality not as expected</option>
-              <option>No longer needed / Mind changed</option>
-            </select>
-          </div>
-          <div class="field">
-            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Requested Action *</label>
-            <select id="return-action" style="padding: 10px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%;">
-              <option value="Refund">Full Refund to Original Payment Source</option>
-              <option value="Replacement">Send Replacement Item (Free of Charge)</option>
-            </select>
-          </div>
-          <div class="field">
-            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; display: block; margin-bottom: 6px;">Additional details</label>
-            <textarea id="return-details" rows="3" placeholder="Tell us more about the issue..." style="padding: 10px; border-radius: 8px; border: 1px solid var(--color-border); width: 100%; font-family: inherit; resize: vertical;"></textarea>
-          </div>
-        </div>
-        <div style="display: flex; gap: 12px; margin-top: 24px;">
-          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="window.submitReturnRequest()">Submit Request</button>
-          <button class="btn btn-md btn-ghost" onclick="document.getElementById('modal-return').style.display='none'">Cancel</button>
-        </div>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(container);
-};
-
-// ── Pet Actions ──
-
-window.openEditPetModal = function(index) {
-  const p = userPets[index];
-  if (!p) return;
-  document.getElementById('editpet-index').value = index;
-  document.getElementById('editpet-name').value = p.name || '';
-  document.getElementById('editpet-breed').value = p.breed || '';
-  document.getElementById('editpet-age').value = p.age || '';
-  document.getElementById('editpet-weight').value = p.weight || '';
-  document.getElementById('editpet-gender').value = p.gender || 'Male';
-  document.getElementById('editpet-allergies').value = p.allergies || 'None';
-  document.getElementById('editpet-food').value = p.food || '';
-  document.getElementById('modal-editpet').style.display = 'flex';
-};
-
-window.closeEditPetModal = function() {
-  document.getElementById('modal-editpet').style.display = 'none';
-};
-
-window.submitEditPet = function() {
-  const index = parseInt(document.getElementById('editpet-index').value);
-  const p = userPets[index];
-  if (!p) return;
-  
-  p.name = document.getElementById('editpet-name').value.trim();
-  p.breed = document.getElementById('editpet-breed').value.trim();
-  p.age = document.getElementById('editpet-age').value.trim();
-  p.weight = document.getElementById('editpet-weight').value.trim();
-  p.gender = document.getElementById('editpet-gender').value;
-  p.allergies = document.getElementById('editpet-allergies').value.trim();
-  p.food = document.getElementById('editpet-food').value.trim();
-  
-  saveUserPets();
-  renderDashboardOverview();
-  renderDashboardPets();
-  window.closeEditPetModal();
-};
-
-window.showHealthRecords = function(petName) {
-  const p = userPets.find(x => x.name === petName) || { name: petName, health: 90 };
-  
-  document.getElementById('healthrecords-pet-name').innerHTML = `${p.name}'s Health Records`;
-  document.getElementById('healthrecords-score').textContent = `${p.health}%`;
-  
-  const vaccineList = document.getElementById('healthrecords-vaccines');
-  const medicalList = document.getElementById('healthrecords-medical');
-  
-  // Render mock records matching brand design
-  vaccineList.innerHTML = `
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--color-cream); border-radius: 12px; border: 1px solid var(--color-border);">
-      <div>
-        <strong style="color: var(--color-ink); font-size: 13.5px;">Rabies Multi-Booster</strong>
-        <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px;">Completed: Jan 15, 2026</div>
-      </div>
-      <span style="font-size: 12px; color: var(--color-green); font-weight: 700; background: var(--color-green-lt); padding: 4px 10px; border-radius: 8px;">✓ Active</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--color-cream); border-radius: 12px; border: 1px solid var(--color-border);">
-      <div>
-        <strong style="color: var(--color-ink); font-size: 13.5px;">DHPP (Distemper/Parvo)</strong>
-        <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px;">Completed: Nov 12, 2025</div>
-      </div>
-      <span style="font-size: 12px; color: var(--color-green); font-weight: 700; background: var(--color-green-lt); padding: 4px 10px; border-radius: 8px;">✓ Active</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--color-cream); border-radius: 12px; border: 1px solid var(--color-border);">
-      <div>
-        <strong style="color: var(--color-ink); font-size: 13.5px;">Leptospirosis Shot</strong>
-        <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px;">Next Due: ${p.nextVacc || 'Jul 20'}</div>
-      </div>
-      <span style="font-size: 12px; color: var(--color-orange); font-weight: 700; background: var(--color-orange-lt); padding: 4px 10px; border-radius: 8px;">⚠ Due Soon</span>
-    </div>
-  `;
-
-  medicalList.innerHTML = `
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--color-cream); border-radius: 12px; border: 1px solid var(--color-border);">
-      <div>
-        <strong style="color: var(--color-ink); font-size: 13.5px;">Deworming Routine Treatment</strong>
-        <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px;">Administered: Dr. Kiran Patel</div>
-      </div>
-      <span style="font-size: 11px; color: var(--color-ink-sft);">May 28, 2026</span>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--color-cream); border-radius: 12px; border: 1px solid var(--color-border);">
-      <div>
-        <strong style="color: var(--color-ink); font-size: 13.5px;">Flea & Tick Prevention (Spot-on)</strong>
-        <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px;">Administered: Self (Home kit)</div>
-      </div>
-      <span style="font-size: 11px; color: var(--color-ink-sft);">Apr 10, 2026</span>
-    </div>
-  `;
-
-  document.getElementById('modal-healthrecords').style.display = 'flex';
-};
-
-// ── Booking Actions ──
-
-window.openRescheduleModal = function(id) {
-  const b = dashboardBookings.find(x => x.id === id);
-  if (!b) return;
-  document.getElementById('reschedule-id').value = id;
-  
-  // Set current date or tomorrow as default limit/date picker value
-  const today = new Date().toISOString().split('T')[0];
-  const dateInput = document.getElementById('reschedule-date');
-  dateInput.min = today;
-  dateInput.value = today;
-  
-  document.getElementById('modal-reschedule').style.display = 'flex';
-};
-
-window.submitReschedule = function() {
-  const id = document.getElementById('reschedule-id').value;
-  const b = dashboardBookings.find(x => x.id === id);
-  if (!b) return;
-  
-  const rawDate = document.getElementById('reschedule-date').value;
-  const time = document.getElementById('reschedule-time').value;
-  
-  if (!rawDate) {
-    alert("Please select a valid date.");
-    return;
-  }
-  
-  // Format Date (e.g. Jun 20, 2026)
-  const dObj = new Date(rawDate);
-  const options = { month: 'short', day: 'numeric', year: 'numeric' };
-  b.date = dObj.toLocaleDateString('en-US', options);
-  b.time = time;
-  
-  localStorage.setItem('dashboardBookings', JSON.stringify(dashboardBookings));
-  renderDashboardBookings();
-  document.getElementById('modal-reschedule').style.display = 'none';
-};
-
-window.openCancelModal = function(id) {
-  document.getElementById('cancel-booking-id').value = id;
-  document.getElementById('modal-cancel-confirm').style.display = 'flex';
-};
-
-window.confirmCancel = function() {
-  const id = document.getElementById('cancel-booking-id').value;
-  const b = dashboardBookings.find(x => x.id === id);
-  if (b) {
-    b.status = 'Cancelled';
-    localStorage.setItem('dashboardBookings', JSON.stringify(dashboardBookings));
-    renderDashboardBookings();
-  }
-  document.getElementById('modal-cancel-confirm').style.display = 'none';
-};
-
-window.showInvoice = function(id) {
-  const b = dashboardBookings.find(x => x.id === id);
-  if (!b) return;
-  
-  document.getElementById('invoice-id-lbl').textContent = `#${b.id}`;
-  document.getElementById('invoice-cust').textContent = currentUser.name;
-  document.getElementById('invoice-pet').textContent = b.petName;
-  document.getElementById('invoice-service').textContent = b.service;
-  document.getElementById('invoice-provider').textContent = b.provider;
-  document.getElementById('invoice-datetime').textContent = `${b.date} · ${b.time}`;
-  
-  // Parse price
-  const numPrice = parseInt(b.price.replace(/[^\d]/g, ''));
-  const subtotal = Math.round((numPrice / 1.18) * 100) / 100;
-  const tax = Math.round((numPrice - subtotal) * 100) / 100;
-  
-  document.getElementById('invoice-subtotal').textContent = `₹${subtotal.toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
-  document.getElementById('invoice-tax').textContent = `₹${tax.toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
-  document.getElementById('invoice-total').textContent = b.price;
-  
-  document.getElementById('modal-invoice').style.display = 'flex';
-};
-
-window.bookAgain = function() {
-  nav('services');
-};
-
-// ── Order Actions ──
-
-window.trackOrder = function(id) {
-  const o = dashboardOrders.find(x => x.id === id);
-  if (!o) return;
-  
-  document.getElementById('track-order-id-lbl').textContent = `Order: #${o.id} (${o.item})`;
-  
-  const steps = [
-    { label: "Order Placed", desc: "We have received your order request", active: true },
-    { label: "Processing", desc: "Seller is preparing and packaging the item", active: o.status !== "Cancelled" },
-    { label: "Shipped", desc: "In transit via Pawprint Logistics Partner", active: o.status === "In Transit" || o.status === "Delivered" },
-    { label: "Out for Delivery", desc: "Courier is delivering to your address today", active: o.status === "Delivered" },
-    { label: "Delivered", desc: "Successfully signed and received by customer", active: o.status === "Delivered" }
-  ];
-  
-  const timelineEl = document.getElementById('track-order-timeline');
-  timelineEl.innerHTML = steps.map((s, idx) => {
-    const isLast = idx === steps.length - 1;
-    const bulletColor = s.active ? 'var(--color-orange)' : 'var(--color-sand)';
-    const textColor = s.active ? 'var(--color-ink)' : 'var(--color-ink-sft)';
-    const opacity = s.active ? '1' : '0.5';
-    
-    return `
-      <div style="position: relative; padding-bottom: ${isLast ? '0' : '28px'}; opacity: ${opacity};">
-        ${!isLast ? `<div style="position: absolute; left: -25px; top: 20px; bottom: 0; width: 2px; background: ${steps[idx + 1].active ? 'var(--color-orange)' : 'var(--color-border)'};"></div>` : ''}
-        <div style="position: absolute; left: -31px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: ${bulletColor}; border: 3px solid #fff; box-shadow: 0 0 0 1px ${bulletColor};"></div>
-        <div>
-          <h4 style="font-size: 14.5px; font-weight: 700; color: ${textColor}; margin: 0;">${s.label}</h4>
-          <p style="font-size: 12.5px; color: var(--color-ink-sft); margin-top: 4px; line-height: 1.4;">${s.desc}</p>
-        </div>
-      </div>
-    `;
-  }).join('');
-  
-  document.getElementById('modal-track-order').style.display = 'flex';
-};
-
-window.orderSupport = function(id) {
-  const o = dashboardOrders.find(x => x.id === id);
-  if (!o) return;
-  
-  if (typeof chatbotOpen !== 'undefined' && !chatbotOpen) {
-    toggleChatbot();
-  }
-  if (typeof openChatInput === 'function') {
-    openChatInput();
-  }
-  sendQuickQuery(`Hello Paws AI! I need help with my Order ${o.id} ("${o.item}"). Current status is "${o.status}".`);
-};
-
-window.returnReplaceOrder = function(id) {
-  document.getElementById('return-order-id').value = id;
-  document.getElementById('modal-return').style.display = 'flex';
-};
-
-window.submitReturnRequest = function() {
-  const id = document.getElementById('return-order-id').value;
-  const o = dashboardOrders.find(x => x.id === id);
-  if (!o) return;
-  
-  o.status = 'Return Requested';
-  localStorage.setItem('dashboardOrders', JSON.stringify(dashboardOrders));
-  renderDashboardOrders();
-  
-  document.getElementById('modal-return').style.display = 'none';
-  alert(`Return request submitted successfully for Order #${id}. Our pickup courier will visit within 2-3 business days.`);
-};
-
-window.buyAgain = function(id) {
-  const o = dashboardOrders.find(x => x.id === id);
-  if (!o) return;
-  
-  let product = products.find(p => p.name.toLowerCase().includes(o.item.toLowerCase()) || o.item.toLowerCase().includes(p.name.toLowerCase()));
-  if (!product) {
-    if (o.item.includes("Leash") || o.item.includes("Harness")) product = products.find(p => p.id === 6);
-    else if (o.item.includes("Treats") || o.item.includes("Food")) product = products.find(p => p.id === 8);
-    else if (o.item.includes("Bed")) product = products.find(p => p.id === 7);
-  }
-  
-  if (product) {
-    addToCart(product.id);
-  } else {
-    addToCart(1);
-  }
-  
-  nav('shop');
-};
