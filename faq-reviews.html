@@ -38,19 +38,8 @@
           <button id="nav-btn-home" class="nav-link" onclick="nav('home')">Home</button>
         </div>
 
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-company" class="nav-trigger active" onclick="toggleDropdown('dropdown-company')">
-            Company
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div id="dropdown-company" class="dropdown-menu"
-            style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
-            <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
-          </div>
+                <div style="position: relative;">
+          <button id="nav-btn-about" class="nav-link active" onclick="nav('about')">About Us</button>
         </div>
 
         <div style="position: relative;">

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,19 +40,8 @@
         </div>
 
         <!-- Company Dropdown Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-company" class="nav-trigger" onclick="toggleDropdown('dropdown-company')">
-            Company
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div id="dropdown-company" class="dropdown-menu"
-            style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
-            <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
-          </div>
+                <div style="position: relative;">
+          <button id="nav-btn-about" class="nav-link" onclick="nav('about')">About Us</button>
         </div>
 
         <!-- Services Link -->
@@ -127,7 +116,7 @@
        ========================================== -->
   <main id="main-content" style="padding-top: 96px;">
     <section id="page-dog-breeds" class="page-section">
-      <section style="padding: 120px 0 80px; position: relative; overflow: hidden;">
+      <section style="height: 540px; display: flex; align-items: center; position: relative; overflow: hidden;">
         <img src="dog_breeds_hero.png"
           style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
           alt="Dog Breeds Hero Background">
@@ -135,7 +124,7 @@
           style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.82) 0%, rgba(17, 17, 17, 0.4) 60%, rgba(17, 17, 17, 0.85) 100%);">
         </div>
         <div
-          style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; position: relative; z-index: 2;">
+          style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; position: relative; z-index: 2;">
           <div>
             <div class="pill" style="background: rgba(255,255,255,.1); color: rgba(255,255,255,.85); margin-bottom: 24px; display: inline-block;">📚 Encyclopedia</div>
             <h1 class="melody-italic"

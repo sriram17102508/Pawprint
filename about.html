@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,19 +40,8 @@
         </div>
 
         <!-- Company Dropdown Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-company" class="nav-trigger" onclick="toggleDropdown('dropdown-company')">
-            Company
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div id="dropdown-company" class="dropdown-menu"
-            style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
-            <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
-          </div>
+                <div style="position: relative;">
+          <button id="nav-btn-about" class="nav-link" onclick="nav('about')">About Us</button>
         </div>
 
         <!-- Services Link -->
@@ -129,7 +118,7 @@
     <section id="page-about" class="page-section">
       <!-- About Hero -->
       <section
-        style="position: relative; min-height: 620px; overflow: hidden; display: flex; align-items: center; padding: 80px 0 100px;">
+        style="position: relative; height: 540px; overflow: hidden; display: flex; align-items: center; padding: 0;">
         <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=80&fit=crop"
           style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
           alt="Pets Collage">
@@ -140,7 +129,7 @@
           style="position: absolute; top: -120px; right: -120px; width: 480px; height: 480px; border-radius: 50%; border: 2px solid rgba(229, 93, 26, 0.18); pointer-events: none;">
         </div>
         <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 48px; width: 100%;">
-          <div class="pill pill-orange" style="margin-bottom: 24px;">Our Story · Our Team · Our Mission</div>
+          <div class="pill pill-orange" style="margin-bottom: 24px;">Our Story</div>
           <h1 class="melody"
             style="font-size: clamp(58px,7.5vw,110px); color: #fff; line-height: .9; margin-bottom: 28px; max-width: 900px;">
             Born From Love.<br><span style="color: var(--color-orange);">Built For Pets.</span>
@@ -150,32 +139,7 @@
             Pawprint Started When Dr. Sriram Couldn't Find A Single Trusted Platform To Manage The Rescue Dogs.
             That Frustration Became A Mission And That Mission Became India's Most Loved Pet Care Platform.
           </p>
-          <div
-            style="display: flex; gap: 0; background: rgba(255,255,255,.08); backdrop-filter: blur(12px); border-radius: 18px; border: 1px solid rgba(255,255,255,.12); overflow: hidden; width: fit-content;">
-            <div style="padding: 18px 32px; text-align: center; border-right: 1px solid rgba(255,255,255,.1);">
-              <div class="melody" style="font-size: 30px; color: var(--color-orange); line-height: 1;">45K+</div>
-              <div
-                style="font-size: 11px; color: rgba(255,255,255,.55); margin-top: 4px; font-weight: 500; letter-spacing: .03em;">
-                Happy Pets</div>
-            </div>
-            <div style="padding: 18px 32px; text-align: center; border-right: 1px solid rgba(255,255,255,.1);">
-              <div class="melody" style="font-size: 30px; color: var(--color-orange); line-height: 1;">1,200+</div>
-              <div
-                style="font-size: 11px; color: rgba(255,255,255,.55); margin-top: 4px; font-weight: 500; letter-spacing: .03em;">
-                Vet Partners</div>
-            </div>
-            <div style="padding: 18px 32px; text-align: center; border-right: 1px solid rgba(255,255,255,.1);">
-              <div class="melody" style="font-size: 30px; color: var(--color-orange); line-height: 1;">8,200+</div>
-              <div
-                style="font-size: 11px; color: rgba(255,255,255,.55); margin-top: 4px; font-weight: 500; letter-spacing: .03em;">
-                Adoptions</div>
-            </div>
-            <div style="padding: 18px 32px; text-align: center;">
-              <div class="melody" style="font-size: 30px; color: var(--color-orange); line-height: 1;">85+</div>
-              <div
-                style="font-size: 11px; color: rgba(255,255,255,.55); margin-top: 4px; font-weight: 500; letter-spacing: .03em;">
-                Cities</div>
-            </div>
+          
           </div>
         </div>
       </section>

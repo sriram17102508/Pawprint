@@ -1527,7 +1527,12 @@ const servicePagesData = {
   "svc-retail": {
     cat: "Retail & Extras", icon: "🛍️", color: C.orange, heroImg: P.shop1, tagline: "Vet-Curated.\NNext-Day Delivered.",
     about: "Premium Pet Foods, Interactive Puzzle Toys, Supplements, And Designer Collars Reviewed By Our Veterinary Panel.",
-    whyUs: { stats: [["1,000+", "Reviewed items"], ["Fast", "Next-day delivery"]], points: [{ icon: "🛍️", title: "100% Vetted", desc: "We Only Stock Products Free Of Harmful Chemicals And Low-Quality Fillers." }] },
+    whyUs: { stats: [["1,000+", "Reviewed items"], ["Fast", "Next-day delivery"]], points: [
+      { icon: "🛍️", title: "100% Vetted", desc: "We Only Stock Products Free Of Harmful Chemicals And Low-Quality Fillers." },
+      { icon: "⚡", title: "Next-Day Delivery", desc: "Order Before 6 PM And Get Next-Day Doorstep Shipping Across All Metros." },
+      { icon: "💯", title: "Vet Reviewed", desc: "Every Food Brand, Supplement, and Treat is Evaluated by our Veterinary Panel." },
+      { icon: "🔄", title: "Easy Exchanges", desc: "Hassle-Free 7-Day Returns and Size Exchanges for Harnesses, Collars, and Apparel." }
+    ] },
     faqItems: [{ q: "Do You Offer Free Delivery?", a: "Yes, All Orders Above ₹499 Qualify For Free Next-Day Delivery." }],
     services: [
       { name: "Dog Food", price: "From ₹499", duration: "Next-Day", rating: "4.9", img: P.shop1, shortDesc: "Premium Kibble And Wet Food Selections For Healthy Digestion.", desc: "Top Brands Like Royal Canin, Hill's Science Diet, And Organic Fresh Foods Curated By Our Vets.", includes: ["Vet-approved brands", "Allergy-free formulas", "Next-day home delivery", "Dietary guide card"] },
@@ -2336,7 +2341,8 @@ function handleLostPhotos(files) {
 
 function submitLostReport() {
   const name = document.getElementById('lost-field-name').value.trim();
-  const spec = document.getElementById('lost-field-species').value;
+  const specEl = document.getElementById('lost-field-species');
+  const spec = specEl ? specEl.value : 'Dog';
   const color = document.getElementById('lost-field-color').value.trim();
   const features = document.getElementById('lost-field-features').value.trim();
 
@@ -2919,56 +2925,8 @@ function setDashboardTab(tabId) {
   tabs.forEach(t => {
     const btn = document.getElementById('dash-tab-' + t);
     if (!btn) return;
-    btn.style.background = t === tabId ? 'var(--color-orange)' : 'transparent';
-    btn.style.color = t === tabId ? '#fff' : 'var(--color-ink-sft)';
-    btn.style.fontWeight = t === tabId ? '600' : '400';
-
-    const panel = document.getElementById('dash-view-' + t);
-    if (panel) panel.style.display = t === tabId ? 'block' : 'none';
-  });
-
-  if (tabId === 'overview') {
-    renderDashboardOverview();
-  } else if (tabId === 'pets') {
-    renderDashboardPets();
-  } else if (tabId === 'bookings') {
-    renderDashboardBookings();
-  } else if (tabId === 'orders') {
-    renderDashboardOrders();
-  }
-}
-
-function renderDashboardOverview() {
-  document.getElementById('dash-stat-pets').textContent = userPets.length;
-
-  const hList = document.getElementById('dash-health-list');
-  if (!hList) return;
-
-  hList.innerHTML = userPets.map(p => `
-    <div style="display: flex; gap: 16px; align-items: center;">
-      <img src="${p.img}" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" alt="${p.name}">
-      <div style="flex: 1;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-          <div><span style="font-weight: 700; color: var(--color-ink); font-size: 15px;">${p.name}</span><span style="font-size: 13px; color: var(--color-ink-sft); margin-left: 8px;">${p.breed}</span></div>
-          <span style="font-weight: 700; color: #22C55E; font-size: 14px;">${p.health}%</span>
-        </div>
-        <div style="background: var(--color-cream-dk); border-radius: 100px; height: 6px;">
-          <div style="background: linear-gradient(90deg, var(--color-green), #22C55E); width: ${p.health}%; height: 6px; border-radius: 100px;"></div>
-        </div>
-        <div style="font-size: 12px; color: var(--color-ink-sft); margin-top: 5px; display: flex; gap: 14px;">
-          <span>Weight: ${p.weight}</span><span>Next vet: ${p.nextVet}</span><span>Vaccine: ${p.nextVacc}</span>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function renderDashboardPets() {
-  const grid = document.getElementById('dash-pets-grid');
-  if (!grid) return;
-
-  grid.innerHTML = userPets.map(p => `
-    <div class="card" style="border-radius: 24px;">
+    btn.s  grid.innerHTML = userPets.map((p, idx) => `
+    <div class="card card-lift" style="border-radius: 24px; cursor: pointer; display: flex; flex-direction: column; height: 100%;" onclick="window.openPetDetailsModal(${idx}, event)">
       <div style="height: 180px; overflow: hidden; position: relative;">
         <img src="${p.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${p.name}">
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.45), transparent);"></div>
@@ -2989,8 +2947,32 @@ function renderDashboardPets() {
         ${p.food ? `<p style="font-size: 12px; color: var(--color-ink-sft); margin-bottom: 12px;">🍽 ${p.food}</p>` : ''}
         ${p.allergies && p.allergies !== 'None' ? `<p style="font-size: 12px; color: var(--color-red); margin-bottom: 12px;">⚠️ Allergies: ${p.allergies}</p>` : ''}
         <div style="display: flex; gap: 10px; margin-top: auto;">
-          <button class="btn btn-md btn-ghost" style="flex: 1;" onclick="alert('Profile details edit is mock-only.')">Edit</button>
-          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="alert('Loading full health reports charts...')">Health Records</button>
+          <button class="btn btn-md btn-ghost" style="flex: 1;" onclick="openEditPetModal(${idx})">Edit</button>
+          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="openHealthRecordsModal(${idx})">Health Records</button>
+        </div>
+      </div>
+    </div>
+  `).join('');="width: 100%; height: 100%; object-fit: cover;" alt="${p.name}">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.45), transparent);"></div>
+        <h3 class="melody" style="position: absolute; bottom: 14px; left: 18px; color: #fff; font-size: 24px;">${p.name}</h3>
+      </div>
+      <div style="padding: 20px 24px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+        <p style="color: var(--color-ink-sft); font-size: 14px; margin-bottom: 16px;">${p.breed} · ${p.age || 'Unknown age'} · ${p.weight}</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
+          <div style="background: var(--color-cream); border-radius: 11px; padding: 10px 14px;">
+            <div style="font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-sft);">Next Vet</div>
+            <div style="font-weight: 700; color: var(--color-ink); font-size: 14px; margin-top: 2px;">${p.nextVet}</div>
+          </div>
+          <div style="background: var(--color-cream); border-radius: 11px; padding: 10px 14px;">
+            <div style="font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-sft);">Next Vaccine</div>
+            <div style="font-weight: 700; color: var(--color-ink); font-size: 14px; margin-top: 2px;">${p.nextVacc}</div>
+          </div>
+        </div>
+        ${p.food ? `<p style="font-size: 12px; color: var(--color-ink-sft); margin-bottom: 12px;">🍽 ${p.food}</p>` : ''}
+        ${p.allergies && p.allergies !== 'None' ? `<p style="font-size: 12px; color: var(--color-red); margin-bottom: 12px;">⚠️ Allergies: ${p.allergies}</p>` : ''}
+        <div style="display: flex; gap: 10px; margin-top: auto;">
+          <button class="btn btn-md btn-ghost" style="flex: 1;" onclick="openEditPetModal(${idx})">Edit</button>
+          <button class="btn btn-md btn-primary" style="flex: 1;" onclick="openHealthRecordsModal(${idx})">Health Records</button>
         </div>
       </div>
     </div>
@@ -3039,11 +3021,11 @@ function renderDashboardBookings() {
       </div>
       <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; width: 100%; border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
         ${b.status === 'Upcoming' ? `
-          <button class="btn btn-sm btn-ghost" onclick="alert('Rescheduling booking ${b.id}...')">Reschedule</button>
-          <button class="btn btn-sm btn-primary" style="background: var(--color-red); border-color: var(--color-red); color: white;" onclick="alert('Cancelling booking ${b.id}...')">Cancel</button>
+          <button class="btn btn-sm btn-ghost" onclick="window.handleReschedule('${b.id}')">Reschedule</button>
+          <button class="btn btn-sm btn-primary" style="background: var(--color-red); border-color: var(--color-red); color: white;" onclick="window.handleCancelBooking('${b.id}')">Cancel</button>
         ` : `
-          <button class="btn btn-sm btn-ghost" onclick="alert('Downloading invoice for ${b.id}...')">View Invoice</button>
-          <button class="btn btn-sm btn-primary" onclick="alert('Rebooking service...')">Book Again</button>
+          <button class="btn btn-sm btn-ghost" onclick="window.handleViewInvoice('${b.id}')">View Invoice</button>
+          <button class="btn btn-sm btn-primary" onclick="window.handleBookAgain('${b.service}')">Book Again</button>
         `}
       </div>
     </div>
@@ -3083,20 +3065,65 @@ function renderDashboardOrders() {
       </div>
       <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; width: 100%; border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
         ${o.status !== 'Delivered' ? `
-          <button class="btn btn-sm btn-ghost" onclick="alert('Tracking order ${o.id}...')">Track Order</button>
-          <button class="btn btn-sm btn-primary" onclick="alert('Opening customer support for order ${o.id}...')">Support</button>
+          <button class="btn btn-sm btn-ghost" onclick="window.handleTrackOrder('${o.id}')">Track Order</button>
+          <button class="btn btn-sm btn-primary" onclick="window.handleSupport('${o.id}')">Support</button>
         ` : `
-          <button class="btn btn-sm btn-ghost" onclick="alert('Opening return policy...')">Return/Replace</button>
-          <button class="btn btn-sm btn-primary" onclick="alert('Item added to cart for reorder.')">Buy Again</button>
+          <button class="btn btn-sm btn-ghost" onclick="window.handleReturnReplace('${o.id}')">Return/Replace</button>
+          <button class="btn btn-sm btn-primary" onclick="window.handleBuyAgain('${o.item}', '${o.price}')">Buy Again</button>
         `}
       </div>
     </div>
   `).join('');
 }
 
+let editingPetIndex = -1;
+
 function openAddPetModal() {
   document.getElementById('modal-addpet').style.display = 'flex';
   resetAddPetModal();
+}
+
+function openEditPetModal(idx) {
+  editingPetIndex = idx;
+  const pet = userPets[idx];
+  if (!pet) return;
+
+  document.getElementById('modal-addpet').style.display = 'flex';
+  
+  // Fill the form fields
+  document.getElementById('addpet-name').value = pet.name || '';
+  document.getElementById('addpet-species').value = pet.species || '';
+  document.getElementById('addpet-breed').value = pet.breed || '';
+  document.getElementById('addpet-gender').value = pet.gender || '';
+  document.getElementById('addpet-dob').value = pet.dob || '';
+  document.getElementById('addpet-color').value = pet.color || '';
+  document.getElementById('addpet-weight').value = (pet.weight || '').replace(/[^0-9.]/g, ''); // strip ' kg' suffix
+  document.getElementById('addpet-microchip').value = pet.microchip || '';
+  document.getElementById('addpet-allergies').value = pet.allergies || '';
+  document.getElementById('addpet-conditions').value = pet.conditions || '';
+  document.getElementById('addpet-food').value = pet.food || '';
+  document.getElementById('addpet-vetname').value = pet.vetname || '';
+  document.getElementById('addpet-vetphone').value = pet.vetphone || '';
+  document.getElementById('addpet-emergname').value = pet.emergname || '';
+  document.getElementById('addpet-emergphone').value = pet.emergphone || '';
+  document.getElementById('addpet-notes').value = pet.notes || '';
+
+  // Setup preview circle
+  addPetPhoto = pet.img || null;
+  const circle = document.getElementById('addpet-preview-circle');
+  if (pet.img) {
+    circle.innerHTML = `<img src="${pet.img}" style="width: 100%; height: 100%; object-fit: cover;">`;
+  } else {
+    circle.innerHTML = `<span style="font-size: 32px;">🐾</span>`;
+  }
+
+  // Update modal header & button text dynamically
+  const titleEl = document.querySelector('#modal-addpet h2.melody');
+  if (titleEl) titleEl.textContent = 'Edit Pet Profile';
+  const descEl = document.querySelector('#modal-addpet p');
+  if (descEl) descEl.textContent = 'Update your pet\'s details to keep their health records accurate.';
+  const submitBtn = document.querySelector('#modal-addpet button.btn-primary');
+  if (submitBtn) submitBtn.textContent = 'Save Changes 🐾';
 }
 
 function closeAddPetModal() {
@@ -3129,28 +3156,58 @@ function submitAddPet() {
     return;
   }
 
-  const newPetItem = {
+  const petData = {
     name: name,
     species: spec,
     breed: breed,
     gender: gend,
     dob: document.getElementById('addpet-dob').value,
     color: document.getElementById('addpet-color').value.trim(),
-    weight: document.getElementById('addpet-weight').value.trim() || 'N/A',
+    weight: document.getElementById('addpet-weight').value.trim() ? document.getElementById('addpet-weight').value.trim() + ' kg' : 'N/A',
     microchip: document.getElementById('addpet-microchip').value.trim() || 'N/A',
     allergies: document.getElementById('addpet-allergies').value.trim() || 'None',
     conditions: document.getElementById('addpet-conditions').value.trim() || 'None',
     food: document.getElementById('addpet-food').value.trim(),
+    vetname: document.getElementById('addpet-vetname').value.trim(),
+    vetphone: document.getElementById('addpet-vetphone').value.trim(),
+    emergname: document.getElementById('addpet-emergname').value.trim(),
+    emergphone: document.getElementById('addpet-emergphone').value.trim(),
+    notes: document.getElementById('addpet-notes').value.trim(),
     img: addPetPhoto || (spec === 'Dog' ? P.dog4 : P.cat2),
-    health: 90,
-    nextVet: "TBD",
-    nextVacc: "TBD"
   };
 
-  userPets.push(newPetItem);
-  saveUserPets();
+  if (editingPetIndex !== -1) {
+    const existing = userPets[editingPetIndex];
+    userPets[editingPetIndex] = {
+      ...existing,
+      ...petData
+    };
+    saveUserPets();
+    
+    document.getElementById('addpet-success-name').textContent = name;
+    const successTitle = document.querySelector('#addpet-step-success h2.melody');
+    if (successTitle) successTitle.innerHTML = `<span id="addpet-success-name">${name}</span> Is Updated!`;
+    const successDesc = document.querySelector('#addpet-step-success p');
+    if (successDesc) successDesc.textContent = "Their profile has been successfully updated on your dashboard.";
+    
+    editingPetIndex = -1;
+  } else {
+    const newPetItem = {
+      ...petData,
+      health: 90,
+      nextVet: "TBD",
+      nextVacc: "TBD"
+    };
+    userPets.push(newPetItem);
+    saveUserPets();
 
-  document.getElementById('addpet-success-name').textContent = name;
+    document.getElementById('addpet-success-name').textContent = name;
+    const successTitle = document.querySelector('#addpet-step-success h2.melody');
+    if (successTitle) successTitle.innerHTML = `<span id="addpet-success-name">${name}</span> Is Added!`;
+    const successDesc = document.querySelector('#addpet-step-success p');
+    if (successDesc) successDesc.textContent = "Their Profile Is Live On Your Dashboard. Start Tracking Health, Vaccines, And Appointments.";
+  }
+
   if (addPetPhoto) {
     const sImg = document.getElementById('addpet-success-img');
     sImg.src = addPetPhoto;
@@ -3161,6 +3218,9 @@ function submitAddPet() {
 
   document.getElementById('addpet-step-form').style.display = 'none';
   document.getElementById('addpet-step-success').style.display = 'block';
+  
+  renderDashboardOverview();
+  renderDashboardPets();
 }
 
 function resetAddPetModal() {
@@ -3174,7 +3234,662 @@ function resetAddPetModal() {
     const el = document.getElementById(f);
     if (el) el.value = '';
   });
+
+  const titleEl = document.querySelector('#modal-addpet h2.melody');
+  if (titleEl) titleEl.textContent = 'Add A New Pet';
+  const descEl = document.querySelector('#modal-addpet p');
+  if (descEl) descEl.textContent = 'Fill In Your Pet\'s Details To Start Tracking Their Health And Care.';
+  const submitBtn = document.querySelector('#modal-addpet button.btn-primary');
+  if (submitBtn) submitBtn.textContent = 'Save Pet Profile 🐾';
+  editingPetIndex = -1;
 }
+
+window.closeHealthRecordsModal = function() {
+  const modal = document.getElementById('modal-health-records');
+  if (modal) modal.style.display = 'none';
+};
+
+window.openHealthRecordsModal = function(idx) {
+  const pet = userPets[idx];
+  if (!pet) return;
+
+  let modal = document.getElementById('modal-health-records');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-health-records';
+    modal.style.cssText = 'position: fixed; inset: 0; background: rgba(17,17,17,.65); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(8px);';
+    document.body.appendChild(modal);
+  }
+
+  // Generate mock vaccination and clinical logs based on pet data or name
+  const isMax = pet.name === 'Max';
+  const vaccines = isMax ? [
+    { name: 'Rabies Vaccine', date: 'May 10, 2025', status: 'Completed', color: '#22C55E' },
+    { name: 'DHPP Booster', date: 'Jul 20, 2026', status: 'Upcoming', color: 'var(--color-orange)' },
+    { name: 'Leptospirosis Shot', date: 'Dec 05, 2025', status: 'Completed', color: '#22C55E' }
+  ] : [
+    { name: 'Feline Distemper (FVRCP)', date: 'Mar 18, 2025', status: 'Completed', color: '#22C55E' },
+    { name: 'Rabies Vaccine', date: 'Aug 05, 2026', status: 'Upcoming', color: 'var(--color-orange)' }
+  ];
+
+  const weightHistory = isMax ? [
+    { date: 'Jan 2026', weight: '32.1 kg', percentage: '91%' },
+    { date: 'Mar 2026', weight: '33.8 kg', percentage: '96%' },
+    { date: 'Jun 2026', weight: '35.0 kg', percentage: '100%' }
+  ] : [
+    { date: 'Jan 2026', weight: '4.1 kg', percentage: '91%' },
+    { date: 'Mar 2026', weight: '4.3 kg', percentage: '95%' },
+    { date: 'Jun 2026', weight: '4.5 kg', percentage: '100%' }
+  ];
+
+  const clinicalNotes = isMax ? [
+    { date: 'Jun 15, 2026', vet: 'Dr. Kiran Patel', diagnosis: 'Annual wellness checkup. Sound joints, slight dental calculus. Advised dental chews.' },
+    { date: 'Dec 05, 2025', vet: 'Dr. Kiran Patel', diagnosis: 'Deworming and flea preventative application. Overall good skin health.' }
+  ] : [
+    { date: 'May 12, 2026', vet: 'Dr. Kiran Patel', diagnosis: 'Minor ear scratching behavior examined. Cleaned ears, no signs of mites. Advised weekly cleaning.' }
+  ];
+
+  modal.innerHTML = `
+    <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; position: relative;">
+      
+      <!-- Modal Close Button -->
+      <button onclick="window.closeHealthRecordsModal()" style="position: absolute; top: 22px; right: 22px; width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft); z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">✕</button>
+
+      <!-- Content Container -->
+      <div style="padding: 36px;">
+        
+        <!-- Header Profile Grid -->
+        <div style="display: flex; gap: 24px; align-items: center; border-bottom: 1px solid var(--color-border); padding-bottom: 24px; margin-bottom: 28px;">
+          <img src="${pet.img}" style="width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-orange); flex-shrink: 0;" alt="${pet.name}">
+          <div>
+            <h2 class="melody" style="font-size: 32px; color: var(--color-ink); line-height: 1.1; margin-bottom: 4px;">${pet.name}'s Health Report</h2>
+            <p style="font-size: 14px; color: var(--color-ink-sft); font-weight: 500;">
+              ${pet.breed} · ${pet.gender} · ${pet.weight || 'N/A'} · Microchip ID: ${pet.microchip || 'N/A'}
+            </p>
+          </div>
+        </div>
+
+        <!-- Bento Layout -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          
+          <!-- Column 1: Health Score & Allergies / Conditions -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <!-- Health Score Bento Card -->
+            <div style="background: linear-gradient(135deg, var(--color-ink-md), #0d0d0d); color: #fff; padding: 24px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
+              <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; border-radius: 50%; background: rgba(34, 197, 94, 0.08);"></div>
+              <h4 class="melody" style="font-size: 18px; margin-bottom: 14px; font-weight: 700;">Overall Health Status</h4>
+              <div style="display: flex; align-items: center; gap: 18px;">
+                <div style="font-size: 38px; font-weight: 800; color: #22C55E; font-family: 'Inter', sans-serif;">${pet.health || 90}%</div>
+                <div style="flex: 1;">
+                  <div style="background: rgba(255,255,255,0.1); border-radius: 100px; height: 8px;">
+                    <div style="background: #22C55E; width: ${pet.health || 90}%; height: 8px; border-radius: 100px;"></div>
+                  </div>
+                  <div style="font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 6px;">Vitals & nutrition are excellent</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Medical Alerts Bento Card -->
+            <div style="background: var(--color-cream); padding: 24px; border-radius: 20px; border: 1px solid var(--color-border); flex: 1;">
+              <h4 class="melody" style="font-size: 18px; color: var(--color-ink); margin-bottom: 14px; font-weight: 700;">⚠️ Medical Warnings</h4>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                  <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase;">Allergies</div>
+                  <div style="font-size: 14px; font-weight: 700; color: ${pet.allergies && pet.allergies !== 'None' ? 'var(--color-red)' : 'var(--color-ink)'}; margin-top: 2px;">
+                    ${pet.allergies || 'None reported'}
+                  </div>
+                </div>
+                <div style="height: 1px; background: var(--color-border);"></div>
+                <div>
+                  <div style="font-size: 11px; font-weight: 700; color: var(--color-ink-sft); text-transform: uppercase;">Chronic Conditions</div>
+                  <div style="font-size: 14px; font-weight: 700; color: ${pet.conditions && pet.conditions !== 'None' ? 'var(--color-red)' : 'var(--color-ink)'}; margin-top: 2px;">
+                    ${pet.conditions || 'None diagnosed'}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Weight Log Bento Card -->
+          <div style="background: var(--color-cream); padding: 24px; border-radius: 20px; border: 1px solid var(--color-border); display: flex; flex-direction: column;">
+            <h4 class="melody" style="font-size: 18px; color: var(--color-ink); margin-bottom: 16px; font-weight: 700;">📈 Weight History Tracker</h4>
+            <div style="display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: center;">
+              ${weightHistory.map(w => `
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--color-ink); margin-bottom: 6px;">
+                    <span>${w.date}</span>
+                    <span style="font-weight: 700;">${w.weight}</span>
+                  </div>
+                  <div style="background: var(--color-cream-dk); border-radius: 100px; height: 8px;">
+                    <div style="background: var(--color-orange); width: ${w.percentage}; height: 8px; border-radius: 100px;"></div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bento Grid Row 2 -->
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; margin-top: 20px;">
+          
+          <!-- Vet Consultations Note -->
+          <div style="background: var(--color-cream); padding: 24px; border-radius: 20px; border: 1px solid var(--color-border);">
+            <h4 class="melody" style="font-size: 18px; color: var(--color-ink); margin-bottom: 16px; font-weight: 700;">📋 Recent Clinical Logs</h4>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              ${clinicalNotes.map(n => `
+                <div style="font-size: 13.5px; line-height: 1.6;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <strong style="color: var(--color-ink);">${n.vet}</strong>
+                    <span style="font-size: 12px; color: var(--color-ink-sft); font-weight: 600;">${n.date}</span>
+                  </div>
+                  <div style="color: var(--color-ink-sft); background: var(--color-cream-dk); padding: 12px; border-radius: 10px; font-size: 13px;">
+                    ${n.diagnosis}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Vaccination Log Card -->
+          <div style="background: var(--color-cream); padding: 24px; border-radius: 20px; border: 1px solid var(--color-border);">
+            <h4 class="melody" style="font-size: 18px; color: var(--color-ink); margin-bottom: 16px; font-weight: 700;">💉 Vaccinations</h4>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              ${vaccines.map(v => `
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+                  <div>
+                    <div style="font-weight: 700; color: var(--color-ink);">${v.name}</div>
+                    <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px;">${v.date}</div>
+                  </div>
+                  <span style="background: ${v.color === '#22C55E' ? 'rgba(34, 197, 148, 0.1)' : 'var(--color-orange-lt)'}; color: ${v.color}; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.02em;">
+                    ${v.status}
+                  </span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Action CTAs -->
+        <div style="display: flex; gap: 14px; margin-top: 28px; border-top: 1px solid var(--color-border); padding-top: 24px;">
+          <button class="btn btn-lg btn-outline" style="flex: 1; border-color: var(--color-border); background: var(--color-cream);" onclick="alert('Downloading full PDF health docket...')">📥 Download PDF Report</button>
+          <button class="btn btn-lg btn-primary" style="flex: 1;" onclick="window.closeHealthRecordsModal(); document.getElementById('modal-chatbot').style.display='flex';">💬 Ask AI Vet Advisor</button>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+};
+
+};
+
+// ── SMART COLLAR & PET DETAILS MODAL ──────────────────────────────
+let geofenceActive = true;
+let sweepAngle = 0;
+let radarTimer = null;
+window.currentTrackerPetName = '';
+
+window.closePetDetailsModal = function() {
+  const modal = document.getElementById('modal-pet-details');
+  if (modal) modal.style.display = 'none';
+  if (radarTimer) clearInterval(radarTimer);
+};
+
+window.playCollarChime = function(petName) {
+  alert(`Sending audio signal to ${petName}'s Smart Collar... Chime playing successfully! 🔊🐕`);
+};
+
+window.toggleGeofence = function() {
+  geofenceActive = !geofenceActive;
+  const btn = document.getElementById('btn-toggle-geofence');
+  const statusEl = document.getElementById('geofence-status');
+  if (btn) {
+    btn.innerHTML = geofenceActive ? '🛡️ Geofence: Active' : '🔓 Geofence: Inactive';
+    btn.className = geofenceActive ? 'btn btn-sm btn-outline' : 'btn btn-sm btn-ghost';
+    btn.style.color = geofenceActive ? 'var(--color-ink)' : 'var(--color-ink-sft)';
+  }
+  if (statusEl) {
+    statusEl.innerHTML = geofenceActive ? 'Safe Zone (Home)' : 'GPS Tracker Active';
+    statusEl.style.color = geofenceActive ? '#22C55E' : 'var(--color-orange)';
+  }
+  window.drawLiveMap(window.currentTrackerPetName);
+};
+
+window.locateNow = function() {
+  let count = 0;
+  if (radarTimer) clearInterval(radarTimer);
+  radarTimer = setInterval(() => {
+    sweepAngle += 4;
+    window.drawLiveMap(window.currentTrackerPetName, true);
+    count++;
+    if (count > 25) {
+      clearInterval(radarTimer);
+      window.drawLiveMap(window.currentTrackerPetName, false);
+      alert('Satellite coordinate sweep complete. Location lock verified.');
+    }
+  }, 40);
+};
+
+window.drawLiveMap = function(petName, runRadarSweep = false) {
+  const canvas = document.getElementById('gps-collar-map');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  
+  ctx.fillStyle = '#14141d';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+  ctx.lineWidth = 4;
+  
+  ctx.beginPath();
+  ctx.moveTo(0, 40); ctx.lineTo(440, 40);
+  ctx.moveTo(0, 120); ctx.lineTo(440, 120);
+  ctx.moveTo(0, 170); ctx.lineTo(440, 170);
+  ctx.moveTo(80, 0); ctx.lineTo(80, 200);
+  ctx.moveTo(220, 0); ctx.lineTo(220, 200);
+  ctx.moveTo(350, 0); ctx.lineTo(350, 200);
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(34, 197, 94, 0.08)';
+  ctx.beginPath();
+  ctx.arc(350, 120, 40, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'rgba(29, 95, 196, 0.12)';
+  ctx.beginPath();
+  ctx.arc(80, 40, 30, 0, Math.PI * 2);
+  ctx.fill();
+
+  const homeX = 220;
+  const homeY = 100;
+  
+  if (geofenceActive) {
+    ctx.strokeStyle = 'rgba(34, 197, 94, 0.25)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath();
+    ctx.arc(homeX, homeY, 70, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    
+    ctx.fillStyle = 'rgba(34, 197, 94, 0.45)';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('Geofence limit (200m)', homeX - 52, homeY - 76);
+  }
+
+  ctx.fillStyle = '#1D5FC4';
+  ctx.beginPath();
+  ctx.arc(homeX, homeY, 6, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = 'rgba(29, 95, 196, 0.3)';
+  ctx.beginPath();
+  ctx.arc(homeX, homeY, 14, 0, Math.PI * 2);
+  ctx.fill();
+
+  const petX = petName === 'Max' ? 245 : 185;
+  const petY = petName === 'Max' ? 80 : 115;
+
+  if (runRadarSweep) {
+    ctx.strokeStyle = 'rgba(229, 93, 26, 0.4)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(petX, petY, sweepAngle % 50, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  const pulseRadius = 12 + (Date.now() % 1000) / 100;
+  ctx.fillStyle = 'rgba(229, 93, 26, 0.2)';
+  ctx.beginPath();
+  ctx.arc(petX, petY, pulseRadius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'var(--color-orange)';
+  ctx.beginPath();
+  ctx.arc(petX, petY, 6, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 11px sans-serif';
+  ctx.fillText(petName, petX + 10, petY + 4);
+};
+
+window.openPetDetailsModal = function(idx, event) {
+  if (event && (event.target.tagName === 'BUTTON' || event.target.closest('button'))) {
+    return;
+  }
+  const pet = userPets[idx];
+  if (!pet) return;
+
+  window.currentTrackerPetName = pet.name;
+
+  let modal = document.getElementById('modal-pet-details');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-pet-details';
+    modal.style.cssText = 'position: fixed; inset: 0; background: rgba(17,17,17,.65); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(8px);';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 860px; max-height: 95vh; overflow-y: auto; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; position: relative;">
+      
+      <button onclick="window.closePetDetailsModal()" style="position: absolute; top: 22px; right: 22px; width: 36px; height: 36px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 18px; cursor: pointer; color: var(--color-ink-sft); z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">✕</button>
+
+      <div style="padding: 36px;">
+        
+        <div style="display: flex; gap: 24px; align-items: center; border-bottom: 1px solid var(--color-border); padding-bottom: 24px; margin-bottom: 28px;">
+          <img src="${pet.img}" style="width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-orange); flex-shrink: 0;" alt="${pet.name}">
+          <div>
+            <h2 class="melody" style="font-size: 32px; color: var(--color-ink); line-height: 1.1; margin-bottom: 4px;">${pet.name}'s Profile</h2>
+            <p style="font-size: 14px; color: var(--color-ink-sft); font-weight: 500;">
+              ${pet.breed} · ${pet.age || 'Unknown age'} · ${pet.weight}
+            </p>
+          </div>
+          <div style="margin-left: auto; text-align: right;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-sft); letter-spacing: 0.05em; margin-bottom: 4px;">Smart Collar</div>
+            <div style="display: flex; align-items: center; gap: 6px; font-weight: 600; color: #22C55E;">
+              <span>🔋 84%</span>
+              <span style="font-size: 11px; padding: 2px 8px; border-radius: 100px; background: rgba(34, 197, 94, 0.15); font-weight: 700;">ACTIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;">
+          
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="card" style="padding: 20px; border-radius: 20px; background: var(--color-cream); border: 1px solid var(--color-border); position: relative; overflow: hidden;">
+              <h4 class="melody" style="font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #22C55E; display: inline-block; animation: blink 1.4s infinite;"></span>
+                Live GPS Tracking Map
+              </h4>
+              <canvas id="gps-collar-map" width="440" height="200" style="width: 100%; height: 200px; border-radius: 12px; background: #1a1a24; border: 1px solid rgba(255,255,255,0.08);"></canvas>
+              <div style="margin-top: 12px; font-size: 12.5px; color: var(--color-ink-sft); display: flex; justify-content: space-between; align-items: center;">
+                <span>GPS Lock: <strong>11.0168° N, 76.9558° E</strong></span>
+                <span id="geofence-status" style="font-weight: 700; color: #22C55E;">Safe Zone (Home)</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <button class="btn btn-sm btn-ghost" style="padding: 12px; font-size: 13px;" onclick="window.playCollarChime('${pet.name}')">
+                🔊 Play Chime Alert
+              </button>
+              <button class="btn btn-sm btn-outline" style="padding: 12px; font-size: 13px;" id="btn-toggle-geofence" onclick="window.toggleGeofence()">
+                🛡️ Geofence: Active
+              </button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="card" style="padding: 20px; border-radius: 20px; background: var(--color-white); border: 1px solid var(--color-border); flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h4 class="melody" style="font-size: 20px; margin-bottom: 16px; font-weight: 700;">Collar & Vital Stats</h4>
+                <div style="display: flex; flex-direction: column; gap: 14px; font-size: 13.5px;">
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+                    <span style="color: var(--color-ink-sft);">Activity Counter</span>
+                    <strong style="color: var(--color-orange);">8,420 Steps Today</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+                    <span style="color: var(--color-ink-sft);">Collar Serial ID</span>
+                    <strong>PC-${pet.microchip || 'GPS-5541'}</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+                    <span style="color: var(--color-ink-sft);">Biological Sex</span>
+                    <strong>${pet.gender}</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">
+                    <span style="color: var(--color-ink-sft);">Allergies Log</span>
+                    <strong style="color: ${pet.allergies !== 'None' ? 'var(--color-red)' : 'var(--color-ink)'}">${pet.allergies || 'None'}</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding-bottom: 4px;">
+                    <span style="color: var(--color-ink-sft);">LTE Connection</span>
+                    <strong style="color: #22C55E;">Online (Wi-Fi + Cellular)</strong>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-md btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;" onclick="window.locateNow()">🛰️ Scan Location Coordinates</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+  setTimeout(() => {
+    window.drawLiveMap(pet.name);
+  }, 100);
+};
+
+// ── BOOKINGS & ORDERS CUSTOM CTA HANDLERS ──────────────────────
+window.closeDashboardActionModal = function() {
+  const modal = document.getElementById('modal-dashboard-action');
+  if (modal) modal.style.display = 'none';
+};
+
+window.handleReschedule = function(bookingId) {
+  let modal = document.getElementById('modal-dashboard-action');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-dashboard-action';
+    modal.style.cssText = 'position: fixed; inset: 0; background: rgba(17,17,17,.65); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(8px);';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 440px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; position: relative; padding: 32px;">
+      <h3 class="melody" style="font-size: 26px; color: var(--color-ink); margin-bottom: 12px;">Reschedule Booking</h3>
+      <p style="font-size: 14px; color: var(--color-ink-sft); line-height: 1.6; margin-bottom: 20px;">Choose a new preferred date and time for slot <strong>${bookingId}</strong>.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+        <div class="field">
+          <label>New Date</label>
+          <input type="date" id="resched-date" value="2026-06-25" style="width: 100%;">
+        </div>
+        <div class="field">
+          <label>New Time Slot</label>
+          <select id="resched-time" style="width: 100%;">
+            <option>09:00 AM</option>
+            <option>10:30 AM</option>
+            <option selected>02:00 PM</option>
+            <option>04:30 PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button class="btn btn-md btn-primary" style="flex: 1; justify-content: center;" onclick="window.confirmReschedule('${bookingId}')">Confirm Slot 🐾</button>
+        <button class="btn btn-md btn-ghost" onclick="window.closeDashboardActionModal()">Cancel</button>
+      </div>
+    </div>
+  `;
+  modal.style.display = 'flex';
+};
+
+window.confirmReschedule = function(bookingId) {
+  const newDateVal = document.getElementById('resched-date').value;
+  const newTimeVal = document.getElementById('resched-time').value;
+  const dateObj = new Date(newDateVal);
+  const options = { month: 'short', day: 'numeric', year: 'numeric' };
+  const formattedDate = dateObj.toLocaleDateString('en-US', options);
+
+  alert(`Booking ${bookingId} successfully rescheduled to ${formattedDate} at ${newTimeVal}!`);
+  window.closeDashboardActionModal();
+};
+
+window.handleCancelBooking = function(bookingId) {
+  if (confirm(`Are you sure you want to cancel the booking ${bookingId}?`)) {
+    alert(`Booking ${bookingId} has been successfully cancelled. A full refund has been initiated to your original payment method.`);
+  }
+};
+
+window.handleViewInvoice = function(bookingId) {
+  let modal = document.getElementById('modal-dashboard-action');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-dashboard-action';
+    modal.style.cssText = 'position: fixed; inset: 0; background: rgba(17,17,17,.65); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(8px);';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 500px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; position: relative; padding: 36px;">
+      <button onclick="window.closeDashboardActionModal()" style="position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 14px; cursor: pointer; color: var(--color-ink-sft); display: flex; align-items: center; justify-content: center;">✕</button>
+      
+      <div style="text-align: center; border-bottom: 2px dashed var(--color-border); padding-bottom: 20px; margin-bottom: 20px;">
+        <span style="font-size: 32px;">🧾</span>
+        <h3 class="melody" style="font-size: 26px; color: var(--color-ink); margin-top: 8px; margin-bottom: 4px;">Pawprint Receipt</h3>
+        <span style="font-size: 12px; color: var(--color-ink-sft);">Transaction Ref: ${bookingId}</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-ink-sft);">Consultation Fee</span>
+          <strong>₹550.00</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-ink-sft);">Technology Portal Fee</span>
+          <strong>₹100.00</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-ink-sft);">CGST / SGST (18%)</span>
+          <strong>Included</strong>
+        </div>
+        <div style="height: 1px; background: var(--color-border); margin: 6px 0;"></div>
+        <div style="display: flex; justify-content: space-between; font-size: 16px;">
+          <span style="font-weight: 700; color: var(--color-ink);">Total Paid</span>
+          <strong style="color: var(--color-orange); font-size: 18px;">₹650.00</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px;">
+          <span style="color: var(--color-ink-sft);">Payment Method:</span>
+          <strong>UPI (Google Pay)</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button class="btn btn-md btn-primary" style="flex: 1; justify-content: center;" onclick="window.print();">🖨️ Print Invoice</button>
+        <button class="btn btn-md btn-ghost" onclick="window.closeDashboardActionModal()">Close</button>
+      </div>
+    </div>
+  `;
+  modal.style.display = 'flex';
+};
+
+window.handleBookAgain = function(serviceName) {
+  alert(`Booking request initialized for "${serviceName}". Redirecting you to schedules...`);
+  window.closeDashboardActionModal();
+};
+
+window.handleTrackOrder = function(orderId) {
+  let modal = document.getElementById('modal-dashboard-action');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-dashboard-action';
+    modal.style.cssText = 'position: fixed; inset: 0; background: rgba(17,17,17,.65); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(8px);';
+    document.body.appendChild(modal);
+  }
+
+  const isTransit = orderId === 'PW-9904';
+  const isProcessing = orderId === 'PW-9951';
+
+  modal.innerHTML = `
+    <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 460px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; position: relative; padding: 36px;">
+      <button onclick="window.closeDashboardActionModal()" style="position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; border-radius: 50%; background: var(--color-cream); border: none; font-size: 14px; cursor: pointer; color: var(--color-ink-sft); display: flex; align-items: center; justify-content: center;">✕</button>
+      
+      <h3 class="melody" style="font-size: 26px; color: var(--color-ink); margin-bottom: 6px;">Shipment Tracking</h3>
+      <span style="font-size: 13px; color: var(--color-ink-sft);">Order Reference: <strong>${orderId}</strong></span>
+      
+      <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 20px; position: relative; padding-left: 28px;">
+        <div style="position: absolute; top: 8px; bottom: 8px; left: 8px; width: 2px; background: var(--color-border-md);"></div>
+        <div style="position: absolute; top: 8px; height: ${isProcessing ? '0%' : isTransit ? '66%' : '100%'}; left: 8px; width: 2px; background: var(--color-orange); transition: height 0.5s;"></div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -25px; top: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-orange); border: 2px solid #fff; box-shadow: 0 0 0 3px rgba(229, 93, 26, 0.2);"></div>
+          <div style="font-weight: 700; font-size: 14px;">Order Placed & Confirmed</div>
+          <div style="font-size: 12px; color: var(--color-ink-sft); margin-top: 2px;">June 12, 2026 - 10:15 AM</div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -25px; top: 2px; width: 12px; height: 12px; border-radius: 50%; background: ${isProcessing ? 'var(--color-sand)' : 'var(--color-orange)'}; border: 2px solid #fff;"></div>
+          <div style="font-weight: 700; font-size: 14px; color: ${isProcessing ? 'var(--color-ink-sft)' : 'var(--color-ink)'};">Shipped & Handled by Blue Dart</div>
+          <div style="font-size: 12px; color: var(--color-ink-sft); margin-top: 2px;">June 13, 2026 - 02:40 PM</div>
+        </div>
+
+        <div style="position: relative;">
+          <div style="position: absolute; left: -25px; top: 2px; width: 12px; height: 12px; border-radius: 50%; background: ${isProcessing || isTransit ? 'var(--color-sand)' : 'var(--color-orange)'}; border: 2px solid #fff;"></div>
+          <div style="font-weight: 700; font-size: 14px; color: ${isProcessing || isTransit ? 'var(--color-ink-sft)' : 'var(--color-ink)'};">Out for Delivery</div>
+          <div style="font-size: 12px; color: var(--color-ink-sft); margin-top: 2px;">In Transit to Coimbatore Hub</div>
+        </div>
+      </div>
+
+      <button class="btn btn-md btn-primary" style="width: 100%; justify-content: center; margin-top: 28px;" onclick="window.closeDashboardActionModal()">Okay</button>
+    </div>
+  `;
+  modal.style.display = 'flex';
+};
+
+window.handleSupport = function(orderId) {
+  const chatWindow = document.getElementById('modal-chatbot');
+  if (chatWindow) {
+    window.closeDashboardActionModal();
+    chatWindow.style.display = 'flex';
+  } else {
+    alert(`Opening transaction support ticket for Order ${orderId}...`);
+  }
+};
+
+window.handleReturnReplace = function(orderId) {
+  let modal = document.getElementById('modal-dashboard-action');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-dashboard-action';
+    modal.style.cssText = 'position: fixed; inset: 0; background: rgba(17,17,17,.65); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(8px);';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div style="background: var(--color-white); border-radius: 28px; width: 100%; max-width: 440px; box-shadow: 0 40px 100px rgba(0,0,0,.25); animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; position: relative; padding: 32px;">
+      <h3 class="melody" style="font-size: 26px; color: var(--color-ink); margin-bottom: 12px;">Return or Replace Item</h3>
+      <p style="font-size: 14px; color: var(--color-ink-sft); line-height: 1.6; margin-bottom: 20px;">Submit a request for order <strong>${orderId}</strong>.</p>
+      
+      <div class="field" style="margin-bottom: 24px;">
+        <label>Reason for Return</label>
+        <select id="return-reason" style="width: 100%;">
+          <option selected>Incorrect Size / Fit</option>
+          <option>Product is Damaged / Defective</option>
+          <option>Item not as pictured</option>
+          <option>No longer needed</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button class="btn btn-md btn-primary" style="flex: 1; justify-content: center;" onclick="alert('Return registered successfully! Our courier partner will pickup the package in 24-48 hours.'); window.closeDashboardActionModal();">Submit Request</button>
+        <button class="btn btn-md btn-ghost" onclick="window.closeDashboardActionModal()">Cancel</button>
+      </div>
+    </div>
+  `;
+  modal.style.display = 'flex';
+};
+
+window.handleBuyAgain = function(itemName, priceStr) {
+  const numericPrice = parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
+  
+  if (typeof window.addToCart === 'function') {
+    window.addToCart(itemName, numericPrice, 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=200');
+    const drawer = document.getElementById('cart-drawer');
+    if (drawer) drawer.style.display = 'flex';
+  } else {
+    alert(`"${itemName}" added to cart for reorder!`);
+  }
+};
 
 function viewPetsTab() {
   closeAddPetModal();
@@ -3438,9 +4153,6 @@ function viewBreedDetail(name) {
         </div>
       </div>
 
-      <div style="display: flex; gap: 12px;">
-        <button class="btn btn-lg btn-outline" style="width: 100%; border-radius: 14px; font-weight: 700;" onclick="closeBreedModal()">Close</button>
-      </div>
     </div>
   `;
   modal.style.display = 'flex';
@@ -3488,8 +4200,8 @@ function renderVideos() {
   const levelColor = { Beginner: 'var(--color-green)', Intermediate: 'var(--color-orange)', "All Levels": 'var(--color-blue)' };
 
   grid.innerHTML = filtered.map(v => `
-    <div class="card card-lift" style="cursor: pointer;" onclick="openVideoPlayer(${v.id})">
-      <div style="position: relative; height: 190px; overflow: hidden;">
+    <div class="card card-lift" style="cursor: pointer; display: flex; flex-direction: column; height: 100%;" onclick="openVideoPlayer(${v.id})">
+      <div style="position: relative; height: 190px; overflow: hidden; flex-shrink: 0;">
         <img src="${v.thumb}" style="width: 100%; height: 100%; object-fit: cover;" alt="${v.title}">
         <div style="position: absolute; inset: 0; background: rgba(17,17,17,.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .25s;"
           onmouseenter="this.style.opacity='1'"
@@ -3501,18 +4213,18 @@ function renderVideos() {
         </div>
         <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,.7); border-radius: 6px; padding: 3px 8px; color: #fff; font-size: 12px; font-weight: 600;">${v.duration}</div>
       </div>
-      <div style="padding: 18px 20px;">
+      <div style="padding: 18px 20px; display: flex; flex-direction: column; flex-grow: 1;">
         <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
           <span style="font-size: 11px; font-weight: 600; color: var(--color-orange);">${v.cat}</span>
           <span style="font-size: 11px; color: var(--color-sand);">·</span>
           <span style="font-size: 11px; color: var(--color-ink-sft);">👁 ${v.views}</span>
         </div>
         <h3 style="font-size: 15px; font-weight: 700; color: var(--color-ink); line-height: 1.35; margin-bottom: 10px;">${v.title}</h3>
-        <div style="display: flex; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px solid var(--color-border);">
-          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-cream-dk); display: flex; align-items: center; justify-content: center; font-size: 12px;">👤</div>
+        <div style="display: flex; gap: 10px; align-items: center; padding-top: 12px; border-top: 1px solid var(--color-border); margin-top: auto;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-cream-dk); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;">👤</div>
           <div>
-            <div style="font-size: 12px; font-weight: 600; color: var(--color-ink);">${v.instructor}</div>
-            <div style="font-size: 11px; color: var(--color-ink-sft);">${v.role}</div>
+            <div style="font-size: 12px; font-weight: 600; color: var(--color-ink); line-height: 1.2;">${v.instructor}</div>
+            <div style="font-size: 11px; color: var(--color-ink-sft); line-height: 1.2;">${v.role}</div>
           </div>
         </div>
       </div>
@@ -4227,6 +4939,66 @@ window.runAIHealthCheckAnalysis = function() {
   }, 2200);
 };
 
+window.toggleAIBreedDropdown = function(e) {
+  if (e) e.stopPropagation();
+  const list = document.getElementById('ai-breed-dropdown-list-container');
+  const arrow = document.getElementById('ai-breed-dropdown-arrow');
+  if (!list) return;
+  const isHidden = list.style.display === 'none';
+  list.style.display = isHidden ? 'block' : 'none';
+  if (arrow) arrow.style.transform = isHidden ? 'rotate(180deg)' : '';
+  
+  if (isHidden) {
+    const searchInput = document.getElementById('ai-breed-dropdown-search');
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.focus();
+    }
+    window.filterAIBreedDropdown();
+  }
+};
+
+window.selectAIBreed = function(breedName) {
+  window.aiHealthState.petBreed = breedName;
+  const selectedText = document.getElementById('ai-breed-dropdown-selected');
+  if (selectedText) selectedText.textContent = breedName;
+  window.toggleAIBreedDropdown();
+};
+
+window.filterAIBreedDropdown = function() {
+  const searchInput = document.getElementById('ai-breed-dropdown-search');
+  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const optionsList = document.getElementById('ai-breed-dropdown-options-list');
+  if (!optionsList) return;
+
+  const filtered = ALL_BREEDS.filter(b => b.name.toLowerCase().includes(query));
+  
+  optionsList.innerHTML = filtered.map(b => {
+    const isSelected = window.aiHealthState.petBreed === b.name;
+    return `
+      <div style="padding: 8px 12px; border-radius: 8px; font-size: 13.5px; color: ${isSelected ? '#E55D1A' : '#0F0F14'}; background: ${isSelected ? 'rgba(229,93,26,0.05)' : 'transparent'}; font-weight: ${isSelected ? '700' : '400'}; cursor: pointer; transition: all 0.15s;" 
+           onmouseover="this.style.background='rgba(229,93,26,0.03)'" 
+           onmouseout="this.style.background='${isSelected ? 'rgba(229,93,26,0.05)' : 'transparent'}'"
+           onclick="window.selectAIBreed('${b.name.replace(/'/g, "\\'")}')">
+        ${b.name}
+      </div>
+    `;
+  }).join('') || `<div style="padding: 8px 12px; font-size: 13.5px; color: #575768; text-align: center;">No breeds found</div>`;
+};
+
+// Document click listener to close dropdown when clicking outside
+if (!window.aiBreedDropdownClickListenerAdded) {
+  document.addEventListener('click', () => {
+    const list = document.getElementById('ai-breed-dropdown-list-container');
+    const arrow = document.getElementById('ai-breed-dropdown-arrow');
+    if (list && list.style.display === 'block') {
+      list.style.display = 'none';
+      if (arrow) arrow.style.transform = '';
+    }
+  });
+  window.aiBreedDropdownClickListenerAdded = true;
+}
+
 window.renderAIHealthStep1 = function() {
   const container = document.getElementById('ai-healthcheck-container');
   if (!container) return;
@@ -4247,19 +5019,21 @@ window.renderAIHealthStep1 = function() {
           <input type="text" id="ai-pet-name" placeholder="e.g. Bruno" value="${window.aiHealthState.petName}" style="padding: 12px 16px; border-radius: 12px; border: 1.5px solid #E4E4EB; font-size: 14.5px; outline: none; width: 100%; transition: border-color 0.2s;" onchange="window.aiHealthState.petName = this.value">
         </div>
         
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Pet Type</label>
-          <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
-            ${['Dog'].map(type => {
-              const icons = { Dog: '🐶' };
-              const selected = window.aiHealthState.petType === type;
-              return `
-                <button type="button" style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px; border-radius: 12px; border: 2px solid #E55D1A; background: rgba(229, 93, 26, 0.04); cursor: default; transition: all 0.2s;">
-                  <span style="font-size: 24px;">${icons[type]}</span>
-                  <span style="font-size: 13px; font-weight: 600; color: #E55D1A;">${type}</span>
-                </button>
-              `;
-            }).join('')}
+        <div style="display: flex; flex-direction: column; gap: 6px; position: relative;" id="ai-breed-dropdown-container">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Dog Breed</label>
+          
+          <!-- Trigger -->
+          <div id="ai-breed-dropdown-trigger" style="padding: 12px 16px; border-radius: 12px; border: 1.5px solid #E4E4EB; font-size: 14.5px; outline: none; width: 100%; background: #fff; color: #0F0F14; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="window.toggleAIBreedDropdown(event)">
+            <span id="ai-breed-dropdown-selected">${window.aiHealthState.petBreed || 'Select Breed…'}</span>
+            <span style="font-size: 10px; color: #575768; transition: transform 0.2s;" id="ai-breed-dropdown-arrow">▼</span>
+          </div>
+          
+          <!-- Dropdown List -->
+          <div id="ai-breed-dropdown-list-container" style="display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: #fff; border: 1.5px solid #E4E4EB; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); z-index: 100; max-height: 250px; overflow-y: auto; padding: 8px;">
+            <input type="text" id="ai-breed-dropdown-search" placeholder="Search breeds..." style="padding: 8px 12px; border-radius: 8px; border: 1px solid #E4E4EB; font-size: 13.5px; width: 100%; outline: none; margin-bottom: 8px; box-sizing: border-box;" oninput="window.filterAIBreedDropdown()" onclick="event.stopPropagation()">
+            <div id="ai-breed-dropdown-options-list">
+              <!-- Dynamically rendered options -->
+            </div>
           </div>
         </div>
         
@@ -4276,17 +5050,13 @@ window.renderAIHealthStep1 = function() {
             }).join('')}
           </div>
         </div>
-        
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #575768; letter-spacing: 0.05em;">Breed (Optional)</label>
-          <input type="text" id="ai-pet-breed" placeholder="e.g. Labrador Retriever" value="${window.aiHealthState.petBreed}" style="padding: 12px 16px; border-radius: 12px; border: 1.5px solid #E4E4EB; font-size: 14.5px; outline: none; width: 100%;" onchange="window.aiHealthState.petBreed = this.value">
-        </div>
       </div>
       
       <button type="button" onclick="window.goToAIHealthStep2()" style="width: 100%; justify-content: center; background: #E55D1A; color: #fff; font-weight: 700; border-radius: 100px; padding: 14px 28px; border: none; cursor: pointer; font-size: 15px; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px;" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">Next: Describe Symptoms →</button>
     </div>
   `;
-};
+  window.filterAIBreedDropdown();
+};;
 
 window.renderAIHealthStep2 = function() {
   const container = document.getElementById('ai-healthcheck-container');

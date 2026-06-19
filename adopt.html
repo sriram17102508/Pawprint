@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,19 +40,8 @@
         </div>
 
         <!-- Company Dropdown Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-company" class="nav-trigger" onclick="toggleDropdown('dropdown-company')">
-            Company
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div id="dropdown-company" class="dropdown-menu"
-            style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
-            <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
-          </div>
+                <div style="position: relative;">
+          <button id="nav-btn-about" class="nav-link" onclick="nav('about')">About Us</button>
         </div>
 
         <!-- Services Link -->
@@ -130,7 +119,7 @@
       <!-- Initial List View -->
       <div id="adopt-view-list">
         <section
-          style="position: relative; min-height: 480px; overflow: hidden; display: flex; align-items: center; padding: 100px 0 80px;">
+          style="position: relative; height: 540px; overflow: hidden; display: flex; align-items: center; padding: 0;">
           <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80&fit=crop"
             style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
             alt="Dogs Playing">

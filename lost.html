@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,19 +40,8 @@
         </div>
 
         <!-- Company Dropdown Link -->
-        <div class="nav-dropdown" style="position: relative;">
-          <button id="nav-btn-company" class="nav-trigger" onclick="toggleDropdown('dropdown-company')">
-            Company
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="arrow-icon">
-              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div id="dropdown-company" class="dropdown-menu"
-            style="display: none; position: absolute; top: calc(100% + 8px); left: 0;">
-            <button onclick="nav('about')" class="dropdown-item">📖 Our Story</button>
-            <button onclick="nav('contact')" class="dropdown-item">✉️ Contact Us</button>
-          </div>
+                <div style="position: relative;">
+          <button id="nav-btn-about" class="nav-link" onclick="nav('about')">About Us</button>
         </div>
 
         <!-- Services Link -->
@@ -127,7 +116,7 @@
        ========================================== -->
   <main id="main-content" style="padding-top: 96px;">
     <section id="page-lost" class="page-section">
-      <section style="padding: 120px 0 80px; position: relative; overflow: hidden;">
+      <section style="height: 540px; display: flex; align-items: center; position: relative; overflow: hidden;">
         <img src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=1400&q=80&fit=crop"
           style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
           alt="Lost And Found Hero Background">
@@ -135,7 +124,7 @@
           style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.45) 60%, rgba(17, 17, 17, 0.85) 100%);">
         </div>
         <div
-          style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; position: relative; z-index: 2;">
+          style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; position: relative; z-index: 2;">
           <div>
             <div class="pill pill-red" style="margin-bottom: 24px;">Lost & Found</div>
             <h1 class="melody-italic"
@@ -272,13 +261,6 @@
                       </div>
                       <div class="report-form-grid">
                         <div class="field"><label id="lost-field-name-label">Pet's Name *</label><input id="lost-field-name" placeholder="E.G. Max"></div>
-                        <div class="field">
-                          <label>Species *</label>
-                          <select id="lost-field-species">
-                            <option value="">Select…</option>
-                            <option>Dog</option><option>Cat</option><option>Bird</option><option>Other</option>
-                          </select>
-                        </div>
                         <div class="field"><label>Breed</label><input id="lost-field-breed" placeholder="E.G. Golden Retriever Mix"></div>
                         <div class="field">
                           <label>Gender</label>
@@ -297,6 +279,10 @@
                           </select>
                         </div>
                         <div class="field"><label>Microchip ID</label><input id="lost-field-microchip" placeholder="If Available"></div>
+                        <div class="field" id="lost-reward-field">
+                          <label>Price Reward</label>
+                          <input id="lost-field-reward" placeholder="E.G. ₹5,000 Or None">
+                        </div>
                         <div class="field" style="grid-column: 1 / -1;">
                           <label>Distinctive Marks / Features *</label>
                           <textarea id="lost-field-features" placeholder="Describe Any Unique Markings, Scars, Spots, Or Features That Would Help Identify Your Pet..." rows="3" style="resize: vertical;"></textarea>
@@ -388,10 +374,6 @@
                         <div class="field" style="grid-column: 1 / -1;">
                           <label>Additional Details / Behaviour Notes</label>
                           <textarea id="lost-field-notes" placeholder="Is Pet Friendly With Strangers? Scared Of Loud Noises? Medical Needs..." rows="4" style="resize: vertical;"></textarea>
-                        </div>
-                        <div class="field" id="lost-reward-field">
-                          <label>Reward Offered</label>
-                          <input id="lost-field-reward" placeholder="E.G. ₹5,000 Or None">
                         </div>
                       </div>
                     </div>
