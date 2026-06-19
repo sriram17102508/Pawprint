@@ -2650,6 +2650,9 @@ function ShopPage() {
           <div>
             <div className="pill pill-orange" style={{ marginBottom: 24 }}>Shop</div>
             <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink }}>Premium.<br />Trusted. Fast.</h1>
+            <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.75, maxWidth: 560, marginTop: 16 }}>
+              Your Ultimate Destination For Premium Pet Foods, Organic Treats, High-Quality Toys, And Veterinarian-Approved Grooming Essentials.
+            </p>
           </div>
           <button className="btn btn-md btn-outline" onClick={() => setCartOpen(o => !o)} style={{ position: "relative" }}>
             🛒 Cart
@@ -5732,14 +5735,6 @@ function PetVideosPage({ nav }) {
           <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
             Free Training Videos, Health Guides, Grooming Tutorials, And Behavior Tips — Taught By Pawprint's Certified Vets And Trainers.
           </p>
-          <div style={{ display: "flex", gap: 36 }}>
-            {[["12+", "Free Videos"], ["6", "Expert Instructors"], ["8", "Topic Categories"], ["4.9★", "Avg. Rating"]].map(([v, l]) => (
-              <div key={l}>
-                <div className="melody" style={{ fontSize: 32, color: C.orange, lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,.5)", marginTop: 4 }}>{l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -5751,31 +5746,40 @@ function PetVideosPage({ nav }) {
               <div style={{ width: 20, height: 2, background: C.orange }} />
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Most Watched This Week</span>
             </div>
-            <div className="card card-lift" style={{ display: "grid", gridTemplateColumns: "1fr 420px", cursor: "pointer" }} onClick={() => setPlaying(featured.id)}>
-              <div style={{ padding: "44px 48px" }}>
-                <div style={{ display: "flex", gap: 10, marginBottom: 18, flexWrap: "wrap" }}>
-                  <span className="pill" style={{ background: `${levelColor[featured.level]}15`, color: levelColor[featured.level] }}>{featured.level}</span>
-                  <span className="pill pill-dark">{featured.cat}</span>
-                  <span className="pill pill-orange">👁 {featured.views} views</span>
-                </div>
-                <h2 className="melody" style={{ fontSize: "clamp(28px,3vw,42px)", color: C.ink, lineHeight: 1.05, marginBottom: 14 }}>{featured.title}</h2>
-                <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.75, marginBottom: 24 }}>{featured.desc}</p>
-                <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 28 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>👤</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: C.ink }}>{featured.instructor}</div>
-                    <div style={{ fontSize: 13, color: C.inkSft }}>{featured.role}</div>
+            <div className="card card-lift" style={{ display: "grid", gridTemplateColumns: "1fr 420px", cursor: "pointer", borderRadius: 32, border: "1px solid rgba(17, 17, 17, 0.05)", background: "linear-gradient(135deg, #ffffff 0%, #FAF9F6 100%)", overflow: "hidden", boxShadow: "0 20px 40px rgba(17, 17, 17, 0.03)" }} onClick={() => setPlaying(featured.id)}>
+              <div style={{ padding: "48px 52px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div>
+                  <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
+                    <span className="pill" style={{ background: `${levelColor[featured.level]}15`, color: levelColor[featured.level], fontWeight: 600, fontSize: 11 }}>{featured.level}</span>
+                    <span className="pill pill-dark" style={{ fontWeight: 600, fontSize: 11 }}>{featured.cat}</span>
+                    <span className="pill pill-orange" style={{ fontWeight: 600, fontSize: 11 }}>👁 {featured.views} views</span>
                   </div>
-                  <span style={{ marginLeft: 16, fontSize: 14, color: C.inkSft }}>⏱ {featured.duration}</span>
+                  <h2 className="melody" style={{ fontSize: "clamp(28px,3vw,38px)", color: C.ink, lineHeight: 1.1, marginBottom: 16, fontWeight: 800 }}>{featured.title}</h2>
+                  <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.7, marginBottom: 28, maxWidth: 560 }}>{featured.desc}</p>
                 </div>
-                <button className="btn btn-lg btn-primary">▶ Watch Now</button>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, borderTop: `1px solid ${C.border}`, paddingTop: 24 }}>
+                  <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop"
+                      style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover", border: `2px solid ${C.creamDk}` }} alt={featured.instructor} />
+                    <div>
+                      <div style={{ fontWeight: 700, color: C.ink, fontSize: 14 }}>{featured.instructor}</div>
+                      <div style={{ fontSize: 12, color: C.inkSft }}>{featured.role}</div>
+                    </div>
+                    <span style={{ marginLeft: 12, fontSize: 13, color: C.inkSft, display: "flex", alignItems: "center", gap: 4 }}>⏱ {featured.duration}</span>
+                  </div>
+                  <button className="btn btn-lg btn-primary" style={{ background: `linear-gradient(135deg, ${C.orange} 0%, #D44D12 100%)`, border: "none", boxShadow: `0 8px 20px ${C.orange}40` }}>▶ Watch Now</button>
+                </div>
               </div>
               <div style={{ position: "relative", overflow: "hidden" }}>
-                <Img src={featured.thumb} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.35)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: "rgba(255,255,255,.2)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 30, border: "2px solid rgba(255,255,255,.4)" }}>▶</div>
+                <Img src={featured.thumb} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }} className="featured-thumb" />
+                <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.25)", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.3s ease" }}>
+                  <div className="play-btn-circle" style={{ width: 76, height: 76, borderRadius: "50%", background: "rgba(255,255,255,.2)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid rgba(255,255,255,.4)", transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s" }}>
+                    <svg width="22" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 5V19L19 12L8 5Z" fill="white" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                 </div>
-                <div style={{ position: "absolute", bottom: 16, right: 16, background: "rgba(0,0,0,.7)", borderRadius: 8, padding: "4px 10px", color: "#fff", fontSize: 13, fontWeight: 600 }}>{featured.duration}</div>
+                <div style={{ position: "absolute", bottom: 20, right: 20, background: "rgba(0,0,0,.75)", borderRadius: 8, padding: "4px 12px", color: "#fff", fontSize: 12, fontWeight: 600 }}>{featured.duration}</div>
               </div>
             </div>
           </div>
@@ -5802,9 +5806,9 @@ function PetVideosPage({ nav }) {
           {/* Video grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 24 }}>
             {filtered.map(v => (
-              <div key={v.id} className="card card-lift" style={{ cursor: "pointer" }} onClick={() => setPlaying(v.id)}>
+              <div key={v.id} className="card card-lift" style={{ cursor: "pointer", display: "flex", flexDirection: "column", height: "100%" }} onClick={() => setPlaying(v.id)}>
                 {/* Thumbnail */}
-                <div style={{ position: "relative", height: 190, overflow: "hidden" }}>
+                <div style={{ position: "relative", height: 190, overflow: "hidden", flexShrink: 0 }}>
                   <Img src={v.thumb} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .5s cubic-bezier(.22,1,.36,1)" }}
                     onMouseEnter={e => e.target.style.transform = "scale(1.07)"}
                     onMouseLeave={e => e.target.style.transform = "scale(1)"} />
@@ -5820,14 +5824,14 @@ function PetVideosPage({ nav }) {
                 </div>
 
                 {/* Info */}
-                <div style={{ padding: "18px 20px" }}>
+                <div style={{ padding: "18px 20px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
                   <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
                     <span style={{ fontSize: 11, fontWeight: 600, color: C.orange }}>{v.cat}</span>
                     <span style={{ fontSize: 11, color: C.sand }}>·</span>
                     <span style={{ fontSize: 11, color: C.inkSft }}>👁 {v.views}</span>
                   </div>
                   <h3 style={{ fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.35, marginBottom: 10 }}>{v.title}</h3>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center", paddingTop: 10, borderTop: `1px solid ${C.border}` }}>
+                  <div style={{ display: "flex", gap: 8, alignItems: "center", paddingTop: 10, borderTop: `1px solid ${C.border}`, marginTop: "auto" }}>
                     <div style={{ width: 28, height: 28, borderRadius: "50%", background: C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>👤</div>
                     <div>
                       <div style={{ fontSize: 12, fontWeight: 600, color: C.ink }}>{v.instructor}</div>
