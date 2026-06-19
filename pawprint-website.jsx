@@ -508,13 +508,7 @@ function Navbar({ page, nav }) {
 
   const NAV = [
     { label: "Home", page: "home" },
-    {
-      label: "Company",
-      children: [
-        { label: "📖 Our Story", page: "about" },
-        { label: "✉️ Contact Us", page: "contact" },
-      ],
-    },
+    { label: "About Us", page: "about" },
     { label: "Services", page: "services" },
     { label: "Adopt", page: "adopt" },
     {
@@ -1238,32 +1232,6 @@ function HomePage({ nav }) {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section style={{ padding: "60px 0", background: C.cream }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 32px" }}>
-          <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <div className="pill pill-dark" style={{ marginBottom: 12 }}>FAQ</div>
-            <h2 className="melody" style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 700, color: C.ink }}>Questions, Answered.</h2>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            {faqs.slice(0, 5).map((f, i) => (
-              <div key={i} style={{ background: C.white, borderRadius: 16, border: `1px solid ${C.border}`, overflow: "hidden" }}>
-                <button onClick={() => setFaq(faq === i ? null : i)} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 26px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
-                  <span style={{ fontSize: 15, fontWeight: 600, color: C.ink, paddingRight: 20, lineHeight: 1.4 }}>{f.q}</span>
-                  <div style={{ width: 28, height: 28, borderRadius: "50%", background: faq === i ? C.orange : C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "background .2s" }}>
-                    <span style={{ color: faq === i ? "#fff" : C.inkSft, fontSize: 18, lineHeight: 1, transform: faq === i ? "rotate(45deg)" : "", display: "block", transition: "transform .25s" }}>+</span>
-                  </div>
-                </button>
-                {faq === i && (
-                  <div style={{ padding: "0 26px 20px" }}>
-                    <p style={{ fontSize: 14, color: C.inkSft, lineHeight: 1.8, borderTop: `1px solid ${C.border}`, paddingTop: 16 }}>{f.a}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
@@ -1340,7 +1308,7 @@ function AboutPage({ nav }) {
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 48px", width: "100%" }}>
           {/* Label */}
           <div className="pill pill-orange" style={{ marginBottom: 24 }}>
-            Our Story · Our Team · Our Mission
+            Our Story
           </div>
 
           <h1 className="melody" style={{ fontSize: "clamp(58px,7.5vw,110px)", color: "#fff", lineHeight: .9, marginBottom: 28, maxWidth: 900 }}>
@@ -1351,16 +1319,6 @@ function AboutPage({ nav }) {
           <p style={{ fontSize: 19, color: "rgba(255,255,255,.7)", lineHeight: 1.75, maxWidth: 580, marginBottom: 44 }}>
             Pawprint Started When Dr. Kiran Couldn't Find A Single Trusted Platform To Manage His Three Rescue Dogs. That Frustration Became A Mission — And That Mission Became India's Most Loved Pet Care Platform.
           </p>
-
-          {/* Inline stats */}
-          <div style={{ display: "flex", gap: 0, background: "rgba(255,255,255,.08)", backdropFilter: "blur(12px)", borderRadius: 18, border: "1px solid rgba(255,255,255,.12)", overflow: "hidden", width: "fit-content" }}>
-            {[["45K+", "Happy Pets"], ["1,200+", "Vet Partners"], ["8,200+", "Adoptions"], ["85+", "Cities"]].map(([v, l], i, arr) => (
-              <div key={l} style={{ padding: "18px 32px", textAlign: "center", borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,.1)" : "none" }}>
-                <div className="melody" style={{ fontSize: 30, color: C.orange, lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,.55)", marginTop: 4, fontWeight: 500, letterSpacing: ".03em" }}>{l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1752,15 +1710,7 @@ function ServicesPage({ nav }) {
           <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
             7 Comprehensive Service Categories, 70+ Individual Services, 1,200+ Certified Professionals — All Bookable Through Pawprint.
           </p>
-          {/* Quick stats */}
-          <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
-            {[["70+", "Services"], ["1,200+", "Professionals"], ["85+", "Cities"], ["4.9★", "Platform Rating"]].map(([v, l]) => (
-              <div key={l}>
-                <div className="melody" style={{ fontSize: 32, color: C.orange, lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,.5)", marginTop: 4 }}>{l}</div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </section>
 
@@ -1890,11 +1840,24 @@ function AIHealthCheckModal({ onClose, nav }) {
     petName: "Bruno",
     petType: "Dog",
     petAge: "Adult",
-    petBreed: "",
+    petBreed: "Labrador Retriever",
     symptoms: "",
     selectedTags: []
   });
   const [loadingMsg, setLoadingMsg] = useState("Synthesizing pet health metrics...");
+  const [showBreedDropdown, setShowBreedDropdown] = useState(false);
+  const [breedSearchQuery, setBreedSearchQuery] = useState("");
+  const breedDropdownRef = useRef();
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (breedDropdownRef.current && !breedDropdownRef.current.contains(e.target)) {
+        setShowBreedDropdown(false);
+      }
+    };
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, []);
 
   useEffect(() => {
     if (step !== "loading") return;
@@ -2068,20 +2031,60 @@ function AIHealthCheckModal({ onClose, nav }) {
                 <input type="text" placeholder="E.G. Bruno" value={form.petName} onChange={e => setForm(x => ({ ...x, petName: e.target.value }))} style={{ padding: "12px 16px", borderRadius: 12, border: "1.5px solid #E4E4EB", fontSize: 14.5, outline: "none", width: "100%" }} />
               </div>
               
-              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Pet Type</label>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 10 }}>
-                  {['Dog'].map(type => {
-                    const icons = { Dog: '🐶' };
-                    const selected = form.petType === type;
-                    return (
-                      <button key={type} type="button" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: 14, borderRadius: 12, border: `2px solid #E55D1A`, background: 'rgba(229, 93, 26, 0.04)', cursor: "default", transition: "all 0.2s" }}>
-                        <span style={{ fontSize: 24 }}>{icons[type]}</span>
-                        <span style={{ fontSize: 13, fontWeight: 600, color: '#E55D1A' }}>{type}</span>
-                      </button>
-                    );
-                  })}
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, position: "relative" }} ref={breedDropdownRef}>
+                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Dog Breed</label>
+                
+                {/* Trigger */}
+                <div 
+                  onClick={() => setShowBreedDropdown(prev => !prev)}
+                  style={{ padding: "12px 16px", borderRadius: 12, border: "1.5px solid #E4E4EB", fontSize: 14.5, outline: "none", width: "100%", background: "#fff", color: "#0F0F14", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                >
+                  <span>{form.petBreed || 'Select Breed…'}</span>
+                  <span style={{ fontSize: 10, color: "#575768", transform: showBreedDropdown ? "rotate(180deg)" : "", transition: "transform 0.2s" }}>▼</span>
                 </div>
+                
+                {/* Overlay Dropdown */}
+                {showBreedDropdown && (
+                  <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, right: 0, background: "#fff", border: "1.5px solid #E4E4EB", borderRadius: 12, boxShadow: "0 10px 30px rgba(0,0,0,0.08)", zIndex: 100, maxHeight: 250, overflowY: "auto", padding: 8 }}>
+                    <input 
+                      type="text" 
+                      placeholder="Search breeds..." 
+                      value={breedSearchQuery}
+                      onChange={e => setBreedSearchQuery(e.target.value)}
+                      style={{ padding: "8px 12px", borderRadius: 8, border: "1px solid #E4E4EB", fontSize: 13.5, width: "100%", outline: "none", marginBottom: 8, boxSizing: "border-box" }}
+                      onClick={e => e.stopPropagation()}
+                    />
+                    <div>
+                      {ALL_BREEDS.filter(b => b.name.toLowerCase().includes(breedSearchQuery.toLowerCase().trim())).map(b => {
+                        const isSelected = form.petBreed === b.name;
+                        return (
+                          <div 
+                            key={b.name}
+                            onClick={() => {
+                              setForm(x => ({ ...x, petBreed: b.name }));
+                              setShowBreedDropdown(false);
+                              setBreedSearchQuery("");
+                            }}
+                            style={{ 
+                              padding: "8px 12px", borderRadius: 8, fontSize: 13.5, 
+                              color: isSelected ? "#E55D1A" : "#0F0F14", 
+                              background: isSelected ? "rgba(229,93,26,0.05)" : "transparent", 
+                              fontWeight: isSelected ? "700" : "400", 
+                              cursor: "pointer", transition: "all 0.15s" 
+                            }}
+                            onMouseEnter={e => e.target.style.background = "rgba(229,93,26,0.03)"}
+                            onMouseLeave={e => e.target.style.background = isSelected ? "rgba(229,93,26,0.05)" : "transparent"}
+                          >
+                            {b.name}
+                          </div>
+                        );
+                      })}
+                      {ALL_BREEDS.filter(b => b.name.toLowerCase().includes(breedSearchQuery.toLowerCase().trim())).length === 0 && (
+                        <div style={{ padding: "8px 12px", fontSize: 13.5, color: "#575768", textAlign: "center" }}>No breeds found</div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
               
               <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -2096,11 +2099,6 @@ function AIHealthCheckModal({ onClose, nav }) {
                     );
                   })}
                 </div>
-              </div>
-              
-              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                <label style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#575768", letterSpacing: "0.05em" }}>Breed (Optional)</label>
-                <input type="text" placeholder="E.G. Labrador Retriever" value={form.petBreed} onChange={e => setForm(x => ({ ...x, petBreed: e.target.value }))} style={{ padding: "12px 16px", borderRadius: 12, border: "1.5px solid #E4E4EB", fontSize: 14.5, outline: "none", width: "100%" }} />
               </div>
             </div>
             
@@ -2649,7 +2647,10 @@ function ShopPage() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <div>
             <div className="pill pill-orange" style={{ marginBottom: 24 }}>Shop</div>
-            <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink }}>Premium.<br />Trusted. Fast.</h1>
+            <h1 className="melody-italic" style={{ fontSize: "clamp(52px,7vw,94px)", fontWeight: 700, lineHeight: .92, color: C.ink, marginBottom: 20 }}>Premium.<br />Trusted. Fast.</h1>
+            <p style={{ fontSize: 18, color: C.inkSft, lineHeight: 1.7, maxWidth: 540 }}>
+              Premium Food, Toys, Accessories, And More — Curated By Vets, Loved By Pets.
+            </p>
           </div>
           <button className="btn btn-md btn-outline" onClick={() => setCartOpen(o => !o)} style={{ position: "relative" }}>
             🛒 Cart
@@ -2831,7 +2832,7 @@ function LostFoundPage() {
 
   // Lost pet form
   const [lForm, setLForm] = useState({
-    petName: "", species: "", breed: "", gender: "", age: "", color: "", size: "", microchip: "", distinctiveMarks: "",
+    petName: "", species: "Dog", breed: "", gender: "", age: "", color: "", size: "", microchip: "", distinctiveMarks: "",
     lastSeenDate: "", lastSeenTime: "", lastSeenAddress: "", lastSeenCity: "", lastSeenArea: "", lastSeenLandmark: "",
     ownerName: "", ownerPhone: "", ownerPhone2: "", ownerEmail: "", ownerAddress: "", reward: "",
     description: "", vaccinated: "", collar: "", collarDescription: "",
@@ -3012,7 +3013,7 @@ function LostFoundPage() {
     </div>
   );
 
-  Return (
+  return (
     <div style={{ paddingTop: 96 }}>
       {/* Hero */}
       <section style={{ padding: "90px 0 60px", background: C.inkMd, position: "relative", overflow: "hidden" }}>
@@ -3079,13 +3080,12 @@ function LostFoundPage() {
                 <div>
                   {sectionBox(
                     <div className="report-form-grid">
-                      {[["Pet's Name *", "petName", "text", "e.g. Max"], ["Species *", "species", "select", ""], ["Breed", "breed", "text", "e.g. Golden Retriever"], ["Gender", "gender", "select", ""], ["Approximate Age", "age", "text", "e.g. 3 years"], ["Primary Colour *", "color", "text", "e.g. Golden brown"], ["Size", "size", "select", ""], ["Microchip ID", "microchip", "text", "If available"]].map(([l, k, t, ph]) => (
+                      {[["Pet's Name *", "petName", "text", "e.g. Max"], ["Breed", "breed", "text", "e.g. Golden Retriever"], ["Gender", "gender", "select", ""], ["Approximate Age", "age", "text", "e.g. 3 years"], ["Primary Colour *", "color", "text", "e.g. Golden brown"], ["Size", "size", "select", ""], ["Microchip ID", "microchip", "text", "If available"], ["Price Reward", "reward", "text", "E.g. ₹5,000 or None"]].map(([l, k, t, ph]) => (
                         <div key={k} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                           <label style={labelStyle}>{l}</label>
                           {t === "select"
                             ? <select value={lForm[k]} onChange={lf(k)} style={inputStyle}>
                               <option value="">Select…</option>
-                              {k === "species" && <><option>Dog</option><option>Cat</option><option>Bird</option><option>Other</option></>}
                               {k === "gender" && <><option>Male</option><option>Female</option><option>Unknown</option></>}
                               {k === "size" && <><option>Small (Under 5Kg)</option><option>Medium (5–15Kg)</option><option>Large (15–30Kg)</option><option>Extra Large (30Kg+)</option></>}
                             </select>
@@ -3177,10 +3177,6 @@ function LostFoundPage() {
                       <div style={{ gridColumn: "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
                         <label style={labelStyle}>Additional Details / Behaviour Notes</label>
                         <textarea placeholder="Is Your Pet Friendly With Strangers? Afraid Of Loud Sounds? Any Medical Needs? The More Detail The Better…" value={lForm.description} onChange={lf("description")} rows={4} style={{ ...inputStyle, resize: "vertical" }} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                        <label style={labelStyle}>Reward Offered</label>
-                        <input placeholder="E.G. ₹5,000 Or 'None'" value={lForm.reward} onChange={lf("reward")} style={inputStyle} onFocus={e => e.target.style.borderColor = C.orange} onBlur={e => e.target.style.borderColor = C.border} />
                       </div>
                     </div>,
                     "Owner & Contact Information", "👤"
@@ -3782,152 +3778,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
   const [tab, setTab] = useState("overview");
   const [showAddPet, setShowAddPet] = useState(false);
   const [addStep, setAddStep] = useState(1); // 1=form, 2=success
-
-  const [activeDetailsPetIndex, setActiveDetailsPetIndex] = useState(null);
-  const [geofenceActive, setGeofenceActive] = useState(true);
-  const [radarActive, setRadarActive] = useState(false);
-  const [sweepAngle, setSweepAngle] = useState(0);
-
-  const [bookingsList, setBookingsList] = useState([
-    { id: "BK-1082", petName: "Max", service: "Veterinary Consultation", date: "Jun 15, 2026", time: "10:30 AM", provider: "Dr. Kiran Patel", status: "Upcoming", price: "₹650", icon: "🏥" },
-    { id: "BK-1054", petName: "Bella", service: "Full Grooming Session", date: "Jun 25, 2026", time: "02:00 PM", provider: "Pawprint Grooming Studio", status: "Upcoming", price: "₹1,499", icon: "✂️" },
-    { id: "BK-0982", petName: "Max", service: "Behavioral Puppy Training", date: "Jun 20, 2026", time: "09:00 AM", provider: "Priya Venkatesh", status: "Upcoming", price: "₹1,200", icon: "🎓" },
-    { id: "BK-0841", petName: "Bella", service: "Deworming Clinic Visit", date: "May 28, 2026", time: "11:00 AM", provider: "Dr. Kiran Patel", status: "Completed", price: "₹450", icon: "💉" }
-  ]);
-
-  const [ordersList, setOrdersList] = useState([
-    { id: "PW-9951", date: "Jun 13, 2026", item: "Reflective Safe-Grip Leash", category: "Accessories", price: "₹1,199", status: "Processing", icon: "🦮" },
-    { id: "PW-9904", date: "Jun 12, 2026", item: "Organic Chicken & Oats Treats (Pack of 2)", category: "Food & Treats", price: "₹799", status: "In Transit", icon: "🦴" },
-    { id: "PW-9823", date: "Jun 10, 2026", item: "Premium Orthopedic Dog Bed", category: "Bedding", price: "₹2,499", status: "Delivered", icon: "🛏️" }
-  ]);
-
-  const [rescheduleBookingId, setRescheduleBookingId] = useState(null);
-  const [reschedDate, setReschedDate] = useState("");
-  const [reschedTime, setReschedTime] = useState("");
-
-  const [viewInvoiceId, setViewInvoiceId] = useState(null);
-  const [trackOrderId, setTrackOrderId] = useState(null);
-  const [returnOrderId, setReturnOrderId] = useState(null);
-  const [returnReason, setReturnReason] = useState("Incorrect Size / Fit");
-
-  const [dashboardCart, setDashboardCart] = useState([]);
-  const [dashboardCartOpen, setDashboardCartOpen] = useState(false);
-
-  const canvasRef = useRef(null);
-
-  // Animation sweep interval for radar coordinates sweep
-  useEffect(() => {
-    let interval;
-    if (radarActive) {
-      interval = setInterval(() => {
-        setSweepAngle(prev => {
-          if (prev >= 100) {
-            setRadarActive(false);
-            alert("Satellite coordinate sweep complete. Location lock verified.");
-            return 0;
-          }
-          return prev + 4;
-        });
-      }, 40);
-    }
-    return () => clearInterval(interval);
-  }, [radarActive]);
-
-  // Pulse animation for pet marker on map
-  useEffect(() => {
-    let animationFrame;
-    const render = () => {
-      if (activeDetailsPetIndex !== null && canvasRef.current) {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        const pet = pets[activeDetailsPetIndex];
-        const petName = pet ? pet.name : "Max";
-
-        ctx.fillStyle = '#14141d';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
-        ctx.lineWidth = 4;
-        
-        ctx.beginPath();
-        ctx.moveTo(0, 40); ctx.lineTo(440, 40);
-        ctx.moveTo(0, 120); ctx.lineTo(440, 120);
-        ctx.moveTo(0, 170); ctx.lineTo(440, 170);
-        ctx.moveTo(80, 0); ctx.lineTo(80, 200);
-        ctx.moveTo(220, 0); ctx.lineTo(220, 200);
-        ctx.moveTo(350, 0); ctx.lineTo(350, 200);
-        ctx.stroke();
-
-        ctx.fillStyle = 'rgba(34, 197, 94, 0.08)';
-        ctx.beginPath();
-        ctx.arc(350, 120, 40, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = 'rgba(29, 95, 196, 0.12)';
-        ctx.beginPath();
-        ctx.arc(80, 40, 30, 0, Math.PI * 2);
-        ctx.fill();
-
-        const homeX = 220;
-        const homeY = 100;
-        
-        if (geofenceActive) {
-          ctx.strokeStyle = 'rgba(34, 197, 94, 0.25)';
-          ctx.lineWidth = 2;
-          ctx.setLineDash([6, 4]);
-          ctx.beginPath();
-          ctx.arc(homeX, homeY, 70, 0, Math.PI * 2);
-          ctx.stroke();
-          ctx.setLineDash([]);
-          
-          ctx.fillStyle = 'rgba(34, 197, 94, 0.45)';
-          ctx.font = '10px sans-serif';
-          ctx.fillText('Geofence limit (200m)', homeX - 52, homeY - 76);
-        }
-
-        ctx.fillStyle = '#1D5FC4';
-        ctx.beginPath();
-        ctx.arc(homeX, homeY, 6, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = 'rgba(29, 95, 196, 0.3)';
-        ctx.beginPath();
-        ctx.arc(homeX, homeY, 14, 0, Math.PI * 2);
-        ctx.fill();
-
-        const petX = petName === 'Max' ? 245 : 185;
-        const petY = petName === 'Max' ? 80 : 115;
-
-        if (radarActive) {
-          ctx.strokeStyle = 'rgba(229, 93, 26, 0.4)';
-          ctx.lineWidth = 3;
-          ctx.beginPath();
-          ctx.arc(petX, petY, sweepAngle % 50, 0, Math.PI * 2);
-          ctx.stroke();
-        }
-
-        const pulseRadius = 12 + (Date.now() % 1000) / 100;
-        ctx.fillStyle = 'rgba(229, 93, 26, 0.2)';
-        ctx.beginPath();
-        ctx.arc(petX, petY, pulseRadius, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = '#E55D1A';
-        ctx.beginPath();
-        ctx.arc(petX, petY, 6, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        ctx.fillStyle = '#fff';
-        ctx.font = 'bold 11px sans-serif';
-        ctx.fillText(petName, petX + 10, petY + 4);
-      }
-      animationFrame = requestAnimationFrame(render);
-    };
-    render();
-    return () => cancelAnimationFrame(animationFrame);
-  }, [activeDetailsPetIndex, geofenceActive, radarActive, sweepAngle, pets]);
+  const [editingPetIndex, setEditingPetIndex] = useState(-1);
+  const [activeHealthPetIndex, setActiveHealthPetIndex] = useState(-1);
 
   const emptyPet = { name: "", species: "", breed: "", gender: "", dob: "", color: "", weight: "", microchip: "", allergies: "", conditions: "", food: "", vetName: "", vetPhone: "", emergencyContact: "", emergencyPhone: "", notes: "" };
   const [newPet, setNewPet] = useState(emptyPet);
@@ -3944,16 +3796,34 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
   const blur = e => e.target.style.borderColor = C.border;
   const lS = { fontSize: 11, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: C.inkSft, display: "block", marginBottom: 5 };
 
+  const handleEditPet = (idx) => {
+    setEditingPetIndex(idx);
+    setNewPet(pets[idx]);
+    setPetImgPreview(pets[idx].img);
+    setAddStep(1);
+    setShowAddPet(true);
+  };
+
   const handleAddPet = () => {
     if (!newPet.name || !newPet.species || !newPet.breed || !newPet.gender) {
       alert("Please fill in Name, Species, Breed, and Gender."); return;
     }
     const img = petImgPreview || P.dog4;
-    setPets(p => [...p, { ...newPet, img, health: 90, nextVet: "TBD", nextVacc: "TBD" }]);
+    if (editingPetIndex !== -1) {
+      setPets(p => p.map((item, idx) => idx === editingPetIndex ? { ...item, ...newPet, img } : item));
+    } else {
+      setPets(p => [...p, { ...newPet, img, health: 90, nextVet: "TBD", nextVacc: "TBD" }]);
+    }
     setAddStep(2);
   };
 
-  const resetAddPet = () => { setNewPet(emptyPet); setPetImgPreview(null); setAddStep(1); setShowAddPet(false); };
+  const resetAddPet = () => {
+    setNewPet(emptyPet);
+    setPetImgPreview(null);
+    setAddStep(1);
+    setShowAddPet(false);
+    setEditingPetIndex(-1);
+  };
 
   return (
     <div style={{ paddingTop: 96, minHeight: "100vh", background: C.cream }}>
@@ -4009,14 +3879,18 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
             {addStep === 2 ? (
               <div style={{ textAlign: "center", padding: "60px 40px" }}>
                 <div style={{ fontSize: 72, marginBottom: 20, animation: "float 2s ease-in-out infinite" }}>🐾</div>
-                <h2 className="melody" style={{ fontSize: 44, color: C.ink, marginBottom: 12 }}>{newPet.name} is added!</h2>
+                <h2 className="melody" style={{ fontSize: 44, color: C.ink, marginBottom: 12 }}>
+                  {newPet.name} is {editingPetIndex !== -1 ? 'updated' : 'added'}!
+                </h2>
                 <p style={{ fontSize: 16, color: C.inkSft, lineHeight: 1.75, maxWidth: 400, margin: "0 auto 32px" }}>
-                  {newPet.name}'s profile is live on your dashboard. Start tracking health, vaccines, and appointments.
+                  {editingPetIndex !== -1 
+                    ? `${newPet.name}'s profile has been successfully updated on your dashboard.`
+                    : `${newPet.name}'s profile is live on your dashboard. Start tracking health, vaccines, and appointments.`}
                 </p>
                 {petImgPreview && <img src={petImgPreview} alt={newPet.name} style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", border: `4px solid ${C.orange}`, margin: "0 auto 28px", display: "block" }} />}
                 <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
                   <button className="btn btn-lg btn-primary" onClick={() => { resetAddPet(); setTab("pets"); }}>View My Pets →</button>
-                  <button className="btn btn-lg btn-outline" onClick={() => { setNewPet(emptyPet); setPetImgPreview(null); setAddStep(1); }}>Add Another Pet</button>
+                  <button className="btn btn-lg btn-outline" onClick={() => { setNewPet(emptyPet); setPetImgPreview(null); setAddStep(1); }}>{editingPetIndex !== -1 ? 'Add A New Pet' : 'Add Another Pet'}</button>
                 </div>
               </div>
             ) : (
@@ -4024,8 +3898,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                 {/* Modal header */}
                 <div style={{ padding: "28px 32px 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
-                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, lineHeight: 1 }}>Add A New Pet</h2>
-                    <p style={{ fontSize: 14, color: C.inkSft, marginTop: 6 }}>Fill In Your Pet's Details To Start Tracking Their Health And Care.</p>
+                    <h2 className="melody" style={{ fontSize: 32, color: C.ink, lineHeight: 1 }}>{editingPetIndex !== -1 ? 'Edit Pet Profile' : 'Add A New Pet'}</h2>
+                    <p style={{ fontSize: 14, color: C.inkSft, marginTop: 6 }}>{editingPetIndex !== -1 ? 'Update your pet\'s details to keep their health records accurate.' : 'Fill In Your Pet\'s Details To Start Tracking Their Health And Care.'}</p>
                   </div>
                   <button onClick={resetAddPet} style={{ width: 36, height: 36, borderRadius: "50%", background: C.cream, border: "none", fontSize: 18, cursor: "pointer", color: C.inkSft, flexShrink: 0 }}>✕</button>
                 </div>
@@ -4157,7 +4031,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                   {/* Submit */}
                   <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
                     <button className="btn btn-lg btn-primary" style={{ flex: 1 }} onClick={handleAddPet}>
-                      Save Pet Profile 🐾
+                      {editingPetIndex !== -1 ? 'Save Changes 🐾' : 'Save Pet Profile 🐾'}
                     </button>
                     <button className="btn btn-lg btn-ghost" onClick={resetAddPet}>Cancel</button>
                   </div>
@@ -4231,13 +4105,11 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
           </>
         )}
 
+        {/* My Pets Subtab */}
         {tab === "pets" && (
           <div className="app-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
             {pets.map((p, idx) => (
-              <div key={p.name} className="card card-lift" style={{ borderRadius: 24, overflow: "hidden", display: "flex", flexDirection: "column", height: "100%", cursor: "pointer" }} onClick={(e) => {
-                if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-                setActiveDetailsPetIndex(idx);
-              }}>
+              <div key={p.name} className="card" style={{ borderRadius: 24, overflow: "hidden", display: "flex", flexDirection: "column", height: "100%" }}>
                 <div style={{ height: 180, overflow: "hidden", position: "relative" }}>
                   <Img src={p.img} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,.45), transparent)" }} />
@@ -4260,8 +4132,8 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                     {p.allergies && p.allergies !== 'None' && <p style={{ fontSize: 12, color: C.red, marginBottom: 12 }}>⚠️ Allergies: {p.allergies}</p>}
                   </div>
                   <div style={{ display: "flex", gap: 10, marginTop: "auto" }}>
-                    <button className="btn btn-md btn-ghost" style={{ flex: 1 }} onClick={() => alert('Profile details edit is mock-only.')}>Edit</button>
-                    <button className="btn btn-md btn-primary" style={{ flex: 1 }} onClick={() => alert('Loading full health reports charts...')}>Health Records</button>
+                    <button className="btn btn-md btn-ghost" style={{ flex: 1 }} onClick={() => handleEditPet(idx)}>Edit</button>
+                    <button className="btn btn-md btn-primary" style={{ flex: 1 }} onClick={() => setActiveHealthPetIndex(idx)}>Health Records</button>
                   </div>
                 </div>
               </div>
@@ -4283,7 +4155,12 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
         {/* Bookings Subtab */}
         {tab === "bookings" && (
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {bookingsList.map(b => (
+            {[
+              { id: "BK-1082", petName: "Max", service: "Veterinary Consultation", date: "Jun 15, 2026", time: "10:30 AM", provider: "Dr. Kiran Patel", status: "Upcoming", price: "₹650", icon: "🏥" },
+              { id: "BK-1054", petName: "Bella", service: "Full Grooming Session", date: "Jun 25, 2026", time: "02:00 PM", provider: "Pawprint Grooming Studio", status: "Upcoming", price: "₹1,499", icon: "✂️" },
+              { id: "BK-0982", petName: "Max", service: "Behavioral Puppy Training", date: "Jun 20, 2026", time: "09:00 AM", provider: "Priya Venkatesh", status: "Upcoming", price: "₹1,200", icon: "🎓" },
+              { id: "BK-0841", petName: "Bella", service: "Deworming Clinic Visit", date: "May 28, 2026", time: "11:00 AM", provider: "Dr. Kiran Patel", status: "Completed", price: "₹450", icon: "💉" }
+            ].map(b => (
               <div key={b.id} className="card" style={{ padding: 24, flexDirection: "row", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
                 <div style={{ width: 50, height: 50, borderRadius: 12, background: C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>
                   {b.icon}
@@ -4301,30 +4178,20 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                 </div>
                 <div style={{ textAlign: "right", flexShrink: 0, marginLeft: "auto" }}>
                   <div style={{ fontWeight: 800, fontSize: 16, color: C.ink }}>{b.price}</div>
-                  <span className="pill" style={{ marginTop: 6, display: "inline-block", background: b.status === 'Upcoming' ? C.blueLt : b.status === 'Cancelled' ? C.redLt : C.greenLt, color: b.status === 'Upcoming' ? C.blue : b.status === 'Cancelled' ? C.red : C.green, fontWeight: 700 }}>
+                  <span className="pill" style={{ marginTop: 6, display: "inline-block", background: b.status === 'Upcoming' ? C.blueLt : C.greenLt, color: b.status === 'Upcoming' ? C.blue : C.green, fontWeight: 700 }}>
                     {b.status}
                   </span>
                 </div>
                 <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: "auto", width: "100%", borderTop: `1px solid ${C.border}`, paddingTop: 16, marginTop: 8 }}>
                   {b.status === 'Upcoming' ? (
                     <>
-                      <button className="btn btn-sm btn-ghost" onClick={() => { setRescheduleBookingId(b.id); setReschedDate(""); setReschedTime(""); }}>Reschedule</button>
-                      <button className="btn btn-sm btn-primary" style={{ background: C.red, borderColor: C.red, color: "white" }} onClick={() => {
-                        if (confirm(`Are you sure you want to cancel the booking ${b.id}?`)) {
-                          setBookingsList(prev => prev.map(item => item.id === b.id ? { ...item, status: "Cancelled" } : item));
-                          alert(`Booking ${b.id} has been successfully cancelled. A full refund has been initiated to your original payment method.`);
-                        }
-                      }}>Cancel</button>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert(`Rescheduling booking ${b.id}...`)}>Reschedule</button>
+                      <button className="btn btn-sm btn-primary" style={{ background: C.red, borderColor: C.red, color: "white" }} onClick={() => alert(`Cancelling booking ${b.id}...`)}>Cancel</button>
                     </>
                   ) : (
                     <>
-                      <button className="btn btn-sm btn-ghost" onClick={() => setViewInvoiceId(b.id)}>View Invoice</button>
-                      <button className="btn btn-sm btn-primary" onClick={() => {
-                        const newId = `BK-${Math.floor(1000 + Math.random() * 9000)}`;
-                        const newBooking = { ...b, id: newId, status: "Upcoming", date: "Jul 10, 2026", time: "11:00 AM" };
-                        setBookingsList(prev => [newBooking, ...prev]);
-                        alert(`Successfully booked "${b.service}" again! Added to your upcoming schedule for Jul 10, 2026 at 11:00 AM.`);
-                      }}>Book Again</button>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert(`Downloading invoice for ${b.id}...`)}>View Invoice</button>
+                      <button className="btn btn-sm btn-primary" onClick={() => alert('Rebooking service...')}>Book Again</button>
                     </>
                   )}
                 </div>
@@ -4336,7 +4203,11 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
         {/* Orders Subtab */}
         {tab === "orders" && (
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {ordersList.map(o => (
+            {[
+              { id: "PW-9951", date: "Jun 13, 2026", item: "Reflective Safe-Grip Leash", category: "Accessories", price: "₹1,199", status: "Processing", icon: "🦮" },
+              { id: "PW-9904", date: "Jun 12, 2026", item: "Organic Chicken & Oats Treats (Pack of 2)", category: "Food & Treats", price: "₹799", status: "In Transit", icon: "🦴" },
+              { id: "PW-9823", date: "Jun 10, 2026", item: "Premium Orthopedic Dog Bed", category: "Bedding", price: "₹2,499", status: "Delivered", icon: "🛏️" }
+            ].map(o => (
               <div key={o.id} className="card" style={{ padding: 24, flexDirection: "row", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
                 <div style={{ width: 50, height: 50, borderRadius: 12, background: C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>
                   {o.icon}
@@ -4351,7 +4222,7 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                     <span>Order Date: <strong>{o.date}</strong></span>
                   </div>
                 </div>
-                <div style={{ textAlign: "right", flexShrink: 0, marginLeft: "auto" }}>
+                <div style={{ textAlignment: "right", flexShrink: 0, marginLeft: "auto" }}>
                   <div style={{ fontWeight: 800, fontSize: 16, color: C.ink }}>{o.price}</div>
                   <span className="pill" style={{ marginTop: 6, display: "inline-block", background: o.status === 'Processing' ? C.orangeLt : o.status === 'In Transit' ? C.blueLt : C.greenLt, color: o.status === 'Processing' ? C.orange : o.status === 'In Transit' ? C.blue : C.green, fontWeight: 700 }}>
                     {o.status}
@@ -4360,16 +4231,13 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
                 <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: "auto", width: "100%", borderTop: `1px solid ${C.border}`, paddingTop: 16, marginTop: 8 }}>
                   {o.status !== 'Delivered' ? (
                     <>
-                      <button className="btn btn-sm btn-ghost" onClick={() => setTrackOrderId(o.id)}>Track Order</button>
-                      <button className="btn btn-sm btn-primary" onClick={() => setSupportOrderId(o.id)}>Support</button>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert(`Tracking order ${o.id}...`)}>Track Order</button>
+                      <button className="btn btn-sm btn-primary" onClick={() => alert(`Opening customer support for order ${o.id}...`)}>Support</button>
                     </>
                   ) : (
                     <>
-                      <button className="btn btn-sm btn-ghost" onClick={() => setReturnOrderId(o.id)}>Return/Replace</button>
-                      <button className="btn btn-sm btn-primary" onClick={() => {
-                        setDashboardCart(prev => [...prev, o]);
-                        setDashboardCartOpen(true);
-                      }}>Buy Again</button>
+                      <button className="btn btn-sm btn-ghost" onClick={() => alert('Opening return policy...')}>Return/Replace</button>
+                      <button className="btn btn-sm btn-primary" onClick={() => alert('Item added to cart for reorder.')}>Buy Again</button>
                     </>
                   )}
                 </div>
@@ -4379,388 +4247,173 @@ function DashboardPage({ nav, pets, setPets, currentUser }) {
         )}
       </div>
 
-      {/* ── Pet Details & GPS Smart Collar Modal ── */}
-      {activeDetailsPetIndex !== null && pets[activeDetailsPetIndex] && (
+      {/* ── HEALTH RECORDS MODAL ── */}
+      {activeHealthPetIndex !== -1 && (
         <div style={{
-          position: "fixed", inset: 0, background: "rgba(17,17,17,.65)", zIndex: 1000,
+          position: "fixed", inset: 0, background: "rgba(17,17,17,.55)", zIndex: 1000,
           display: "flex", alignItems: "center", justifyContent: "center", padding: 24,
-          backdropFilter: "blur(8px)",
-        }} onClick={e => e.target === e.currentTarget && setActiveDetailsPetIndex(null)}>
-          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 860, maxHeight: "95vh", overflowY: "auto", boxShadow: "0 40px 100px rgba(0,0,0,.25)", animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative" }}>
+          backdropFilter: "blur(6px)",
+        }} onClick={e => e.target === e.currentTarget && setActiveHealthPetIndex(-1)}>
+          <div style={{
+            background: C.white, borderRadius: 28, width: "100%", maxWidth: 800,
+            maxHeight: "90vh", overflowY: "auto", boxShadow: "0 40px 100px rgba(0,0,0,.25)",
+            animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative"
+          }}>
             
-            <button onClick={() => setActiveDetailsPetIndex(null)} style={{ position: "absolute", top: 22, right: 22, width: 36, height: 36, borderRadius: "50%", background: C.cream, border: "none", fontSize: 18, cursor: "pointer", color: C.inkSft, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+            {/* Modal Close Button */}
+            <button onClick={() => setActiveHealthPetIndex(-1)} style={{ position: "absolute", top: 22, right: 22, width: 36, height: 36, borderRadius: "50%", background: C.cream, border: "none", fontSize: 18, cursor: "pointer", color: C.inkSft, zIndex: 10, display: "flex", alignItems: "center", justifycontent: "center" }}>✕</button>
 
+            {/* Content Container */}
             <div style={{ padding: 36 }}>
               
+              {/* Header Profile Grid */}
               <div style={{ display: "flex", gap: 24, alignItems: "center", borderBottom: `1px solid ${C.border}`, paddingBottom: 24, marginBottom: 28 }}>
-                <img src={pets[activeDetailsPetIndex].img} style={{ width: 84, height: 84, borderRadius: "50%", objectFit: "cover", border: `3px solid ${C.orange}`, flexShrink: 0 }} alt={pets[activeDetailsPetIndex].name} />
+                <img src={pets[activeHealthPetIndex].img} style={{ width: 84, height: 84, borderRadius: "50%", objectFit: "cover", border: `3px solid ${C.orange}`, flexShrink: 0 }} alt={pets[activeHealthPetIndex].name} />
                 <div>
-                  <h2 className="melody" style={{ fontSize: 32, color: C.ink, lineHeight: 1.1, marginBottom: 4 }}>{pets[activeDetailsPetIndex].name}'s Profile</h2>
+                  <h2 className="melody" style={{ fontSize: 32, color: C.ink, lineHeight: 1.1, marginBottom: 4 }}>{pets[activeHealthPetIndex].name}'s Health Report</h2>
                   <p style={{ fontSize: 14, color: C.inkSft, fontWeight: 500 }}>
-                    {pets[activeDetailsPetIndex].breed} · {pets[activeDetailsPetIndex].age || 'Unknown age'} · {pets[activeDetailsPetIndex].weight}
+                    {pets[activeHealthPetIndex].breed} · {pets[activeHealthPetIndex].gender} · {pets[activeHealthPetIndex].weight || 'N/A'} · Microchip ID: {pets[activeHealthPetIndex].microchip || 'N/A'}
                   </p>
-                </div>
-                <div style={{ marginLeft: "auto", textAlign: "right" }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: C.inkSft, letterSpacing: "0.05em", marginBottom: 4 }}>Smart Collar</div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontWeight: 600, color: "#22C55E" }}>
-                    <span>🔋 84%</span>
-                    <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 100, background: "rgba(34, 197, 94, 0.15)", fontWeight: 700 }}>ACTIVE</span>
-                  </div>
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 24 }}>
+              {/* Bento Layout */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                 
+                {/* Column 1: Health Score & Allergies / Conditions */}
                 <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                  <div className="card" style={{ padding: 20, borderRadius: 20, background: C.cream, border: `1px solid ${C.border}`, position: "relative", overflow: "hidden" }}>
-                    <h4 className="melody" style={{ fontSize: 16, marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#22C55E", display: "inline-block", animation: "blink 1.4s infinite" }}></span>
-                      Live GPS Tracking Map
-                    </h4>
-                    <canvas ref={canvasRef} width="440" height="200" style={{ width: "100%", height: 200, borderRadius: 12, background: "#1a1a24", border: "1px solid rgba(255,255,255,0.08)" }}></canvas>
-                    <div style={{ marginTop: 12, fontSize: 12.5, color: C.inkSft, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <span>GPS Lock: <strong>11.0168° N, 76.9558° E</strong></span>
-                      <span style={{ fontWeight: 700, color: geofenceActive ? "#22C55E" : C.orange }}>{geofenceActive ? "Safe Zone (Home)" : "GPS Tracker Active"}</span>
+                  
+                  {/* Health Score Bento Card */}
+                  <div style={{ background: "linear-gradient(135deg, var(--color-ink-md), #0d0d0d)", color: "#fff", padding: 24, borderRadius: 20, boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(34, 197, 94, 0.08)" }} />
+                    <h4 className="melody" style={{ fontSize: 18, marginBottom: 14, fontWeight: 700 }}>Overall Health Status</h4>
+                    <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+                      <div style={{ fontSize: 38, fontWeight: 800, color: "#22C55E", fontFamily: "'Inter', sans-serif" }}>{pets[activeHealthPetIndex].health || 90}%</div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ background: "rgba(255,255,255,0.1)", borderRadius: 100, height: 8 }}>
+                          <div style={{ background: "#22C55E", width: `${pets[activeHealthPetIndex].health || 90}%`, height: 8, borderRadius: 100 }} />
+                        </div>
+                        <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", marginTop: 6 }}>Vitals & nutrition are excellent</div>
+                      </div>
                     </div>
                   </div>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                    <button className="btn btn-sm btn-ghost" style={{ padding: 12, fontSize: 13 }} onClick={() => alert(`Sending audio signal to ${pets[activeDetailsPetIndex].name}'s Smart Collar... Chime playing successfully! 🔊🐕`)}>
-                      🔊 Play Chime Alert
-                    </button>
-                    <button className="btn btn-sm btn-outline" style={{ padding: 12, fontSize: 13, background: geofenceActive ? "transparent" : `${C.orange}10`, color: geofenceActive ? C.ink : C.orange, borderColor: geofenceActive ? C.border : C.orange }} onClick={() => setGeofenceActive(!geofenceActive)}>
-                      {geofenceActive ? "🛡️ Geofence: Active" : "🔓 Geofence: Inactive"}
-                    </button>
-                  </div>
-                  <button className="btn btn-md btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={() => setRadarActive(true)}>
-                    🛰️ Scan & Locate Collar
-                  </button>
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                  <div className="card" style={{ padding: 20, borderRadius: 20, background: C.white, border: `1px solid ${C.border}`, flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                    <div>
-                      <h4 className="melody" style={{ fontSize: 20, marginBottom: 16, fontWeight: 700 }}>Collar & Vital Stats</h4>
-                      <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 13.5 }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: `1px solid ${C.border}`, paddingBottom: 8 }}>
-                          <span style={{ color: C.inkSft }}>Activity Counter</span>
-                          <strong style={{ color: C.orange }}>8,420 Steps Today</strong>
+                  {/* Medical Alerts Bento Card */}
+                  <div style={{ background: C.cream, padding: 24, borderRadius: 20, border: `1px solid ${C.border}`, flex: 1 }}>
+                    <h4 className="melody" style={{ fontSize: 18, color: C.ink, marginBottom: 14, fontWeight: 700 }}>⚠️ Medical Warnings</h4>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                      <div>
+                        <div style={{ fontSize: 11, fontWeight: 700, color: C.inkSft, textTransform: "uppercase" }}>Allergies</div>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: pets[activeHealthPetIndex].allergies && pets[activeHealthPetIndex].allergies !== 'None' ? C.red : C.ink, marginTop: 2 }}>
+                          {pets[activeHealthPetIndex].allergies || 'None reported'}
                         </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: `1px solid ${C.border}`, paddingBottom: 8 }}>
-                          <span style={{ color: C.inkSft }}>Collar Serial ID</span>
-                          <strong>PC-{pets[activeDetailsPetIndex].microchip || 'GPS-5541'}</strong>
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: `1px solid ${C.border}`, paddingBottom: 8 }}>
-                          <span style={{ color: C.inkSft }}>Biological Sex</span>
-                          <strong>{pets[activeDetailsPetIndex].gender}</strong>
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: `1px solid ${C.border}`, paddingBottom: 8 }}>
-                          <span style={{ color: C.inkSft }}>Allergies Log</span>
-                          <strong style={{ color: pets[activeDetailsPetIndex].allergies !== 'None' ? C.red : C.ink }}>{pets[activeDetailsPetIndex].allergies || 'None'}</strong>
+                      </div>
+                      <div style={{ height: 1, background: C.border }} />
+                      <div>
+                        <div style={{ fontSize: 11, fontWeight: 700, color: C.inkSft, textTransform: "uppercase" }}>Chronic Conditions</div>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: pets[activeHealthPetIndex].conditions && pets[activeHealthPetIndex].conditions !== 'None' ? C.red : C.ink, marginTop: 2 }}>
+                          {pets[activeHealthPetIndex].conditions || 'None diagnosed'}
                         </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
 
-              </div>
-
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Reschedule booking slot modal ── */}
-      {rescheduleBookingId !== null && (
-        <div style={{
-          position: "fixed", inset: 0, background: "rgba(17,17,17,.65)", zIndex: 1000,
-          display: "flex", alignItems: "center", justifyContent: "center", padding: 24,
-          backdropFilter: "blur(8px)",
-        }} onClick={e => e.target === e.currentTarget && setRescheduleBookingId(null)}>
-          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 440, boxShadow: "0 40px 100px rgba(0,0,0,.25)", animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative", padding: 36 }}>
-            <button onClick={() => setRescheduleBookingId(null)} style={{ position: "absolute", top: 20, right: 20, width: 32, height: 32, borderRadius: "50%", background: C.cream, border: "none", fontSize: 14, cursor: "pointer", color: C.inkSft, display: "flex", alignItems: "center", justifyContext: "center" }}>✕</button>
-            
-            <h3 className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 16 }}>Reschedule Visit</h3>
-            <p style={{ fontSize: 14, color: C.inkSft, marginBottom: 24, lineParagraph: "1.5" }}>
-              Choose a new date and time slot for booking reference <strong>{rescheduleBookingId}</strong>.
-            </p>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 28 }}>
-              <div>
-                <label style={lS}>Select New Date</label>
-                <input type="date" value={reschedDate} onChange={e => setReschedDate(e.target.value)} style={iS} />
-              </div>
-              <div>
-                <label style={lS}>Select Time Slot</label>
-                <select value={reschedTime} onChange={e => setReschedTime(e.target.value)} style={iS}>
-                  <option value="">Select slot…</option>
-                  <option value="09:00 AM">09:00 AM</option>
-                  <option value="10:30 AM">10:30 AM</option>
-                  <option value="11:45 AM">11:45 AM</option>
-                  <option value="02:00 PM">02:00 PM</option>
-                  <option value="04:30 PM">04:30 PM</option>
-                </select>
-              </div>
-            </div>
-
-            <div style={{ display: "flex", gap: 12 }}>
-              <button className="btn btn-md btn-primary" style={{ flex: 1, justifyContent: "center" }} onClick={() => {
-                if (!reschedDate || !reschedTime) {
-                  alert("Please select both a date and time slot.");
-                  return;
-                }
-                const dateObj = new Date(reschedDate);
-                const options = { month: 'short', day: 'numeric', year: 'numeric' };
-                const formattedDate = dateObj.toLocaleDateString('en-US', options);
-
-                setBookingsList(prev => prev.map(b => b.id === rescheduleBookingId ? { ...b, date: formattedDate, time: reschedTime } : b));
-                alert(`Booking ${rescheduleBookingId} successfully rescheduled to ${formattedDate} at ${reschedTime}!`);
-                setRescheduleBookingId(null);
-              }}>Confirm Slot</button>
-              <button className="btn btn-md btn-ghost" onClick={() => setRescheduleBookingId(null)}>Cancel</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Receipt invoice modal ── */}
-      {viewInvoiceId !== null && (
-        <div style={{
-          position: "fixed", inset: 0, background: "rgba(17,17,17,.65)", zIndex: 1000,
-          display: "flex", alignItems: "center", justifyContent: "center", padding: 24,
-          backdropFilter: "blur(8px)",
-        }} onClick={e => e.target === e.currentTarget && setViewInvoiceId(null)}>
-          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 500, boxShadow: "0 40px 100px rgba(0,0,0,.25)", animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative", padding: 36 }}>
-            <button onClick={() => setViewInvoiceId(null)} style={{ position: "absolute", top: 20, right: 20, width: 32, height: 32, borderRadius: "50%", background: C.cream, border: "none", fontSize: 14, cursor: "pointer", color: C.inkSft, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
-            
-            <div style={{ textAlign: "center", borderBottom: `2px dashed ${C.border}`, paddingBottom: 20, margin: "0 0 20px" }}>
-              <span style={{ fontSize: 32 }}>🧾</span>
-              <h3 className="melody" style={{ fontSize: 26, color: C.ink, marginTop: 8, marginBottom: 4 }}>Pawprint Receipt</h3>
-              <span style={{ fontSize: 12, color: C.inkSft }}>Transaction Ref: {viewInvoiceId}</span>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 13.5, marginBottom: 24 }}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: C.inkSft }}>Service Item / Fee</span>
-                <strong>{bookingsList.find(b => b.id === viewInvoiceId)?.service || "Consultation / Care"}</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: C.inkSft }}>Consultation Base</span>
-                <strong>{bookingsList.find(b => b.id === viewInvoiceId)?.price || "₹550.00"}</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: C.inkSft }}>Technology Portal Fee</span>
-                <strong>₹100.00</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: C.inkSft }}>CGST / SGST (18%)</span>
-                <strong>Included</strong>
-              </div>
-              <div style={{ height: 1, background: C.border, margin: "6px 0" }}></div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 16 }}>
-                <span style={{ fontWeight: 700, color: C.ink }}>Total Paid</span>
-                <strong style={{ color: C.orange, fontSize: 18 }}>
-                  {bookingsList.find(b => b.id === viewInvoiceId)?.price || "₹650.00"}
-                </strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10, fontSize: 12 }}>
-                <span style={{ color: C.inkSft }}>Payment Method:</span>
-                <strong>UPI (Google Pay)</strong>
-              </div>
-            </div>
-
-            <div style={{ display: "flex", gap: 12 }}>
-              <button className="btn btn-md btn-primary" style={{ flex: 1, justifyContent: "center" }} onClick={() => window.print()}>🖨️ Print Invoice</button>
-              <button className="btn btn-md btn-ghost" onClick={() => setViewInvoiceId(null)}>Close</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Order shipment tracking stepper modal ── */}
-      {trackOrderId !== null && (
-        <div style={{
-          position: "fixed", inset: 0, background: "rgba(17,17,17,.65)", zIndex: 1000,
-          display: "flex", alignItems: "center", justifyContent: "center", padding: 24,
-          backdropFilter: "blur(8px)",
-        }} onClick={e => e.target === e.currentTarget && setTrackOrderId(null)}>
-          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 460, boxShadow: "0 40px 100px rgba(0,0,0,.25)", animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative", padding: 36 }}>
-            <button onClick={() => setTrackOrderId(null)} style={{ position: "absolute", top: 20, right: 20, width: 32, height: 32, borderRadius: "50%", background: C.cream, border: "none", fontSize: 14, cursor: "pointer", color: C.inkSft, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
-            
-            <h3 className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 6 }}>Shipment Tracking</h3>
-            <span style={{ fontSize: 13, color: C.inkSft }}>Order Reference: <strong>{trackOrderId}</strong></span>
-            
-            <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 20, position: "relative", paddingLeft: 28 }}>
-              <div style={{ position: "absolute", top: 8, bottom: 8, left: 8, width: 2, background: C.border }}></div>
-              <div style={{ position: "absolute", top: 8, height: trackOrderId === 'PW-9951' ? '0%' : trackOrderId === 'PW-9904' ? '66%' : '100%', left: 8, width: 2, background: C.orange, transition: "height 0.5s" }}></div>
-
-              <div style={{ position: "relative" }}>
-                <div style={{ position: "absolute", left: -25, top: 2, width: 12, height: 12, borderRadius: "50%", background: C.orange, border: "2px solid #fff", boxShadow: "0 0 0 3px rgba(229, 93, 26, 0.2)" }}></div>
-                <div style={{ fontWeight: 700, fontSize: 14 }}>Order Placed & Confirmed</div>
-                <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2 }}>June 12, 2026 - 10:15 AM</div>
-              </div>
-
-              <div style={{ position: "relative" }}>
-                <div style={{ position: "absolute", left: -25, top: 2, width: 12, height: 12, borderRadius: "50%", background: trackOrderId === 'PW-9951' ? C.sand : C.orange, border: "2px solid #fff" }}></div>
-                <div style={{ fontWeight: 700, fontParagraph: "bold", fontSize: 14, color: trackOrderId === 'PW-9951' ? C.inkSft : C.ink }}>Shipped & Handled by Blue Dart</div>
-                <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2 }}>June 13, 2026 - 02:40 PM</div>
-              </div>
-
-              <div style={{ position: "relative" }}>
-                <div style={{ position: "absolute", left: -25, top: 2, width: 12, height: 12, borderRadius: "50%", background: (trackOrderId === 'PW-9951' || trackOrderId === 'PW-9904') ? C.sand : C.orange, border: "2px solid #fff" }}></div>
-                <div style={{ fontWeight: 700, fontSize: 14, color: (trackOrderId === 'PW-9951' || trackOrderId === 'PW-9904') ? C.inkSft : C.ink }}>Out for Delivery</div>
-                <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2 }}>In Transit to Coimbatore Hub</div>
-              </div>
-            </div>
-
-            <button className="btn btn-md btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: 28 }} onClick={() => setTrackOrderId(null)}>Okay</button>
-          </div>
-        </div>
-      )}
-
-      {/* ── Support chatbot window ── */}
-      {supportOrderId !== null && (
-        <div style={{
-          position: "fixed", inset: 0, background: "rgba(17,17,17,.65)", zIndex: 1000,
-          display: "flex", alignItems: "center", justifyContent: "center", padding: 24,
-          backdropFilter: "blur(8px)",
-        }} onClick={e => e.target === e.currentTarget && setSupportOrderId(null)}>
-          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 440, height: 500, boxShadow: "0 40px 100px rgba(0,0,0,.25)", animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative", display: "flex", flexDirection: "column", overflow: "hidden" }}>
-            
-            {/* Header */}
-            <div style={{ background: C.ink, padding: "20px 24px", color: "#fff", display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ fontSize: 24 }}>🤖</span>
-              <div>
-                <h3 className="melody" style={{ fontSize: 20, color: "#fff", margin: 0 }}>Pawprint Support</h3>
-                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Order Ticket: {supportOrderId}</span>
-              </div>
-              <button onClick={() => setSupportOrderId(null)} style={{ marginLeft: "auto", background: "none", border: "none", color: "#fff", fontSize: 18, cursor: "pointer" }}>✕</button>
-            </div>
-
-            {/* Messages Body */}
-            <div style={{ flex: 1, padding: 20, overflowY: "auto", display: "flex", flexDirection: "column", gap: 12, background: C.cream }}>
-              <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <div style={{ width: 28, height: 28, borderRadius: "50%", background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: "#fff" }}>🤖</div>
-                <div style={{ background: "#fff", padding: "10px 14px", borderRadius: "0 14px 14px 14px", fontSize: 13.5, color: C.ink, maxWidth: "75%", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", lineHeight: 1.45 }}>
-                  Hello! I am your Pawprint assistant. I see you are asking about order <strong>{supportOrderId}</strong> ("{ordersList.find(o => o.id === supportOrderId)?.item}"). How can I help you today?
-                </div>
-              </div>
-              
-              <div style={{ display: "flex", gap: 10, alignItems: "flex-start", justifyContent: "flex-end" }}>
-                <div style={{ background: C.orange, color: "#fff", padding: "10px 14px", borderRadius: "14px 14px 0 14px", fontSize: 13.5, maxWidth: "75%", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", lineHeight: 1.45 }}>
-                  What is the status of my shipment?
-                </div>
-              </div>
-
-              <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <div style={{ width: 28, height: 28, borderRadius: "50%", background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: "#fff" }}>🤖</div>
-                <div style={{ background: "#fff", padding: "10px 14px", borderRadius: "0 14px 14px 14px", fontSize: 13.5, color: C.ink, maxWidth: "75%", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", lineHeight: 1.45 }}>
-                  Your shipment is currently <strong>{ordersList.find(o => o.id === supportOrderId)?.status}</strong>. It was registered on {ordersList.find(o => o.id === supportOrderId)?.date}. We expect delivery within 2-3 business days. Is there anything else I can assist with?
-                </div>
-              </div>
-            </div>
-
-            {/* Input Footer */}
-            <div style={{ padding: 16, background: "#fff", borderTop: `1px solid ${C.border}`, display: "flex", gap: 10 }}>
-              <input type="text" placeholder="Type a message..." style={{ ...iS, padding: "8px 12px", flex: 1 }} onKeyDown={e => {
-                if (e.key === 'Enter') {
-                  alert('Thank you for contacting support. A live agent has been notified and will connect shortly.');
-                  setSupportOrderId(null);
-                }
-              }} />
-              <button className="btn btn-sm btn-primary" onClick={() => {
-                alert('Thank you for contacting support. A live agent has been notified and will connect shortly.');
-                setSupportOrderId(null);
-              }}>Send</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Return request form modal ── */}
-      {returnOrderId !== null && (
-        <div style={{
-          position: "fixed", inset: 0, background: "rgba(17,17,17,.65)", zIndex: 1000,
-          display: "flex", alignItems: "center", justifyContent: "center", padding: 24,
-          backdropFilter: "blur(8px)",
-        }} onClick={e => e.target === e.currentTarget && setReturnOrderId(null)}>
-          <div style={{ background: C.white, borderRadius: 28, width: "100%", maxWidth: 440, boxShadow: "0 40px 100px rgba(0,0,0,.25)", animation: "scaleIn .3s cubic-bezier(.22,1,.36,1) both", position: "relative", padding: 32 }}>
-            <h3 className="melody" style={{ fontSize: 26, color: C.ink, marginBottom: 12 }}>Return or Replace Item</h3>
-            <p style={{ fontSize: 14, color: C.inkSft, lineHeight: 1.6, margin: "0 0 20px" }}>Submit a request for order <strong>{returnOrderId}</strong>.</p>
-            
-            <div style={{ marginBottom: 24 }}>
-              <label style={lS}>Reason for Return</label>
-              <select value={returnReason} onChange={e => setReturnReason(e.target.value)} style={{ ...iS, cursor: "pointer" }}>
-                <option>Incorrect Size / Fit</option>
-                <option>Product is Damaged / Defective</option>
-                <option>Item not as pictured</option>
-                <option>No longer needed</option>
-              </select>
-            </div>
-
-            <div style={{ display: "flex", gap: 12 }}>
-              <button className="btn btn-md btn-primary" style={{ flex: 1, justifyContent: "center" }} onClick={() => {
-                alert('Return registered successfully! Our courier partner will pickup the package in 24-48 hours.');
-                setReturnOrderId(null);
-              }}>Submit Request</button>
-              <button className="btn btn-md btn-ghost" onClick={() => setReturnOrderId(null)}>Cancel</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Sliding Cart Drawer for Buy Again ── */}
-      {dashboardCartOpen && (
-        <div style={{
-          position: "fixed", top: 0, right: 0, bottom: 0, width: 380,
-          background: C.white, zIndex: 1002, boxShadow: "-10px 0 30px rgba(0,0,0,.15)",
-          display: "flex", flexDirection: "column",
-          animation: "slideInRight .35s cubic-bezier(.22,1,.36,1) both",
-          borderLeft: `1px solid ${C.border}`
-        }}>
-          <div style={{ padding: "24px 28px", borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div className="melody" style={{ fontWeight: 700, color: C.ink, fontSize: 22 }}>Cart ({dashboardCart.length})</div>
-            <button onClick={() => setDashboardCartOpen(false)} style={{ background: "none", border: "none", color: C.inkSft, fontSize: 20, cursor: "pointer" }}>✕</button>
-          </div>
-          
-          <div style={{ flex: 1, overflowY: "auto", padding: "20px 28px" }}>
-            {dashboardCart.length === 0 ? (
-              <p style={{ color: C.inkSft, textAlign: "center", marginTop: 60, fontSize: 15 }}>Your Cart Is Empty 🛒</p>
-            ) : (
-              dashboardCart.map((item, i) => (
-                <div key={i} style={{ display: "flex", gap: 16, padding: "16px 0", borderBottom: `1px solid ${C.border}`, alignItems: "center" }}>
-                  <div style={{ width: 44, height: 44, borderRadius: 8, background: C.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>📦</div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, fontSize: 14, color: C.ink }}>{item.item || item}</div>
-                    <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2 }}>{item.category || "Shop"}</div>
+                {/* Column 2: Weight Log Bento Card */}
+                <div style={{ background: C.cream, padding: 24, borderRadius: 20, border: `1px solid ${C.border}`, display: "flex", flexDirection: "column" }}>
+                  <h4 className="melody" style={{ fontSize: 18, color: C.ink, marginBottom: 16, fontWeight: 700 }}>📈 Weight History Tracker</h4>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 14, flex: 1, justifyContent: "center" }}>
+                    {(pets[activeHealthPetIndex].name === 'Max' ? [
+                      { date: 'Jan 2026', weight: '32.1 kg', percentage: '91%' },
+                      { date: 'Mar 2026', weight: '33.8 kg', percentage: '96%' },
+                      { date: 'Jun 2026', weight: '35.0 kg', percentage: '100%' }
+                    ] : [
+                      { date: 'Jan 2026', weight: '4.1 kg', percentage: '91%' },
+                      { date: 'Mar 2026', weight: '4.3 kg', percentage: '95%' },
+                      { date: 'Jun 2026', weight: '4.5 kg', percentage: '100%' }
+                    ]).map((w, idx) => (
+                      <div key={idx}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, fontWeight: 600, color: C.ink, marginBottom: 6 }}>
+                          <span>{w.date}</span>
+                          <span style={{ fontWeight: 700 }}>{w.weight}</span>
+                        </div>
+                        <div style={{ background: C.creamDk, borderRadius: 100, height: 8 }}>
+                          <div style={{ background: C.orange, width: w.percentage, height: 8, borderRadius: 100 }} />
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div style={{ fontWeight: 800, fontSize: 14, color: C.ink }}>{item.price || "₹799"}</div>
-                  <button onClick={() => setDashboardCart(prev => prev.filter((_, idx) => idx !== i))} style={{ background: "none", border: "none", color: C.red, fontSize: 14, cursor: "pointer" }}>🗑️</button>
                 </div>
-              ))
-            )}
-          </div>
 
-          {dashboardCart.length > 0 && (
-            <div style={{ padding: "24px 28px", borderTop: `1px solid ${C.border}`, background: C.cream }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16, fontSize: 15 }}>
-                <span style={{ color: C.inkSft }}>Total Subtotal</span>
-                <strong style={{ fontSize: 18, color: C.orange }}>
-                  ₹{dashboardCart.reduce((s, p) => s + parseInt((p.price || "₹799").replace(/[^0-9]/g, ""), 10), 0).toLocaleString()}
-                </strong>
               </div>
-              <button className="btn btn-lg btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={() => {
-                alert("Order placed successfully! Thank you for shopping with Pawprint. 🐾");
-                setDashboardCart([]);
-                setDashboardCartOpen(false);
-              }}>Proceed to Checkout →</button>
+
+              {/* Bento Grid Row 2 */}
+              <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 20, marginTop: 20 }}>
+                
+                {/* Vet Consultations Note */}
+                <div style={{ background: C.cream, padding: 24, borderRadius: 20, border: `1px solid ${C.border}` }}>
+                  <h4 className="melody" style={{ fontSize: 18, color: C.ink, marginBottom: 16, fontWeight: 700 }}>📋 Recent Clinical Logs</h4>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    {(pets[activeHealthPetIndex].name === 'Max' ? [
+                      { date: 'Jun 15, 2026', vet: 'Dr. Kiran Patel', diagnosis: 'Annual wellness checkup. Sound joints, slight dental calculus. Advised dental chews.' },
+                      { date: 'Dec 05, 2025', vet: 'Dr. Kiran Patel', diagnosis: 'Deworming and flea preventative application. Overall good skin health.' }
+                    ] : [
+                      { date: 'May 12, 2026', vet: 'Dr. Kiran Patel', diagnosis: 'Minor ear scratching behavior examined. Cleaned ears, no signs of mites. Advised weekly cleaning.' }
+                    ]).map((n, idx) => (
+                      <div key={idx} style={{ fontSize: 13.5, lineHeight: 1.6 }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                          <strong style={{ color: C.ink }}>{n.vet}</strong>
+                          <span style={{ fontSize: 12, color: C.inkSft, fontWeight: 600 }}>{n.date}</span>
+                        </div>
+                        <div style={{ color: C.inkSft, background: C.creamDk, padding: 12, borderRadius: 10, fontSize: 13 }}>
+                          {n.diagnosis}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Vaccination Log Card */}
+                <div style={{ background: C.cream, padding: 24, borderRadius: 20, border: `1px solid ${C.border}` }}>
+                  <h4 className="melody" style={{ fontSize: 18, color: C.ink, marginBottom: 16, fontWeight: 700 }}>💉 Vaccinations</h4>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                    {(pets[activeHealthPetIndex].name === 'Max' ? [
+                      { name: 'Rabies Vaccine', date: 'May 10, 2025', status: 'Completed', color: '#22C55E' },
+                      { name: 'DHPP Booster', date: 'Jul 20, 2026', status: 'Upcoming', color: C.orange },
+                      { name: 'Leptospirosis Shot', date: 'Dec 05, 2025', status: 'Completed', color: '#22C55E' }
+                    ] : [
+                      { name: 'Feline Distemper (FVRCP)', date: 'Mar 18, 2025', status: 'Completed', color: '#22C55E' },
+                      { name: 'Rabies Vaccine', date: 'Aug 05, 2026', status: 'Upcoming', color: C.orange }
+                    ]).map((v, idx) => (
+                      <div key={idx} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13 }}>
+                        <div>
+                          <div style={{ fontWeight: 700, color: C.ink }}>{v.name}</div>
+                          <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2 }}>{v.date}</div>
+                        </div>
+                        <span style={{ background: v.color === '#22C55E' ? 'rgba(34, 197, 148, 0.1)' : C.orangeLt, color: v.color, fontWeight: 700, fontSize: 11, padding: "4px 10px", borderRadius: 100, textTransform: "uppercase", letterSpacing: "0.02em" }}>
+                          {v.status}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Footer Action CTAs */}
+              <div style={{ display: "flex", gap: 14, marginTop: 28, borderTop: `1px solid ${C.border}`, paddingTop: 24 }}>
+                <button className="btn btn-lg btn-outline" style={{ flex: 1, borderColor: C.border, background: C.cream }} onClick={() => alert('Downloading full PDF health docket...')}>📥 Download PDF Report</button>
+                <button className="btn btn-lg btn-primary" style={{ flex: 1 }} onClick={() => { setActiveHealthPetIndex(-1); alert('Ask our Vet AI anything about your pet\'s symptoms!'); }}>💬 Ask AI Vet Advisor</button>
+              </div>
+
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>
   );
-function AuthPage({ type, nav, pets, setPets, currentUser, setCurrentUser }) {
+}
   const [step, setStep] = useState(1);
   const [signupGender, setSignupGender] = useState("Male");
   const [form, setForm] = useState({
@@ -6264,14 +5917,6 @@ function PetVideosPage({ nav }) {
           <p style={{ fontSize: 18, color: "rgba(255,255,255,.6)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
             Free Training Videos, Health Guides, Grooming Tutorials, And Behavior Tips — Taught By Pawprint's Certified Vets And Trainers.
           </p>
-          <div style={{ display: "flex", gap: 36 }}>
-            {[["12+", "Free Videos"], ["6", "Expert Instructors"], ["8", "Topic Categories"], ["4.9★", "Avg. Rating"]].map(([v, l]) => (
-              <div key={l}>
-                <div className="melody" style={{ fontSize: 32, color: C.orange, lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,.5)", marginTop: 4 }}>{l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -6283,59 +5928,31 @@ function PetVideosPage({ nav }) {
               <div style={{ width: 20, height: 2, background: C.orange }} />
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Most Watched This Week</span>
             </div>
-            <div className="featured-bento">
-              {/* Tile 1: Main details card */}
-              <div className="bento-card-main" onClick={() => setPlaying(featured.id)}>
-                <div style={{ display: "flex", gap: 10, marginBottom: 20, flexWrap: "wrap" }}>
-                  <span className="pill" style={{ background: "rgba(29, 95, 196, 0.15)", color: "#3b82f6" }}>All Levels</span>
+            <div className="card card-lift" style={{ display: "grid", gridTemplateColumns: "1fr 420px", gap: 32, padding: 32, borderRadius: 32, background: C.ink, color: "#fff", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 48px rgba(0,0,0,0.16)", cursor: "pointer" }} onClick={() => setPlaying(featured.id)}>
+              <div style={{ padding: "12px 16px", display: "flex", flexDirection: "column", justifyContext: "center" }}>
+                <div style={{ display: "flex", gap: 10, marginBottom: 18, flexWrap: "wrap" }}>
+                  <span className="pill" style={{ background: `${levelColor[featured.level]}15`, color: levelColor[featured.level] }}>{featured.level}</span>
                   <span className="pill" style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.12)" }}>{featured.cat}</span>
-                  <span className="pill" style={{ background: "rgba(229, 93, 26, 0.15)", color: C.orange }}>👁 {featured.views} Views</span>
+                  <span className="pill" style={{ background: `${C.orange}15`, color: C.orange }}>👁 {featured.views} views</span>
                 </div>
-                <h2 className="melody" style={{ fontSize: "clamp(28px,3vw,44px)", color: "#fff", lineHeight: 1.1, marginBottom: 16, fontWeight: 800 }}>
-                  {featured.title}
-                </h2>
-                <p style={{ fontSize: "15.5px", color: "rgba(255,255,255,0.7)", lineHeight: 1.75, marginBottom: 28 }}>
-                  {featured.desc}
-                </p>
+                <h2 className="melody" style={{ fontSize: "clamp(28px,3vw,42px)", color: "#fff", lineHeight: 1.1, marginBottom: 16, fontWeight: 800 }}>{featured.title}</h2>
+                <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.75, marginBottom: 24 }}>{featured.desc}</p>
+                <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 28, borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 20 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, border: "1px solid rgba(255,255,255,0.12)" }}>👤</div>
+                  <div>
+                    <div style={{ fontWeight: 700, color: "#fff", fontSize: 15 }}>{featured.instructor}</div>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{featured.role}</div>
+                  </div>
+                  <span style={{ marginLeft: "auto", fontSize: 14, color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>⏱ {featured.duration}</span>
+                </div>
                 <button className="btn btn-lg btn-primary" style={{ width: "fit-content" }}>▶ Watch Now</button>
               </div>
-
-              {/* Tile 2: Large Media Preview */}
-              <div className="bento-card-media" onClick={() => setPlaying(featured.id)}>
-                <Img src={featured.thumb} alt="Thumbnail" />
-                <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div className="pulsing-play">▶</div>
+              <div style={{ position: "relative", overflow: "hidden", borderRadius: 20, boxShadow: "0 8px 24px rgba(0,0,0,0.2)" }}>
+                <img src={featured.thumb} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }} alt="Thumbnail" />
+                <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, color: "#fff", boxShadow: "0 8px 24px rgba(229,93,26,0.4)" }}>▶</div>
                 </div>
-                <div style={{ position: "absolute", bottom: 20, right: 20, background: "rgba(0,0,0,.75)", borderRadius: 8, padding: "6px 12px", color: "#fff", fontSize: 13, fontWeight: 600, border: "1px solid rgba(255,255,255,0.12)" }}>
-                  {featured.duration}
-                </div>
-              </div>
-
-              {/* Tile 3: Glassmorphic Instructor profile */}
-              <div className="bento-card-author" onClick={() => setPlaying(featured.id)}>
-                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, border: "1px solid rgba(255,255,255,0.15)", flexShrink: 0 }}>
-                  👤
-                </div>
-                <div>
-                  <div style={{ fontWeight: 700, color: "#fff", fontSize: 16 }}>{featured.instructor}</div>
-                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 2 }}>{featured.role}</div>
-                </div>
-                <div style={{ marginLeft: "auto", background: "rgba(229, 93, 26, 0.15)", color: C.orange, fontSize: 10, fontWeight: 700, padding: "4px 8px", borderRadius: 100, textTransform: "uppercase", letterSpacing: "0.05em", border: `1px solid rgba(229, 93, 26, 0.2)` }}>
-                  Verified
-                </div>
-              </div>
-
-              {/* Tile 4: Chapters timeline / quick checklist */}
-              <div className="bento-card-chapters" onClick={() => setPlaying(featured.id)}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, margin: "0 0 12px" }}>
-                  <span style={{ fontSize: 14 }}>⏱</span>
-                  <span style={{ fontWeight: 700, fontSize: 12, textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)" }}>Video Chapters</span>
-                </div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", display: "flex", flexDirection: "column", gap: 6 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>0:00 Intro & Lethargy</span> <strong style={{ color: C.orange }}>0:00</strong></div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>2:30 Appetite & Energy</span> <strong style={{ color: C.orange }}>2:30</strong></div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}><span>6:00 Behavior Red Flags</span> <strong style={{ color: C.orange }}>6:00</strong></div>
-                </div>
+                <div style={{ position: "absolute", bottom: 16, right: 16, background: "rgba(0,0,0,.75)", borderRadius: 8, padding: "4px 10px", color: "#fff", fontSize: 13, fontWeight: 600 }}>{featured.duration}</div>
               </div>
             </div>
           </div>
@@ -6362,9 +5979,9 @@ function PetVideosPage({ nav }) {
           {/* Video grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 24 }}>
             {filtered.map(v => (
-              <div key={v.id} className="card card-lift" style={{ cursor: "pointer", display: "flex", flexDirection: "column", height: "100%" }} onClick={() => setPlaying(v.id)}>
+              <div key={v.id} className="card card-lift" style={{ cursor: "pointer" }} onClick={() => setPlaying(v.id)}>
                 {/* Thumbnail */}
-                <div style={{ position: "relative", height: 190, overflow: "hidden", flexShrink: 0 }}>
+                <div style={{ position: "relative", height: 190, overflow: "hidden" }}>
                   <Img src={v.thumb} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .5s cubic-bezier(.22,1,.36,1)" }}
                     onMouseEnter={e => e.target.style.transform = "scale(1.07)"}
                     onMouseLeave={e => e.target.style.transform = "scale(1)"} />
@@ -6380,14 +5997,14 @@ function PetVideosPage({ nav }) {
                 </div>
 
                 {/* Info */}
-                <div style={{ padding: "18px 20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                <div style={{ padding: "18px 20px" }}>
                   <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
                     <span style={{ fontSize: 11, fontWeight: 600, color: C.orange }}>{v.cat}</span>
                     <span style={{ fontSize: 11, color: C.sand }}>·</span>
                     <span style={{ fontSize: 11, color: C.inkSft }}>👁 {v.views}</span>
                   </div>
                   <h3 style={{ fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.35, marginBottom: 10 }}>{v.title}</h3>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center", paddingTop: 10, borderTop: `1px solid ${C.border}`, marginTop: "auto" }}>
+                  <div style={{ display: "flex", gap: 8, alignItems: "center", paddingTop: 10, borderTop: `1px solid ${C.border}` }}>
                     <div style={{ width: 28, height: 28, borderRadius: "50%", background: C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>👤</div>
                     <div>
                       <div style={{ fontSize: 12, fontWeight: 600, color: C.ink }}>{v.instructor}</div>
@@ -6614,9 +6231,6 @@ function DogBreedsPage({ nav }) {
               </div>
             </div>
 
-            <div style={{ display: "flex", gap: 12 }}>
-              <button className="btn btn-lg btn-outline" style={{ flex: 1, borderRadius: 14, fontWeight: 700 }} onClick={() => setSelectedBreed(null)}>Close</button>
-            </div>
           </div>
         </div>
       </div>
