@@ -141,52 +141,157 @@
       <!-- Featured Video -->
       <section style="padding: 60px 0 40px; background: var(--color-cream);">
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+          <!-- Category scroll tabs -->
+          <div id="video-categories-tabs" style="display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;">
+            <!-- Loaded dynamically in app.js -->
+          </div>
+
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
             <div style="width: 20px; height: 2px; background: var(--color-orange);"></div>
             <span
               style="font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-orange);">Most
               Watched This Week</span>
           </div>
-          <div class="card card-lift" style="display: grid; grid-template-columns: 1fr 420px; gap: 32px; padding: 32px; border-radius: 32px; background: var(--color-ink); color: #fff; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 24px 48px rgba(0,0,0,0.16); cursor: pointer;"
-            onclick="openVideoPlayer(6)">
-            <div style="padding: 12px 16px; display: flex; flex-direction: column; justify-content: center;">
-              <div style="display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap;">
-                <span class="pill" style="background: rgba(29, 95, 196, 0.15); color: #3b82f6;">All Levels</span>
-                <span class="pill" style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.12);">Health & Care</span>
-                <span class="pill" style="background: rgba(229, 93, 26, 0.15); color: var(--color-orange);">👁 201K Views</span>
-              </div>
-              <h2 class="melody"
-                style="font-size: clamp(28px,3vw,42px); color: #fff; line-height: 1.1; margin-bottom: 16px; font-weight: 800;">
-                10 Early Warning Signs Your Dog Needs A Vet</h2>
-              <p style="font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 24px;">Changes
-                In Appetite, Energy, Breathing, And Behaviour That Every Pet Parent Must Recognise Immediately. Could
-                Save Your Dog's Life.</p>
-              <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 28px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-                <div
-                  style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1px solid rgba(255,255,255,0.12);">
-                  👤</div>
-                <div>
-                  <div style="font-weight: 700; color: #fff; font-size: 15px;">Dr. Kiran Patel</div>
-                  <div style="font-size: 13px; color: rgba(255,255,255,0.5);">CEO & Head Vet</div>
+          <div class="bento-grid-3">
+            <!-- Video Card 1 (Health & Care) -->
+            <div class="bento-equal-card" onclick="openVideoPlayer(6)">
+              <div class="bento-equal-media">
+                <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=700&q=80&fit=crop" alt="Thumbnail">
+                <div class="bento-equal-overlay">
+                  <div class="bento-equal-play-btn">
+                    <svg class="bento-equal-play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
                 </div>
-                <span style="margin-left: auto; font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 500;">⏱ 11:00</span>
+                <div class="bento-equal-badge">11:00</div>
               </div>
-              <button class="btn btn-lg btn-primary" style="width: fit-content;">▶ Watch Now</button>
+              
+              <div class="bento-equal-content">
+                <div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <span class="bento-pill-level">All Levels</span>
+                    <span class="bento-pill-category">Health & Care</span>
+                    <span class="bento-pill-views">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      201K Views
+                    </span>
+                  </div>
+                  <h3 class="bento-equal-title">10 Early Warning Signs Your Dog Needs A Vet</h3>
+                </div>
+                
+                <div>
+                  <div class="bento-equal-author">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=96&h=96&q=80" alt="Dr. Kiran Patel" class="bento-equal-avatar">
+                    <div>
+                      <div class="bento-equal-author-name">Dr. Kiran Patel</div>
+                      <div class="bento-equal-author-role">CEO & Head Vet</div>
+                    </div>
+                    <span class="bento-equal-duration">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      11:00
+                    </span>
+                  </div>
+                  <button class="bento-equal-cta">
+                    <span>Watch Now</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div style="position: relative; overflow: hidden; border-radius: 20px; min-height: 280px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
-              <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=700&q=80&fit=crop"
-                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Thumbnail"
-                onmouseenter="this.style.transform='scale(1.05)'"
-                onmouseleave="this.style.transform='scale(1)'">
-              <div
-                style="position: absolute; inset: 0; background: rgba(17,17,17,.25); display: flex; align-items: center; justify-content: center;">
-                <div
-                  style="width: 72px; height: 72px; border-radius: 50%; background: var(--color-orange); display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; box-shadow: 0 8px 24px rgba(229,93,26,0.4);">
-                  ▶</div>
+
+            <!-- Video Card 2 (Fun & Tricks) -->
+            <div class="bento-equal-card" onclick="openVideoPlayer(12)">
+              <div class="bento-equal-media">
+                <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600&q=80&fit=crop" alt="Thumbnail">
+                <div class="bento-equal-overlay">
+                  <div class="bento-equal-play-btn">
+                    <svg class="bento-equal-play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="bento-equal-badge">9:00</div>
               </div>
-              <div
-                style="position: absolute; bottom: 16px; right: 16px; background: rgba(0,0,0,.75); border-radius: 8px; padding: 4px 10px; color: #fff; font-size: 13px; font-weight: 600;">
-                11:00</div>
+              
+              <div class="bento-equal-content">
+                <div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <span class="bento-pill-level" style="color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.05);">All Levels</span>
+                    <span class="bento-pill-category">Fun & Tricks</span>
+                    <span class="bento-pill-views">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      185K Views
+                    </span>
+                  </div>
+                  <h3 class="bento-equal-title">Teach Your Dog 5 Impressive Tricks In One Weekend</h3>
+                </div>
+                
+                <div>
+                  <div class="bento-equal-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&q=80" alt="Rahul Sharma" class="bento-equal-avatar">
+                    <div>
+                      <div class="bento-equal-author-name">Rahul Sharma</div>
+                      <div class="bento-equal-author-role">CPDT-Certified Trainer</div>
+                    </div>
+                    <span class="bento-equal-duration">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      9:00
+                    </span>
+                  </div>
+                  <button class="bento-equal-cta">
+                    <span>Watch Now</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Card 3 (Grooming Tips) -->
+            <div class="bento-equal-card" onclick="openVideoPlayer(4)">
+              <div class="bento-equal-media">
+                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700&q=80&fit=crop" alt="Thumbnail">
+                <div class="bento-equal-overlay">
+                  <div class="bento-equal-play-btn">
+                    <svg class="bento-equal-play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="bento-equal-badge">14:30</div>
+              </div>
+              
+              <div class="bento-equal-content">
+                <div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <span class="bento-pill-level" style="color: var(--color-green); background: rgba(30, 107, 69, 0.1); border: 1px solid rgba(30, 107, 69, 0.2);">Beginner</span>
+                    <span class="bento-pill-category">Grooming Tips</span>
+                    <span class="bento-pill-views">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      156K Views
+                    </span>
+                  </div>
+                  <h3 class="bento-equal-title">At-Home Grooming For Beginners — Full Walkthrough</h3>
+                </div>
+                
+                <div>
+                  <div class="bento-equal-author">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=96&h=96&q=80" alt="Meenakshi Iyer" class="bento-equal-avatar">
+                    <div>
+                      <div class="bento-equal-author-name">Meenakshi Iyer</div>
+                      <div class="bento-equal-author-role">Master Groomer</div>
+                    </div>
+                    <span class="bento-equal-duration">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      14:30
+                    </span>
+                  </div>
+                  <button class="bento-equal-cta">
+                    <span>Watch Now</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -195,9 +300,11 @@
       <!-- Video Feed Grid -->
       <section style="padding: 20px 0 100px; background: var(--color-cream);">
         <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
-          <!-- Category scroll tabs -->
-          <div id="video-categories-tabs" style="display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;">
-            <!-- Loaded dynamically in app.js -->
+          <!-- Explore More Videos Heading -->
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px;">
+            <div style="width: 20px; height: 2px; background: var(--color-orange);"></div>
+            <span
+              style="font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-orange);">Explore More Videos</span>
           </div>
           <!-- Grid list -->
           <div id="videos-grid" class="app-grid">

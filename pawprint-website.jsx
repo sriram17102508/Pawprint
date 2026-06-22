@@ -5837,6 +5837,21 @@ function PetVideosPage({ nav }) {
   const filtered = activeCategory === "All" ? videos : videos.filter(v => v.cat === activeCategory);
   const featured = videos.find(v => v.id === 6); // Most viewed
 
+  const instructorAvatars = {
+    "Dr. Kiran Patel": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=96&h=96&q=80",
+    "Dr. Sriram": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=96&h=96&q=80",
+    "Rahul Sharma": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&q=80",
+    "Meenakshi Iyer": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=96&h=96&q=80",
+    "Priya Venkatesh": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=96&h=96&q=80",
+    "Dr. Abimanyu": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=96&h=96&q=80",
+  };
+
+  const featuredThree = [
+    videos.find(v => v.id === 6),
+    videos.find(v => v.id === 12),
+    videos.find(v => v.id === 4)
+  ];
+
   const levelColor = { Beginner: C.green, Intermediate: C.orange, "All Levels": C.blue };
 
   const VideoModal = ({ v }) => (
@@ -5868,10 +5883,15 @@ function PetVideosPage({ nav }) {
           </div>
           <h2 className="melody" style={{ fontSize: 28, color: C.ink, lineHeight: 1.05, marginBottom: 10 }}>{v.title}</h2>
           <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 16 }}>
-            <div style={{ width: 36, height: 36, borderRadius: "50%", background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>👤</div>
+            <div style={{ width: 36, height: 36, borderRadius: "50%", background: C.orangeLt, display: "flex", alignItems: "center", justifyContent: "center", color: C.orange, flexShrink: 0 }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
             <div>
-              <div style={{ fontWeight: 700, fontSize: 14, color: C.ink }}>{v.instructor}</div>
-              <div style={{ fontSize: 12, color: C.inkSft }}>{v.role}</div>
+              <div style={{ fontWeight: 700, fontSize: 14, color: C.ink, lineHeight: 1.25 }}>{v.instructor}</div>
+              <div style={{ fontSize: 12, color: C.inkSft, marginTop: 2, lineHeight: 1.25 }}>{v.role}</div>
             </div>
           </div>
           <p style={{ fontSize: 15, color: C.inkSft, lineHeight: 1.75, marginBottom: 24 }}>{v.desc}</p>
@@ -5901,6 +5921,12 @@ function PetVideosPage({ nav }) {
     </div>
   );
 
+  const levelStyles = {
+    Beginner: { color: C.green, background: `${C.green}1a`, border: `1px solid ${C.green}33` },
+    Intermediate: { color: C.orange, background: `${C.orange}1a`, border: `1px solid ${C.orange}33` },
+    "All Levels": { color: "#60a5fa", background: "rgba(59, 130, 246, 0.05)", border: "1px solid rgba(59, 130, 246, 0.2)" }
+  };
+
   Return (
     <div style={{ paddingTop: 96 }}>
       {playing && <VideoModal v={videos.find(v => v.id === playing)} />}
@@ -5920,49 +5946,10 @@ function PetVideosPage({ nav }) {
         </div>
       </section>
 
-      {/* Featured video */}
-      {featured && (
-        <section style={{ padding: "60px 0 40px", background: C.cream }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-              <div style={{ width: 20, height: 2, background: C.orange }} />
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Most Watched This Week</span>
-            </div>
-            <div className="card card-lift" style={{ display: "grid", gridTemplateColumns: "1fr 420px", gap: 32, padding: 32, borderRadius: 32, background: C.ink, color: "#fff", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 48px rgba(0,0,0,0.16)", cursor: "pointer" }} onClick={() => setPlaying(featured.id)}>
-              <div style={{ padding: "12px 16px", display: "flex", flexDirection: "column", justifyContext: "center" }}>
-                <div style={{ display: "flex", gap: 10, marginBottom: 18, flexWrap: "wrap" }}>
-                  <span className="pill" style={{ background: `${levelColor[featured.level]}15`, color: levelColor[featured.level] }}>{featured.level}</span>
-                  <span className="pill" style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.12)" }}>{featured.cat}</span>
-                  <span className="pill" style={{ background: `${C.orange}15`, color: C.orange }}>👁 {featured.views} views</span>
-                </div>
-                <h2 className="melody" style={{ fontSize: "clamp(28px,3vw,42px)", color: "#fff", lineHeight: 1.1, marginBottom: 16, fontWeight: 800 }}>{featured.title}</h2>
-                <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.75, marginBottom: 24 }}>{featured.desc}</p>
-                <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 28, borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 20 }}>
-                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, border: "1px solid rgba(255,255,255,0.12)" }}>👤</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: "#fff", fontSize: 15 }}>{featured.instructor}</div>
-                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{featured.role}</div>
-                  </div>
-                  <span style={{ marginLeft: "auto", fontSize: 14, color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>⏱ {featured.duration}</span>
-                </div>
-                <button className="btn btn-lg btn-primary" style={{ width: "fit-content" }}>▶ Watch Now</button>
-              </div>
-              <div style={{ position: "relative", overflow: "hidden", borderRadius: 20, boxShadow: "0 8px 24px rgba(0,0,0,0.2)" }}>
-                <img src={featured.thumb} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }} alt="Thumbnail" />
-                <div style={{ position: "absolute", inset: 0, background: "rgba(17,17,17,.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: C.orange, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, color: "#fff", boxShadow: "0 8px 24px rgba(229,93,26,0.4)" }}>▶</div>
-                </div>
-                <div style={{ position: "absolute", bottom: 16, right: 16, background: "rgba(0,0,0,.75)", borderRadius: 8, padding: "4px 10px", color: "#fff", fontSize: 13, fontWeight: 600 }}>{featured.duration}</div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Category filter + Grid */}
-      <section style={{ padding: "20px 0 100px", background: C.cream }}>
+      {/* Featured Video Section */}
+      <section style={{ padding: "60px 0 40px", background: C.cream }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
-          {/* Filter tabs */}
+          {/* Category filter tabs relocated here */}
           <div style={{ display: "flex", gap: 8, marginBottom: 40, flexWrap: "wrap" }}>
             {categories.map(c => (
               <button key={c} onClick={() => setActiveCategory(c)} style={{
@@ -5976,12 +5963,103 @@ function PetVideosPage({ nav }) {
             <span style={{ marginLeft: "auto", fontSize: 13, color: C.inkSft, alignSelf: "center" }}>{filtered.length} videos</span>
           </div>
 
+          {/* Section Header */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+            <div style={{ width: 20, height: 2, background: C.orange }} />
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Most Watched This Week</span>
+          </div>
+
+          {/* Bento Grid */}
+          <div className="bento-grid-3">
+            {featuredThree.map(v => {
+              if (!v) return null;
+              const avatarUrl = instructorAvatars[v.instructor];
+              const levelStyle = levelStyles[v.level] || {};
+              return (
+                <div key={v.id} className="bento-equal-card" onClick={() => setPlaying(v.id)}>
+                  <div className="bento-equal-media">
+                    <Img src={v.thumb} alt="Thumbnail" />
+                    <div className="bento-equal-overlay">
+                      <div className="bento-equal-play-btn">
+                        <svg className="bento-equal-play-icon" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="bento-equal-badge">{v.duration}</div>
+                  </div>
+
+                  <div className="bento-equal-content">
+                    <div>
+                      <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
+                        <span className="bento-pill-level" style={levelStyle}>{v.level}</span>
+                        <span className="bento-pill-category">{v.cat}</span>
+                        <span className="bento-pill-views">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                          </svg>
+                          {v.views} Views
+                        </span>
+                      </div>
+                      <h3 className="bento-equal-title">{v.title}</h3>
+                    </div>
+
+                    <div>
+                      <div className="bento-equal-author">
+                        {avatarUrl ? (
+                          <Img src={avatarUrl} alt={v.instructor} className="bento-equal-avatar" />
+                        ) : (
+                          <div className="bento-equal-avatar" style={{ background: C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", color: C.inkSft }}>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                              <circle cx="12" cy="7" r="4" />
+                            </svg>
+                          </div>
+                        )}
+                        <div>
+                          <div className="bento-equal-author-name">{v.instructor}</div>
+                          <div className="bento-equal-author-role">{v.role}</div>
+                        </div>
+                        <span className="bento-equal-duration">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          {v.duration}
+                        </span>
+                      </div>
+                      <button className="bento-equal-cta">
+                        <span>Watch Now</span>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Feed Grid Section */}
+      <section style={{ padding: "20px 0 100px", background: C.cream }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+          {/* Explore More Videos Header */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
+            <div style={{ width: 20, height: 2, background: C.orange }} />
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: C.orange }}>Explore More Videos</span>
+          </div>
+
           {/* Video grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 24 }}>
             {filtered.map(v => (
-              <div key={v.id} className="card card-lift" style={{ cursor: "pointer" }} onClick={() => setPlaying(v.id)}>
+              <div key={v.id} className="card card-lift" style={{ cursor: "pointer", display: "flex", flexDirection: "column", height: "100%" }} onClick={() => setPlaying(v.id)}>
                 {/* Thumbnail */}
-                <div style={{ position: "relative", height: 190, overflow: "hidden" }}>
+                <div style={{ position: "relative", height: 190, overflow: "hidden", flexShrink: 0 }}>
                   <Img src={v.thumb} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .5s cubic-bezier(.22,1,.36,1)" }}
                     onMouseEnter={e => e.target.style.transform = "scale(1.07)"}
                     onMouseLeave={e => e.target.style.transform = "scale(1)"} />
@@ -5997,18 +6075,23 @@ function PetVideosPage({ nav }) {
                 </div>
 
                 {/* Info */}
-                <div style={{ padding: "18px 20px" }}>
+                <div style={{ padding: "18px 20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
                   <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
                     <span style={{ fontSize: 11, fontWeight: 600, color: C.orange }}>{v.cat}</span>
                     <span style={{ fontSize: 11, color: C.sand }}>·</span>
                     <span style={{ fontSize: 11, color: C.inkSft }}>👁 {v.views}</span>
                   </div>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.35, marginBottom: 10 }}>{v.title}</h3>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center", paddingTop: 10, borderTop: `1px solid ${C.border}` }}>
-                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>👤</div>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.35, marginBottom: 14 }}>{v.title}</h3>
+                  <div style={{ display: "flex", gap: 8, alignItems: "center", paddingTop: 10, borderTop: `1px solid ${C.border}`, marginTop: "auto" }}>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: C.creamDk, display: "flex", alignItems: "center", justifyContent: "center", color: C.inkSft, flexShrink: 0 }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
                     <div>
-                      <div style={{ fontSize: 12, fontWeight: 600, color: C.ink }}>{v.instructor}</div>
-                      <div style={{ fontSize: 11, color: C.inkSft }}>{v.role}</div>
+                      <div style={{ fontSize: 12, fontWeight: 600, color: C.ink, lineHeight: 1.2 }}>{v.instructor}</div>
+                      <div style={{ fontSize: 11, color: C.inkSft, marginTop: 2, lineHeight: 1.2 }}>{v.role}</div>
                     </div>
                   </div>
                 </div>
@@ -6017,8 +6100,6 @@ function PetVideosPage({ nav }) {
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }

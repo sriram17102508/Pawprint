@@ -2101,16 +2101,18 @@ function renderShopProducts(category) {
           ${isWished ? '❤️' : '🤍'}
         </button>
       </div>
-      <div style="padding: 20px 22px;">
-        <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin: 0 0 8px; line-height: 1.3;">${p.name}</h3>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-          <div style="display: flex; gap: 8px; align-items: baseline;">
-            <span class="melody" style="font-size: 20px; font-weight: 500; color: var(--color-ink);">₹${p.price.toLocaleString()}</span>
-            <span style="font-size: 13px; color: var(--color-sand); text-decoration: line-through;">₹${p.old.toLocaleString()}</span>
+      <div style="padding: 20px 22px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--color-ink); margin: 0 0 8px; line-height: 1.3; min-height: 42px;">${p.name}</h3>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <div style="display: flex; gap: 8px; align-items: baseline;">
+              <span class="melody" style="font-size: 20px; font-weight: 500; color: var(--color-ink);">₹${p.price.toLocaleString()}</span>
+              <span style="font-size: 13px; color: var(--color-sand); text-decoration: line-through;">₹${p.old.toLocaleString()}</span>
+            </div>
+            <span style="font-size: 12px; color: var(--color-orange); font-weight: 600;">⭐ ${p.rating}</span>
           </div>
-          <span style="font-size: 12px; color: var(--color-orange); font-weight: 600;">⭐ ${p.rating}</span>
         </div>
-        <button class="btn btn-md btn-primary" style="width: 100%;" onclick="addToCart(${p.id})">Add to Cart →</button>
+        <button class="btn btn-md btn-primary" style="width: 100%; margin-top: auto;" onclick="addToCart(${p.id})">Add to Cart →</button>
       </div>
     </div>
   `;
@@ -3759,8 +3761,8 @@ function renderVideos() {
   const levelColor = { Beginner: 'var(--color-green)', Intermediate: 'var(--color-orange)', "All Levels": 'var(--color-blue)' };
 
   grid.innerHTML = filtered.map(v => `
-    <div class="card card-lift" style="cursor: pointer;" onclick="openVideoPlayer(${v.id})">
-      <div style="position: relative; height: 190px; overflow: hidden;">
+    <div class="card card-lift" style="cursor: pointer; display: flex; flex-direction: column; height: 100%;" onclick="openVideoPlayer(${v.id})">
+      <div style="position: relative; height: 190px; overflow: hidden; flex-shrink: 0;">
         <img src="${v.thumb}" style="width: 100%; height: 100%; object-fit: cover;" alt="${v.title}">
         <div style="position: absolute; inset: 0; background: rgba(17,17,17,.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .25s;"
           onmouseenter="this.style.opacity='1'"
@@ -3772,18 +3774,23 @@ function renderVideos() {
         </div>
         <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,.7); border-radius: 6px; padding: 3px 8px; color: #fff; font-size: 12px; font-weight: 600;">${v.duration}</div>
       </div>
-      <div style="padding: 18px 20px;">
+      <div style="padding: 18px 20px; display: flex; flex-direction: column; flex-grow: 1;">
         <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
           <span style="font-size: 11px; font-weight: 600; color: var(--color-orange);">${v.cat}</span>
           <span style="font-size: 11px; color: var(--color-sand);">·</span>
           <span style="font-size: 11px; color: var(--color-ink-sft);">👁 ${v.views}</span>
         </div>
-        <h3 style="font-size: 15px; font-weight: 700; color: var(--color-ink); line-height: 1.35; margin-bottom: 10px;">${v.title}</h3>
-        <div style="display: flex; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px solid var(--color-border);">
-          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-cream-dk); display: flex; align-items: center; justify-content: center; font-size: 12px;">👤</div>
+        <h3 style="font-size: 15px; font-weight: 700; color: var(--color-ink); line-height: 1.35; margin-bottom: 14px;">${v.title}</h3>
+        <div style="display: flex; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px solid var(--color-border); margin-top: auto;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-cream-dk); display: flex; align-items: center; justify-content: center; color: var(--color-ink-sft); flex-shrink: 0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
           <div>
-            <div style="font-size: 12px; font-weight: 600; color: var(--color-ink);">${v.instructor}</div>
-            <div style="font-size: 11px; color: var(--color-ink-sft);">${v.role}</div>
+            <div style="font-size: 12px; font-weight: 600; color: var(--color-ink); line-height: 1.2;">${v.instructor}</div>
+            <div style="font-size: 11px; color: var(--color-ink-sft); margin-top: 2px; line-height: 1.2;">${v.role}</div>
           </div>
         </div>
       </div>
@@ -3823,10 +3830,15 @@ function openVideoPlayer(id) {
       </div>
       <h2 class="melody" style="font-size: 28px; color: var(--color-ink); line-height: 1.05; margin-bottom: 10px;">${v.title}</h2>
       <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 16px;">
-        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; font-size: 16px;">👤</div>
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-orange-lt); display: flex; align-items: center; justify-content: center; color: var(--color-orange); flex-shrink: 0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
         <div>
-          <div style="font-weight: 700; font-size: 14px; color: var(--color-ink);">${v.instructor}</div>
-          <div style="font-size: 12px; color: var(--color-ink-sft);">${v.role}</div>
+          <div style="font-weight: 700; font-size: 14px; color: var(--color-ink); line-height: 1.25;">${v.instructor}</div>
+          <div style="font-size: 12px; color: var(--color-ink-sft); margin-top: 2px; line-height: 1.25;">${v.role}</div>
         </div>
       </div>
       <p style="font-size: 15px; color: var(--color-ink-sft); line-height: 1.75; margin-bottom: 24px;">${v.desc}</p>
