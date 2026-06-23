@@ -2255,6 +2255,10 @@ function AdoptPage({ nav }) {
   const [detail, setDetail] = useState(null);
   const [step, setStep] = useState("list"); // list | detail | form | success
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step, detail]);
+
   const ALL_PETS = [
     { id: 1, name: "Bruno", breed: "Labrador Retriever", species: "Dog", size: "Large", gender: "Male", age: "2 yrs", img: P.dog1, loc: "Coimbatore", vacc: true, neut: false, tags: ["Friendly", "Energetic", "Loves kids"], story: "Bruno was rescued from a flood shelter. Fully trained, loves fetch, and is wonderful with children." },
     { id: 2, name: "Luna", breed: "Persian Cat", species: "Cat", size: "Small", gender: "Female", age: "1 yr", img: P.cat1, loc: "Chennai", vacc: true, neut: true, tags: ["Calm", "Indoor", "Affectionate"], story: "Luna was found as a stray kitten. She's grown into a gentle, affectionate soul who loves warm laps." },

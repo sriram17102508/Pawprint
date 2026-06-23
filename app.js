@@ -1767,6 +1767,7 @@ function showAdoptList() {
   document.getElementById('adopt-view-form').style.display = 'none';
   document.getElementById('adopt-view-success').style.display = 'none';
   filterPets();
+  window.scrollTo(0, 0);
 }
 
 function filterPets() {
@@ -1839,6 +1840,7 @@ function viewAdoptDetail(id) {
 
   const tags = document.getElementById('adopt-detail-tags');
   tags.innerHTML = p.tags.map(t => `<span style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: 100px; padding: 6px 16px; font-size: 13px; font-weight: 500; color: var(--color-ink-md);">${t}</span>`).join('');
+  window.scrollTo(0, 0);
 }
 
 function toggleAdoptFavorite() {
@@ -1854,6 +1856,7 @@ function toggleAdoptFavorite() {
 function showAdoptDetail() {
   document.getElementById('adopt-view-detail').style.display = 'block';
   document.getElementById('adopt-view-form').style.display = 'none';
+  window.scrollTo(0, 0);
 }
 
 function showAdoptForm() {
@@ -1868,6 +1871,7 @@ function showAdoptForm() {
     document.getElementById('adopt-form-reason-label').textContent = `Why do you want to adopt ${p.name}? *`;
     document.getElementById('adopt-form-reason').placeholder = `Tell us what made you fall in love with ${p.name} and how you plan to care for them...`;
   }
+  window.scrollTo(0, 0);
 }
 
 function toggleRentFields() {
@@ -1893,6 +1897,7 @@ function submitAdoptionForm() {
 
   document.getElementById('adopt-view-form').style.display = 'none';
   document.getElementById('adopt-view-success').style.display = 'block';
+  window.scrollTo(0, 0);
 }
 
 /* ================================================================
